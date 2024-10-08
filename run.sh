@@ -1,1 +1,0 @@
-srun -p INTERN2 --nodes 1 --ntasks 1 --ntasks-per-node=1 --gres gpu:1 python sample_pq.py --image-size 512

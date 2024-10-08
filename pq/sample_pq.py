@@ -91,7 +91,7 @@ class dit_generator:
         alphas = 1.0 - betas
         self.alphas_cumprod = np.cumprod(alphas, axis=0)
 
-    def forward_val(self, vae, model, model_pq, cfg=False, name="sample_pq", save=False):
+    def forward_val(self, vae, model, model_pq, cfg=False, name="sample_pq", save=True):
         # sample
         class_labels = [207, 360, 387, 974, 88, 979, 417, 279]
         z, model_kwargs = self.pre_process(class_labels, cfg=cfg)
@@ -111,11 +111,11 @@ class dit_generator:
                 map_tensor = torch.tensor(self.timestep_map, device=t.device, dtype=t.dtype)
                 new_ts = map_tensor[t]
                 # p_mean_variance
-                # model_output = model(img, new_ts, **model_kwargs)
-                # model_output_pq = model_pq(img_pq, new_ts, **model_kwargs)
+                model_output = model(img, new_ts, **model_kwargs)
+                model_output_pq = model_pq(img_pq, new_ts, **model_kwargs)
 
-                model_output, feat = model(img, new_ts, **model_kwargs, distill=True)
-                model_output_pq, feat_pq = model_pq(img_pq, new_ts, **model_kwargs, distill=True)
+                # model_output, feat = model(img, new_ts, **model_kwargs, distill=True)
+                # model_output_pq, feat_pq = model_pq(img_pq, new_ts, **model_kwargs, distill=True)
 
                 img, img_pq = self.post_process(t, img, img_pq, model_output, model_output_pq)
 
@@ -239,7 +239,7 @@ def main(args):
     #     print(vae, file=f)
 
     file_path = os.path.dirname(__file__)
-    default_config = os.path.join(file_path, "../pqf/config/train_dit.yaml")
+    default_config = os.path.join(file_path, "../pqf/config/train_dit_val.yaml")
     config = load_config(file_path, default_config_path=default_config)
     summary_writer = get_tensorboard_logger(config["output_path"])
     log_config(config, summary_writer)
@@ -251,9 +251,9 @@ def main(args):
     compressed_model_size_bits = compute_model_nbits(model_pq)
     log_compression_ratio(uncompressed_model_size_bits, compressed_model_size_bits, summary_writer)
     
-    model_pq.load_state_dict(torch.load("results/001-DiT-XL-2/checkpoints/0005000.pt")['model'])
+    model_pq.load_state_dict(torch.load("results/002-DiT-XL-2/checkpoints/0005000.pt")['model'])
     model_pq.eval()
-    diffusion.forward_val(vae, model.forward_with_cfg, model_pq.forward_with_cfg, cfg=True, name="sample_cfg")
+    diffusion.forward_val(vae, model.forward_with_cfg, model_pq.forward_with_cfg, cfg=True, name="results/002-DiT-XL-2/sample_cfg")
     # diffusion.forward_val(vae, model.forward, model_pq.forward, cfg=False, name="sample")
 
 if __name__ == "__main__":

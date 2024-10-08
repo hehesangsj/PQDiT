@@ -24,6 +24,10 @@ import numpy as np
 import math
 import argparse
 
+import sys
+sys.path.append("/mnt/petrelfs/shaojie/code/DiT/")
+from distributed import init_distributed_mode
+
 
 def create_npz_from_sample_folder(sample_dir, num=50_000):
     """
@@ -51,7 +55,7 @@ def main(args):
     torch.set_grad_enabled(False)
 
     # Setup DDP:
-    dist.init_process_group("nccl")
+    init_distributed_mode(args)
     rank = dist.get_rank()
     device = rank % torch.cuda.device_count()
     seed = args.global_seed * dist.get_world_size() + rank

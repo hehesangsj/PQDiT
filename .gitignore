@@ -2,3 +2,4 @@ ckpt/
 .vscode/
 *.pt
 pretrained_models/
+samples/

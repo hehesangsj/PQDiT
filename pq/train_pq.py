@@ -23,6 +23,7 @@ import numpy as np
 import torch.nn.functional as F
 
 import torch.distributed as dist
+import shutil
 from glob import glob
 from time import time
 from PIL import Image
@@ -37,11 +38,9 @@ import os
 from tqdm.auto import tqdm
 import random
 
-from pqf.compression.model_compression import compress_model
-from pqf.training.training import TrainingLogger, train_one_epoch, train_one_epoch_dit
-from pqf.utils.config_loader import load_config
 from pqf.utils.model_size import compute_model_nbits
-from pqf.utils.state_dict_utils import save_state_dict_compressed
+from pqf.compression.model_compression import compress_model
+from pqf.utils.config_loader import load_config
 from distributed import init_distributed_mode
 
 
@@ -141,6 +140,8 @@ def main(args):
     # pq model
     file_path = os.path.dirname(__file__)
     default_config = os.path.join(file_path, "../pqf/config/train_dit.yaml")
+    if rank == 0:
+        shutil.copy(default_config, experiment_dir)
     config = load_config(file_path, default_config_path=default_config)
     model_config = config["model"]
     compression_config = model_config["compression_parameters"]
