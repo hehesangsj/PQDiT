@@ -3,3 +3,5 @@ ckpt/
 *.pt
 pretrained_models/
 samples/
+results/
+samples/

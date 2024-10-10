@@ -11,6 +11,7 @@
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 import numpy as np
 import math
 from timm.models.vision_transformer import PatchEmbed, Attention, Mlp
@@ -20,97 +21,129 @@ import nanopq
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from functools import partial
+from timm.layers.helpers import to_2tuple
+
+from models import DiTBlock
+
 def modulate(x, shift, scale):
     return x * (1 + scale.unsqueeze(1)) + shift.unsqueeze(1)
 
+class attn_uv(Attention):
+    def __init__(
+            self,
+            dim: int,
+            num_heads: int = 8,
+            qkv_bias: bool = False,
+            qk_norm: bool = False,
+            attn_drop: float = 0.,
+            proj_drop: float = 0.,
+            norm_layer: nn.Module = nn.LayerNorm,
+            qkv_use_uv: bool = True, 
+            qkv_len: int = 0, 
+            proj_use_uv: bool = True, 
+            proj_len: int = 0
+    ) -> None:
+        super(attn_uv, self).__init__(dim, num_heads, qkv_bias, qk_norm, attn_drop, proj_drop, norm_layer)
 
-#################################################################################
-#               Embedding Layers for Timesteps and Class Labels                 #
-#################################################################################
-
-class TimestepEmbedder(nn.Module):
-    """
-    Embeds scalar timesteps into vector representations.
-    """
-    def __init__(self, hidden_size, frequency_embedding_size=256):
-        super().__init__()
-        self.mlp = nn.Sequential(
-            nn.Linear(frequency_embedding_size, hidden_size, bias=True),
-            nn.SiLU(),
-            nn.Linear(hidden_size, hidden_size, bias=True),
-        )
-        self.frequency_embedding_size = frequency_embedding_size
-
-    @staticmethod
-    def timestep_embedding(t, dim, max_period=10000):
-        """
-        Create sinusoidal timestep embeddings.
-        :param t: a 1-D Tensor of N indices, one per batch element.
-                          These may be fractional.
-        :param dim: the dimension of the output.
-        :param max_period: controls the minimum frequency of the embeddings.
-        :return: an (N, D) Tensor of positional embeddings.
-        """
-        # https://github.com/openai/glide-text2im/blob/main/glide_text2im/nn.py
-        half = dim // 2
-        freqs = torch.exp(
-            -math.log(max_period) * torch.arange(start=0, end=half, dtype=torch.float32) / half
-        ).to(device=t.device)
-        args = t[:, None].float() * freqs[None]
-        embedding = torch.cat([torch.cos(args), torch.sin(args)], dim=-1)
-        if dim % 2:
-            embedding = torch.cat([embedding, torch.zeros_like(embedding[:, :1])], dim=-1)
-        return embedding
-
-    def forward(self, t):
-        t_freq = self.timestep_embedding(t, self.frequency_embedding_size)
-        t_emb = self.mlp(t_freq)
-        return t_emb
-
-
-class LabelEmbedder(nn.Module):
-    """
-    Embeds class labels into vector representations. Also handles label dropout for classifier-free guidance.
-    """
-    def __init__(self, num_classes, hidden_size, dropout_prob):
-        super().__init__()
-        use_cfg_embedding = dropout_prob > 0
-        self.embedding_table = nn.Embedding(num_classes + use_cfg_embedding, hidden_size)
-        self.num_classes = num_classes
-        self.dropout_prob = dropout_prob
-
-    def token_drop(self, labels, force_drop_ids=None):
-        """
-        Drops labels to enable classifier-free guidance.
-        """
-        if force_drop_ids is None:
-            drop_ids = torch.rand(labels.shape[0], device=labels.device) < self.dropout_prob
+        self.qkv_use_uv = qkv_use_uv
+        if not self.qkv_use_uv:
+            self.qkv = nn.Linear(dim, dim * 3, bias=qkv_bias)
         else:
-            drop_ids = force_drop_ids == 1
-        labels = torch.where(drop_ids, self.num_classes, labels)
-        return labels
+            self.qkv_u = nn.Linear(dim, qkv_len, bias=qkv_bias)
+            self.qkv_v = nn.Linear(qkv_len, dim * 3)
 
-    def forward(self, labels, train, force_drop_ids=None):
-        use_dropout = self.dropout_prob > 0
-        if (train and use_dropout) or (force_drop_ids is not None):
-            labels = self.token_drop(labels, force_drop_ids)
-        embeddings = self.embedding_table(labels)
-        return embeddings
+        self.proj_use_uv = proj_use_uv
+        if not self.proj_use_uv:
+            self.proj = nn.Linear(dim, dim)
+        else:
+            self.proj_u = nn.Linear(dim, proj_len)
+            self.proj_v = nn.Linear(qkv_len, dim)
 
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        B, N, C = x.shape
+        if not self.qkv_use_uv:
+            qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, self.head_dim).permute(2, 0, 3, 1, 4)
+        else:
+            qkv = self.qkv_v(self.qkv_u(x)).reshape(B, N, 3, self.num_heads, self.head_dim).permute(2, 0, 3, 1, 4)
 
-#################################################################################
-#                                 Core DiT Model                                #
-#################################################################################
+        q, k, v = qkv.unbind(0)
+        q, k = self.q_norm(q), self.k_norm(k)
 
-class DiTBlock(nn.Module):
-    """
-    A DiT block with adaptive layer norm zero (adaLN-Zero) conditioning.
-    """
-    def __init__(self, hidden_size, num_heads, mlp_ratio=4.0, **block_kwargs):
+        if self.fused_attn:
+            x = F.scaled_dot_product_attention(
+                q, k, v,
+                dropout_p=self.attn_drop.p if self.training else 0.,
+            )
+        else:
+            q = q * self.scale
+            attn = q @ k.transpose(-2, -1)
+            attn = attn.softmax(dim=-1)
+            attn = self.attn_drop(attn)
+            x = attn @ v
+
+        x = x.transpose(1, 2).reshape(B, N, C)
+        if not self.proj_use_uv:
+            x = self.proj(x)
+        else:
+            x = self.proj_v(self.proj_y(x))
+        x = self.proj_drop(x)
+        return x
+
+class mlp_uv(nn.Module):
+    def __init__(
+            self,
+            in_features,
+            hidden_features=None,
+            out_features=None,
+            act_layer=nn.GELU,
+            norm_layer=None,
+            bias=True,
+            drop=0.,
+            use_conv=False,
+            fc1_use_uv=True, 
+            fc2_use_uv=True, 
+            fc1_len = 0, 
+            fc2_len = 0
+    ):
         super().__init__()
-        self.norm1 = nn.LayerNorm(hidden_size, elementwise_affine=False, eps=1e-6)
+        out_features = out_features or in_features
+        hidden_features = hidden_features or in_features
+        bias = to_2tuple(bias)
+        drop_probs = to_2tuple(drop)
+        linear_layer = partial(nn.Conv2d, kernel_size=1) if use_conv else nn.Linear
+
+        if not self.fc1_use_uv:
+            self.fc1 = linear_layer(in_features, hidden_features, bias=bias[0])
+        else:
+            self.fc1_u = linear_layer(in_features, fc1_len, bias=bias[0])
+            self.fc1_v = linear_layer(fc1_len, hidden_features, bias=bias[0])
+        
+        self.act = act_layer()
+        self.drop1 = nn.Dropout(drop_probs[0])
+        self.norm = norm_layer(hidden_features) if norm_layer is not None else nn.Identity()
+
+        if not self.fc2_use_uv:
+            self.fc2 = linear_layer(hidden_features, out_features, bias=bias[0])
+        else:
+            self.fc2_u = linear_layer(hidden_features, fc2_len, bias=bias[0])
+            self.fc2_v = linear_layer(fc2_len, out_features, bias=bias[0])
+
+        self.drop2 = nn.Dropout(drop_probs[1])
+
+    def forward(self, x):
+        x = self.fc1(x)
+        x = self.act(x)
+        x = self.drop1(x)
+        x = self.norm(x)
+        x = self.fc2(x)
+        x = self.drop2(x)
+        return x
+
+class DiTBlock_uv(DiTBlock):
+    def __init__(self, hidden_size, num_heads, mlp_ratio=4.0, **block_kwargs):
+        super(DiTBlock_uv, self).__init__()
         self.attn = Attention(hidden_size, num_heads=num_heads, qkv_bias=True, **block_kwargs)
-        self.norm2 = nn.LayerNorm(hidden_size, elementwise_affine=False, eps=1e-6)
         mlp_hidden_dim = int(hidden_size * mlp_ratio)
         approx_gelu = lambda: nn.GELU(approximate="tanh")
         self.mlp = Mlp(in_features=hidden_size, hidden_features=mlp_hidden_dim, act_layer=approx_gelu, drop=0)
@@ -124,6 +157,7 @@ class DiTBlock(nn.Module):
         x = x + gate_msa.unsqueeze(1) * self.attn(modulate(self.norm1(x), shift_msa, scale_msa))
         x = x + gate_mlp.unsqueeze(1) * self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp))
         return x
+
 
 class FinalLayer(nn.Module):
     """
@@ -261,6 +295,7 @@ class DiT(nn.Module):
             if distill:
                 x_feat.append(x)
             # if i == 0:
+            # block.pq_attn()
             # x_values.append(x)
 
         # num_blocks = len(self.blocks)
