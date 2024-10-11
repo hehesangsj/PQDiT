@@ -99,7 +99,7 @@ class SpacedDiffusion(GaussianDiffusion):
     def training_losses_distill(
         self, model, model_t, *args, **kwargs
     ):  # pylint: disable=signature-differs
-        return super().training_losses(self._wrap_model(model), self._wrap_model(model_t), *args, **kwargs)
+        return super().training_losses_distill(self._wrap_model(model), self._wrap_model(model_t), *args, **kwargs)
 
     def condition_mean(self, cond_fn, *args, **kwargs):
         return super().condition_mean(self._wrap_model(cond_fn), *args, **kwargs)

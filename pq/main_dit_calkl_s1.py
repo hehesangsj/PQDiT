@@ -247,7 +247,6 @@ def validate(args, data_loader, model, vae, diffusion, device, logger, work_dir)
         for hook in hooks:
             hook.clear()
         with torch.no_grad():
-            # Map input images to latent space + normalize latents:
             x = vae.encode(x).latent_dist.sample().mul_(0.18215)
         t = torch.randint(0, diffusion.num_timesteps, (x.shape[0],), device=device)
         model_kwargs = dict(y=y)

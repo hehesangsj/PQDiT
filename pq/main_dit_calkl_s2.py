@@ -22,6 +22,7 @@ import torchvision.transforms as transforms
 
 from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy
 from timm.utils import accuracy, AverageMeter
+from diffusers.models import AutoencoderKL
 
 import sys
 sys.path.append("/mnt/petrelfs/shaojie/code/DiT/")
@@ -29,7 +30,10 @@ from glob import glob
 from download import find_model
 from diffusion import create_diffusion
 from models import DiT_models
+from pq.low_rank_models import DiT_uv_models
+
 from distributed import init_distributed_mode
+from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.utils.data.distributed import DistributedSampler
 from torch.utils.data import DataLoader
 from torchvision.datasets import ImageFolder
@@ -58,7 +62,6 @@ def create_logger(logging_dir):
         logger.addHandler(logging.NullHandler())
     return logger
 
-
 def center_crop_arr(pil_image, image_size):
     while min(*pil_image.size) >= 2 * image_size:
         pil_image = pil_image.resize(
@@ -79,8 +82,8 @@ def cleanup():
 def parse_option():
     parser = argparse.ArgumentParser('DiT script', add_help=False)
     parser.add_argument('--throughput', action='store_true', help='Test throughput only')
-    parser.add_argument('--block-i', type=int, default=-1)
     parser.add_argument('--fc-i', type=int, default=-1)
+    parser.add_argument('--block-i', type=int, default=-1)
     parser.add_argument('--dim-i', type=int, default=-1)
 
     parser.add_argument("--model", type=str, choices=list(DiT_models.keys()), default="DiT-XL/2")
@@ -102,24 +105,39 @@ def parse_option():
 
 def merge_model(checkpoint, block_i, fc_i, dim_i, load_path):
     if fc_i == 1:
-        fc_name = "fc1"
+        file_name = "fc1"
+        org_name = "fc1"
+        w_u_name = "fc1_u"
+        w_v_name = "fc1_v"
         layer_name = ".mlp."
     elif fc_i == 2:
-        fc_name = "fc2"
+        file_name = "fc2"
+        org_name = "fc2"
+        w_u_name = "fc2_u"
+        w_v_name = "fc2_v"
         layer_name = ".mlp."
     elif fc_i == 3:
-        fc_name = "qkv"
+        file_name = "qkv"
+        org_name = "qkv"
+        w_u_name = "qkv_u"
+        w_v_name = "qkv_v"
         layer_name = ".attn."
     elif fc_i == 4:
-        fc_name = "proj"
+        file_name = "proj"
+        org_name = "proj"
+        w_u_name = "proj_u"
+        w_v_name = "proj_v"
         layer_name = ".attn."
     elif fc_i == 5:
-        fc_name = "1"
+        file_name = "adaln"
+        org_name = "1"
+        w_u_name = "1"
+        w_v_name = "2"
         layer_name = ".adaLN_modulation."
 
-    u_name = load_path +  fc_name + "_" + str(block_i) + "_u.pt"
-    v_name = load_path + fc_name + "_" + str(block_i) + "_v.pt"
-    avg_name = load_path + fc_name + "_" + str(block_i) + "_avg.pt"
+    u_name = load_path +  file_name + "_" + str(block_i) + "_u.pt"
+    v_name = load_path + file_name + "_" + str(block_i) + "_v.pt"
+    avg_name = load_path + file_name + "_" + str(block_i) + "_avg.pt"
 
     u = torch.load(u_name, map_location='cpu').cpu()
     v = torch.load(v_name, map_location='cpu').cpu()
@@ -129,19 +147,23 @@ def merge_model(checkpoint, block_i, fc_i, dim_i, load_path):
     new_v = v[:dim_i,:]
     b = (torch.eye(new_u.shape[0]).cpu()- new_u @ new_v) @ avg
 
-    original_w_name = "blocks." + str(block_i) + layer_name + fc_name + ".weight"
-    original_b_name = "blocks." + str(block_i) + layer_name + fc_name + ".bias"
+    original_w_name = "blocks." + str(block_i) + layer_name + org_name + ".weight"
+    original_b_name = "blocks." + str(block_i) + layer_name + org_name + ".bias"
+    new_w_name = "blocks." + str(block_i) + layer_name + w_u_name + ".weight"
+    new_b_name = "blocks." + str(block_i) + layer_name + w_u_name + ".bias"
     original_w = checkpoint[original_w_name]
     original_b = checkpoint[original_b_name]
 
     new_w = new_v @ original_w
     new_b = original_b @ new_v.transpose(0,1)
 
-    checkpoint[original_w_name] = new_w
-    checkpoint[original_b_name] = new_b
+    checkpoint[new_w_name] = new_w
+    checkpoint[new_b_name] = new_b
+    del checkpoint[original_w_name]
+    del checkpoint[original_b_name]
 
-    k_split = original_w_name.split(".")
-    k_split[-2] = "uv" + str((fc_i- 1)%2 + 1)
+    k_split = new_w_name.split(".")
+    k_split[-2] = w_v_name
     print(".".join(k_split))
     checkpoint[".".join(k_split)] = new_u
 
@@ -202,15 +224,18 @@ def main(args):
     )
     logger.info(f"Dataset contains {len(dataset):,} images ({args.data_path})")
     
-    fc1_len = [128] * 12
-    fc2_len = [128] * 12
-    qkv_len = [128] * 12
-    proj_len = [128] * 12
+    num_layers = 28
+    fc1_len = [128] * num_layers
+    fc2_len = [128] * num_layers
+    qkv_len = [128] * num_layers
+    proj_len = [128] * num_layers
+    adaln_len = [128] * num_layers
 
-    fc1_use_uv = [False] * 13
-    fc2_use_uv = [False] * 13
-    qkv_use_uv = [False] * 13
-    proj_use_uv = [False] * 13
+    fc1_use_uv = [False] * num_layers
+    fc2_use_uv = [False] * num_layers
+    qkv_use_uv = [False] * num_layers
+    proj_use_uv = [False] * num_layers
+    adaln_use_uv = [False] * num_layers
 
     if args.fc_i == 1:
         fc1_use_uv[args.block_i] = True
@@ -221,132 +246,97 @@ def main(args):
     elif args.fc_i == 3:
         qkv_use_uv[args.block_i] = True
         qkv_len[args.block_i] = args.dim_i
+    elif args.fc_i == 4:
+        proj_use_uv[args.block_i] = True
+        proj_len[args.block_i] = args.dim_i
+    elif args.fc_i == 5:
+        adaln_use_uv[args.block_i] = True
+        adaln_len[args.block_i] = args.dim_i
 
+    latent_size = args.image_size // 8
 
-    model = VisionTransformerAda(patch_size=16,  embed_dim=192, depth=12, num_heads=3, mlp_ratio=4., qkv_bias=True,
-            qkv_use_uv = qkv_use_uv,proj_use_uv=proj_use_uv,fc1_use_uv = fc1_use_uv,fc2_use_uv = fc2_use_uv,qkv_len = qkv_len,proj_len = proj_len, fc1_len = fc1_len, fc2_len = fc2_len)
-    teacher_model = VisionTransformer(patch_size=16,  embed_dim=192, depth=12, num_heads=3, mlp_ratio=4., qkv_bias=True)
-
-    # model = VisionTransformerAda(patch_size=16,  embed_dim=384, depth=12, num_heads=6, mlp_ratio=4., qkv_bias=True,
-    #         qkv_use_uv = qkv_use_uv,proj_use_uv=proj_use_uv,fc1_use_uv = fc1_use_uv,fc2_use_uv = fc2_use_uv,qkv_len = qkv_len,proj_len = proj_len, fc1_len = fc1_len, fc2_len = fc2_len)
-    # teacher_model = VisionTransformer(patch_size=16,  embed_dim=384, depth=12, num_heads=6, mlp_ratio=4., qkv_bias=True)
-
-
-    # model = VisionTransformerAda(patch_size=16,  embed_dim=768, depth=12, num_heads=12, mlp_ratio=4., qkv_bias=True,
-    #         qkv_use_uv = qkv_use_uv,fc1_use_uv = fc1_use_uv,fc2_use_uv = fc2_use_uv,qkv_len = qkv_len, fc1_len = fc1_len, fc2_len = fc2_len)
-    # teacher_model = VisionTransformer(patch_size=16,  embed_dim=768, depth=12, num_heads=12, mlp_ratio=4., qkv_bias=True)
+    teacher_model = DiT_models[args.model](
+        input_size=latent_size,
+        num_classes=args.num_classes
+    ).to(device)
+    model = DiT_uv_models[args.model](
+        input_size=latent_size,
+        num_classes=args.num_classes,
+        qkv_use_uv=qkv_use_uv, proj_use_uv=proj_use_uv,fc1_use_uv=fc1_use_uv, fc2_use_uv = fc2_use_uv, adaln_use_uv=adaln_use_uv,
+        qkv_len=qkv_len, proj_len=proj_len, fc1_len=fc1_len, fc2_len=fc2_len, adaln_len=adaln_len
+    ).to(device)
 
     teacher_model_sum = sum(p.numel() for p in teacher_model.state_dict().values())
     model_sum = sum(p.numel() for p in model.state_dict().values())
     if model_sum > teacher_model_sum:
         return
-
-    model.cuda()
-    teacher_model.cuda()
-
-    model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[config.LOCAL_RANK], broadcast_buffers=False)
-    model_without_ddp = model.module
-    teacher_model = torch.nn.parallel.DistributedDataParallel(teacher_model, device_ids=[config.LOCAL_RANK], broadcast_buffers=False)
-    teacher_model_without_ddp = teacher_model.module
-
     n_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
     logger.info(f"number of params: {n_parameters}")
-    if hasattr(model_without_ddp, 'flops'):
-        flops = model_without_ddp.flops()
-        logger.info(f"number of GFLOPs: {flops / 1e9}")
 
+    ckpt_path = args.ckpt or f"DiT-XL-2-{args.image_size}x{args.image_size}.pt"
+    state_dict = find_model(ckpt_path)
+    teacher_model.load_state_dict(state_dict)
 
-    checkpoint = torch.load(config.MODEL.RESUME, map_location='cpu')
-
-    # load_path = "deit/ffn_output/all_fc_ada/deit_b/deit_b_fewshot2_"
-    # load_path = "deit/ffn_output/all_fc_ada/deit_s/deit_s_fewshot2_"
-    load_path = "deit/ffn_output/all_fc_ada/deit_t/deit_t_fewshot2_"
-    new_checkpoint = merge_model(checkpoint['model'], args.block_i, args.fc_i, args.dim_i, load_path)
-
-
-    if 'model' in new_checkpoint.keys():
-        msg = model_without_ddp.load_state_dict(new_checkpoint['model'], strict=False)
-    else:
-        msg = model_without_ddp.load_state_dict(new_checkpoint, strict=False)
+    load_path = "results/low_rank/000-DiT-XL-2/dit_t_in_"
+    new_checkpoint = merge_model(state_dict, args.block_i, args.fc_i, args.dim_i, load_path)
+    msg = model.load_state_dict(new_checkpoint)
     logger.info(msg)
 
-    checkpoint = torch.load(config.MODEL.RESUME, map_location='cpu')
-    if 'model' in checkpoint.keys():
-        msg = teacher_model_without_ddp.load_state_dict(checkpoint['model'], strict=False)
-    else:
-        msg = teacher_model_without_ddp.load_state_dict(checkpoint, strict=False)
-    logger.info(msg)
+    model = DDP(model, device_ids=[rank])
+    teacher_model = DDP(teacher_model, device_ids=[rank])
+    vae = AutoencoderKL.from_pretrained(f"stabilityai/sd-vae-ft-{args.vae}").to(device)
+    diffusion = create_diffusion(timestep_respacing="")
 
-
-    acc1, acc5, loss = validate(config, data_loader_val, model, teacher_model)
-    logger.info(f"Accuracy of the network on the val test images: {acc1:.1f}%")
+    loss = validate(args, loader, model, teacher_model, vae, diffusion, device, logger, experiment_dir)
+    logger.info(f"Loss of DiT: {loss:.1f}%")
 
 
 @torch.no_grad()
-def validate(config, data_loader, model, teacher_model):
-    criterion = torch.nn.CrossEntropyLoss()
+def validate(args, data_loader, model, teacher_model, vae, diffusion, device, logger, work_dir):
     model.eval()
     teacher_model.eval()
 
-
     batch_time = AverageMeter()
     loss_meter = AverageMeter()
-    acc1_meter = AverageMeter()
-    acc5_meter = AverageMeter()
-    kl = AverageMeter()
-
+    loss_distill_meter = AverageMeter()
     end = time.time()
 
+    for idx, (x, y) in enumerate(data_loader):
+        x = x.cuda(non_blocking=True)
+        y = y.cuda(non_blocking=True)
 
-    for idx, (images, target) in enumerate(data_loader):
-        images = images.cuda(non_blocking=True)
-        target = target.cuda(non_blocking=True)
+        with torch.no_grad():
+            x = vae.encode(x).latent_dist.sample().mul_(0.18215)
+        t = torch.randint(0, diffusion.num_timesteps, (x.shape[0],), device=device)
+        model_kwargs = dict(y=y)
 
+        loss_dict = diffusion.training_losses(model, x, t, model_kwargs)
+        loss = loss_dict["loss"].mean()
+        loss_distill_dict = diffusion.training_losses_distill(model, teacher_model, x, t, model_kwargs)
+        loss_distill = loss_distill_dict["loss"].mean()
 
-        output,_ = model(images)
-        teacher_output,_ = teacher_model(images)
+        dist.all_reduce(loss, op=dist.ReduceOp.SUM)
+        loss = loss.item() / dist.get_world_size()
+        dist.all_reduce(loss_distill, op=dist.ReduceOp.SUM)
+        loss_distill = loss_distill.item() / dist.get_world_size()
 
-        logsoftmax = torch.nn.LogSoftmax(dim=1).cuda()
-        softmax = torch.nn.Softmax(dim=1).cuda()
-        distil_loss = torch.sum(
-            torch.sum(softmax(teacher_output) * (logsoftmax(teacher_output)-logsoftmax(output)), dim=1))
-
-        # measure accuracy and record loss
-        loss = criterion(output, target)
-        acc1, acc5 = accuracy(output, target, topk=(1, 5))
-
-        acc1 = reduce_tensor(acc1)
-        acc5 = reduce_tensor(acc5)
-        loss = reduce_tensor(loss)
-        distil_loss = reduce_tensor(distil_loss)
-
-        loss_meter.update(loss.item(), target.size(0))
-        acc1_meter.update(acc1.item(), target.size(0))
-        acc5_meter.update(acc5.item(), target.size(0))
-        kl.update(distil_loss.item(), target.size(0))
-
-        # measure elapsed time
+        loss_meter.update(loss.item(), y.size(0))
+        loss_distill_meter.update(loss_distill.item(), y.size(0))
         batch_time.update(time.time() - end)
         end = time.time()
 
-        if idx % config.PRINT_FREQ == 0:
+        if idx % args.log_every == 0:
             memory_used = torch.cuda.max_memory_allocated() / (1024.0 * 1024.0)
             logger.info(
                 f'Test: [{idx}/{len(data_loader)}]\t'
                 f'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
                 f'Loss {loss_meter.val:.4f} ({loss_meter.avg:.4f})\t'
-                f'Acc@1 {acc1_meter.val:.3f} ({acc1_meter.avg:.3f})\t'
-                f'Acc@5 {acc5_meter.val:.3f} ({acc5_meter.avg:.3f})\t'
-                f'kl {kl.val:.3f} ({kl.avg:.3f})\t'
-
+                f'Loss distill {loss_distill_meter.val:.3f} ({loss_distill_meter.avg:.3f})\t'
                 f'Mem {memory_used:.0f}MB')
-    logger.info(f' * Acc@1 {acc1_meter.avg:.3f} Acc@5 {acc5_meter.avg:.3f}  KL {kl.avg:.3f}')
+            
+    logger.info(f'Loss {loss_meter.avg:.3f}, Loss distill {loss_distill.avg:.3f}')
 
-    f_name = "deit/" + str(args.block_i) + "_" + str(args.fc_i) + ".txt"
-    with open(f_name, "a") as f:
-        f.writelines(str(args.dim_i) + "," + str(kl.avg) + "\n")
-
-    return acc1_meter.avg, acc5_meter.avg, loss_meter.avg
+    return loss_meter.avg
 
 
 if __name__ == '__main__':
