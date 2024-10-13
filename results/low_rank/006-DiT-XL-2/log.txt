@@ -1,0 +1,1 @@
+[[34m2024-10-14 01:11:58[0m] Experiment directory created at results/low_rank/006-DiT-XL-2

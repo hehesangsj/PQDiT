@@ -1,0 +1,24 @@
+[[34m2024-10-14 01:01:05[0m] Experiment directory created at results/train_pq/004-DiT-XL-2
+[[34m2024-10-14 01:01:50[0m] blocks.0.attn.qkv compression: 1000; mse: 1.223202e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-10-14 01:02:13[0m] blocks.0.attn.proj compression: 1000; mse: 5.784003e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-10-14 01:02:42[0m] blocks.0.mlp.fc1 compression: 1000; mse: 4.114613e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-10-14 01:03:10[0m] blocks.0.mlp.fc2 compression: 1000; mse: 2.412441e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-10-14 01:03:43[0m] blocks.0.adaLN_modulation.1 compression: 1000; mse: 9.226966e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-10-14 01:04:10[0m] blocks.1.attn.qkv compression: 1000; mse: 1.891406e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-10-14 01:04:33[0m] blocks.1.attn.proj compression: 1000; mse: 7.477111e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-10-14 01:05:02[0m] blocks.1.mlp.fc1 compression: 1000; mse: 7.331926e-04; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-10-14 01:05:30[0m] blocks.1.mlp.fc2 compression: 1000; mse: 1.207021e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-10-14 01:06:03[0m] blocks.1.adaLN_modulation.1 compression: 1000; mse: 5.673295e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-10-14 01:06:30[0m] blocks.2.attn.qkv compression: 1000; mse: 1.345342e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-10-14 01:06:53[0m] blocks.2.attn.proj compression: 1000; mse: 4.448490e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-10-14 01:07:22[0m] blocks.2.mlp.fc1 compression: 1000; mse: 5.086829e-04; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-10-14 01:07:51[0m] blocks.2.mlp.fc2 compression: 1000; mse: 1.924111e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-10-14 01:08:24[0m] blocks.2.adaLN_modulation.1 compression: 1000; mse: 5.662751e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-10-14 01:08:50[0m] blocks.3.attn.qkv compression: 1000; mse: 4.740166e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-10-14 01:09:14[0m] blocks.3.attn.proj compression: 1000; mse: 1.103397e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-10-14 01:09:42[0m] blocks.3.mlp.fc1 compression: 1000; mse: 1.603445e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-10-14 01:10:11[0m] blocks.3.mlp.fc2 compression: 1000; mse: 2.393252e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-10-14 01:10:44[0m] blocks.3.adaLN_modulation.1 compression: 1000; mse: 7.639934e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-10-14 01:11:11[0m] blocks.4.attn.qkv compression: 1000; mse: 8.924254e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-10-14 01:11:34[0m] blocks.4.attn.proj compression: 1000; mse: 1.238807e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-10-14 01:12:03[0m] blocks.4.mlp.fc1 compression: 1000; mse: 9.542727e-03; codebook size: 256 x 4; code size: 4608 x 288

@@ -1,0 +1,657 @@
+[[34m2024-09-24 17:12:02[0m] Experiment directory created at results/006-DiT-XL-2
+[[34m2024-09-24 17:12:45[0m] blocks.0.attn.qkv compression: 1000; mse: 1.223202e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:13:08[0m] blocks.0.attn.proj compression: 1000; mse: 5.784003e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:13:37[0m] blocks.0.mlp.fc1 compression: 1000; mse: 4.114613e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:14:06[0m] blocks.0.mlp.fc2 compression: 1000; mse: 2.412441e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:14:38[0m] blocks.0.adaLN_modulation.1 compression: 1000; mse: 9.226966e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:15:05[0m] blocks.1.attn.qkv compression: 1000; mse: 1.891406e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:15:28[0m] blocks.1.attn.proj compression: 1000; mse: 7.477111e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:15:57[0m] blocks.1.mlp.fc1 compression: 1000; mse: 7.331926e-04; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:16:26[0m] blocks.1.mlp.fc2 compression: 1000; mse: 1.207021e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:16:59[0m] blocks.1.adaLN_modulation.1 compression: 1000; mse: 5.673295e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:17:26[0m] blocks.2.attn.qkv compression: 1000; mse: 1.345342e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:17:49[0m] blocks.2.attn.proj compression: 1000; mse: 4.448490e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:18:18[0m] blocks.2.mlp.fc1 compression: 1000; mse: 5.086829e-04; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:18:46[0m] blocks.2.mlp.fc2 compression: 1000; mse: 1.924111e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:19:19[0m] blocks.2.adaLN_modulation.1 compression: 1000; mse: 5.662751e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:19:46[0m] blocks.3.attn.qkv compression: 1000; mse: 4.740166e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:20:09[0m] blocks.3.attn.proj compression: 1000; mse: 1.103397e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:20:38[0m] blocks.3.mlp.fc1 compression: 1000; mse: 1.603445e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:21:06[0m] blocks.3.mlp.fc2 compression: 1000; mse: 2.393252e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:21:40[0m] blocks.3.adaLN_modulation.1 compression: 1000; mse: 7.639934e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:22:07[0m] blocks.4.attn.qkv compression: 1000; mse: 8.924254e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:22:30[0m] blocks.4.attn.proj compression: 1000; mse: 1.238807e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:22:58[0m] blocks.4.mlp.fc1 compression: 1000; mse: 9.542727e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:23:27[0m] blocks.4.mlp.fc2 compression: 1000; mse: 9.224291e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:24:00[0m] blocks.4.adaLN_modulation.1 compression: 1000; mse: 8.655136e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:24:27[0m] blocks.5.attn.qkv compression: 1000; mse: 1.183791e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:24:50[0m] blocks.5.attn.proj compression: 1000; mse: 1.437510e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:25:19[0m] blocks.5.mlp.fc1 compression: 1000; mse: 1.495921e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:25:48[0m] blocks.5.mlp.fc2 compression: 1000; mse: 1.883796e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:26:21[0m] blocks.5.adaLN_modulation.1 compression: 1000; mse: 9.809918e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:26:48[0m] blocks.6.attn.qkv compression: 1000; mse: 1.602241e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:27:11[0m] blocks.6.attn.proj compression: 1000; mse: 1.708357e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:27:40[0m] blocks.6.mlp.fc1 compression: 1000; mse: 1.652811e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:28:09[0m] blocks.6.mlp.fc2 compression: 1000; mse: 1.963220e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:28:42[0m] blocks.6.adaLN_modulation.1 compression: 1000; mse: 9.170778e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:29:09[0m] blocks.7.attn.qkv compression: 1000; mse: 1.721809e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:29:32[0m] blocks.7.attn.proj compression: 1000; mse: 1.604176e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:30:01[0m] blocks.7.mlp.fc1 compression: 1000; mse: 1.773273e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:30:30[0m] blocks.7.mlp.fc2 compression: 1000; mse: 2.004869e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:31:03[0m] blocks.7.adaLN_modulation.1 compression: 1000; mse: 1.086483e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:31:30[0m] blocks.8.attn.qkv compression: 1000; mse: 1.769114e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:31:53[0m] blocks.8.attn.proj compression: 1000; mse: 1.904257e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:32:22[0m] blocks.8.mlp.fc1 compression: 1000; mse: 1.858805e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:32:51[0m] blocks.8.mlp.fc2 compression: 1000; mse: 2.139965e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:33:23[0m] blocks.8.adaLN_modulation.1 compression: 1000; mse: 1.155304e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:33:50[0m] blocks.9.attn.qkv compression: 1000; mse: 1.772857e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:34:14[0m] blocks.9.attn.proj compression: 1000; mse: 2.007805e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:34:42[0m] blocks.9.mlp.fc1 compression: 1000; mse: 1.904299e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:35:11[0m] blocks.9.mlp.fc2 compression: 1000; mse: 2.249118e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:35:44[0m] blocks.9.adaLN_modulation.1 compression: 1000; mse: 1.319698e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:36:11[0m] blocks.10.attn.qkv compression: 1000; mse: 1.769889e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:36:35[0m] blocks.10.attn.proj compression: 1000; mse: 2.191791e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:37:03[0m] blocks.10.mlp.fc1 compression: 1000; mse: 1.966307e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:37:32[0m] blocks.10.mlp.fc2 compression: 1000; mse: 2.382253e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:38:05[0m] blocks.10.adaLN_modulation.1 compression: 1000; mse: 1.698302e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:38:32[0m] blocks.11.attn.qkv compression: 1000; mse: 1.805447e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:38:56[0m] blocks.11.attn.proj compression: 1000; mse: 2.103099e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:39:24[0m] blocks.11.mlp.fc1 compression: 1000; mse: 1.971021e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:39:53[0m] blocks.11.mlp.fc2 compression: 1000; mse: 2.431537e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:40:26[0m] blocks.11.adaLN_modulation.1 compression: 1000; mse: 1.581191e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:40:53[0m] blocks.12.attn.qkv compression: 1000; mse: 1.850807e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:41:16[0m] blocks.12.attn.proj compression: 1000; mse: 2.316541e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:41:45[0m] blocks.12.mlp.fc1 compression: 1000; mse: 1.957412e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:42:14[0m] blocks.12.mlp.fc2 compression: 1000; mse: 2.432965e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:42:47[0m] blocks.12.adaLN_modulation.1 compression: 1000; mse: 1.586206e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:43:14[0m] blocks.13.attn.qkv compression: 1000; mse: 2.027285e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:43:37[0m] blocks.13.attn.proj compression: 1000; mse: 2.346170e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:44:06[0m] blocks.13.mlp.fc1 compression: 1000; mse: 1.893710e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:44:34[0m] blocks.13.mlp.fc2 compression: 1000; mse: 2.414092e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:45:07[0m] blocks.13.adaLN_modulation.1 compression: 1000; mse: 1.526879e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:45:34[0m] blocks.14.attn.qkv compression: 1000; mse: 1.919666e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:45:57[0m] blocks.14.attn.proj compression: 1000; mse: 2.435264e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:46:26[0m] blocks.14.mlp.fc1 compression: 1000; mse: 1.894395e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:46:55[0m] blocks.14.mlp.fc2 compression: 1000; mse: 2.587469e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:47:28[0m] blocks.14.adaLN_modulation.1 compression: 1000; mse: 1.869856e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:47:55[0m] blocks.15.attn.qkv compression: 1000; mse: 1.998632e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:48:18[0m] blocks.15.attn.proj compression: 1000; mse: 2.402870e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:48:47[0m] blocks.15.mlp.fc1 compression: 1000; mse: 1.860853e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:49:15[0m] blocks.15.mlp.fc2 compression: 1000; mse: 2.521253e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:49:48[0m] blocks.15.adaLN_modulation.1 compression: 1000; mse: 1.674303e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:50:15[0m] blocks.16.attn.qkv compression: 1000; mse: 2.145478e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:50:39[0m] blocks.16.attn.proj compression: 1000; mse: 2.381409e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:51:07[0m] blocks.16.mlp.fc1 compression: 1000; mse: 1.795489e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:51:36[0m] blocks.16.mlp.fc2 compression: 1000; mse: 2.444266e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:52:09[0m] blocks.16.adaLN_modulation.1 compression: 1000; mse: 1.371870e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:52:36[0m] blocks.17.attn.qkv compression: 1000; mse: 2.054746e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:52:59[0m] blocks.17.attn.proj compression: 1000; mse: 2.463474e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:53:28[0m] blocks.17.mlp.fc1 compression: 1000; mse: 1.764557e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:53:56[0m] blocks.17.mlp.fc2 compression: 1000; mse: 2.466746e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:54:29[0m] blocks.17.adaLN_modulation.1 compression: 1000; mse: 1.321043e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:54:56[0m] blocks.18.attn.qkv compression: 1000; mse: 2.008011e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:55:19[0m] blocks.18.attn.proj compression: 1000; mse: 2.528407e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:55:48[0m] blocks.18.mlp.fc1 compression: 1000; mse: 1.779605e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:56:17[0m] blocks.18.mlp.fc2 compression: 1000; mse: 2.463819e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:56:49[0m] blocks.18.adaLN_modulation.1 compression: 1000; mse: 1.291974e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:57:16[0m] blocks.19.attn.qkv compression: 1000; mse: 1.954242e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 17:57:40[0m] blocks.19.attn.proj compression: 1000; mse: 2.474125e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 17:58:08[0m] blocks.19.mlp.fc1 compression: 1000; mse: 1.749971e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 17:58:37[0m] blocks.19.mlp.fc2 compression: 1000; mse: 2.534788e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 17:59:09[0m] blocks.19.adaLN_modulation.1 compression: 1000; mse: 1.292627e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 17:59:36[0m] blocks.20.attn.qkv compression: 1000; mse: 1.975776e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 18:00:00[0m] blocks.20.attn.proj compression: 1000; mse: 2.622409e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 18:00:28[0m] blocks.20.mlp.fc1 compression: 1000; mse: 1.768696e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 18:00:57[0m] blocks.20.mlp.fc2 compression: 1000; mse: 2.565231e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 18:01:29[0m] blocks.20.adaLN_modulation.1 compression: 1000; mse: 1.346694e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 18:01:56[0m] blocks.21.attn.qkv compression: 1000; mse: 1.887958e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 18:02:20[0m] blocks.21.attn.proj compression: 1000; mse: 2.659318e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 18:02:48[0m] blocks.21.mlp.fc1 compression: 1000; mse: 1.795531e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 18:03:17[0m] blocks.21.mlp.fc2 compression: 1000; mse: 2.615868e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 18:03:50[0m] blocks.21.adaLN_modulation.1 compression: 1000; mse: 1.431723e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 18:04:17[0m] blocks.22.attn.qkv compression: 1000; mse: 1.844585e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 18:04:40[0m] blocks.22.attn.proj compression: 1000; mse: 2.665209e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 18:05:09[0m] blocks.22.mlp.fc1 compression: 1000; mse: 1.775678e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 18:05:38[0m] blocks.22.mlp.fc2 compression: 1000; mse: 2.573509e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 18:06:10[0m] blocks.22.adaLN_modulation.1 compression: 1000; mse: 1.434964e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 18:06:37[0m] blocks.23.attn.qkv compression: 1000; mse: 1.869353e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 18:07:00[0m] blocks.23.attn.proj compression: 1000; mse: 2.631523e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 18:07:29[0m] blocks.23.mlp.fc1 compression: 1000; mse: 1.749365e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 18:07:58[0m] blocks.23.mlp.fc2 compression: 1000; mse: 2.676450e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 18:08:31[0m] blocks.23.adaLN_modulation.1 compression: 1000; mse: 1.467838e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 18:08:58[0m] blocks.24.attn.qkv compression: 1000; mse: 1.875529e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 18:09:21[0m] blocks.24.attn.proj compression: 1000; mse: 2.877039e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 18:09:50[0m] blocks.24.mlp.fc1 compression: 1000; mse: 1.714125e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 18:10:19[0m] blocks.24.mlp.fc2 compression: 1000; mse: 2.688817e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 18:10:51[0m] blocks.24.adaLN_modulation.1 compression: 1000; mse: 1.386063e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 18:11:18[0m] blocks.25.attn.qkv compression: 1000; mse: 1.933233e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 18:11:42[0m] blocks.25.attn.proj compression: 1000; mse: 2.860930e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 18:12:10[0m] blocks.25.mlp.fc1 compression: 1000; mse: 1.640132e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 18:12:39[0m] blocks.25.mlp.fc2 compression: 1000; mse: 2.707800e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 18:13:12[0m] blocks.25.adaLN_modulation.1 compression: 1000; mse: 1.293151e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 18:13:39[0m] blocks.26.attn.qkv compression: 1000; mse: 1.749674e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 18:14:02[0m] blocks.26.attn.proj compression: 1000; mse: 2.626899e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 18:14:31[0m] blocks.26.mlp.fc1 compression: 1000; mse: 1.406641e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 18:15:00[0m] blocks.26.mlp.fc2 compression: 1000; mse: 1.224584e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 18:15:33[0m] blocks.26.adaLN_modulation.1 compression: 1000; mse: 8.026871e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 18:16:00[0m] blocks.27.attn.qkv compression: 1000; mse: 1.439805e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-09-24 18:16:23[0m] blocks.27.attn.proj compression: 1000; mse: 8.821069e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-09-24 18:16:52[0m] blocks.27.mlp.fc1 compression: 1000; mse: 5.228269e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-09-24 18:17:21[0m] blocks.27.mlp.fc2 compression: 1000; mse: 1.430990e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-09-24 18:17:53[0m] blocks.27.adaLN_modulation.1 compression: 1000; mse: 4.652555e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-09-24 18:17:53[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-09-24 18:17:53[0m] Compressed model size: 1540629504 bits
+[[34m2024-09-24 18:17:53[0m] Compression ratio: 14.02
+[[34m2024-09-24 18:21:13[0m] DiT Parameters: 173,627,680
+[[34m2024-09-24 18:22:12[0m] Dataset contains 1,281,167 images (/mnt/petrelfs/share/images/train)
+[[34m2024-09-24 18:22:12[0m] Training for 100 epochs...
+[[34m2024-09-24 18:22:12[0m] Beginning epoch 0...
+[[34m2024-09-24 18:23:14[0m] (step=0000100) Train Loss: 0.1602, Train Steps/Sec: 1.62
+[[34m2024-09-24 18:24:15[0m] (step=0000200) Train Loss: 0.1498, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:25:15[0m] (step=0000300) Train Loss: 0.1478, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:26:16[0m] (step=0000400) Train Loss: 0.1477, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:27:16[0m] (step=0000500) Train Loss: 0.1472, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:28:17[0m] (step=0000600) Train Loss: 0.1488, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:29:17[0m] (step=0000700) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:30:18[0m] (step=0000800) Train Loss: 0.1456, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:31:18[0m] (step=0000900) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:32:19[0m] (step=0001000) Train Loss: 0.1477, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:33:19[0m] (step=0001100) Train Loss: 0.1456, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:34:20[0m] (step=0001200) Train Loss: 0.1474, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:35:21[0m] (step=0001300) Train Loss: 0.1480, Train Steps/Sec: 1.64
+[[34m2024-09-24 18:36:21[0m] (step=0001400) Train Loss: 0.1460, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:37:22[0m] (step=0001500) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:38:22[0m] (step=0001600) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:39:23[0m] (step=0001700) Train Loss: 0.1480, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:40:23[0m] (step=0001800) Train Loss: 0.1476, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:41:24[0m] (step=0001900) Train Loss: 0.1462, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:42:24[0m] (step=0002000) Train Loss: 0.1467, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:43:25[0m] (step=0002100) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:44:25[0m] (step=0002200) Train Loss: 0.1466, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:45:26[0m] (step=0002300) Train Loss: 0.1417, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:46:27[0m] (step=0002400) Train Loss: 0.1456, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:47:27[0m] (step=0002500) Train Loss: 0.1456, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:48:28[0m] (step=0002600) Train Loss: 0.1476, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:49:28[0m] (step=0002700) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:50:29[0m] (step=0002800) Train Loss: 0.1448, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:51:29[0m] (step=0002900) Train Loss: 0.1451, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:52:30[0m] (step=0003000) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:53:30[0m] (step=0003100) Train Loss: 0.1464, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:54:31[0m] (step=0003200) Train Loss: 0.1491, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:55:31[0m] (step=0003300) Train Loss: 0.1471, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:56:32[0m] (step=0003400) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:57:32[0m] (step=0003500) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:58:33[0m] (step=0003600) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-24 18:59:34[0m] (step=0003700) Train Loss: 0.1455, Train Steps/Sec: 1.64
+[[34m2024-09-24 19:00:35[0m] (step=0003800) Train Loss: 0.1451, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:01:35[0m] (step=0003900) Train Loss: 0.1437, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:02:36[0m] (step=0004000) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:03:36[0m] (step=0004100) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:04:37[0m] (step=0004200) Train Loss: 0.1431, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:05:37[0m] (step=0004300) Train Loss: 0.1434, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:06:38[0m] (step=0004400) Train Loss: 0.1427, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:07:38[0m] (step=0004500) Train Loss: 0.1440, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:08:39[0m] (step=0004600) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:09:39[0m] (step=0004700) Train Loss: 0.1489, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:10:40[0m] (step=0004800) Train Loss: 0.1438, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:11:40[0m] (step=0004900) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:12:41[0m] (step=0005000) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:12:44[0m] Beginning epoch 1...
+[[34m2024-09-24 19:13:42[0m] (step=0005100) Train Loss: 0.1473, Train Steps/Sec: 1.62
+[[34m2024-09-24 19:14:43[0m] (step=0005200) Train Loss: 0.1457, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:15:44[0m] (step=0005300) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:16:44[0m] (step=0005400) Train Loss: 0.1421, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:17:45[0m] (step=0005500) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:18:45[0m] (step=0005600) Train Loss: 0.1431, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:19:46[0m] (step=0005700) Train Loss: 0.1448, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:20:46[0m] (step=0005800) Train Loss: 0.1460, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:21:47[0m] (step=0005900) Train Loss: 0.1419, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:22:49[0m] (step=0006000) Train Loss: 0.1461, Train Steps/Sec: 1.62
+[[34m2024-09-24 19:23:49[0m] (step=0006100) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:24:50[0m] (step=0006200) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:25:50[0m] (step=0006300) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:26:51[0m] (step=0006400) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:27:51[0m] (step=0006500) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:28:52[0m] (step=0006600) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:29:53[0m] (step=0006700) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:30:53[0m] (step=0006800) Train Loss: 0.1437, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:31:54[0m] (step=0006900) Train Loss: 0.1468, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:32:54[0m] (step=0007000) Train Loss: 0.1471, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:33:55[0m] (step=0007100) Train Loss: 0.1438, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:34:55[0m] (step=0007200) Train Loss: 0.1437, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:35:56[0m] (step=0007300) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:36:56[0m] (step=0007400) Train Loss: 0.1448, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:37:57[0m] (step=0007500) Train Loss: 0.1478, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:38:57[0m] (step=0007600) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:39:58[0m] (step=0007700) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:40:58[0m] (step=0007800) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:41:59[0m] (step=0007900) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:42:59[0m] (step=0008000) Train Loss: 0.1441, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:44:00[0m] (step=0008100) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:45:00[0m] (step=0008200) Train Loss: 0.1460, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:46:02[0m] (step=0008300) Train Loss: 0.1484, Train Steps/Sec: 1.63
+[[34m2024-09-24 19:47:02[0m] (step=0008400) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:48:03[0m] (step=0008500) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:49:03[0m] (step=0008600) Train Loss: 0.1450, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:50:04[0m] (step=0008700) Train Loss: 0.1469, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:51:04[0m] (step=0008800) Train Loss: 0.1439, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:52:05[0m] (step=0008900) Train Loss: 0.1431, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:53:05[0m] (step=0009000) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:54:06[0m] (step=0009100) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:55:06[0m] (step=0009200) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:56:07[0m] (step=0009300) Train Loss: 0.1451, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:57:07[0m] (step=0009400) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:58:08[0m] (step=0009500) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-24 19:59:08[0m] (step=0009600) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:00:09[0m] (step=0009700) Train Loss: 0.1456, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:01:09[0m] (step=0009800) Train Loss: 0.1440, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:02:10[0m] (step=0009900) Train Loss: 0.1424, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:03:10[0m] (step=0010000) Train Loss: 0.1425, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:03:16[0m] Beginning epoch 2...
+[[34m2024-09-24 20:04:12[0m] (step=0010100) Train Loss: 0.1440, Train Steps/Sec: 1.62
+[[34m2024-09-24 20:05:13[0m] (step=0010200) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:06:13[0m] (step=0010300) Train Loss: 0.1441, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:07:14[0m] (step=0010400) Train Loss: 0.1428, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:08:14[0m] (step=0010500) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:09:16[0m] (step=0010600) Train Loss: 0.1443, Train Steps/Sec: 1.62
+[[34m2024-09-24 20:10:17[0m] (step=0010700) Train Loss: 0.1466, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:11:17[0m] (step=0010800) Train Loss: 0.1475, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:12:18[0m] (step=0010900) Train Loss: 0.1424, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:13:19[0m] (step=0011000) Train Loss: 0.1450, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:14:19[0m] (step=0011100) Train Loss: 0.1470, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:15:20[0m] (step=0011200) Train Loss: 0.1431, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:16:20[0m] (step=0011300) Train Loss: 0.1448, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:17:21[0m] (step=0011400) Train Loss: 0.1458, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:18:21[0m] (step=0011500) Train Loss: 0.1476, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:19:22[0m] (step=0011600) Train Loss: 0.1440, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:20:23[0m] (step=0011700) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:21:23[0m] (step=0011800) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:22:24[0m] (step=0011900) Train Loss: 0.1441, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:23:24[0m] (step=0012000) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:24:25[0m] (step=0012100) Train Loss: 0.1456, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:25:26[0m] (step=0012200) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:26:26[0m] (step=0012300) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:27:27[0m] (step=0012400) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:28:27[0m] (step=0012500) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:29:28[0m] (step=0012600) Train Loss: 0.1432, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:30:28[0m] (step=0012700) Train Loss: 0.1435, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:31:29[0m] (step=0012800) Train Loss: 0.1458, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:32:31[0m] (step=0012900) Train Loss: 0.1446, Train Steps/Sec: 1.61
+[[34m2024-09-24 20:33:32[0m] (step=0013000) Train Loss: 0.1427, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:34:32[0m] (step=0013100) Train Loss: 0.1434, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:35:33[0m] (step=0013200) Train Loss: 0.1448, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:36:33[0m] (step=0013300) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:37:34[0m] (step=0013400) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:38:34[0m] (step=0013500) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:39:35[0m] (step=0013600) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:40:35[0m] (step=0013700) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:41:36[0m] (step=0013800) Train Loss: 0.1427, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:42:36[0m] (step=0013900) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:43:37[0m] (step=0014000) Train Loss: 0.1474, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:44:37[0m] (step=0014100) Train Loss: 0.1419, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:45:38[0m] (step=0014200) Train Loss: 0.1442, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:46:38[0m] (step=0014300) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:47:39[0m] (step=0014400) Train Loss: 0.1442, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:48:39[0m] (step=0014500) Train Loss: 0.1469, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:49:40[0m] (step=0014600) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:50:40[0m] (step=0014700) Train Loss: 0.1429, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:51:41[0m] (step=0014800) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:52:41[0m] (step=0014900) Train Loss: 0.1458, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:53:42[0m] (step=0015000) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:53:49[0m] Beginning epoch 3...
+[[34m2024-09-24 20:54:43[0m] (step=0015100) Train Loss: 0.1447, Train Steps/Sec: 1.62
+[[34m2024-09-24 20:55:45[0m] (step=0015200) Train Loss: 0.1433, Train Steps/Sec: 1.62
+[[34m2024-09-24 20:56:46[0m] (step=0015300) Train Loss: 0.1452, Train Steps/Sec: 1.64
+[[34m2024-09-24 20:57:47[0m] (step=0015400) Train Loss: 0.1435, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:58:47[0m] (step=0015500) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-24 20:59:48[0m] (step=0015600) Train Loss: 0.1457, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:00:48[0m] (step=0015700) Train Loss: 0.1442, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:01:49[0m] (step=0015800) Train Loss: 0.1451, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:02:49[0m] (step=0015900) Train Loss: 0.1459, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:03:50[0m] (step=0016000) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:04:51[0m] (step=0016100) Train Loss: 0.1440, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:05:51[0m] (step=0016200) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:06:52[0m] (step=0016300) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:07:52[0m] (step=0016400) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:08:53[0m] (step=0016500) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:09:54[0m] (step=0016600) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:10:54[0m] (step=0016700) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:11:55[0m] (step=0016800) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:12:55[0m] (step=0016900) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:13:56[0m] (step=0017000) Train Loss: 0.1471, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:14:56[0m] (step=0017100) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:15:57[0m] (step=0017200) Train Loss: 0.1434, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:16:58[0m] (step=0017300) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:17:58[0m] (step=0017400) Train Loss: 0.1470, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:18:59[0m] (step=0017500) Train Loss: 0.1440, Train Steps/Sec: 1.63
+[[34m2024-09-24 21:20:01[0m] (step=0017600) Train Loss: 0.1445, Train Steps/Sec: 1.62
+[[34m2024-09-24 21:21:01[0m] (step=0017700) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:22:02[0m] (step=0017800) Train Loss: 0.1430, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:23:03[0m] (step=0017900) Train Loss: 0.1441, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:24:03[0m] (step=0018000) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:25:04[0m] (step=0018100) Train Loss: 0.1427, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:26:04[0m] (step=0018200) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:27:05[0m] (step=0018300) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:28:05[0m] (step=0018400) Train Loss: 0.1468, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:29:06[0m] (step=0018500) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:30:06[0m] (step=0018600) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:31:07[0m] (step=0018700) Train Loss: 0.1439, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:32:08[0m] (step=0018800) Train Loss: 0.1475, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:33:08[0m] (step=0018900) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:34:09[0m] (step=0019000) Train Loss: 0.1448, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:35:09[0m] (step=0019100) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:36:10[0m] (step=0019200) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:37:10[0m] (step=0019300) Train Loss: 0.1434, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:38:11[0m] (step=0019400) Train Loss: 0.1466, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:39:11[0m] (step=0019500) Train Loss: 0.1474, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:40:12[0m] (step=0019600) Train Loss: 0.1432, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:41:12[0m] (step=0019700) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:42:13[0m] (step=0019800) Train Loss: 0.1431, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:43:15[0m] (step=0019900) Train Loss: 0.1449, Train Steps/Sec: 1.62
+[[34m2024-09-24 21:44:15[0m] (step=0020000) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:44:25[0m] Beginning epoch 4...
+[[34m2024-09-24 21:45:17[0m] (step=0020100) Train Loss: 0.1425, Train Steps/Sec: 1.62
+[[34m2024-09-24 21:46:18[0m] (step=0020200) Train Loss: 0.1437, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:47:18[0m] (step=0020300) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:48:19[0m] (step=0020400) Train Loss: 0.1435, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:49:19[0m] (step=0020500) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:50:20[0m] (step=0020600) Train Loss: 0.1432, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:51:20[0m] (step=0020700) Train Loss: 0.1468, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:52:21[0m] (step=0020800) Train Loss: 0.1450, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:53:21[0m] (step=0020900) Train Loss: 0.1433, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:54:22[0m] (step=0021000) Train Loss: 0.1428, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:55:22[0m] (step=0021100) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:56:23[0m] (step=0021200) Train Loss: 0.1451, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:57:23[0m] (step=0021300) Train Loss: 0.1457, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:58:24[0m] (step=0021400) Train Loss: 0.1429, Train Steps/Sec: 1.65
+[[34m2024-09-24 21:59:24[0m] (step=0021500) Train Loss: 0.1450, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:00:25[0m] (step=0021600) Train Loss: 0.1457, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:01:25[0m] (step=0021700) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:02:26[0m] (step=0021800) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:03:26[0m] (step=0021900) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:04:27[0m] (step=0022000) Train Loss: 0.1438, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:05:27[0m] (step=0022100) Train Loss: 0.1422, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:06:29[0m] (step=0022200) Train Loss: 0.1445, Train Steps/Sec: 1.61
+[[34m2024-09-24 22:07:30[0m] (step=0022300) Train Loss: 0.1456, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:08:30[0m] (step=0022400) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:09:31[0m] (step=0022500) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:10:32[0m] (step=0022600) Train Loss: 0.1458, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:11:32[0m] (step=0022700) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:12:33[0m] (step=0022800) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:13:33[0m] (step=0022900) Train Loss: 0.1439, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:14:34[0m] (step=0023000) Train Loss: 0.1416, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:15:34[0m] (step=0023100) Train Loss: 0.1457, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:16:35[0m] (step=0023200) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:17:35[0m] (step=0023300) Train Loss: 0.1481, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:18:36[0m] (step=0023400) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:19:36[0m] (step=0023500) Train Loss: 0.1473, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:20:37[0m] (step=0023600) Train Loss: 0.1433, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:21:37[0m] (step=0023700) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:22:38[0m] (step=0023800) Train Loss: 0.1430, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:23:38[0m] (step=0023900) Train Loss: 0.1424, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:24:39[0m] (step=0024000) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:25:39[0m] (step=0024100) Train Loss: 0.1439, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:26:40[0m] (step=0024200) Train Loss: 0.1469, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:27:40[0m] (step=0024300) Train Loss: 0.1439, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:28:41[0m] (step=0024400) Train Loss: 0.1437, Train Steps/Sec: 1.66
+[[34m2024-09-24 22:29:43[0m] (step=0024500) Train Loss: 0.1436, Train Steps/Sec: 1.61
+[[34m2024-09-24 22:30:43[0m] (step=0024600) Train Loss: 0.1440, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:31:44[0m] (step=0024700) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:32:44[0m] (step=0024800) Train Loss: 0.1459, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:33:45[0m] (step=0024900) Train Loss: 0.1421, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:34:45[0m] (step=0025000) Train Loss: 0.1451, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:34:58[0m] Beginning epoch 5...
+[[34m2024-09-24 22:35:47[0m] (step=0025100) Train Loss: 0.1453, Train Steps/Sec: 1.61
+[[34m2024-09-24 22:36:48[0m] (step=0025200) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:37:48[0m] (step=0025300) Train Loss: 0.1458, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:38:49[0m] (step=0025400) Train Loss: 0.1450, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:39:49[0m] (step=0025500) Train Loss: 0.1434, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:40:50[0m] (step=0025600) Train Loss: 0.1425, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:41:51[0m] (step=0025700) Train Loss: 0.1403, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:42:51[0m] (step=0025800) Train Loss: 0.1458, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:43:52[0m] (step=0025900) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:44:52[0m] (step=0026000) Train Loss: 0.1488, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:45:53[0m] (step=0026100) Train Loss: 0.1439, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:46:53[0m] (step=0026200) Train Loss: 0.1459, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:47:54[0m] (step=0026300) Train Loss: 0.1462, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:48:54[0m] (step=0026400) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:49:55[0m] (step=0026500) Train Loss: 0.1442, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:50:55[0m] (step=0026600) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:51:56[0m] (step=0026700) Train Loss: 0.1440, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:52:58[0m] (step=0026800) Train Loss: 0.1434, Train Steps/Sec: 1.61
+[[34m2024-09-24 22:53:59[0m] (step=0026900) Train Loss: 0.1442, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:54:59[0m] (step=0027000) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:56:00[0m] (step=0027100) Train Loss: 0.1438, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:57:00[0m] (step=0027200) Train Loss: 0.1409, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:58:01[0m] (step=0027300) Train Loss: 0.1459, Train Steps/Sec: 1.65
+[[34m2024-09-24 22:59:01[0m] (step=0027400) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:00:02[0m] (step=0027500) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:01:02[0m] (step=0027600) Train Loss: 0.1489, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:02:03[0m] (step=0027700) Train Loss: 0.1458, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:03:04[0m] (step=0027800) Train Loss: 0.1413, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:04:04[0m] (step=0027900) Train Loss: 0.1442, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:05:05[0m] (step=0028000) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:06:05[0m] (step=0028100) Train Loss: 0.1435, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:07:06[0m] (step=0028200) Train Loss: 0.1473, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:08:07[0m] (step=0028300) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:09:07[0m] (step=0028400) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:10:08[0m] (step=0028500) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:11:08[0m] (step=0028600) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:12:09[0m] (step=0028700) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:13:09[0m] (step=0028800) Train Loss: 0.1464, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:14:10[0m] (step=0028900) Train Loss: 0.1470, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:15:10[0m] (step=0029000) Train Loss: 0.1473, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:16:12[0m] (step=0029100) Train Loss: 0.1450, Train Steps/Sec: 1.62
+[[34m2024-09-24 23:17:13[0m] (step=0029200) Train Loss: 0.1438, Train Steps/Sec: 1.64
+[[34m2024-09-24 23:18:13[0m] (step=0029300) Train Loss: 0.1460, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:19:14[0m] (step=0029400) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:20:15[0m] (step=0029500) Train Loss: 0.1405, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:21:15[0m] (step=0029600) Train Loss: 0.1426, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:22:16[0m] (step=0029700) Train Loss: 0.1432, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:23:16[0m] (step=0029800) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:24:17[0m] (step=0029900) Train Loss: 0.1429, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:25:17[0m] (step=0030000) Train Loss: 0.1450, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:25:32[0m] Beginning epoch 6...
+[[34m2024-09-24 23:26:19[0m] (step=0030100) Train Loss: 0.1426, Train Steps/Sec: 1.61
+[[34m2024-09-24 23:27:20[0m] (step=0030200) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:28:20[0m] (step=0030300) Train Loss: 0.1470, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:29:21[0m] (step=0030400) Train Loss: 0.1469, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:30:21[0m] (step=0030500) Train Loss: 0.1441, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:31:22[0m] (step=0030600) Train Loss: 0.1467, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:32:22[0m] (step=0030700) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:33:23[0m] (step=0030800) Train Loss: 0.1467, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:34:24[0m] (step=0030900) Train Loss: 0.1434, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:35:24[0m] (step=0031000) Train Loss: 0.1427, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:36:25[0m] (step=0031100) Train Loss: 0.1462, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:37:25[0m] (step=0031200) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:38:26[0m] (step=0031300) Train Loss: 0.1438, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:39:27[0m] (step=0031400) Train Loss: 0.1453, Train Steps/Sec: 1.64
+[[34m2024-09-24 23:40:28[0m] (step=0031500) Train Loss: 0.1443, Train Steps/Sec: 1.63
+[[34m2024-09-24 23:41:29[0m] (step=0031600) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:42:30[0m] (step=0031700) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:43:30[0m] (step=0031800) Train Loss: 0.1431, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:44:31[0m] (step=0031900) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:45:31[0m] (step=0032000) Train Loss: 0.1440, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:46:32[0m] (step=0032100) Train Loss: 0.1421, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:47:32[0m] (step=0032200) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:48:33[0m] (step=0032300) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:49:34[0m] (step=0032400) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:50:34[0m] (step=0032500) Train Loss: 0.1457, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:51:35[0m] (step=0032600) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:52:35[0m] (step=0032700) Train Loss: 0.1439, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:53:36[0m] (step=0032800) Train Loss: 0.1462, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:54:36[0m] (step=0032900) Train Loss: 0.1451, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:55:37[0m] (step=0033000) Train Loss: 0.1460, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:56:38[0m] (step=0033100) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:57:38[0m] (step=0033200) Train Loss: 0.1405, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:58:39[0m] (step=0033300) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-24 23:59:39[0m] (step=0033400) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:00:40[0m] (step=0033500) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:01:40[0m] (step=0033600) Train Loss: 0.1433, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:02:41[0m] (step=0033700) Train Loss: 0.1445, Train Steps/Sec: 1.64
+[[34m2024-09-25 00:03:43[0m] (step=0033800) Train Loss: 0.1482, Train Steps/Sec: 1.62
+[[34m2024-09-25 00:04:43[0m] (step=0033900) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:05:44[0m] (step=0034000) Train Loss: 0.1434, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:06:45[0m] (step=0034100) Train Loss: 0.1409, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:07:45[0m] (step=0034200) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:08:46[0m] (step=0034300) Train Loss: 0.1481, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:09:46[0m] (step=0034400) Train Loss: 0.1451, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:10:47[0m] (step=0034500) Train Loss: 0.1441, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:11:47[0m] (step=0034600) Train Loss: 0.1450, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:12:48[0m] (step=0034700) Train Loss: 0.1438, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:13:48[0m] (step=0034800) Train Loss: 0.1457, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:14:48[0m] (step=0034900) Train Loss: 0.1479, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:15:49[0m] (step=0035000) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:16:06[0m] Beginning epoch 7...
+[[34m2024-09-25 00:16:51[0m] (step=0035100) Train Loss: 0.1446, Train Steps/Sec: 1.62
+[[34m2024-09-25 00:17:51[0m] (step=0035200) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:18:52[0m] (step=0035300) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:19:52[0m] (step=0035400) Train Loss: 0.1469, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:20:53[0m] (step=0035500) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:21:53[0m] (step=0035600) Train Loss: 0.1460, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:22:54[0m] (step=0035700) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:23:54[0m] (step=0035800) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:24:55[0m] (step=0035900) Train Loss: 0.1421, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:25:55[0m] (step=0036000) Train Loss: 0.1479, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:26:57[0m] (step=0036100) Train Loss: 0.1460, Train Steps/Sec: 1.61
+[[34m2024-09-25 00:27:58[0m] (step=0036200) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:28:58[0m] (step=0036300) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:29:59[0m] (step=0036400) Train Loss: 0.1427, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:30:59[0m] (step=0036500) Train Loss: 0.1437, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:32:00[0m] (step=0036600) Train Loss: 0.1462, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:33:00[0m] (step=0036700) Train Loss: 0.1459, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:34:01[0m] (step=0036800) Train Loss: 0.1475, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:35:01[0m] (step=0036900) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:36:02[0m] (step=0037000) Train Loss: 0.1439, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:37:02[0m] (step=0037100) Train Loss: 0.1425, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:38:03[0m] (step=0037200) Train Loss: 0.1442, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:39:03[0m] (step=0037300) Train Loss: 0.1433, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:40:04[0m] (step=0037400) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:41:04[0m] (step=0037500) Train Loss: 0.1441, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:42:05[0m] (step=0037600) Train Loss: 0.1448, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:43:05[0m] (step=0037700) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:44:06[0m] (step=0037800) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:45:06[0m] (step=0037900) Train Loss: 0.1459, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:46:07[0m] (step=0038000) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:47:07[0m] (step=0038100) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:48:08[0m] (step=0038200) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:49:08[0m] (step=0038300) Train Loss: 0.1431, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:50:10[0m] (step=0038400) Train Loss: 0.1453, Train Steps/Sec: 1.62
+[[34m2024-09-25 00:51:11[0m] (step=0038500) Train Loss: 0.1450, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:52:11[0m] (step=0038600) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:53:12[0m] (step=0038700) Train Loss: 0.1474, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:54:13[0m] (step=0038800) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:55:13[0m] (step=0038900) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:56:14[0m] (step=0039000) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:57:14[0m] (step=0039100) Train Loss: 0.1473, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:58:15[0m] (step=0039200) Train Loss: 0.1437, Train Steps/Sec: 1.65
+[[34m2024-09-25 00:59:15[0m] (step=0039300) Train Loss: 0.1438, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:00:16[0m] (step=0039400) Train Loss: 0.1439, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:01:17[0m] (step=0039500) Train Loss: 0.1444, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:02:17[0m] (step=0039600) Train Loss: 0.1456, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:03:18[0m] (step=0039700) Train Loss: 0.1442, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:04:18[0m] (step=0039800) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:05:19[0m] (step=0039900) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:06:19[0m] (step=0040000) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:06:39[0m] Beginning epoch 8...
+[[34m2024-09-25 01:07:21[0m] (step=0040100) Train Loss: 0.1458, Train Steps/Sec: 1.62
+[[34m2024-09-25 01:08:22[0m] (step=0040200) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:09:22[0m] (step=0040300) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:10:23[0m] (step=0040400) Train Loss: 0.1457, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:11:23[0m] (step=0040500) Train Loss: 0.1426, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:12:24[0m] (step=0040600) Train Loss: 0.1486, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:13:26[0m] (step=0040700) Train Loss: 0.1441, Train Steps/Sec: 1.61
+[[34m2024-09-25 01:14:26[0m] (step=0040800) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:15:27[0m] (step=0040900) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:16:28[0m] (step=0041000) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:17:28[0m] (step=0041100) Train Loss: 0.1413, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:18:29[0m] (step=0041200) Train Loss: 0.1408, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:19:29[0m] (step=0041300) Train Loss: 0.1451, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:20:30[0m] (step=0041400) Train Loss: 0.1428, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:21:30[0m] (step=0041500) Train Loss: 0.1441, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:22:31[0m] (step=0041600) Train Loss: 0.1433, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:23:31[0m] (step=0041700) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:24:32[0m] (step=0041800) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:25:32[0m] (step=0041900) Train Loss: 0.1432, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:26:33[0m] (step=0042000) Train Loss: 0.1442, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:27:33[0m] (step=0042100) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:28:34[0m] (step=0042200) Train Loss: 0.1459, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:29:34[0m] (step=0042300) Train Loss: 0.1460, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:30:35[0m] (step=0042400) Train Loss: 0.1445, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:31:35[0m] (step=0042500) Train Loss: 0.1461, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:32:36[0m] (step=0042600) Train Loss: 0.1448, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:33:36[0m] (step=0042700) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:34:37[0m] (step=0042800) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:35:37[0m] (step=0042900) Train Loss: 0.1451, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:36:39[0m] (step=0043000) Train Loss: 0.1433, Train Steps/Sec: 1.62
+[[34m2024-09-25 01:37:40[0m] (step=0043100) Train Loss: 0.1437, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:38:40[0m] (step=0043200) Train Loss: 0.1464, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:39:41[0m] (step=0043300) Train Loss: 0.1479, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:40:41[0m] (step=0043400) Train Loss: 0.1456, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:41:42[0m] (step=0043500) Train Loss: 0.1458, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:42:42[0m] (step=0043600) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:43:43[0m] (step=0043700) Train Loss: 0.1472, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:44:43[0m] (step=0043800) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:45:44[0m] (step=0043900) Train Loss: 0.1435, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:46:44[0m] (step=0044000) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:47:45[0m] (step=0044100) Train Loss: 0.1452, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:48:45[0m] (step=0044200) Train Loss: 0.1450, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:49:46[0m] (step=0044300) Train Loss: 0.1463, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:50:46[0m] (step=0044400) Train Loss: 0.1439, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:51:47[0m] (step=0044500) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:52:47[0m] (step=0044600) Train Loss: 0.1433, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:53:48[0m] (step=0044700) Train Loss: 0.1431, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:54:48[0m] (step=0044800) Train Loss: 0.1459, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:55:49[0m] (step=0044900) Train Loss: 0.1422, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:56:49[0m] (step=0045000) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:57:12[0m] Beginning epoch 9...
+[[34m2024-09-25 01:57:51[0m] (step=0045100) Train Loss: 0.1443, Train Steps/Sec: 1.62
+[[34m2024-09-25 01:58:52[0m] (step=0045200) Train Loss: 0.1448, Train Steps/Sec: 1.65
+[[34m2024-09-25 01:59:53[0m] (step=0045300) Train Loss: 0.1431, Train Steps/Sec: 1.64
+[[34m2024-09-25 02:00:54[0m] (step=0045400) Train Loss: 0.1437, Train Steps/Sec: 1.62
+[[34m2024-09-25 02:01:55[0m] (step=0045500) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:02:56[0m] (step=0045600) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:03:56[0m] (step=0045700) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:04:57[0m] (step=0045800) Train Loss: 0.1435, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:05:57[0m] (step=0045900) Train Loss: 0.1412, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:06:58[0m] (step=0046000) Train Loss: 0.1457, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:07:58[0m] (step=0046100) Train Loss: 0.1440, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:08:59[0m] (step=0046200) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:09:59[0m] (step=0046300) Train Loss: 0.1470, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:11:00[0m] (step=0046400) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:12:00[0m] (step=0046500) Train Loss: 0.1413, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:13:01[0m] (step=0046600) Train Loss: 0.1423, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:14:01[0m] (step=0046700) Train Loss: 0.1438, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:15:02[0m] (step=0046800) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:16:03[0m] (step=0046900) Train Loss: 0.1446, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:17:03[0m] (step=0047000) Train Loss: 0.1427, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:18:04[0m] (step=0047100) Train Loss: 0.1454, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:19:04[0m] (step=0047200) Train Loss: 0.1430, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:20:05[0m] (step=0047300) Train Loss: 0.1428, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:21:05[0m] (step=0047400) Train Loss: 0.1459, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:22:06[0m] (step=0047500) Train Loss: 0.1440, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:23:07[0m] (step=0047600) Train Loss: 0.1455, Train Steps/Sec: 1.64
+[[34m2024-09-25 02:24:08[0m] (step=0047700) Train Loss: 0.1455, Train Steps/Sec: 1.62
+[[34m2024-09-25 02:25:09[0m] (step=0047800) Train Loss: 0.1466, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:26:09[0m] (step=0047900) Train Loss: 0.1435, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:27:10[0m] (step=0048000) Train Loss: 0.1465, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:28:10[0m] (step=0048100) Train Loss: 0.1437, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:29:11[0m] (step=0048200) Train Loss: 0.1438, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:30:11[0m] (step=0048300) Train Loss: 0.1433, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:31:12[0m] (step=0048400) Train Loss: 0.1455, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:32:13[0m] (step=0048500) Train Loss: 0.1433, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:33:13[0m] (step=0048600) Train Loss: 0.1460, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:34:14[0m] (step=0048700) Train Loss: 0.1440, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:35:14[0m] (step=0048800) Train Loss: 0.1449, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:36:15[0m] (step=0048900) Train Loss: 0.1457, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:37:15[0m] (step=0049000) Train Loss: 0.1443, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:38:16[0m] (step=0049100) Train Loss: 0.1447, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:39:16[0m] (step=0049200) Train Loss: 0.1425, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:40:17[0m] (step=0049300) Train Loss: 0.1482, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:41:18[0m] (step=0049400) Train Loss: 0.1453, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:42:18[0m] (step=0049500) Train Loss: 0.1438, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:43:19[0m] (step=0049600) Train Loss: 0.1430, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:44:19[0m] (step=0049700) Train Loss: 0.1441, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:45:20[0m] (step=0049800) Train Loss: 0.1477, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:46:20[0m] (step=0049900) Train Loss: 0.1436, Train Steps/Sec: 1.65
+[[34m2024-09-25 02:47:22[0m] (step=0050000) Train Loss: 0.1436, Train Steps/Sec: 1.62

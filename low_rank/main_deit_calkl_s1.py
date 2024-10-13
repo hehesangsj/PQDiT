@@ -182,7 +182,6 @@ def validate(config, data_loader, model):
             hook_handles.append(m.register_forward_hook(hook.hook))
             module_name.append(n)
 
-
     batch_time = AverageMeter()
     loss_meter = AverageMeter()
     acc1_meter = AverageMeter()

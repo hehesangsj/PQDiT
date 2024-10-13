@@ -1,0 +1,156 @@
+[[34m2024-10-13 00:32:12[0m] Experiment directory created at results/low_rank/002-DiT-XL-2
+[[34m2024-10-13 00:32:22[0m] Dataset contains 1,281,167 images (/mnt/petrelfs/share/images/train)
+[[34m2024-10-13 00:32:35[0m] DiT Parameters: 675,129,632
+[[34m2024-10-13 00:32:35[0m] number of params: 674834720
+[[34m2024-10-13 00:32:36[0m] Test: [0/160145]	Time 1.345 (1.345)	Loss 0.1462 (0.1462)	Mem 16740MB
+[[34m2024-10-13 00:33:17[0m] Test: [100/160145]	Time 0.415 (0.423)	Loss 0.1224 (0.1606)	Mem 18026MB
+[[34m2024-10-13 00:33:59[0m] Test: [200/160145]	Time 0.417 (0.420)	Loss 0.1584 (0.1535)	Mem 18026MB
+[[34m2024-10-13 00:34:41[0m] Test: [300/160145]	Time 0.417 (0.419)	Loss 0.2711 (0.1501)	Mem 18026MB
+[[34m2024-10-13 00:35:22[0m] Test: [400/160145]	Time 0.417 (0.418)	Loss 0.1423 (0.1494)	Mem 18026MB
+[[34m2024-10-13 00:36:04[0m] Test: [500/160145]	Time 0.417 (0.418)	Loss 0.0948 (0.1481)	Mem 18026MB
+[[34m2024-10-13 00:36:45[0m] Test: [600/160145]	Time 0.416 (0.418)	Loss 0.1843 (0.1473)	Mem 18026MB
+[[34m2024-10-13 00:37:27[0m] Test: [700/160145]	Time 0.418 (0.417)	Loss 0.1100 (0.1471)	Mem 18026MB
+[[34m2024-10-13 00:38:09[0m] Test: [800/160145]	Time 0.417 (0.417)	Loss 0.1213 (0.1452)	Mem 18026MB
+[[34m2024-10-13 00:38:50[0m] Test: [900/160145]	Time 0.417 (0.417)	Loss 0.0980 (0.1454)	Mem 18026MB
+[[34m2024-10-13 00:39:32[0m] Test: [1000/160145]	Time 0.417 (0.417)	Loss 0.0943 (0.1455)	Mem 18026MB
+[[34m2024-10-13 00:39:32[0m] Save name: adaln, index: 0
+[[34m2024-10-13 00:39:54[0m] Save name: adaln, index: 1
+[[34m2024-10-13 00:40:15[0m] Save name: adaln, index: 2
+[[34m2024-10-13 00:40:34[0m] Save name: adaln, index: 3
+[[34m2024-10-13 00:40:55[0m] Save name: adaln, index: 4
+[[34m2024-10-13 00:41:17[0m] Save name: adaln, index: 5
+[[34m2024-10-13 00:41:40[0m] Save name: adaln, index: 6
+[[34m2024-10-13 00:42:02[0m] Save name: adaln, index: 7
+[[34m2024-10-13 00:42:25[0m] Save name: adaln, index: 8
+[[34m2024-10-13 00:42:49[0m] Save name: adaln, index: 9
+[[34m2024-10-13 00:43:14[0m] Save name: adaln, index: 10
+[[34m2024-10-13 00:43:38[0m] Save name: adaln, index: 11
+[[34m2024-10-13 00:44:03[0m] Save name: adaln, index: 12
+[[34m2024-10-13 00:44:27[0m] Save name: adaln, index: 13
+[[34m2024-10-13 00:44:52[0m] Save name: adaln, index: 14
+[[34m2024-10-13 00:45:15[0m] Save name: adaln, index: 15
+[[34m2024-10-13 00:45:40[0m] Save name: adaln, index: 16
+[[34m2024-10-13 00:46:03[0m] Save name: adaln, index: 17
+[[34m2024-10-13 00:46:26[0m] Save name: adaln, index: 18
+[[34m2024-10-13 00:46:49[0m] Save name: adaln, index: 19
+[[34m2024-10-13 00:47:12[0m] Save name: adaln, index: 20
+[[34m2024-10-13 00:47:34[0m] Save name: adaln, index: 21
+[[34m2024-10-13 00:47:56[0m] Save name: adaln, index: 22
+[[34m2024-10-13 00:48:17[0m] Save name: adaln, index: 23
+[[34m2024-10-13 00:48:38[0m] Save name: adaln, index: 24
+[[34m2024-10-13 00:48:58[0m] Save name: adaln, index: 25
+[[34m2024-10-13 00:49:17[0m] Save name: adaln, index: 26
+[[34m2024-10-13 00:49:38[0m] Save name: adaln, index: 27
+[[34m2024-10-13 00:50:01[0m] Save name: fc1, index: 0
+[[34m2024-10-13 00:50:09[0m] Save name: fc1, index: 1
+[[34m2024-10-13 00:50:17[0m] Save name: fc1, index: 2
+[[34m2024-10-13 00:50:25[0m] Save name: fc1, index: 3
+[[34m2024-10-13 00:50:33[0m] Save name: fc1, index: 4
+[[34m2024-10-13 00:50:42[0m] Save name: fc1, index: 5
+[[34m2024-10-13 00:50:51[0m] Save name: fc1, index: 6
+[[34m2024-10-13 00:51:00[0m] Save name: fc1, index: 7
+[[34m2024-10-13 00:51:08[0m] Save name: fc1, index: 8
+[[34m2024-10-13 00:51:17[0m] Save name: fc1, index: 9
+[[34m2024-10-13 00:51:25[0m] Save name: fc1, index: 10
+[[34m2024-10-13 00:51:34[0m] Save name: fc1, index: 11
+[[34m2024-10-13 00:51:43[0m] Save name: fc1, index: 12
+[[34m2024-10-13 00:51:51[0m] Save name: fc1, index: 13
+[[34m2024-10-13 00:52:00[0m] Save name: fc1, index: 14
+[[34m2024-10-13 00:52:08[0m] Save name: fc1, index: 15
+[[34m2024-10-13 00:52:16[0m] Save name: fc1, index: 16
+[[34m2024-10-13 00:52:25[0m] Save name: fc1, index: 17
+[[34m2024-10-13 00:52:34[0m] Save name: fc1, index: 18
+[[34m2024-10-13 00:52:43[0m] Save name: fc1, index: 19
+[[34m2024-10-13 00:52:51[0m] Save name: fc1, index: 20
+[[34m2024-10-13 00:53:00[0m] Save name: fc1, index: 21
+[[34m2024-10-13 00:53:08[0m] Save name: fc1, index: 22
+[[34m2024-10-13 00:53:17[0m] Save name: fc1, index: 23
+[[34m2024-10-13 00:53:26[0m] Save name: fc1, index: 24
+[[34m2024-10-13 00:53:35[0m] Save name: fc1, index: 25
+[[34m2024-10-13 00:53:44[0m] Save name: fc1, index: 26
+[[34m2024-10-13 00:53:53[0m] Save name: fc1, index: 27
+[[34m2024-10-13 00:54:01[0m] Save name: fc2, index: 0
+[[34m2024-10-13 00:54:01[0m] Save name: fc2, index: 1
+[[34m2024-10-13 00:54:02[0m] Save name: fc2, index: 2
+[[34m2024-10-13 00:54:02[0m] Save name: fc2, index: 3
+[[34m2024-10-13 00:54:02[0m] Save name: fc2, index: 4
+[[34m2024-10-13 00:54:02[0m] Save name: fc2, index: 5
+[[34m2024-10-13 00:54:02[0m] Save name: fc2, index: 6
+[[34m2024-10-13 00:54:03[0m] Save name: fc2, index: 7
+[[34m2024-10-13 00:54:03[0m] Save name: fc2, index: 8
+[[34m2024-10-13 00:54:03[0m] Save name: fc2, index: 9
+[[34m2024-10-13 00:54:03[0m] Save name: fc2, index: 10
+[[34m2024-10-13 00:54:03[0m] Save name: fc2, index: 11
+[[34m2024-10-13 00:54:03[0m] Save name: fc2, index: 12
+[[34m2024-10-13 00:54:03[0m] Save name: fc2, index: 13
+[[34m2024-10-13 00:54:03[0m] Save name: fc2, index: 14
+[[34m2024-10-13 00:54:03[0m] Save name: fc2, index: 15
+[[34m2024-10-13 00:54:04[0m] Save name: fc2, index: 16
+[[34m2024-10-13 00:54:04[0m] Save name: fc2, index: 17
+[[34m2024-10-13 00:54:04[0m] Save name: fc2, index: 18
+[[34m2024-10-13 00:54:04[0m] Save name: fc2, index: 19
+[[34m2024-10-13 00:54:04[0m] Save name: fc2, index: 20
+[[34m2024-10-13 00:54:04[0m] Save name: fc2, index: 21
+[[34m2024-10-13 00:54:04[0m] Save name: fc2, index: 22
+[[34m2024-10-13 00:54:04[0m] Save name: fc2, index: 23
+[[34m2024-10-13 00:54:05[0m] Save name: fc2, index: 24
+[[34m2024-10-13 00:54:05[0m] Save name: fc2, index: 25
+[[34m2024-10-13 00:54:05[0m] Save name: fc2, index: 26
+[[34m2024-10-13 00:54:05[0m] Save name: fc2, index: 27
+[[34m2024-10-13 00:54:05[0m] Save name: qkv, index: 0
+[[34m2024-10-13 00:54:09[0m] Save name: qkv, index: 1
+[[34m2024-10-13 00:54:13[0m] Save name: qkv, index: 2
+[[34m2024-10-13 00:54:16[0m] Save name: qkv, index: 3
+[[34m2024-10-13 00:54:20[0m] Save name: qkv, index: 4
+[[34m2024-10-13 00:54:24[0m] Save name: qkv, index: 5
+[[34m2024-10-13 00:54:27[0m] Save name: qkv, index: 6
+[[34m2024-10-13 00:54:31[0m] Save name: qkv, index: 7
+[[34m2024-10-13 00:54:34[0m] Save name: qkv, index: 8
+[[34m2024-10-13 00:54:38[0m] Save name: qkv, index: 9
+[[34m2024-10-13 00:54:41[0m] Save name: qkv, index: 10
+[[34m2024-10-13 00:54:45[0m] Save name: qkv, index: 11
+[[34m2024-10-13 00:54:48[0m] Save name: qkv, index: 12
+[[34m2024-10-13 00:54:51[0m] Save name: qkv, index: 13
+[[34m2024-10-13 00:54:55[0m] Save name: qkv, index: 14
+[[34m2024-10-13 00:54:58[0m] Save name: qkv, index: 15
+[[34m2024-10-13 00:55:02[0m] Save name: qkv, index: 16
+[[34m2024-10-13 00:55:05[0m] Save name: qkv, index: 17
+[[34m2024-10-13 00:55:09[0m] Save name: qkv, index: 18
+[[34m2024-10-13 00:55:12[0m] Save name: qkv, index: 19
+[[34m2024-10-13 00:55:16[0m] Save name: qkv, index: 20
+[[34m2024-10-13 00:55:20[0m] Save name: qkv, index: 21
+[[34m2024-10-13 00:55:23[0m] Save name: qkv, index: 22
+[[34m2024-10-13 00:55:27[0m] Save name: qkv, index: 23
+[[34m2024-10-13 00:55:31[0m] Save name: qkv, index: 24
+[[34m2024-10-13 00:55:35[0m] Save name: qkv, index: 25
+[[34m2024-10-13 00:55:38[0m] Save name: qkv, index: 26
+[[34m2024-10-13 00:55:42[0m] Save name: qkv, index: 27
+[[34m2024-10-13 00:55:45[0m] Save name: proj, index: 0
+[[34m2024-10-13 00:55:45[0m] Save name: proj, index: 1
+[[34m2024-10-13 00:55:45[0m] Save name: proj, index: 2
+[[34m2024-10-13 00:55:46[0m] Save name: proj, index: 3
+[[34m2024-10-13 00:55:46[0m] Save name: proj, index: 4
+[[34m2024-10-13 00:55:46[0m] Save name: proj, index: 5
+[[34m2024-10-13 00:55:46[0m] Save name: proj, index: 6
+[[34m2024-10-13 00:55:46[0m] Save name: proj, index: 7
+[[34m2024-10-13 00:55:46[0m] Save name: proj, index: 8
+[[34m2024-10-13 00:55:47[0m] Save name: proj, index: 9
+[[34m2024-10-13 00:55:47[0m] Save name: proj, index: 10
+[[34m2024-10-13 00:55:47[0m] Save name: proj, index: 11
+[[34m2024-10-13 00:55:47[0m] Save name: proj, index: 12
+[[34m2024-10-13 00:55:47[0m] Save name: proj, index: 13
+[[34m2024-10-13 00:55:47[0m] Save name: proj, index: 14
+[[34m2024-10-13 00:55:47[0m] Save name: proj, index: 15
+[[34m2024-10-13 00:55:47[0m] Save name: proj, index: 16
+[[34m2024-10-13 00:55:48[0m] Save name: proj, index: 17
+[[34m2024-10-13 00:55:48[0m] Save name: proj, index: 18
+[[34m2024-10-13 00:55:48[0m] Save name: proj, index: 19
+[[34m2024-10-13 00:55:48[0m] Save name: proj, index: 20
+[[34m2024-10-13 00:55:48[0m] Save name: proj, index: 21
+[[34m2024-10-13 00:55:48[0m] Save name: proj, index: 22
+[[34m2024-10-13 00:55:48[0m] Save name: proj, index: 23
+[[34m2024-10-13 00:55:49[0m] Save name: proj, index: 24
+[[34m2024-10-13 00:55:49[0m] Save name: proj, index: 25
+[[34m2024-10-13 00:55:49[0m] Save name: proj, index: 26
+[[34m2024-10-13 00:55:49[0m] Save name: proj, index: 27
+[[34m2024-10-13 00:55:49[0m] Loss on dataset: 0.1455

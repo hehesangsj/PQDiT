@@ -53,6 +53,7 @@ class attn_uv(Attention):
         else:
             self.qkv_u = nn.Linear(dim, qkv_len, bias=qkv_bias)
             self.qkv_v = nn.Linear(qkv_len, dim * 3)
+            del self.qkv
 
         self.proj_use_uv = proj_use_uv
         if not self.proj_use_uv:
@@ -60,6 +61,7 @@ class attn_uv(Attention):
         else:
             self.proj_u = nn.Linear(dim, proj_len)
             self.proj_v = nn.Linear(proj_len, dim)
+            del self.proj
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         B, N, C = x.shape
@@ -87,7 +89,7 @@ class attn_uv(Attention):
         if not self.proj_use_uv:
             x = self.proj(x)
         else:
-            x = self.proj_v(self.proj_y(x))
+            x = self.proj_v(self.proj_u(x))
         x = self.proj_drop(x)
         return x
 
@@ -154,7 +156,7 @@ class DiTBlock_uv(DiTBlock):
                  qkv_use_uv=True, proj_use_uv=True, fc1_use_uv=True, fc2_use_uv=True, adaln_use_uv=True, 
                  qkv_len=0, proj_len=0,  fc1_len=0, fc2_len=0, adaln_len=0,
                  **block_kwargs):
-        super(DiTBlock_uv, self).__init__(hidden_size, num_heads, mlp_ratio, block_kwargs)
+        super(DiTBlock_uv, self).__init__(hidden_size, num_heads, mlp_ratio, **block_kwargs)
         self.attn = attn_uv(
             hidden_size, num_heads=num_heads, qkv_bias=True,
             qkv_use_uv=qkv_use_uv, proj_use_uv=proj_use_uv,
@@ -197,7 +199,7 @@ class DiT_uv(DiT):
         qkv_use_uv=[], proj_use_uv=[], fc1_use_uv=[], fc2_use_uv=[], adaln_use_uv=[],
         qkv_len=[], proj_len=[], fc1_len=[], fc2_len=[], adaln_len=[]
     ):
-        super(DiT_uv, self).__init__(input_size=32, patch_size=2, in_channels=4, hidden_size=1152, depth=28, num_heads=16, mlp_ratio=4.0, class_dropout_prob=0.1, num_classes=1000,learn_sigma=True)
+        super(DiT_uv, self).__init__(input_size=32, patch_size=2, in_channels=4, hidden_size=1152, depth=28, num_heads=16, mlp_ratio=4.0, class_dropout_prob=0.1, num_classes=1000, learn_sigma=True)
 
         self.blocks = nn.ModuleList([
             DiTBlock_uv(

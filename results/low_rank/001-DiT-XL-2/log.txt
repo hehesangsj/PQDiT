@@ -1,0 +1,228 @@
+[[34m2024-10-12 17:49:33[0m] Experiment directory created at results/low_rank/003-DiT-XL-2
+[[34m2024-10-12 17:49:33[0m] Dataset contains 2,000 images (./sampled_images)
+[[34m2024-10-12 17:49:55[0m] number of params: 670263712
+[[34m2024-10-12 17:49:55[0m] blocks.0.mlp.fc1_v.weight
+[[34m2024-10-12 17:49:56[0m] <All keys matched successfully>
+[[34m2024-10-12 17:50:39[0m] Test: [249/250]	Time 0.167 (0.171)	Loss 0.0877 (0.1486)	Mem 6754MB
+[[34m2024-10-12 17:50:57[0m] number of params: 665692704
+[[34m2024-10-12 17:50:58[0m] blocks.1.mlp.fc1_v.weight
+[[34m2024-10-12 17:50:59[0m] <All keys matched successfully>
+[[34m2024-10-12 17:51:42[0m] Test: [249/250]	Time 0.167 (0.168)	Loss 0.0787 (0.1459)	Mem 6754MB
+[[34m2024-10-12 17:52:01[0m] number of params: 661121696
+[[34m2024-10-12 17:52:01[0m] blocks.2.mlp.fc1_v.weight
+[[34m2024-10-12 17:52:03[0m] <All keys matched successfully>
+[[34m2024-10-12 17:52:45[0m] Test: [249/250]	Time 0.165 (0.168)	Loss 0.1356 (0.1420)	Mem 6754MB
+[[34m2024-10-12 17:53:03[0m] number of params: 656550688
+[[34m2024-10-12 17:53:04[0m] blocks.3.mlp.fc1_v.weight
+[[34m2024-10-12 17:53:05[0m] <All keys matched successfully>
+[[34m2024-10-12 17:53:47[0m] Test: [249/250]	Time 0.164 (0.167)	Loss 0.2776 (0.1450)	Mem 6754MB
+[[34m2024-10-12 17:54:07[0m] number of params: 651979680
+[[34m2024-10-12 17:54:07[0m] blocks.4.mlp.fc1_v.weight
+[[34m2024-10-12 17:54:09[0m] <All keys matched successfully>
+[[34m2024-10-12 17:54:51[0m] Test: [249/250]	Time 0.164 (0.166)	Loss 0.0880 (0.1317)	Mem 6754MB
+[[34m2024-10-12 17:55:10[0m] number of params: 647408672
+[[34m2024-10-12 17:55:11[0m] blocks.5.mlp.fc1_v.weight
+[[34m2024-10-12 17:55:13[0m] <All keys matched successfully>
+[[34m2024-10-12 17:55:55[0m] Test: [249/250]	Time 0.162 (0.166)	Loss 0.0913 (0.1369)	Mem 6754MB
+[[34m2024-10-12 17:56:13[0m] number of params: 642837664
+[[34m2024-10-12 17:56:13[0m] blocks.6.mlp.fc1_v.weight
+[[34m2024-10-12 17:56:15[0m] <All keys matched successfully>
+[[34m2024-10-12 17:56:56[0m] Test: [249/250]	Time 0.162 (0.164)	Loss 0.1070 (0.1405)	Mem 6754MB
+[[34m2024-10-12 17:57:15[0m] number of params: 638266656
+[[34m2024-10-12 17:57:15[0m] blocks.7.mlp.fc1_v.weight
+[[34m2024-10-12 17:57:17[0m] <All keys matched successfully>
+[[34m2024-10-12 17:57:58[0m] Test: [249/250]	Time 0.161 (0.163)	Loss 0.0784 (0.1432)	Mem 6754MB
+[[34m2024-10-12 17:58:16[0m] number of params: 633695648
+[[34m2024-10-12 17:58:16[0m] blocks.8.mlp.fc1_v.weight
+[[34m2024-10-12 17:58:18[0m] <All keys matched successfully>
+[[34m2024-10-12 17:58:59[0m] Test: [249/250]	Time 0.159 (0.162)	Loss 0.0709 (0.1325)	Mem 6754MB
+[[34m2024-10-12 17:59:18[0m] number of params: 629124640
+[[34m2024-10-12 17:59:19[0m] blocks.9.mlp.fc1_v.weight
+[[34m2024-10-12 17:59:20[0m] <All keys matched successfully>
+[[34m2024-10-12 18:00:01[0m] Test: [249/250]	Time 0.159 (0.161)	Loss 0.0797 (0.1397)	Mem 6754MB
+[[34m2024-10-12 18:00:19[0m] number of params: 624553632
+[[34m2024-10-12 18:00:19[0m] blocks.10.mlp.fc1_v.weight
+[[34m2024-10-12 18:00:21[0m] <All keys matched successfully>
+[[34m2024-10-12 18:01:01[0m] Test: [249/250]	Time 0.158 (0.160)	Loss 0.1095 (0.1378)	Mem 6754MB
+[[34m2024-10-12 18:01:20[0m] number of params: 619982624
+[[34m2024-10-12 18:01:20[0m] blocks.11.mlp.fc1_v.weight
+[[34m2024-10-12 18:01:21[0m] <All keys matched successfully>
+[[34m2024-10-12 18:02:01[0m] Test: [249/250]	Time 0.157 (0.159)	Loss 0.1986 (0.1436)	Mem 6754MB
+[[34m2024-10-12 18:02:20[0m] number of params: 615411616
+[[34m2024-10-12 18:02:20[0m] blocks.12.mlp.fc1_v.weight
+[[34m2024-10-12 18:02:22[0m] <All keys matched successfully>
+[[34m2024-10-12 18:03:02[0m] Test: [249/250]	Time 0.156 (0.158)	Loss 0.1457 (0.1433)	Mem 6754MB
+[[34m2024-10-12 18:03:21[0m] number of params: 610840608
+[[34m2024-10-12 18:03:21[0m] blocks.13.mlp.fc1_v.weight
+[[34m2024-10-12 18:03:23[0m] <All keys matched successfully>
+[[34m2024-10-12 18:04:02[0m] Test: [249/250]	Time 0.154 (0.157)	Loss 0.1646 (0.1469)	Mem 6754MB
+[[34m2024-10-12 18:04:21[0m] number of params: 606269600
+[[34m2024-10-12 18:04:21[0m] blocks.14.mlp.fc1_v.weight
+[[34m2024-10-12 18:04:23[0m] <All keys matched successfully>
+[[34m2024-10-12 18:05:03[0m] Test: [249/250]	Time 0.153 (0.156)	Loss 0.1848 (0.1463)	Mem 6754MB
+[[34m2024-10-12 18:05:20[0m] number of params: 601698592
+[[34m2024-10-12 18:05:21[0m] blocks.15.mlp.fc1_v.weight
+[[34m2024-10-12 18:05:22[0m] <All keys matched successfully>
+[[34m2024-10-12 18:06:01[0m] Test: [249/250]	Time 0.153 (0.155)	Loss 0.1187 (0.1485)	Mem 6754MB
+[[34m2024-10-12 18:06:19[0m] number of params: 597127584
+[[34m2024-10-12 18:06:20[0m] blocks.16.mlp.fc1_v.weight
+[[34m2024-10-12 18:06:21[0m] <All keys matched successfully>
+[[34m2024-10-12 18:07:00[0m] Test: [249/250]	Time 0.152 (0.154)	Loss 0.1151 (0.1553)	Mem 6754MB
+[[34m2024-10-12 18:07:18[0m] number of params: 592556576
+[[34m2024-10-12 18:07:18[0m] blocks.17.mlp.fc1_v.weight
+[[34m2024-10-12 18:07:20[0m] <All keys matched successfully>
+[[34m2024-10-12 18:07:58[0m] Test: [249/250]	Time 0.150 (0.153)	Loss 0.2164 (0.1562)	Mem 6754MB
+[[34m2024-10-12 18:08:16[0m] number of params: 587985568
+[[34m2024-10-12 18:08:16[0m] blocks.18.mlp.fc1_v.weight
+[[34m2024-10-12 18:08:18[0m] <All keys matched successfully>
+[[34m2024-10-12 18:08:56[0m] Test: [249/250]	Time 0.150 (0.152)	Loss 0.0698 (0.1752)	Mem 6754MB
+[[34m2024-10-12 18:09:14[0m] number of params: 583414560
+[[34m2024-10-12 18:09:14[0m] blocks.19.mlp.fc1_v.weight
+[[34m2024-10-12 18:09:16[0m] <All keys matched successfully>
+[[34m2024-10-12 18:09:54[0m] Test: [249/250]	Time 0.149 (0.151)	Loss 0.3660 (0.1707)	Mem 6754MB
+[[34m2024-10-12 18:10:11[0m] number of params: 578843552
+[[34m2024-10-12 18:10:12[0m] blocks.20.mlp.fc1_v.weight
+[[34m2024-10-12 18:10:13[0m] <All keys matched successfully>
+[[34m2024-10-12 18:10:51[0m] Test: [249/250]	Time 0.147 (0.150)	Loss 0.1395 (0.1799)	Mem 6754MB
+[[34m2024-10-12 18:11:09[0m] number of params: 574272544
+[[34m2024-10-12 18:11:10[0m] blocks.21.mlp.fc1_v.weight
+[[34m2024-10-12 18:11:12[0m] <All keys matched successfully>
+[[34m2024-10-12 18:11:50[0m] Test: [249/250]	Time 0.147 (0.149)	Loss 0.1313 (0.1954)	Mem 6754MB
+[[34m2024-10-12 18:12:08[0m] number of params: 569701536
+[[34m2024-10-12 18:12:08[0m] blocks.22.mlp.fc1_v.weight
+[[34m2024-10-12 18:12:09[0m] <All keys matched successfully>
+[[34m2024-10-12 18:12:47[0m] Test: [249/250]	Time 0.146 (0.149)	Loss 0.2895 (0.1908)	Mem 6754MB
+[[34m2024-10-12 18:13:05[0m] number of params: 565130528
+[[34m2024-10-12 18:13:05[0m] blocks.23.mlp.fc1_v.weight
+[[34m2024-10-12 18:13:08[0m] <All keys matched successfully>
+[[34m2024-10-12 18:13:45[0m] Test: [249/250]	Time 0.144 (0.147)	Loss 0.1884 (0.2063)	Mem 6754MB
+[[34m2024-10-12 18:14:03[0m] number of params: 560559520
+[[34m2024-10-12 18:14:03[0m] blocks.24.mlp.fc1_v.weight
+[[34m2024-10-12 18:14:04[0m] <All keys matched successfully>
+[[34m2024-10-12 18:14:41[0m] Test: [249/250]	Time 0.144 (0.147)	Loss 0.2770 (0.2188)	Mem 6754MB
+[[34m2024-10-12 18:14:59[0m] number of params: 555988512
+[[34m2024-10-12 18:14:59[0m] blocks.25.mlp.fc1_v.weight
+[[34m2024-10-12 18:15:01[0m] <All keys matched successfully>
+[[34m2024-10-12 18:15:37[0m] Test: [249/250]	Time 0.142 (0.145)	Loss 0.0931 (0.2198)	Mem 6754MB
+[[34m2024-10-12 18:15:56[0m] number of params: 551417504
+[[34m2024-10-12 18:15:56[0m] blocks.26.mlp.fc1_v.weight
+[[34m2024-10-12 18:15:57[0m] <All keys matched successfully>
+[[34m2024-10-12 18:16:34[0m] Test: [249/250]	Time 0.142 (0.145)	Loss 0.3234 (0.2062)	Mem 6754MB
+[[34m2024-10-12 18:16:52[0m] number of params: 546846496
+[[34m2024-10-12 18:16:52[0m] blocks.27.mlp.fc1_v.weight
+[[34m2024-10-12 18:16:53[0m] <All keys matched successfully>
+[[34m2024-10-12 18:17:29[0m] Test: [249/250]	Time 0.141 (0.144)	Loss 0.2400 (0.2147)	Mem 6754MB
+[[34m2024-10-12 18:17:46[0m] number of params: 542275488
+[[34m2024-10-12 18:17:46[0m] blocks.0.mlp.fc2_v.weight
+[[34m2024-10-12 18:17:48[0m] <All keys matched successfully>
+[[34m2024-10-12 18:18:24[0m] Test: [249/250]	Time 0.140 (0.142)	Loss 0.2244 (0.2112)	Mem 6754MB
+[[34m2024-10-12 18:18:41[0m] number of params: 537704480
+[[34m2024-10-12 18:18:41[0m] blocks.1.mlp.fc2_v.weight
+[[34m2024-10-12 18:18:43[0m] <All keys matched successfully>
+[[34m2024-10-12 18:19:18[0m] Test: [249/250]	Time 0.138 (0.141)	Loss 0.1423 (0.1945)	Mem 6754MB
+[[34m2024-10-12 18:19:36[0m] number of params: 533133472
+[[34m2024-10-12 18:19:36[0m] blocks.2.mlp.fc2_v.weight
+[[34m2024-10-12 18:19:37[0m] <All keys matched successfully>
+[[34m2024-10-12 18:20:12[0m] Test: [249/250]	Time 0.137 (0.140)	Loss 0.2729 (0.2187)	Mem 6754MB
+[[34m2024-10-12 18:20:30[0m] number of params: 528562464
+[[34m2024-10-12 18:20:30[0m] blocks.3.mlp.fc2_v.weight
+[[34m2024-10-12 18:20:31[0m] <All keys matched successfully>
+[[34m2024-10-12 18:21:06[0m] Test: [249/250]	Time 0.136 (0.139)	Loss 0.3197 (0.2164)	Mem 6754MB
+[[34m2024-10-12 18:21:24[0m] number of params: 523991456
+[[34m2024-10-12 18:21:24[0m] blocks.4.mlp.fc2_v.weight
+[[34m2024-10-12 18:21:26[0m] <All keys matched successfully>
+[[34m2024-10-12 18:22:01[0m] Test: [249/250]	Time 0.135 (0.138)	Loss 0.3908 (0.2129)	Mem 6754MB
+[[34m2024-10-12 18:22:18[0m] number of params: 519420448
+[[34m2024-10-12 18:22:18[0m] blocks.5.mlp.fc2_v.weight
+[[34m2024-10-12 18:22:19[0m] <All keys matched successfully>
+[[34m2024-10-12 18:22:54[0m] Test: [249/250]	Time 0.133 (0.137)	Loss 0.2275 (0.2138)	Mem 6754MB
+[[34m2024-10-12 18:23:11[0m] number of params: 514849440
+[[34m2024-10-12 18:23:11[0m] blocks.6.mlp.fc2_v.weight
+[[34m2024-10-12 18:23:12[0m] <All keys matched successfully>
+[[34m2024-10-12 18:23:46[0m] Test: [249/250]	Time 0.133 (0.135)	Loss 0.0555 (0.1969)	Mem 6754MB
+[[34m2024-10-12 18:24:04[0m] number of params: 510278432
+[[34m2024-10-12 18:24:04[0m] blocks.7.mlp.fc2_v.weight
+[[34m2024-10-12 18:24:05[0m] <All keys matched successfully>
+[[34m2024-10-12 18:24:39[0m] Test: [249/250]	Time 0.131 (0.134)	Loss 0.2698 (0.2057)	Mem 6754MB
+[[34m2024-10-12 18:24:56[0m] number of params: 505707424
+[[34m2024-10-12 18:24:56[0m] blocks.8.mlp.fc2_v.weight
+[[34m2024-10-12 18:24:57[0m] <All keys matched successfully>
+[[34m2024-10-12 18:25:31[0m] Test: [249/250]	Time 0.131 (0.133)	Loss 0.2349 (0.2147)	Mem 6754MB
+[[34m2024-10-12 18:25:49[0m] number of params: 501136416
+[[34m2024-10-12 18:25:49[0m] blocks.9.mlp.fc2_v.weight
+[[34m2024-10-12 18:25:50[0m] <All keys matched successfully>
+[[34m2024-10-12 18:26:23[0m] Test: [249/250]	Time 0.129 (0.132)	Loss 0.3810 (0.2069)	Mem 6754MB
+[[34m2024-10-12 18:26:40[0m] number of params: 496565408
+[[34m2024-10-12 18:26:40[0m] blocks.10.mlp.fc2_v.weight
+[[34m2024-10-12 18:26:42[0m] <All keys matched successfully>
+[[34m2024-10-12 18:27:15[0m] Test: [249/250]	Time 0.127 (0.131)	Loss 0.4888 (0.2159)	Mem 6754MB
+[[34m2024-10-12 18:27:32[0m] number of params: 491994400
+[[34m2024-10-12 18:27:32[0m] blocks.11.mlp.fc2_v.weight
+[[34m2024-10-12 18:27:34[0m] <All keys matched successfully>
+[[34m2024-10-12 18:28:06[0m] Test: [249/250]	Time 0.126 (0.129)	Loss 0.1749 (0.2131)	Mem 6754MB
+[[34m2024-10-12 18:28:24[0m] number of params: 487423392
+[[34m2024-10-12 18:28:24[0m] blocks.12.mlp.fc2_v.weight
+[[34m2024-10-12 18:28:25[0m] <All keys matched successfully>
+[[34m2024-10-12 18:28:57[0m] Test: [249/250]	Time 0.125 (0.128)	Loss 0.2833 (0.2036)	Mem 6754MB
+[[34m2024-10-12 18:29:15[0m] number of params: 482852384
+[[34m2024-10-12 18:29:15[0m] blocks.13.mlp.fc2_v.weight
+[[34m2024-10-12 18:29:16[0m] <All keys matched successfully>
+[[34m2024-10-12 18:29:49[0m] Test: [249/250]	Time 0.124 (0.127)	Loss 0.1408 (0.1897)	Mem 6754MB
+[[34m2024-10-12 18:30:06[0m] number of params: 478281376
+[[34m2024-10-12 18:30:06[0m] blocks.14.mlp.fc2_v.weight
+[[34m2024-10-12 18:30:07[0m] <All keys matched successfully>
+[[34m2024-10-12 18:30:39[0m] Test: [249/250]	Time 0.124 (0.126)	Loss 0.0880 (0.2035)	Mem 6754MB
+[[34m2024-10-12 18:30:56[0m] number of params: 473710368
+[[34m2024-10-12 18:30:56[0m] blocks.15.mlp.fc2_v.weight
+[[34m2024-10-12 18:30:57[0m] <All keys matched successfully>
+[[34m2024-10-12 18:31:29[0m] Test: [249/250]	Time 0.121 (0.125)	Loss 0.1247 (0.2010)	Mem 6754MB
+[[34m2024-10-12 18:31:47[0m] number of params: 469139360
+[[34m2024-10-12 18:31:47[0m] blocks.16.mlp.fc2_v.weight
+[[34m2024-10-12 18:31:48[0m] <All keys matched successfully>
+[[34m2024-10-12 18:32:19[0m] Test: [249/250]	Time 0.121 (0.124)	Loss 0.3497 (0.1996)	Mem 6754MB
+[[34m2024-10-12 18:32:37[0m] number of params: 464568352
+[[34m2024-10-12 18:32:37[0m] blocks.17.mlp.fc2_v.weight
+[[34m2024-10-12 18:32:38[0m] <All keys matched successfully>
+[[34m2024-10-12 18:33:09[0m] Test: [249/250]	Time 0.120 (0.123)	Loss 0.3210 (0.1959)	Mem 6754MB
+[[34m2024-10-12 18:33:25[0m] number of params: 459997344
+[[34m2024-10-12 18:33:25[0m] blocks.18.mlp.fc2_v.weight
+[[34m2024-10-12 18:33:26[0m] <All keys matched successfully>
+[[34m2024-10-12 18:33:57[0m] Test: [249/250]	Time 0.118 (0.122)	Loss 0.3264 (0.2052)	Mem 6754MB
+[[34m2024-10-12 18:34:13[0m] number of params: 455426336
+[[34m2024-10-12 18:34:13[0m] blocks.19.mlp.fc2_v.weight
+[[34m2024-10-12 18:34:15[0m] <All keys matched successfully>
+[[34m2024-10-12 18:34:45[0m] Test: [249/250]	Time 0.117 (0.120)	Loss 0.3056 (0.2081)	Mem 6754MB
+[[34m2024-10-12 18:35:02[0m] number of params: 450855328
+[[34m2024-10-12 18:35:02[0m] blocks.20.mlp.fc2_v.weight
+[[34m2024-10-12 18:35:04[0m] <All keys matched successfully>
+[[34m2024-10-12 18:35:34[0m] Test: [249/250]	Time 0.117 (0.119)	Loss 0.1963 (0.1926)	Mem 6754MB
+[[34m2024-10-12 18:35:50[0m] number of params: 446284320
+[[34m2024-10-12 18:35:50[0m] blocks.21.mlp.fc2_v.weight
+[[34m2024-10-12 18:35:51[0m] <All keys matched successfully>
+[[34m2024-10-12 18:36:20[0m] Test: [249/250]	Time 0.115 (0.118)	Loss 0.3182 (0.1933)	Mem 6754MB
+[[34m2024-10-12 18:36:38[0m] number of params: 441713312
+[[34m2024-10-12 18:36:38[0m] blocks.22.mlp.fc2_v.weight
+[[34m2024-10-12 18:36:39[0m] <All keys matched successfully>
+[[34m2024-10-12 18:37:08[0m] Test: [249/250]	Time 0.114 (0.117)	Loss 0.1964 (0.1979)	Mem 6754MB
+[[34m2024-10-12 18:37:25[0m] number of params: 437142304
+[[34m2024-10-12 18:37:25[0m] blocks.23.mlp.fc2_v.weight
+[[34m2024-10-12 18:37:26[0m] <All keys matched successfully>
+[[34m2024-10-12 18:37:55[0m] Test: [249/250]	Time 0.113 (0.116)	Loss 0.1106 (0.1972)	Mem 6754MB
+[[34m2024-10-12 18:38:12[0m] number of params: 432571296
+[[34m2024-10-12 18:38:12[0m] blocks.24.mlp.fc2_v.weight
+[[34m2024-10-12 18:38:13[0m] <All keys matched successfully>
+[[34m2024-10-12 18:38:42[0m] Test: [249/250]	Time 0.114 (0.115)	Loss 0.2672 (0.1992)	Mem 6754MB
+[[34m2024-10-12 18:38:59[0m] number of params: 428000288
+[[34m2024-10-12 18:38:59[0m] blocks.25.mlp.fc2_v.weight
+[[34m2024-10-12 18:39:00[0m] <All keys matched successfully>
+[[34m2024-10-12 18:39:28[0m] Test: [249/250]	Time 0.111 (0.113)	Loss 0.1952 (0.2146)	Mem 6754MB
+[[34m2024-10-12 18:39:45[0m] number of params: 423429280
+[[34m2024-10-12 18:39:45[0m] blocks.26.mlp.fc2_v.weight
+[[34m2024-10-12 18:39:46[0m] <All keys matched successfully>
+[[34m2024-10-12 18:40:15[0m] Test: [249/250]	Time 0.109 (0.112)	Loss 0.2671 (0.2001)	Mem 6754MB
+[[34m2024-10-12 18:40:31[0m] number of params: 418858272
+[[34m2024-10-12 18:40:31[0m] blocks.27.mlp.fc2_v.weight
+[[34m2024-10-12 18:40:32[0m] <All keys matched successfully>
+[[34m2024-10-12 18:41:00[0m] Test: [249/250]	Time 0.108 (0.111)	Loss 0.4673 (0.2136)	Mem 6754MB
+[[34m2024-10-12 18:41:16[0m] number of params: 419451680
+[[34m2024-10-12 18:41:16[0m] blocks.0.attn.qkv_v.weight

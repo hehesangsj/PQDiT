@@ -186,7 +186,10 @@ class output_hook(object):
 
 def cal_output_sum_square(fc_output_list, fc_square_list, fc_sum_list, fc_count_list):
     for i in range(len(fc_output_list)):
-        tensor_i = fc_output_list[i].flatten(0,1)
+        if len(fc_output_list[i].shape) == 3:
+            tensor_i = fc_output_list[i].flatten(0, 1)
+        elif len(fc_output_list[i].shape) == 2:
+            tensor_i = fc_output_list[i]      
         fc_sum = torch.sum(tensor_i, dim=0)
         fc_square = tensor_i.T @ tensor_i
         fc_count_list[i] += tensor_i.shape[0]
@@ -239,7 +242,7 @@ def validate(args, data_loader, model, vae, diffusion, device, logger, work_dir)
     adaln_square_list, adaln_sum_list, adaln_count_list= [None] * num_layers, [None] * num_layers, [0] * num_layers
     fc1_ratio, fc2_ratio, qkv_ratio, proj_ratio, adaln_ratio =  [0] * num_layers, [0] * num_layers, [0] * num_layers, [0] * num_layers, [0] * num_layers
     
-    iters = 1000
+    iters = 10000
 
     for idx, (x, y) in enumerate(data_loader):
         x = x.cuda(non_blocking=True)
@@ -298,11 +301,11 @@ def validate(args, data_loader, model, vae, diffusion, device, logger, work_dir)
     if not os.path.exists(work_dir):
         os.makedirs(work_dir)
     save_path = work_dir + "/dit_t_in_"
+    cal_save_uvb(adaln_square_list, adaln_sum_list, adaln_count_list, adaln_ratio, "adaln", save_path, logger )
     cal_save_uvb(fc1_square_list, fc1_sum_list, fc1_count_list, fc1_ratio, "fc1", save_path, logger)
     cal_save_uvb(fc2_square_list, fc2_sum_list, fc2_count_list, fc2_ratio, "fc2", save_path, logger )
     cal_save_uvb(qkv_square_list, qkv_sum_list, qkv_count_list, qkv_ratio, "qkv", save_path, logger )
     cal_save_uvb(proj_square_list, proj_sum_list, proj_count_list, proj_ratio, "proj", save_path, logger )
-    cal_save_uvb(adaln_square_list, adaln_sum_list, adaln_count_list, adaln_ratio, "adaln", save_path, logger )
 
     return loss_meter.avg
 

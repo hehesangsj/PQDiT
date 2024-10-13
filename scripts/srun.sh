@@ -42,4 +42,4 @@ srun -p ${PARTITION} \
   --kill-on-bad-exit=1 \
   --quotatype=${QUOTA_TYPE} \
   ${SRUN_ARGS} \
-  python pq/train_pq.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --global-batch-size 256 --epochs 10 --ckpt-every 5000
+  python pq/train_lowrank.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --global-batch-size 256 --epochs 10 --ckpt-every 5000
