@@ -144,7 +144,7 @@ class dit_generator:
             plt.savefig('mse_loss_over_time_steps.png')
                     
             save_image(samples, name+'.png', nrow=4, normalize=True, value_range=(-1, 1))
-            save_image(samples_pq, name+'_pq.png', nrow=4, normalize=True, value_range=(-1, 1))
+            save_image(samples_pq, name+'_uv.png', nrow=4, normalize=True, value_range=(-1, 1))
 
     def pre_process(self, class_labels, cfg=False):
         n = len(class_labels)
@@ -183,7 +183,6 @@ class dit_generator:
             (t != 0).float().view(-1, *([1] * (len(img.shape) - 1)))
         )  # no noise when t == 0
         sample = model_mean + nonzero_mask * torch.exp(0.5 * model_log_variance) * noise
-
         sample_pq = model_mean_pq + nonzero_mask * torch.exp(0.5 * model_log_variance_pq) * noise
 
         return sample, sample_pq
@@ -269,5 +268,4 @@ if __name__ == "__main__":
                         help="Optional path to a DiT checkpoint (default: auto-download a pre-trained DiT-XL/2 model).")
     args = parser.parse_args()
     main(args)
-
 
