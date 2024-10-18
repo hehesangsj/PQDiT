@@ -20,7 +20,7 @@ fi
 # SRUN_ARGS=${SRUN_ARGS:-" --jobid=3703936"} # 3768157 3768158 3789766 -w HOST-10-140-66-41  3636795
 
 export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-export MASTER_PORT=32425
+export MASTER_PORT=32423
 # export NCCL_DEBUG=INFO
 # export TF_CPP_MIN_LOG_LEVEL=3
 # unset CUDA_LAUNCH_BLOCKING
@@ -41,5 +41,6 @@ srun -p ${PARTITION} \
   --cpus-per-task=${CPUS_PER_TASK} \
   --kill-on-bad-exit=1 \
   --quotatype=${QUOTA_TYPE} \
+  -w SH-IDCA1404-10-140-54-107 \
   ${SRUN_ARGS} \
-  python pq/main_dit_calkl_s2_2.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --global-batch-size 8
+  python pq/main_dit_calkl_s2_2.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --global-batch-size 8  

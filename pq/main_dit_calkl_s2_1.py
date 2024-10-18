@@ -167,7 +167,8 @@ def main(args):
         os.makedirs(args.results_dir, exist_ok=True)  # Make results folder (holds all experiment subfolders)
         experiment_index = len(glob(f"{args.results_dir}/*"))
         model_string_name = args.model.replace("/", "-")  # e.g., DiT-XL/2 --> DiT-XL-2 (for naming folders)
-        experiment_dir = f"{args.results_dir}/{experiment_index:03d}-{model_string_name}"  # Create an experiment folder
+        # experiment_dir = f"{args.results_dir}/{experiment_index:03d}-{model_string_name}"  # Create an experiment folder
+        experiment_dir = f"{args.results_dir}/007-DiT-XL-2"  # Create an experiment folder
         os.makedirs(experiment_dir, exist_ok=True)
         logger = create_logger(experiment_dir)
         logger.info(f"Experiment directory created at {experiment_dir}")
@@ -216,6 +217,8 @@ def main(args):
 
     for fc_i in range(1, 6):
         for block_i in range(28):
+            if fc_i < 2 or (fc_i == 2 and block_i < 15):
+                continue
             fc1_len, fc2_len, qkv_len, proj_len, adaln_len, fc1_use_uv, fc2_use_uv, qkv_use_uv, proj_use_uv, adaln_use_uv = reset_param(num_layers)
             if fc_i == 1:
                 fc1_use_uv[block_i] = True

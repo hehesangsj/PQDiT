@@ -158,7 +158,7 @@ def main(args):
 
     fc1_value = np.zeros([len(fc1_dim), 28])
     results_fc1 = get_compress_results(fc1_params, fc1_dim, fc1_value, f=1)
-    ind = get_ind(percent=0.5, results=results_fc1)
+    ind = get_ind(percent=0.9, results=results_fc1)
     fc1_len, fc2_len, qkv_len, proj_len, adaln_len, fc1_use_uv, fc2_use_uv, qkv_use_uv, proj_use_uv, adaln_use_uv = reset_param(28)
     fc1_len, fc1_use_uv = get_dims(ind, 28, fc1_dim)
 
@@ -176,7 +176,7 @@ def main(args):
     msg = model_uv.load_state_dict(state_dict_merge)
     logger.info(msg)
     model_uv.eval()
-    diffusion.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=experiment_dir+"/sample_fc1_0_66_cfg")
+    diffusion.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=experiment_dir+"/sample_fc1_0_9")
 
 if __name__ == "__main__":
     args = parse_option()

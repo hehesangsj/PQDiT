@@ -115,3 +115,77 @@
 [[34m2024-10-17 17:57:35[0m] blocks.26.mlp.fc1_v.weight
 [[34m2024-10-17 17:57:36[0m] blocks.27.mlp.fc1_v.weight
 [[34m2024-10-17 17:57:38[0m] <All keys matched successfully>
+[[34m2024-10-17 19:50:54[0m] Experiment directory created at results/low_rank/009-DiT-XL-2
+[[34m2024-10-17 19:51:41[0m] blocks.0.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:42[0m] blocks.1.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:42[0m] blocks.2.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:42[0m] blocks.3.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:42[0m] blocks.4.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:43[0m] blocks.5.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:43[0m] blocks.6.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:43[0m] blocks.7.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:44[0m] blocks.8.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:44[0m] blocks.12.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:44[0m] blocks.13.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:45[0m] blocks.14.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:45[0m] blocks.15.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:45[0m] blocks.16.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:46[0m] blocks.17.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:46[0m] blocks.18.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:47[0m] blocks.19.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:47[0m] blocks.20.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:47[0m] blocks.21.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:48[0m] blocks.22.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:48[0m] blocks.23.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:49[0m] blocks.24.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:49[0m] blocks.25.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:49[0m] blocks.26.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:50[0m] blocks.27.mlp.fc1_v.weight
+[[34m2024-10-17 19:51:52[0m] <All keys matched successfully>
+[[34m2024-10-17 19:58:40[0m] Experiment directory created at results/low_rank/009-DiT-XL-2
+[[34m2024-10-17 19:59:18[0m] blocks.0.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:18[0m] blocks.1.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:18[0m] blocks.2.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:19[0m] blocks.3.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:19[0m] blocks.4.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:19[0m] blocks.6.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:19[0m] blocks.7.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:20[0m] blocks.17.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:20[0m] blocks.18.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:20[0m] blocks.19.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:20[0m] blocks.20.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:21[0m] blocks.21.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:21[0m] blocks.22.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:21[0m] blocks.23.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:21[0m] blocks.24.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:22[0m] blocks.25.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:22[0m] blocks.26.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:22[0m] blocks.27.mlp.fc1_v.weight
+[[34m2024-10-17 19:59:24[0m] <All keys matched successfully>
+[[34m2024-10-17 20:00:07[0m] Experiment directory created at results/low_rank/009-DiT-XL-2
+[[34m2024-10-17 20:00:45[0m] blocks.0.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:45[0m] blocks.1.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:45[0m] blocks.2.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:45[0m] blocks.3.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:45[0m] blocks.4.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:46[0m] blocks.6.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:46[0m] blocks.7.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:46[0m] blocks.17.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:46[0m] blocks.18.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:47[0m] blocks.19.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:47[0m] blocks.20.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:47[0m] blocks.21.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:48[0m] blocks.22.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:48[0m] blocks.23.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:48[0m] blocks.24.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:48[0m] blocks.25.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:49[0m] blocks.26.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:49[0m] blocks.27.mlp.fc1_v.weight
+[[34m2024-10-17 20:00:51[0m] <All keys matched successfully>
+[[34m2024-10-17 20:06:32[0m] Experiment directory created at results/low_rank/009-DiT-XL-2
+[[34m2024-10-17 20:07:10[0m] blocks.0.mlp.fc1_v.weight
+[[34m2024-10-17 20:07:10[0m] blocks.1.mlp.fc1_v.weight
+[[34m2024-10-17 20:07:10[0m] blocks.2.mlp.fc1_v.weight
+[[34m2024-10-17 20:07:10[0m] blocks.3.mlp.fc1_v.weight
+[[34m2024-10-17 20:07:10[0m] blocks.27.mlp.fc1_v.weight
+[[34m2024-10-17 20:07:12[0m] <All keys matched successfully>
