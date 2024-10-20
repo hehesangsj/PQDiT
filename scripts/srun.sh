@@ -17,7 +17,7 @@ else
     NODES=$((GPUS / GPUS_PER_NODE))
 fi
 
-SRUN_ARGS=${SRUN_ARGS:-" --jobid=3689576"} # 3768157 3768158 3789766 -w HOST-10-140-66-41  3636795
+SRUN_ARGS=${SRUN_ARGS:-" --jobid=3709386"} # 3768157 3768158 3789766 -w HOST-10-140-66-41  3636795
 
 export PYTHONPATH="${PYTHONPATH}:$(pwd)"
 export MASTER_PORT=32424
@@ -42,4 +42,4 @@ srun -p ${PARTITION} \
   --kill-on-bad-exit=1 \
   --quotatype=${QUOTA_TYPE} \
   ${SRUN_ARGS} \
-  python pq/train_lowrank.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --global-batch-size 256 --epochs 10 --ckpt-every 5000
+  python pq/cal_optim_dit.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --global-batch-size 256 --epochs 10 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train

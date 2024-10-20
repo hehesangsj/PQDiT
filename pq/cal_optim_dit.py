@@ -15,6 +15,7 @@ import torch.distributed as dist
 import sys
 sys.path.append("/mnt/petrelfs/shaojie/code/DiT/")
 from models import DiT_models
+from diffusion import create_diffusion
 from pq.main_dit_calkl_s2_1 import reset_param, parse_option, merge_model
 from download import find_model
 from pq.low_rank_models import DiT_uv_models
@@ -22,6 +23,8 @@ from diffusers.models import AutoencoderKL
 from pq.sample_pq import dit_generator
 from distributed import init_distributed_mode
 from pq.main_dit_calkl_s2 import create_logger, center_crop_arr, cleanup
+from pq.train_lowrank import train_model
+from pq.sample_ddp import sample
 
 
 def dp(value, speed):
@@ -242,11 +245,14 @@ def main(args):
     random.seed(seed)
     print(f"Starting rank={rank}, seed={seed}, world_size={dist.get_world_size()}.")
 
+    experiment_index = len(glob(f"{args.results_dir}/*"))
+    model_string_name = args.model.replace("/", "-")  # e.g., DiT-XL/2 --> DiT-XL-2 (for naming folders)
+    # experiment_dir = f"{args.results_dir}/{experiment_index:03d}-{model_string_name}"
+    experiment_dir = f"{args.results_dir}/009-DiT-XL-2"  # Create an experiment folder
+    checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
     if rank == 0:
         os.makedirs(args.results_dir, exist_ok=True)  # Make results folder (holds all experiment subfolders)
-        experiment_index = len(glob(f"{args.results_dir}/*"))
-        model_string_name = args.model.replace("/", "-")  # e.g., DiT-XL/2 --> DiT-XL-2 (for naming folders)
-        experiment_dir = f"{args.results_dir}/009-DiT-XL-2"  # Create an experiment folder
+        os.makedirs(checkpoint_dir, exist_ok=True)
         os.makedirs(experiment_dir, exist_ok=True)
         logger = create_logger(experiment_dir)
         logger.info(f"Experiment directory created at {experiment_dir}")
@@ -270,17 +276,22 @@ def main(args):
     model.load_state_dict(state_dict)
     model.eval()  # important!
     diffusion = dit_generator('250', latent_size=latent_size, device=device)
+    diffusion_dit = create_diffusion(timestep_respacing="")
     vae = AutoencoderKL.from_pretrained(f"stabilityai/sd-vae-ft-{args.vae}").to(device)
     load_path = "results/low_rank/002-DiT-XL-2/dit_t_in_"
 
     # DiT-XL/2-256
-    percent = 0.5
+    percent = 0.8
     fc_space = range(1, 6)
     fc_len, fc_use_uv = {}, {}
 
     # Populate lengths and use_uv flags for each block
-    for fc_idx in fc_space:
-        fc_len[fc_idx], fc_use_uv[fc_idx] = get_blocks(percent, fc_idx, compress_all=True)
+    for fc_idx in range(1, 6):
+        if fc_idx in fc_space:
+            fc_len[fc_idx], fc_use_uv[fc_idx] = get_blocks(percent, fc_idx, compress_all=True)
+        else:
+            fc_len[fc_idx] = [128] * 28
+            fc_use_uv[fc_idx] = [False] * 28
 
     # Initialize model
     model_uv = DiT_uv_models[args.model](
@@ -298,16 +309,22 @@ def main(args):
         for block_i in range(28):
             if fc_use_uv[fc_i][block_i]:
                 state_dict_merge = merge_model(state_dict_merge, block_i, fc_i, fc_len[fc_i][block_i], load_path, logger)
-
                 
+    training = False
     msg = model_uv.load_state_dict(state_dict_merge)
     logger.info(msg)
-    model_uv.eval()
 
-    block_str = ''.join(map(str, fc_space))
-    image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
-    diffusion.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
+    if not training:
+        model_uv.eval()
+        block_str = ''.join(map(str, fc_space))
+        image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
+        # diffusion.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
+        image_dir = f"{experiment_dir}/{image_name}"
+        sample(args, model_uv, vae, diffusion_dit, image_dir)
+    else:
+        train_model(args, logger, model_uv, vae, diffusion_dit, checkpoint_dir)
 
 if __name__ == "__main__":
     args = parse_option()
     main(args)
+    

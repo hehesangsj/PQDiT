@@ -177,9 +177,14 @@ def main(args):
     vae = AutoencoderKL.from_pretrained(f"stabilityai/sd-vae-ft-{args.vae}").to(device)
     logger.info(f"DiT Parameters: {sum(p.numel() for p in model.parameters()):,}")
     del model
+    train_model(args, logger, model_uv, vae, diffusion, checkpoint_dir)
 
+
+def train_model(args, logger, model_uv, vae, diffusion, checkpoint_dir):
     # optimizer
     opt = torch.optim.AdamW(model_uv.parameters(), lr=1e-4, weight_decay=0)
+    rank = dist.get_rank()
+    device = rank % torch.cuda.device_count()
 
     # Setup data:
     transform = transforms.Compose([

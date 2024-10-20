@@ -75,6 +75,15 @@ def parse_option():
     parser.add_argument("--global-seed", type=int, default=0)
     parser.add_argument("--num-workers", type=int, default=4)
     parser.add_argument("--log-every", type=int, default=100)
+
+    parser.add_argument("--epochs", type=int, default=100)
+    parser.add_argument("--ckpt-every", type=int, default=50_000)
+    
+    parser.add_argument("--per-proc-batch-size", type=int, default=32)
+    parser.add_argument("--num-fid-samples", type=int, default=50_000)
+    parser.add_argument("--cfg-scale",  type=float, default=1.5)
+    parser.add_argument("--num-sampling-steps", type=int, default=250)
+
     args = parser.parse_args()
 
     return args

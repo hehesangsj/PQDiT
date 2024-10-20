@@ -1,0 +1,690 @@
+[[34m2024-10-20 16:08:14[0m] Experiment directory created at results/low_rank/010-DiT-XL-2
+[[34m2024-10-20 16:08:47[0m] blocks.0.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:48[0m] blocks.1.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:48[0m] blocks.2.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:48[0m] blocks.3.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:49[0m] blocks.4.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:50[0m] blocks.5.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:50[0m] blocks.6.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:52[0m] blocks.7.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:52[0m] blocks.8.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:53[0m] blocks.9.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:54[0m] blocks.10.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:54[0m] blocks.11.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:55[0m] blocks.12.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:55[0m] blocks.13.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:56[0m] blocks.14.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:56[0m] blocks.15.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:57[0m] blocks.16.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:57[0m] blocks.17.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:58[0m] blocks.18.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:58[0m] blocks.19.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:59[0m] blocks.20.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:59[0m] blocks.21.mlp.fc1_v.weight
+[[34m2024-10-20 16:08:59[0m] blocks.22.mlp.fc1_v.weight
+[[34m2024-10-20 16:09:00[0m] blocks.23.mlp.fc1_v.weight
+[[34m2024-10-20 16:09:00[0m] blocks.24.mlp.fc1_v.weight
+[[34m2024-10-20 16:09:01[0m] blocks.25.mlp.fc1_v.weight
+[[34m2024-10-20 16:09:01[0m] blocks.26.mlp.fc1_v.weight
+[[34m2024-10-20 16:09:02[0m] blocks.27.mlp.fc1_v.weight
+[[34m2024-10-20 16:09:02[0m] blocks.0.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:02[0m] blocks.1.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:02[0m] blocks.2.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:02[0m] blocks.3.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:02[0m] blocks.4.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:02[0m] blocks.5.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:03[0m] blocks.6.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:03[0m] blocks.7.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:03[0m] blocks.8.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:03[0m] blocks.9.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:03[0m] blocks.10.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:03[0m] blocks.11.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:03[0m] blocks.12.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:03[0m] blocks.13.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:03[0m] blocks.14.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:04[0m] blocks.15.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:04[0m] blocks.16.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:04[0m] blocks.17.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:04[0m] blocks.18.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:04[0m] blocks.19.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:04[0m] blocks.20.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:04[0m] blocks.21.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:04[0m] blocks.22.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:04[0m] blocks.23.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:04[0m] blocks.24.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:05[0m] blocks.25.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:05[0m] blocks.26.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:05[0m] blocks.27.mlp.fc2_v.weight
+[[34m2024-10-20 16:09:07[0m] <All keys matched successfully>
+[[34m2024-10-20 16:12:50[0m] Experiment directory created at results/low_rank/010-DiT-XL-2
+[[34m2024-10-20 16:13:31[0m] Experiment directory created at results/low_rank/010-DiT-XL-2
+[[34m2024-10-20 16:14:10[0m] blocks.0.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:10[0m] blocks.1.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:10[0m] blocks.2.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:11[0m] blocks.3.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:11[0m] blocks.4.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:11[0m] blocks.5.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:12[0m] blocks.6.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:12[0m] blocks.7.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:13[0m] blocks.8.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:13[0m] blocks.9.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:14[0m] blocks.10.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:14[0m] blocks.11.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:15[0m] blocks.12.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:15[0m] blocks.13.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:16[0m] blocks.14.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:16[0m] blocks.15.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:17[0m] blocks.16.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:17[0m] blocks.17.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:17[0m] blocks.18.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:18[0m] blocks.19.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:18[0m] blocks.20.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:19[0m] blocks.21.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:19[0m] blocks.22.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:20[0m] blocks.23.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:20[0m] blocks.24.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:21[0m] blocks.25.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:22[0m] blocks.26.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:23[0m] blocks.27.mlp.fc1_v.weight
+[[34m2024-10-20 16:14:23[0m] blocks.0.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:24[0m] blocks.1.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:24[0m] blocks.2.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:24[0m] blocks.3.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:24[0m] blocks.4.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:25[0m] blocks.5.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:25[0m] blocks.6.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:25[0m] blocks.7.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:25[0m] blocks.8.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:25[0m] blocks.9.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:26[0m] blocks.10.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:26[0m] blocks.11.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:26[0m] blocks.12.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:26[0m] blocks.13.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:26[0m] blocks.14.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:26[0m] blocks.15.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:26[0m] blocks.16.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:27[0m] blocks.17.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:27[0m] blocks.18.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:27[0m] blocks.19.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:27[0m] blocks.20.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:27[0m] blocks.21.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:27[0m] blocks.22.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:27[0m] blocks.23.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:28[0m] blocks.24.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:28[0m] blocks.25.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:28[0m] blocks.26.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:28[0m] blocks.27.mlp.fc2_v.weight
+[[34m2024-10-20 16:14:28[0m] blocks.0.attn.qkv_v.weight
+[[34m2024-10-20 16:14:29[0m] blocks.1.attn.qkv_v.weight
+[[34m2024-10-20 16:14:29[0m] blocks.2.attn.qkv_v.weight
+[[34m2024-10-20 16:14:30[0m] blocks.3.attn.qkv_v.weight
+[[34m2024-10-20 16:14:30[0m] blocks.4.attn.qkv_v.weight
+[[34m2024-10-20 16:14:30[0m] blocks.5.attn.qkv_v.weight
+[[34m2024-10-20 16:14:31[0m] blocks.6.attn.qkv_v.weight
+[[34m2024-10-20 16:14:31[0m] blocks.7.attn.qkv_v.weight
+[[34m2024-10-20 16:14:32[0m] blocks.8.attn.qkv_v.weight
+[[34m2024-10-20 16:14:32[0m] blocks.9.attn.qkv_v.weight
+[[34m2024-10-20 16:14:32[0m] blocks.10.attn.qkv_v.weight
+[[34m2024-10-20 16:14:33[0m] blocks.11.attn.qkv_v.weight
+[[34m2024-10-20 16:14:33[0m] blocks.12.attn.qkv_v.weight
+[[34m2024-10-20 16:14:34[0m] blocks.13.attn.qkv_v.weight
+[[34m2024-10-20 16:14:34[0m] blocks.14.attn.qkv_v.weight
+[[34m2024-10-20 16:14:34[0m] blocks.15.attn.qkv_v.weight
+[[34m2024-10-20 16:14:35[0m] blocks.16.attn.qkv_v.weight
+[[34m2024-10-20 16:14:35[0m] blocks.17.attn.qkv_v.weight
+[[34m2024-10-20 16:14:36[0m] blocks.18.attn.qkv_v.weight
+[[34m2024-10-20 16:14:36[0m] blocks.19.attn.qkv_v.weight
+[[34m2024-10-20 16:14:37[0m] blocks.20.attn.qkv_v.weight
+[[34m2024-10-20 16:14:37[0m] blocks.21.attn.qkv_v.weight
+[[34m2024-10-20 16:14:38[0m] blocks.22.attn.qkv_v.weight
+[[34m2024-10-20 16:14:38[0m] blocks.23.attn.qkv_v.weight
+[[34m2024-10-20 16:14:38[0m] blocks.24.attn.qkv_v.weight
+[[34m2024-10-20 16:14:39[0m] blocks.25.attn.qkv_v.weight
+[[34m2024-10-20 16:14:40[0m] blocks.26.attn.qkv_v.weight
+[[34m2024-10-20 16:14:40[0m] blocks.27.attn.qkv_v.weight
+[[34m2024-10-20 16:14:40[0m] blocks.0.attn.proj_v.weight
+[[34m2024-10-20 16:14:40[0m] blocks.1.attn.proj_v.weight
+[[34m2024-10-20 16:14:41[0m] blocks.2.attn.proj_v.weight
+[[34m2024-10-20 16:14:41[0m] blocks.3.attn.proj_v.weight
+[[34m2024-10-20 16:14:41[0m] blocks.4.attn.proj_v.weight
+[[34m2024-10-20 16:14:41[0m] blocks.5.attn.proj_v.weight
+[[34m2024-10-20 16:14:41[0m] blocks.6.attn.proj_v.weight
+[[34m2024-10-20 16:14:41[0m] blocks.7.attn.proj_v.weight
+[[34m2024-10-20 16:14:41[0m] blocks.8.attn.proj_v.weight
+[[34m2024-10-20 16:14:42[0m] blocks.9.attn.proj_v.weight
+[[34m2024-10-20 16:14:42[0m] blocks.10.attn.proj_v.weight
+[[34m2024-10-20 16:14:42[0m] blocks.11.attn.proj_v.weight
+[[34m2024-10-20 16:14:42[0m] blocks.12.attn.proj_v.weight
+[[34m2024-10-20 16:14:42[0m] blocks.13.attn.proj_v.weight
+[[34m2024-10-20 16:14:42[0m] blocks.14.attn.proj_v.weight
+[[34m2024-10-20 16:14:42[0m] blocks.15.attn.proj_v.weight
+[[34m2024-10-20 16:14:42[0m] blocks.16.attn.proj_v.weight
+[[34m2024-10-20 16:14:42[0m] blocks.17.attn.proj_v.weight
+[[34m2024-10-20 16:14:42[0m] blocks.18.attn.proj_v.weight
+[[34m2024-10-20 16:14:43[0m] blocks.19.attn.proj_v.weight
+[[34m2024-10-20 16:14:43[0m] blocks.20.attn.proj_v.weight
+[[34m2024-10-20 16:14:43[0m] blocks.21.attn.proj_v.weight
+[[34m2024-10-20 16:14:43[0m] blocks.22.attn.proj_v.weight
+[[34m2024-10-20 16:14:43[0m] blocks.23.attn.proj_v.weight
+[[34m2024-10-20 16:14:43[0m] blocks.24.attn.proj_v.weight
+[[34m2024-10-20 16:14:43[0m] blocks.25.attn.proj_v.weight
+[[34m2024-10-20 16:14:43[0m] blocks.26.attn.proj_v.weight
+[[34m2024-10-20 16:14:43[0m] blocks.27.attn.proj_v.weight
+[[34m2024-10-20 16:14:44[0m] blocks.0.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:45[0m] blocks.1.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:46[0m] blocks.2.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:47[0m] blocks.3.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:47[0m] blocks.4.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:48[0m] blocks.5.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:49[0m] blocks.6.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:50[0m] blocks.7.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:51[0m] blocks.8.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:52[0m] blocks.9.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:53[0m] blocks.10.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:54[0m] blocks.11.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:55[0m] blocks.12.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:56[0m] blocks.13.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:56[0m] blocks.14.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:57[0m] blocks.15.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:58[0m] blocks.16.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:58[0m] blocks.17.adaLN_modulation.2.weight
+[[34m2024-10-20 16:14:59[0m] blocks.18.adaLN_modulation.2.weight
+[[34m2024-10-20 16:15:00[0m] blocks.19.adaLN_modulation.2.weight
+[[34m2024-10-20 16:15:01[0m] blocks.20.adaLN_modulation.2.weight
+[[34m2024-10-20 16:15:02[0m] blocks.21.adaLN_modulation.2.weight
+[[34m2024-10-20 16:15:02[0m] blocks.22.adaLN_modulation.2.weight
+[[34m2024-10-20 16:15:04[0m] blocks.23.adaLN_modulation.2.weight
+[[34m2024-10-20 16:15:04[0m] blocks.24.adaLN_modulation.2.weight
+[[34m2024-10-20 16:15:05[0m] blocks.25.adaLN_modulation.2.weight
+[[34m2024-10-20 16:15:05[0m] blocks.26.adaLN_modulation.2.weight
+[[34m2024-10-20 16:15:06[0m] blocks.27.adaLN_modulation.2.weight
+[[34m2024-10-20 16:15:07[0m] <All keys matched successfully>
+[[34m2024-10-20 16:16:13[0m] Experiment directory created at results/low_rank/010-DiT-XL-2
+[[34m2024-10-20 16:16:51[0m] blocks.0.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:51[0m] blocks.1.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:52[0m] blocks.2.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:52[0m] blocks.3.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:52[0m] blocks.4.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:53[0m] blocks.5.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:53[0m] blocks.6.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:54[0m] blocks.7.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:54[0m] blocks.8.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:55[0m] blocks.9.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:55[0m] blocks.10.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:55[0m] blocks.11.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:56[0m] blocks.12.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:56[0m] blocks.13.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:57[0m] blocks.14.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:58[0m] blocks.15.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:58[0m] blocks.16.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:59[0m] blocks.17.mlp.fc1_v.weight
+[[34m2024-10-20 16:16:59[0m] blocks.18.mlp.fc1_v.weight
+[[34m2024-10-20 16:17:00[0m] blocks.19.mlp.fc1_v.weight
+[[34m2024-10-20 16:17:00[0m] blocks.20.mlp.fc1_v.weight
+[[34m2024-10-20 16:17:01[0m] blocks.21.mlp.fc1_v.weight
+[[34m2024-10-20 16:17:01[0m] blocks.22.mlp.fc1_v.weight
+[[34m2024-10-20 16:17:02[0m] blocks.23.mlp.fc1_v.weight
+[[34m2024-10-20 16:17:02[0m] blocks.24.mlp.fc1_v.weight
+[[34m2024-10-20 16:17:03[0m] blocks.25.mlp.fc1_v.weight
+[[34m2024-10-20 16:17:03[0m] blocks.26.mlp.fc1_v.weight
+[[34m2024-10-20 16:17:04[0m] blocks.27.mlp.fc1_v.weight
+[[34m2024-10-20 16:17:04[0m] blocks.0.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:04[0m] blocks.1.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:04[0m] blocks.2.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:05[0m] blocks.3.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:05[0m] blocks.4.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:05[0m] blocks.5.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:05[0m] blocks.6.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:05[0m] blocks.7.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:05[0m] blocks.8.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:06[0m] blocks.9.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:06[0m] blocks.10.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:06[0m] blocks.11.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:06[0m] blocks.12.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:06[0m] blocks.13.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:07[0m] blocks.14.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:07[0m] blocks.15.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:07[0m] blocks.16.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:07[0m] blocks.17.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:08[0m] blocks.18.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:08[0m] blocks.19.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:08[0m] blocks.20.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:08[0m] blocks.21.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:08[0m] blocks.22.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:08[0m] blocks.23.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:08[0m] blocks.24.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:08[0m] blocks.25.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:09[0m] blocks.26.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:09[0m] blocks.27.mlp.fc2_v.weight
+[[34m2024-10-20 16:17:09[0m] blocks.0.attn.qkv_v.weight
+[[34m2024-10-20 16:17:09[0m] blocks.1.attn.qkv_v.weight
+[[34m2024-10-20 16:17:10[0m] blocks.2.attn.qkv_v.weight
+[[34m2024-10-20 16:17:10[0m] blocks.3.attn.qkv_v.weight
+[[34m2024-10-20 16:17:11[0m] blocks.4.attn.qkv_v.weight
+[[34m2024-10-20 16:17:11[0m] blocks.5.attn.qkv_v.weight
+[[34m2024-10-20 16:17:12[0m] blocks.6.attn.qkv_v.weight
+[[34m2024-10-20 16:17:12[0m] blocks.7.attn.qkv_v.weight
+[[34m2024-10-20 16:17:13[0m] blocks.8.attn.qkv_v.weight
+[[34m2024-10-20 16:17:13[0m] blocks.9.attn.qkv_v.weight
+[[34m2024-10-20 16:17:14[0m] blocks.10.attn.qkv_v.weight
+[[34m2024-10-20 16:17:14[0m] blocks.11.attn.qkv_v.weight
+[[34m2024-10-20 16:17:15[0m] blocks.12.attn.qkv_v.weight
+[[34m2024-10-20 16:17:15[0m] blocks.13.attn.qkv_v.weight
+[[34m2024-10-20 16:17:16[0m] blocks.14.attn.qkv_v.weight
+[[34m2024-10-20 16:17:16[0m] blocks.15.attn.qkv_v.weight
+[[34m2024-10-20 16:17:16[0m] blocks.16.attn.qkv_v.weight
+[[34m2024-10-20 16:17:17[0m] blocks.17.attn.qkv_v.weight
+[[34m2024-10-20 16:17:17[0m] blocks.18.attn.qkv_v.weight
+[[34m2024-10-20 16:17:17[0m] blocks.19.attn.qkv_v.weight
+[[34m2024-10-20 16:17:18[0m] blocks.20.attn.qkv_v.weight
+[[34m2024-10-20 16:17:18[0m] blocks.21.attn.qkv_v.weight
+[[34m2024-10-20 16:17:18[0m] blocks.22.attn.qkv_v.weight
+[[34m2024-10-20 16:17:19[0m] blocks.23.attn.qkv_v.weight
+[[34m2024-10-20 16:17:19[0m] blocks.24.attn.qkv_v.weight
+[[34m2024-10-20 16:17:20[0m] blocks.25.attn.qkv_v.weight
+[[34m2024-10-20 16:17:20[0m] blocks.26.attn.qkv_v.weight
+[[34m2024-10-20 16:17:20[0m] blocks.27.attn.qkv_v.weight
+[[34m2024-10-20 16:17:20[0m] blocks.0.attn.proj_v.weight
+[[34m2024-10-20 16:17:21[0m] blocks.1.attn.proj_v.weight
+[[34m2024-10-20 16:17:21[0m] blocks.2.attn.proj_v.weight
+[[34m2024-10-20 16:17:21[0m] blocks.3.attn.proj_v.weight
+[[34m2024-10-20 16:17:21[0m] blocks.4.attn.proj_v.weight
+[[34m2024-10-20 16:17:21[0m] blocks.5.attn.proj_v.weight
+[[34m2024-10-20 16:17:21[0m] blocks.6.attn.proj_v.weight
+[[34m2024-10-20 16:17:21[0m] blocks.7.attn.proj_v.weight
+[[34m2024-10-20 16:17:21[0m] blocks.8.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.9.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.10.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.11.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.12.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.13.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.14.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.15.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.16.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.17.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.18.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.19.attn.proj_v.weight
+[[34m2024-10-20 16:17:22[0m] blocks.20.attn.proj_v.weight
+[[34m2024-10-20 16:17:23[0m] blocks.21.attn.proj_v.weight
+[[34m2024-10-20 16:17:23[0m] blocks.22.attn.proj_v.weight
+[[34m2024-10-20 16:17:23[0m] blocks.23.attn.proj_v.weight
+[[34m2024-10-20 16:17:23[0m] blocks.24.attn.proj_v.weight
+[[34m2024-10-20 16:17:23[0m] blocks.25.attn.proj_v.weight
+[[34m2024-10-20 16:17:23[0m] blocks.26.attn.proj_v.weight
+[[34m2024-10-20 16:17:23[0m] blocks.27.attn.proj_v.weight
+[[34m2024-10-20 16:17:24[0m] blocks.0.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:25[0m] blocks.1.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:26[0m] blocks.2.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:27[0m] blocks.3.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:27[0m] blocks.4.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:28[0m] blocks.5.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:29[0m] blocks.6.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:30[0m] blocks.7.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:31[0m] blocks.8.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:31[0m] blocks.9.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:32[0m] blocks.10.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:33[0m] blocks.11.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:34[0m] blocks.12.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:35[0m] blocks.13.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:35[0m] blocks.14.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:36[0m] blocks.15.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:37[0m] blocks.16.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:38[0m] blocks.17.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:38[0m] blocks.18.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:39[0m] blocks.19.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:40[0m] blocks.20.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:40[0m] blocks.21.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:41[0m] blocks.22.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:42[0m] blocks.23.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:42[0m] blocks.24.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:43[0m] blocks.25.adaLN_modulation.2.weight
+[[34m2024-10-20 16:17:43[0m] blocks.26.adaLN_modulation.2.weight
+[[34m2024-10-20 16:18:35[0m] Experiment directory created at results/low_rank/010-DiT-XL-2
+[[34m2024-10-20 16:19:10[0m] blocks.0.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:10[0m] blocks.1.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:10[0m] blocks.2.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:11[0m] blocks.3.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:11[0m] blocks.4.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:12[0m] blocks.5.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:12[0m] blocks.6.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:13[0m] blocks.7.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:13[0m] blocks.8.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:14[0m] blocks.9.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:14[0m] blocks.10.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:15[0m] blocks.11.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:15[0m] blocks.12.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:15[0m] blocks.13.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:16[0m] blocks.14.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:16[0m] blocks.15.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:17[0m] blocks.16.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:17[0m] blocks.17.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:18[0m] blocks.18.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:18[0m] blocks.19.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:19[0m] blocks.20.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:19[0m] blocks.21.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:20[0m] blocks.22.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:21[0m] blocks.23.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:21[0m] blocks.24.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:22[0m] blocks.25.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:23[0m] blocks.26.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:23[0m] blocks.27.mlp.fc1_v.weight
+[[34m2024-10-20 16:19:24[0m] blocks.0.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:24[0m] blocks.1.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:24[0m] blocks.2.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:24[0m] blocks.3.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:24[0m] blocks.4.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:24[0m] blocks.5.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:24[0m] blocks.6.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:25[0m] blocks.7.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:25[0m] blocks.8.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:25[0m] blocks.9.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:25[0m] blocks.10.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:25[0m] blocks.11.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:25[0m] blocks.12.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:26[0m] blocks.13.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:26[0m] blocks.14.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:26[0m] blocks.15.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:26[0m] blocks.16.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:26[0m] blocks.17.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:26[0m] blocks.18.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:27[0m] blocks.19.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:27[0m] blocks.20.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:27[0m] blocks.21.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:27[0m] blocks.22.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:27[0m] blocks.23.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:28[0m] blocks.24.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:28[0m] blocks.25.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:28[0m] blocks.26.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:28[0m] blocks.27.mlp.fc2_v.weight
+[[34m2024-10-20 16:19:28[0m] blocks.0.attn.qkv_v.weight
+[[34m2024-10-20 16:19:29[0m] blocks.1.attn.qkv_v.weight
+[[34m2024-10-20 16:19:29[0m] blocks.2.attn.qkv_v.weight
+[[34m2024-10-20 16:19:30[0m] blocks.3.attn.qkv_v.weight
+[[34m2024-10-20 16:19:30[0m] blocks.4.attn.qkv_v.weight
+[[34m2024-10-20 16:19:30[0m] blocks.5.attn.qkv_v.weight
+[[34m2024-10-20 16:19:31[0m] blocks.6.attn.qkv_v.weight
+[[34m2024-10-20 16:19:31[0m] blocks.7.attn.qkv_v.weight
+[[34m2024-10-20 16:19:32[0m] blocks.8.attn.qkv_v.weight
+[[34m2024-10-20 16:19:32[0m] blocks.9.attn.qkv_v.weight
+[[34m2024-10-20 16:19:33[0m] blocks.10.attn.qkv_v.weight
+[[34m2024-10-20 16:19:33[0m] blocks.11.attn.qkv_v.weight
+[[34m2024-10-20 16:19:34[0m] blocks.12.attn.qkv_v.weight
+[[34m2024-10-20 16:19:34[0m] blocks.13.attn.qkv_v.weight
+[[34m2024-10-20 16:19:34[0m] blocks.14.attn.qkv_v.weight
+[[34m2024-10-20 16:19:35[0m] blocks.15.attn.qkv_v.weight
+[[34m2024-10-20 16:19:35[0m] blocks.16.attn.qkv_v.weight
+[[34m2024-10-20 16:19:36[0m] blocks.17.attn.qkv_v.weight
+[[34m2024-10-20 16:19:36[0m] blocks.18.attn.qkv_v.weight
+[[34m2024-10-20 16:19:36[0m] blocks.19.attn.qkv_v.weight
+[[34m2024-10-20 16:19:37[0m] blocks.20.attn.qkv_v.weight
+[[34m2024-10-20 16:19:37[0m] blocks.21.attn.qkv_v.weight
+[[34m2024-10-20 16:19:38[0m] blocks.22.attn.qkv_v.weight
+[[34m2024-10-20 16:19:38[0m] blocks.23.attn.qkv_v.weight
+[[34m2024-10-20 16:19:39[0m] blocks.24.attn.qkv_v.weight
+[[34m2024-10-20 16:19:39[0m] blocks.25.attn.qkv_v.weight
+[[34m2024-10-20 16:19:39[0m] blocks.26.attn.qkv_v.weight
+[[34m2024-10-20 16:19:40[0m] blocks.27.attn.qkv_v.weight
+[[34m2024-10-20 16:19:40[0m] blocks.0.attn.proj_v.weight
+[[34m2024-10-20 16:19:40[0m] blocks.1.attn.proj_v.weight
+[[34m2024-10-20 16:19:40[0m] blocks.2.attn.proj_v.weight
+[[34m2024-10-20 16:19:40[0m] blocks.3.attn.proj_v.weight
+[[34m2024-10-20 16:19:40[0m] blocks.4.attn.proj_v.weight
+[[34m2024-10-20 16:19:40[0m] blocks.5.attn.proj_v.weight
+[[34m2024-10-20 16:19:41[0m] blocks.6.attn.proj_v.weight
+[[34m2024-10-20 16:19:41[0m] blocks.7.attn.proj_v.weight
+[[34m2024-10-20 16:19:41[0m] blocks.8.attn.proj_v.weight
+[[34m2024-10-20 16:19:41[0m] blocks.9.attn.proj_v.weight
+[[34m2024-10-20 16:19:41[0m] blocks.10.attn.proj_v.weight
+[[34m2024-10-20 16:19:41[0m] blocks.11.attn.proj_v.weight
+[[34m2024-10-20 16:19:41[0m] blocks.12.attn.proj_v.weight
+[[34m2024-10-20 16:19:41[0m] blocks.13.attn.proj_v.weight
+[[34m2024-10-20 16:19:42[0m] blocks.14.attn.proj_v.weight
+[[34m2024-10-20 16:19:42[0m] blocks.15.attn.proj_v.weight
+[[34m2024-10-20 16:19:42[0m] blocks.16.attn.proj_v.weight
+[[34m2024-10-20 16:19:42[0m] blocks.17.attn.proj_v.weight
+[[34m2024-10-20 16:19:42[0m] blocks.18.attn.proj_v.weight
+[[34m2024-10-20 16:19:43[0m] blocks.19.attn.proj_v.weight
+[[34m2024-10-20 16:19:43[0m] blocks.20.attn.proj_v.weight
+[[34m2024-10-20 16:19:43[0m] blocks.21.attn.proj_v.weight
+[[34m2024-10-20 16:19:43[0m] blocks.22.attn.proj_v.weight
+[[34m2024-10-20 16:19:43[0m] blocks.23.attn.proj_v.weight
+[[34m2024-10-20 16:19:43[0m] blocks.24.attn.proj_v.weight
+[[34m2024-10-20 16:19:43[0m] blocks.25.attn.proj_v.weight
+[[34m2024-10-20 16:19:43[0m] blocks.26.attn.proj_v.weight
+[[34m2024-10-20 16:19:43[0m] blocks.27.attn.proj_v.weight
+[[34m2024-10-20 16:19:44[0m] blocks.0.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:45[0m] blocks.1.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:46[0m] blocks.2.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:47[0m] blocks.3.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:48[0m] blocks.4.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:49[0m] blocks.5.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:49[0m] blocks.6.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:50[0m] blocks.7.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:51[0m] blocks.8.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:52[0m] blocks.9.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:53[0m] blocks.10.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:54[0m] blocks.11.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:55[0m] blocks.12.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:56[0m] blocks.13.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:56[0m] blocks.14.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:57[0m] blocks.15.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:58[0m] blocks.16.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:59[0m] blocks.17.adaLN_modulation.2.weight
+[[34m2024-10-20 16:19:59[0m] blocks.18.adaLN_modulation.2.weight
+[[34m2024-10-20 16:20:00[0m] blocks.19.adaLN_modulation.2.weight
+[[34m2024-10-20 16:20:01[0m] blocks.20.adaLN_modulation.2.weight
+[[34m2024-10-20 16:20:02[0m] blocks.21.adaLN_modulation.2.weight
+[[34m2024-10-20 16:20:02[0m] blocks.22.adaLN_modulation.2.weight
+[[34m2024-10-20 16:20:03[0m] blocks.23.adaLN_modulation.2.weight
+[[34m2024-10-20 16:20:04[0m] blocks.24.adaLN_modulation.2.weight
+[[34m2024-10-20 16:20:04[0m] blocks.25.adaLN_modulation.2.weight
+[[34m2024-10-20 16:20:05[0m] blocks.26.adaLN_modulation.2.weight
+[[34m2024-10-20 16:20:05[0m] blocks.27.adaLN_modulation.2.weight
+[[34m2024-10-20 16:20:06[0m] <All keys matched successfully>
+[[34m2024-10-20 16:20:06[0m] Dataset contains 2,000 images (./sampled_images)
+[[34m2024-10-20 16:20:06[0m] Training for 10 epochs...
+[[34m2024-10-20 16:20:06[0m] Beginning epoch 0...
+[[34m2024-10-20 16:20:12[0m] Beginning epoch 1...
+[[34m2024-10-20 16:20:16[0m] Beginning epoch 2...
+[[34m2024-10-20 16:20:21[0m] Beginning epoch 3...
+[[34m2024-10-20 16:20:25[0m] Beginning epoch 4...
+[[34m2024-10-20 16:20:30[0m] Beginning epoch 5...
+[[34m2024-10-20 16:20:34[0m] Beginning epoch 6...
+[[34m2024-10-20 16:20:39[0m] Beginning epoch 7...
+[[34m2024-10-20 16:20:44[0m] Beginning epoch 8...
+[[34m2024-10-20 16:20:48[0m] Beginning epoch 9...
+[[34m2024-10-20 16:20:53[0m] Done!
+[[34m2024-10-20 16:22:02[0m] Experiment directory created at results/low_rank/010-DiT-XL-2
+[[34m2024-10-20 16:22:39[0m] blocks.0.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:40[0m] blocks.1.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:40[0m] blocks.2.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:40[0m] blocks.3.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:41[0m] blocks.4.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:41[0m] blocks.5.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:42[0m] blocks.6.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:42[0m] blocks.7.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:43[0m] blocks.8.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:43[0m] blocks.9.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:44[0m] blocks.10.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:44[0m] blocks.11.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:44[0m] blocks.12.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:45[0m] blocks.13.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:45[0m] blocks.14.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:46[0m] blocks.15.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:47[0m] blocks.16.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:47[0m] blocks.17.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:48[0m] blocks.18.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:48[0m] blocks.19.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:49[0m] blocks.20.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:49[0m] blocks.21.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:50[0m] blocks.22.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:50[0m] blocks.23.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:51[0m] blocks.24.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:52[0m] blocks.25.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:52[0m] blocks.26.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:53[0m] blocks.27.mlp.fc1_v.weight
+[[34m2024-10-20 16:22:53[0m] blocks.0.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:53[0m] blocks.1.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:53[0m] blocks.2.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:54[0m] blocks.3.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:54[0m] blocks.4.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:54[0m] blocks.5.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:54[0m] blocks.6.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:54[0m] blocks.7.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:54[0m] blocks.8.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:55[0m] blocks.9.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:55[0m] blocks.10.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:55[0m] blocks.11.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:55[0m] blocks.12.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:55[0m] blocks.13.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:56[0m] blocks.14.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:56[0m] blocks.15.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:56[0m] blocks.16.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:56[0m] blocks.17.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:56[0m] blocks.18.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:56[0m] blocks.19.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:57[0m] blocks.20.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:57[0m] blocks.21.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:57[0m] blocks.22.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:57[0m] blocks.23.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:57[0m] blocks.24.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:57[0m] blocks.25.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:57[0m] blocks.26.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:57[0m] blocks.27.mlp.fc2_v.weight
+[[34m2024-10-20 16:22:58[0m] blocks.0.attn.qkv_v.weight
+[[34m2024-10-20 16:22:58[0m] blocks.1.attn.qkv_v.weight
+[[34m2024-10-20 16:22:59[0m] blocks.2.attn.qkv_v.weight
+[[34m2024-10-20 16:22:59[0m] blocks.3.attn.qkv_v.weight
+[[34m2024-10-20 16:22:59[0m] blocks.4.attn.qkv_v.weight
+[[34m2024-10-20 16:23:00[0m] blocks.5.attn.qkv_v.weight
+[[34m2024-10-20 16:23:00[0m] blocks.6.attn.qkv_v.weight
+[[34m2024-10-20 16:23:00[0m] blocks.7.attn.qkv_v.weight
+[[34m2024-10-20 16:23:01[0m] blocks.8.attn.qkv_v.weight
+[[34m2024-10-20 16:23:02[0m] blocks.9.attn.qkv_v.weight
+[[34m2024-10-20 16:23:02[0m] blocks.10.attn.qkv_v.weight
+[[34m2024-10-20 16:23:03[0m] blocks.11.attn.qkv_v.weight
+[[34m2024-10-20 16:23:03[0m] blocks.12.attn.qkv_v.weight
+[[34m2024-10-20 16:23:03[0m] blocks.13.attn.qkv_v.weight
+[[34m2024-10-20 16:23:04[0m] blocks.14.attn.qkv_v.weight
+[[34m2024-10-20 16:23:04[0m] blocks.15.attn.qkv_v.weight
+[[34m2024-10-20 16:23:05[0m] blocks.16.attn.qkv_v.weight
+[[34m2024-10-20 16:23:05[0m] blocks.17.attn.qkv_v.weight
+[[34m2024-10-20 16:23:06[0m] blocks.18.attn.qkv_v.weight
+[[34m2024-10-20 16:23:06[0m] blocks.19.attn.qkv_v.weight
+[[34m2024-10-20 16:23:06[0m] blocks.20.attn.qkv_v.weight
+[[34m2024-10-20 16:23:07[0m] blocks.21.attn.qkv_v.weight
+[[34m2024-10-20 16:23:07[0m] blocks.22.attn.qkv_v.weight
+[[34m2024-10-20 16:23:08[0m] blocks.23.attn.qkv_v.weight
+[[34m2024-10-20 16:23:08[0m] blocks.24.attn.qkv_v.weight
+[[34m2024-10-20 16:23:09[0m] blocks.25.attn.qkv_v.weight
+[[34m2024-10-20 16:23:09[0m] blocks.26.attn.qkv_v.weight
+[[34m2024-10-20 16:23:09[0m] blocks.27.attn.qkv_v.weight
+[[34m2024-10-20 16:23:10[0m] blocks.0.attn.proj_v.weight
+[[34m2024-10-20 16:23:10[0m] blocks.1.attn.proj_v.weight
+[[34m2024-10-20 16:23:10[0m] blocks.2.attn.proj_v.weight
+[[34m2024-10-20 16:23:10[0m] blocks.3.attn.proj_v.weight
+[[34m2024-10-20 16:23:10[0m] blocks.4.attn.proj_v.weight
+[[34m2024-10-20 16:23:10[0m] blocks.5.attn.proj_v.weight
+[[34m2024-10-20 16:23:11[0m] blocks.6.attn.proj_v.weight
+[[34m2024-10-20 16:23:11[0m] blocks.7.attn.proj_v.weight
+[[34m2024-10-20 16:23:11[0m] blocks.8.attn.proj_v.weight
+[[34m2024-10-20 16:23:11[0m] blocks.9.attn.proj_v.weight
+[[34m2024-10-20 16:23:11[0m] blocks.10.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.11.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.12.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.13.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.14.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.15.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.16.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.17.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.18.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.19.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.20.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.21.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.22.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.23.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.24.attn.proj_v.weight
+[[34m2024-10-20 16:23:12[0m] blocks.25.attn.proj_v.weight
+[[34m2024-10-20 16:23:13[0m] blocks.26.attn.proj_v.weight
+[[34m2024-10-20 16:23:13[0m] blocks.27.attn.proj_v.weight
+[[34m2024-10-20 16:23:14[0m] blocks.0.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:15[0m] blocks.1.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:16[0m] blocks.2.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:17[0m] blocks.3.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:18[0m] blocks.4.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:19[0m] blocks.5.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:20[0m] blocks.6.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:21[0m] blocks.7.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:22[0m] blocks.8.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:23[0m] blocks.9.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:24[0m] blocks.10.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:25[0m] blocks.11.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:26[0m] blocks.12.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:27[0m] blocks.13.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:27[0m] blocks.14.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:28[0m] blocks.15.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:29[0m] blocks.16.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:30[0m] blocks.17.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:30[0m] blocks.18.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:31[0m] blocks.19.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:32[0m] blocks.20.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:32[0m] blocks.21.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:33[0m] blocks.22.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:34[0m] blocks.23.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:34[0m] blocks.24.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:35[0m] blocks.25.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:35[0m] blocks.26.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:36[0m] blocks.27.adaLN_modulation.2.weight
+[[34m2024-10-20 16:23:37[0m] <All keys matched successfully>
+[[34m2024-10-20 16:23:53[0m] Dataset contains 1,281,167 images (/mnt/petrelfs/share/images/train)
+[[34m2024-10-20 16:23:53[0m] Training for 10 epochs...
+[[34m2024-10-20 16:23:53[0m] Beginning epoch 0...
+[[34m2024-10-20 16:24:42[0m] (step=0000100) Train Loss: 0.2192, Train Steps/Sec: 2.06
+[[34m2024-10-20 16:25:30[0m] (step=0000200) Train Loss: 0.1823, Train Steps/Sec: 2.13
+[[34m2024-10-20 16:26:17[0m] (step=0000300) Train Loss: 0.1685, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:27:05[0m] (step=0000400) Train Loss: 0.1635, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:27:53[0m] (step=0000500) Train Loss: 0.1591, Train Steps/Sec: 2.13
+[[34m2024-10-20 16:28:41[0m] (step=0000600) Train Loss: 0.1573, Train Steps/Sec: 2.13
+[[34m2024-10-20 16:29:28[0m] (step=0000700) Train Loss: 0.1612, Train Steps/Sec: 2.13
+[[34m2024-10-20 16:30:16[0m] (step=0000800) Train Loss: 0.1593, Train Steps/Sec: 2.13
+[[34m2024-10-20 16:31:04[0m] (step=0000900) Train Loss: 0.1585, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:31:52[0m] (step=0001000) Train Loss: 0.1578, Train Steps/Sec: 2.13
+[[34m2024-10-20 16:32:40[0m] (step=0001100) Train Loss: 0.1581, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:33:27[0m] (step=0001200) Train Loss: 0.1626, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:34:15[0m] (step=0001300) Train Loss: 0.1589, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:35:03[0m] (step=0001400) Train Loss: 0.1570, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:35:51[0m] (step=0001500) Train Loss: 0.1554, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:36:38[0m] (step=0001600) Train Loss: 0.2369, Train Steps/Sec: 2.13
+[[34m2024-10-20 16:37:26[0m] (step=0001700) Train Loss: 0.2808, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:38:14[0m] (step=0001800) Train Loss: 0.3501, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:39:02[0m] (step=0001900) Train Loss: 0.3562, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:39:49[0m] (step=0002000) Train Loss: 0.3493, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:40:37[0m] (step=0002100) Train Loss: 0.3424, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:41:25[0m] (step=0002200) Train Loss: 0.3351, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:42:13[0m] (step=0002300) Train Loss: 0.3384, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:43:01[0m] (step=0002400) Train Loss: 0.3407, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:43:49[0m] (step=0002500) Train Loss: 0.3404, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:44:36[0m] (step=0002600) Train Loss: 0.3440, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:45:24[0m] (step=0002700) Train Loss: 0.3462, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:46:12[0m] (step=0002800) Train Loss: 0.3411, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:47:00[0m] (step=0002900) Train Loss: 0.3986, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:47:48[0m] (step=0003000) Train Loss: 0.4577, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:48:35[0m] (step=0003100) Train Loss: 0.4642, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:49:23[0m] (step=0003200) Train Loss: 0.4669, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:50:11[0m] (step=0003300) Train Loss: 0.4657, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:50:59[0m] (step=0003400) Train Loss: nan, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:51:46[0m] (step=0003500) Train Loss: nan, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:52:34[0m] (step=0003600) Train Loss: nan, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:53:22[0m] (step=0003700) Train Loss: nan, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:54:09[0m] (step=0003800) Train Loss: nan, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:54:57[0m] (step=0003900) Train Loss: nan, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:55:45[0m] (step=0004000) Train Loss: nan, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:56:33[0m] (step=0004100) Train Loss: nan, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:57:21[0m] (step=0004200) Train Loss: nan, Train Steps/Sec: 2.13
+[[34m2024-10-20 16:58:08[0m] (step=0004300) Train Loss: nan, Train Steps/Sec: 2.15
+[[34m2024-10-20 16:58:56[0m] (step=0004400) Train Loss: nan, Train Steps/Sec: 2.14
+[[34m2024-10-20 16:59:44[0m] (step=0004500) Train Loss: nan, Train Steps/Sec: 2.15
+[[34m2024-10-20 17:00:31[0m] (step=0004600) Train Loss: nan, Train Steps/Sec: 2.15
+[[34m2024-10-20 17:01:19[0m] (step=0004700) Train Loss: nan, Train Steps/Sec: 2.14
+[[34m2024-10-20 17:02:07[0m] (step=0004800) Train Loss: nan, Train Steps/Sec: 2.15
+[[34m2024-10-20 17:02:54[0m] (step=0004900) Train Loss: nan, Train Steps/Sec: 2.15

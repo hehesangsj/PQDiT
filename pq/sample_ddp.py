@@ -116,14 +116,19 @@ def main(args):
     folder_name = f"{model_string_name}-{ckpt_string_name}-size-{args.image_size}-vae-{args.vae}-" \
                   f"cfg-{args.cfg_scale}-seed-{args.global_seed}"
     sample_folder_dir = f"{args.sample_dir}/{folder_name}"
+    dist.barrier()
+
+def sample(args, model_pq, vae, diffusion, sample_folder_dir):
+    n = args.per_proc_batch_size
+    global_batch_size = n * dist.get_world_size()
+    rank = dist.get_rank()
+    device = rank % torch.cuda.device_count()
+    latent_size = args.image_size // 8
+    using_cfg = args.cfg_scale > 1.0
     if rank == 0:
         os.makedirs(sample_folder_dir, exist_ok=True)
         print(f"Saving .png samples at {sample_folder_dir}")
-    dist.barrier()
 
-    # Figure out how many samples we need to generate on each GPU and how many iterations we need to run:
-    n = args.per_proc_batch_size
-    global_batch_size = n * dist.get_world_size()
     # To make things evenly-divisible, we'll sample a bit more than we need and then discard the extra samples:
     total_samples = int(math.ceil(args.num_fid_samples / global_batch_size) * global_batch_size)
     if rank == 0:
