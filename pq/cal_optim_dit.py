@@ -281,7 +281,7 @@ def main(args):
     load_path = "results/low_rank/002-DiT-XL-2/dit_t_in_"
 
     # DiT-XL/2-256
-    percent = 0.8
+    percent = 0.9
     fc_space = range(1, 6)
     fc_len, fc_use_uv = {}, {}
 
