@@ -1,0 +1,79 @@
+import numpy as np
+from glob import glob
+from copy import deepcopy
+import torch
+from timm.layers.helpers import to_2tuple
+from distributed import init_distributed_mode
+
+import os
+import sys
+sys.path.append("/mnt/petrelfs/shaojie/code/DiT/")
+from models import DiT_models
+from pq.low_rank_models import DiT_uv_models
+from pq.utils_model import parse_option, init_env, init_model, get_pq_model
+from pq.utils_traineval import sample, dit_generator, train
+from pq.low_rank_compress import get_blocks, merge_model
+
+
+
+def main(args):
+    init_distributed_mode(args)
+    rank, device, logger, experiment_dir = init_env(args)
+    checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
+
+    model, state_dict, diffusion, vae = init_model(args, device)
+    latent_size = args.image_size // 8
+    load_path = "results/low_rank/002-DiT-XL-2/dit_t_in_"
+    percent = args.percent
+    fc_space = range(1, 6)
+    fc_len, fc_use_uv = {}, {}
+
+    block_str = ''.join(map(str, fc_space))
+    image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
+    image_dir = f"{experiment_dir}/{image_name}"
+
+    for fc_idx in range(1, 6):
+        if fc_idx in fc_space:
+            fc_len[fc_idx], fc_use_uv[fc_idx] = get_blocks(percent, fc_idx, compress_all=True)
+        else:
+            fc_len[fc_idx] = [128] * 28
+            fc_use_uv[fc_idx] = [False] * 28
+
+    model_uv = DiT_uv_models[args.model](
+        input_size=latent_size,
+        num_classes=args.num_classes,
+        qkv_use_uv=fc_use_uv[3], proj_use_uv=fc_use_uv[4], 
+        fc1_use_uv=fc_use_uv[1], fc2_use_uv=fc_use_uv[2], adaln_use_uv=fc_use_uv[5],
+        qkv_len=fc_len[3], proj_len=fc_len[4], 
+        fc1_len=fc_len[1], fc2_len=fc_len[2], adaln_len=fc_len[5]
+    ).to(device)
+
+    state_dict_merge = deepcopy(state_dict)
+    # Iterate through blocks and merge model
+    for fc_i in fc_space:
+        for block_i in range(28):
+            if fc_use_uv[fc_i][block_i]:
+                state_dict_merge = merge_model(state_dict_merge, block_i, fc_i, fc_len[fc_i][block_i], load_path, logger)                
+    msg = model_uv.load_state_dict(state_dict_merge)
+    logger.info(msg)
+
+    if args.pq_afer_low_rank:
+        file_path = os.path.dirname(__file__)
+        model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger)
+
+    mode = args.low_rank_mode
+    if mode == "sample":
+        model_uv.eval()
+        sample(args, model_uv, vae, diffusion, image_dir)
+    elif mode == "gen":
+        model_uv.eval()
+        diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
+        diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
+    elif mode == "train":
+        model_uv.train()
+        train(args, logger, model_uv, vae, diffusion, checkpoint_dir)
+
+if __name__ == "__main__":
+    args = parse_option()
+    main(args)
+    
