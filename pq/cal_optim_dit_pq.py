@@ -133,7 +133,7 @@ def main(args):
         model_pq.eval()
         block_str = ''.join(map(str, fc_space))
         image_name = f"sample_allfc{block_str}_{percent:.1f}_pq".replace('.', '_')
-        diffusion.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
+        diffusion.forward_val(vae, model.forward, model_pq.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
         # image_dir = f"{experiment_dir}/{image_name}"
         # sample(args, model_pq, vae, diffusion_dit, image_dir)
     else:
