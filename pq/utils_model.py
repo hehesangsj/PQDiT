@@ -184,9 +184,9 @@ def get_pq_model(model, file_path, rank, experiment_dir, logger):
     config = load_config(file_path, default_config_path=default_config)
     model_config = config["model"]
     compression_config = model_config["compression_parameters"]
+    uncompressed_model_size_bits = compute_model_nbits(model)
     model = compress_model(model, **compression_config).cuda()
 
-    uncompressed_model_size_bits = compute_model_nbits(model)
     compressed_model_size_bits = compute_model_nbits(model)
     logger.info(f"Uncompressed model size: {uncompressed_model_size_bits} bits")
     logger.info(f"Compressed model size: {compressed_model_size_bits} bits")
