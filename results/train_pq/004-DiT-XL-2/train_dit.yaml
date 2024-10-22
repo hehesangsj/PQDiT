@@ -37,6 +37,7 @@ model:
     k_means_type: src # kmeans, kmedians, src, slow_src
     # k_means_n_iters: 1_000  # Keep this low for fast iteration (eg during development). ~100 for decent results
     k_means_n_iters: 1_000 # Keep this low for fast iteration (eg during development). ~100 for decent results
+    # k_means_n_iters: 1_000 # Keep this low for fast iteration (eg during development). ~100 for decent results
 
     # Used to overwrite configs
     layer_specs:

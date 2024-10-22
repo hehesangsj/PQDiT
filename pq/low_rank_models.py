@@ -15,6 +15,7 @@ import torch.nn.functional as F
 
 from functools import partial
 from timm.layers.helpers import to_2tuple
+from timm.models.vision_transformer import PatchEmbed, Attention, Mlp
 
 from models import DiTBlock
 from models import DiT

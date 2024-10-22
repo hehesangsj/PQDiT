@@ -688,3 +688,15 @@
 [[34m2024-10-20 17:01:19[0m] (step=0004700) Train Loss: nan, Train Steps/Sec: 2.14
 [[34m2024-10-20 17:02:07[0m] (step=0004800) Train Loss: nan, Train Steps/Sec: 2.15
 [[34m2024-10-20 17:02:54[0m] (step=0004900) Train Loss: nan, Train Steps/Sec: 2.15
+[[34m2024-10-22 19:12:09[0m] Experiment directory created at results/low_rank/010-DiT-XL-2
+[[34m2024-10-22 19:12:42[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-22 19:12:42[0m] Compressed model size: 19399271424 bits
+[[34m2024-10-22 19:12:42[0m] Compression ratio: 1.11
+[[34m2024-10-22 19:17:05[0m] Experiment directory created at results/low_rank/010-DiT-XL-2
+[[34m2024-10-22 19:17:38[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-22 19:17:38[0m] Compressed model size: 19399271424 bits
+[[34m2024-10-22 19:17:38[0m] Compression ratio: 1.11
+[[34m2024-10-22 19:18:01[0m] blocks.0.attn.qkv_u compression: 1000; mse: 4.829681e-03; codebook size: 256 x 4; code size: 768 x 288
+[[34m2024-10-22 19:18:26[0m] blocks.0.attn.qkv_v compression: 1000; mse: 1.304589e-04; codebook size: 256 x 4; code size: 3456 x 192
+[[34m2024-10-22 19:18:49[0m] blocks.0.attn.proj_u compression: 1000; mse: 1.472255e-02; codebook size: 256 x 4; code size: 480 x 288
+[[34m2024-10-22 19:19:11[0m] blocks.0.attn.proj_v compression: 1000; mse: 3.510021e-04; codebook size: 256 x 4; code size: 1152 x 120

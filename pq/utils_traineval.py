@@ -196,7 +196,7 @@ class dit_generator:
             plt.savefig('mse_loss_over_time_steps.png')
                     
             save_image(samples, name+'.png', nrow=4, normalize=True, value_range=(-1, 1))
-            save_image(samples_pq, name+'_uv.png', nrow=4, normalize=True, value_range=(-1, 1))
+            save_image(samples_pq, name+'_compress.png', nrow=4, normalize=True, value_range=(-1, 1))
 
     def pre_process(self, class_labels, cfg=False, args=None):
         n = len(class_labels)
@@ -327,3 +327,15 @@ def train(args, logger, model, vae, diffusion, checkpoint_dir):
 
     logger.info("Done!")
     cleanup()
+
+
+def save_ckpt(model, args, checkpoint_dir, logger):
+    checkpoint = {
+        "model": model.state_dict(),
+        "args": args
+    }
+    if not os.path.exists(checkpoint_dir):
+        os.makedirs(checkpoint_dir, exist_ok=True)
+    checkpoint_path = f"{checkpoint_dir}/ckpt.pt"
+    torch.save(checkpoint, checkpoint_path)
+    logger.info(f"Saved checkpoint to {checkpoint_path}")

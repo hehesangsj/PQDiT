@@ -11,17 +11,18 @@ sys.path.append("/mnt/petrelfs/shaojie/code/DiT/")
 from models import DiT_models
 from pq.low_rank_models import DiT_uv_models
 from pq.utils_model import parse_option, init_env, init_model, get_pq_model
-from pq.utils_traineval import sample, dit_generator, train
+from pq.utils_traineval import sample, dit_generator, train, save_ckpt
 from pq.low_rank_compress import get_blocks, merge_model
-
+from pqf.utils.model_size import compute_model_nbits
 
 
 def main(args):
     init_distributed_mode(args)
-    rank, device, logger, experiment_dir = init_env(args)
+    rank, device, logger, experiment_dir = init_env(args, dir='011-DiT-XL-2')
     checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
 
     model, state_dict, diffusion, vae = init_model(args, device)
+    uncompressed_model_size_bits = compute_model_nbits(model)
     latent_size = args.image_size // 8
     load_path = "results/low_rank/002-DiT-XL-2/dit_t_in_"
     percent = args.percent
@@ -29,7 +30,7 @@ def main(args):
     fc_len, fc_use_uv = {}, {}
 
     block_str = ''.join(map(str, fc_space))
-    image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
+    image_name = f"sample_allfc{block_str}_{percent:.1f}_pq".replace('.', '_')
     image_dir = f"{experiment_dir}/{image_name}"
 
     for fc_idx in range(1, 6):
@@ -48,18 +49,35 @@ def main(args):
         fc1_len=fc_len[1], fc2_len=fc_len[2], adaln_len=fc_len[5]
     ).to(device)
 
-    state_dict_merge = deepcopy(state_dict)
-    # Iterate through blocks and merge model
-    for fc_i in fc_space:
-        for block_i in range(28):
-            if fc_use_uv[fc_i][block_i]:
-                state_dict_merge = merge_model(state_dict_merge, block_i, fc_i, fc_len[fc_i][block_i], load_path, logger)                
-    msg = model_uv.load_state_dict(state_dict_merge)
-    logger.info(msg)
+    if args.low_rank_ckpt == None:
+        state_dict_merge = deepcopy(state_dict)
+        # Iterate through blocks and merge model
+        for fc_i in fc_space:
+            for block_i in range(28):
+                if fc_use_uv[fc_i][block_i]:
+                    state_dict_merge = merge_model(state_dict_merge, block_i, fc_i, fc_len[fc_i][block_i], load_path, logger)                
+        msg = model_uv.load_state_dict(state_dict_merge)
+        checkpoint_dir_lowrank = f"{experiment_dir}/checkpoints-low-rank"  # Stores saved model checkpoints
+        save_ckpt(model_uv, args, checkpoint_dir_lowrank, logger)
+        logger.info(msg)
+    else:
+        model_uv.load_state_dict(torch.load(args.low_rank_ckpt)['model'])
 
-    if args.pq_afer_low_rank:
-        file_path = os.path.dirname(__file__)
-        model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger)
+    compressed_model_size_bits = compute_model_nbits(model_uv)
+    logger.info(f"Uncompressed model size: {uncompressed_model_size_bits} bits")
+    logger.info(f"Compressed model size: {compressed_model_size_bits} bits")
+    logger.info(f"Compression ratio: {uncompressed_model_size_bits / compressed_model_size_bits:.2f}")
+
+    if args.pq_after_low_rank:
+        if args.pq_ckpt == None:
+            file_path = os.path.dirname(__file__)
+            model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger)
+        checkpoint_dir_pq = f"{experiment_dir}/checkpoints-pq"  # Stores saved model checkpoints
+        save_ckpt(model_uv, args, checkpoint_dir_lowrank, logger)
+
+    compressed_model_size_bits = compute_model_nbits(model_uv)
+    logger.info(f"Compressed model size: {compressed_model_size_bits} bits")
+    logger.info(f"Compression ratio: {uncompressed_model_size_bits / compressed_model_size_bits:.2f}")
 
     mode = args.low_rank_mode
     if mode == "sample":
