@@ -73,7 +73,7 @@ def main(args):
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger)
         checkpoint_dir_pq = f"{experiment_dir}/checkpoints-pq"  # Stores saved model checkpoints
-        save_ckpt(model_uv, args, checkpoint_dir_lowrank, logger)
+        save_ckpt(model_uv, args, checkpoint_dir_pq, logger)
 
     compressed_model_size_bits = compute_model_nbits(model_uv)
     logger.info(f"Compressed model size: {compressed_model_size_bits} bits")
