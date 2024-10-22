@@ -4,6 +4,7 @@ import os
 from glob import glob
 import shutil
 from PIL import Image
+import matplotlib.pyplot as plt
 import numpy as np
 import argparse
 import logging
@@ -97,6 +98,35 @@ def calculate_outliers(matrix, logger, name):
 
     logger.info(f"{name} - Min: {matrix_np.min()}, Max: {matrix_np.max()}, Outliers: {outlier_ratio*100:.2f}%")
     return matrix_np.min(), matrix_np.max(), outlier_ratio
+
+
+def vis_weights(model, logger, save_dir):
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+    prefix_layers = {}
+
+    for name, param in model.named_parameters():
+        if '_u' in name or '_v' in name:
+            prefix = name.split('_')[0]
+            max_abs_value = param.abs().max().item()
+            logger.info(f"Layer: {name}, Max Abs Value: {max_abs_value}")
+            if prefix not in prefix_layers:
+                prefix_layers[prefix] = []
+            prefix_layers[prefix].append((name, param))
+
+    for prefix, layers in prefix_layers.items():
+        plt.figure(figsize=(10, 6))
+        for name, param in layers:
+            param_values = param.detach().cpu().numpy().flatten()
+            plt.plot(param_values, label=name)
+
+        plt.title(f'Weights Visualization for {prefix}')
+        plt.xlabel('Index')
+        plt.ylabel('Weight Value')
+        plt.legend()
+        plot_path = os.path.join(save_dir, f'{prefix}_weights.png')
+        plt.savefig(plot_path)
+        plt.close()
 
 
 def init_env(args, dir=None):
@@ -195,6 +225,14 @@ def get_pq_model(model, file_path, rank, experiment_dir, logger):
     return model
 
 
+def log_params(model_before, model_after, logger):
+    uncompressed_model_size_bits = compute_model_nbits(model_before)
+    compressed_model_size_bits = compute_model_nbits(model_after)
+    logger.info(f"Uncompressed model size: {uncompressed_model_size_bits} bits")
+    logger.info(f"Compressed model size: {compressed_model_size_bits} bits")
+    logger.info(f"Compression ratio: {uncompressed_model_size_bits / compressed_model_size_bits:.2f}")
+
+
 def parse_option():
     parser = argparse.ArgumentParser('DiT script', add_help=False)
 
@@ -226,6 +264,7 @@ def parse_option():
     parser.add_argument("--pq-after-low-rank", type=bool, default=False)
     parser.add_argument("--pq-mode", type=str, default="sample")
     parser.add_argument("--pq-ckpt", type=str, default=None)
+    parser.add_argument("--smooth", type=bool, default=False)
 
     args = parser.parse_args()
 

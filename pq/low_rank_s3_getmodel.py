@@ -10,10 +10,10 @@ import sys
 sys.path.append("/mnt/petrelfs/shaojie/code/DiT/")
 from models import DiT_models
 from pq.low_rank_models import DiT_uv_models
-from pq.utils_model import parse_option, init_env, init_model, get_pq_model
+from pq.utils_model import parse_option, init_env, init_model, get_pq_model, log_params, vis_weights
 from pq.utils_traineval import sample, dit_generator, train, save_ckpt
+from pq.utils_smoothquant import smooth_dit
 from pq.low_rank_compress import get_blocks, merge_model
-from pqf.utils.model_size import compute_model_nbits
 
 
 def main(args):
@@ -22,7 +22,6 @@ def main(args):
     checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
 
     model, state_dict, diffusion, vae = init_model(args, device)
-    uncompressed_model_size_bits = compute_model_nbits(model)
     latent_size = args.image_size // 8
     load_path = "results/low_rank/002-DiT-XL-2/dit_t_in_"
     percent = args.percent
@@ -62,22 +61,22 @@ def main(args):
         logger.info(msg)
     else:
         model_uv.load_state_dict(torch.load(args.low_rank_ckpt)['model'])
+    log_params(model, model_uv, logger)
+    image_weight_dir = f"{experiment_dir}/image_weights_uv"
+    vis_weights(model_uv, logger, image_weight_dir)
 
-    compressed_model_size_bits = compute_model_nbits(model_uv)
-    logger.info(f"Uncompressed model size: {uncompressed_model_size_bits} bits")
-    logger.info(f"Compressed model size: {compressed_model_size_bits} bits")
-    logger.info(f"Compression ratio: {uncompressed_model_size_bits / compressed_model_size_bits:.2f}")
+    if args.smooth:
+        model_uv = smooth_dit(model_uv)
+    image_weight_dir = f"{experiment_dir}/image_weights_uv_smooth"
+    vis_weights(model_uv, logger, image_weight_dir)
 
     if args.pq_after_low_rank:
         if args.pq_ckpt == None:
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger)
         checkpoint_dir_pq = f"{experiment_dir}/checkpoints-pq"  # Stores saved model checkpoints
-        save_ckpt(model_uv, args, checkpoint_dir_lowrank, logger)
-
-    compressed_model_size_bits = compute_model_nbits(model_uv)
-    logger.info(f"Compressed model size: {compressed_model_size_bits} bits")
-    logger.info(f"Compression ratio: {uncompressed_model_size_bits / compressed_model_size_bits:.2f}")
+        save_ckpt(model_uv, args, checkpoint_dir_pq, logger)
+    log_params(model, model_uv, logger)
 
     mode = args.low_rank_mode
     if mode == "sample":
