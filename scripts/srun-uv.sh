@@ -19,10 +19,10 @@ else
     NODES=$((GPUS / GPUS_PER_NODE))
 fi
 
-SRUN_ARGS=${SRUN_ARGS:-" --jobid=3703936"} # 3768157 3768158 3789766 -w HOST-10-140-66-41  3636795
+# SRUN_ARGS=${SRUN_ARGS:-" --jobid=3709386"} # 3768157 3768158 3789766 -w HOST-10-140-66-41  3636795
 
 export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-export MASTER_PORT=32424
+export MASTER_PORT=32426    
 # export NCCL_DEBUG=INFO
 # export TF_CPP_MIN_LOG_LEVEL=3
 # unset CUDA_LAUNCH_BLOCKING
@@ -44,5 +44,4 @@ srun -p ${PARTITION} \
   --kill-on-bad-exit=1 \
   --quotatype=${QUOTA_TYPE} \
   ${SRUN_ARGS} \
-  python evaluator.py samples/VIRTUAL_imagenet256_labeled.npz samples/009-DiT-XL-2/sample_allfc12345_0_8.npz
-#   python sample_ddp.py --model DiT-XL/2 --num-fid-samples 50000 --ckpt pretrained_models/DiT-XL-2-256x256.pt
+  python pq/low_rank_s3_getmodel.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --low-rank-mode gen --low-rank-ckpt  results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt --results-dir results/low_rank  --pq-after-low-rank True

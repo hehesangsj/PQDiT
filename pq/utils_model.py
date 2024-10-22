@@ -1,7 +1,7 @@
 import torch
 import random
 import os
-import glob
+from glob import glob
 import shutil
 from PIL import Image
 import numpy as np
@@ -111,14 +111,14 @@ def init_env(args, dir=None):
     print(f"Starting rank={rank}, seed={seed}, world_size={dist.get_world_size()}.")
 
     # Setup an experiment folder:
+    experiment_index = len(glob(f"{args.results_dir}/*"))
+    model_string_name = args.model.replace("/", "-")  # e.g., DiT-XL/2 --> DiT-XL-2 (for naming folders)
+    if dir:
+        experiment_dir = f"{args.results_dir}/{dir}"
+    else:
+        experiment_dir = f"{args.results_dir}/{experiment_index:03d}-{model_string_name}"  # Create an experiment folder
     if rank == 0:
         os.makedirs(args.results_dir, exist_ok=True)  # Make results folder (holds all experiment subfolders)
-        experiment_index = len(glob(f"{args.results_dir}/*"))
-        model_string_name = args.model.replace("/", "-")  # e.g., DiT-XL/2 --> DiT-XL-2 (for naming folders)
-        if dir:
-            experiment_dir = f"{args.results_dir}/{dir}"
-        else:
-            experiment_dir = f"{args.results_dir}/{experiment_index:03d}-{model_string_name}"  # Create an experiment folder
         os.makedirs(experiment_dir, exist_ok=True)
         logger = create_logger(experiment_dir)
         logger.info(f"Experiment directory created at {experiment_dir}")
@@ -184,9 +184,9 @@ def get_pq_model(model, file_path, rank, experiment_dir, logger):
     config = load_config(file_path, default_config_path=default_config)
     model_config = config["model"]
     compression_config = model_config["compression_parameters"]
+    uncompressed_model_size_bits = compute_model_nbits(model)
     model = compress_model(model, **compression_config).cuda()
 
-    uncompressed_model_size_bits = compute_model_nbits(model)
     compressed_model_size_bits = compute_model_nbits(model)
     logger.info(f"Uncompressed model size: {uncompressed_model_size_bits} bits")
     logger.info(f"Compressed model size: {compressed_model_size_bits} bits")
@@ -211,7 +211,6 @@ def parse_option():
     parser.add_argument("--global-seed", type=int, default=0)
     parser.add_argument("--num-workers", type=int, default=4)
     parser.add_argument("--log-every", type=int, default=100)
-
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--ckpt-every", type=int, default=50_000)
     
@@ -222,9 +221,11 @@ def parse_option():
 
     parser.add_argument("--s2-mode", type=str, default="mse")
     parser.add_argument("--low-rank-mode", type=str, default="sample")
+    parser.add_argument("--low-rank-ckpt", type=str, default=None)
     parser.add_argument("--percent", type=float, default=0.9)
     parser.add_argument("--pq-after-low-rank", type=bool, default=False)
     parser.add_argument("--pq-mode", type=str, default="sample")
+    parser.add_argument("--pq-ckpt", type=str, default=None)
 
     args = parser.parse_args()
 
