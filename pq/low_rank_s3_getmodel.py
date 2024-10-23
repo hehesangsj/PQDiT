@@ -22,7 +22,7 @@ def main(args):
     checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
 
     model, state_dict, diffusion, vae = init_model(args, device)
-    vis_weights(model, logger, f"{experiment_dir}/image_weights")
+    # vis_weights(model, logger, f"{experiment_dir}/image_weights", mode='original')
     latent_size = args.image_size // 8
     load_path = "results/low_rank/002-DiT-XL-2/dit_t_in_"
     percent = args.percent
@@ -63,15 +63,16 @@ def main(args):
     else:
         model_uv.load_state_dict(torch.load(args.low_rank_ckpt)['model'])
     log_params(model, model_uv, logger)
-    image_weight_dir = f"{experiment_dir}/image_weights_uv"
-    vis_weights(model_uv, logger, image_weight_dir)
+    # image_weight_dir = f"{experiment_dir}/image_weights_uv"
+    # vis_weights(model_uv, logger, image_weight_dir)
 
     if args.smooth:
         smooth_dit(model_uv)
-    image_weight_dir = f"{experiment_dir}/image_weights_uv_smooth"
-    vis_weights(model_uv, logger, image_weight_dir)
+    # image_weight_dir = f"{experiment_dir}/image_weights_uv_smooth"
+    # vis_weights(model_uv, logger, image_weight_dir)
     diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
     diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
+    return
     
     if args.pq_after_low_rank:
         if args.pq_ckpt == None:

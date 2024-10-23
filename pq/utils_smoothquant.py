@@ -30,6 +30,8 @@ def smooth_fcs(fcs_u, fcs_v, alpha=0.5):
         fc_u.weight.div_(scales.view(-1, 1))
     for fc_v in fcs_v:
         fc_v.weight.mul_(scales.view(1, -1))
+    
+    print('done')
 
 
 @torch.no_grad()

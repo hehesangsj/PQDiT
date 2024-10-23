@@ -3512,3 +3512,961 @@
 [[34m2024-10-23 13:25:47[0m] blocks.2.mlp.fc2_u compression: 1000; mse: 7.044739e-04; codebook size: 256 x 4; code size: 832 x 1152
 [[34m2024-10-23 13:26:10[0m] blocks.2.mlp.fc2_v compression: 1000; mse: 1.183819e-03; codebook size: 256 x 4; code size: 1152 x 208
 [[34m2024-10-23 13:26:34[0m] blocks.2.adaLN_modulation.1 compression: 1000; mse: 2.644307e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 13:27:05[0m] blocks.2.adaLN_modulation.2 compression: 1000; mse: 8.641848e-04; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 13:27:29[0m] blocks.3.attn.qkv_u compression: 1000; mse: 9.829558e-04; codebook size: 256 x 4; code size: 800 x 288
+[[34m2024-10-23 13:27:55[0m] blocks.3.attn.qkv_v compression: 1000; mse: 2.140950e-03; codebook size: 256 x 4; code size: 3456 x 200
+[[34m2024-10-23 13:28:19[0m] blocks.3.attn.proj_u compression: 1000; mse: 3.242196e-03; codebook size: 256 x 4; code size: 384 x 288
+[[34m2024-10-23 13:28:42[0m] blocks.3.attn.proj_v compression: 1000; mse: 3.284731e-03; codebook size: 256 x 4; code size: 1152 x 96
+[[34m2024-10-23 13:29:05[0m] blocks.3.mlp.fc1_u compression: 1000; mse: 6.822870e-04; codebook size: 256 x 4; code size: 768 x 288
+[[34m2024-10-23 13:29:33[0m] blocks.3.mlp.fc1_v compression: 1000; mse: 1.090806e-03; codebook size: 256 x 4; code size: 4608 x 192
+[[34m2024-10-23 13:30:00[0m] blocks.3.mlp.fc2_u compression: 1000; mse: 6.549926e-04; codebook size: 256 x 4; code size: 800 x 1152
+[[34m2024-10-23 13:30:23[0m] blocks.3.mlp.fc2_v compression: 1000; mse: 1.956447e-03; codebook size: 256 x 4; code size: 1152 x 200
+[[34m2024-10-23 13:30:28[0m] Experiment directory created at results/low_rank/011-DiT-XL-2
+[[34m2024-10-23 13:30:47[0m] blocks.3.adaLN_modulation.1 compression: 1000; mse: 2.741603e-03; codebook size: 256 x 4; code size: 896 x 288
+[[34m2024-10-23 13:31:03[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-23 13:31:03[0m] Compressed model size: 19399271424 bits
+[[34m2024-10-23 13:31:03[0m] Compression ratio: 1.11
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.attn.qkv_u.weight, Max Abs Value: 6.944646835327148
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.attn.qkv_u.bias, Max Abs Value: 1.252252221107483
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.attn.qkv_v.weight, Max Abs Value: 0.36831551790237427
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.attn.qkv_v.bias, Max Abs Value: 0.7285658121109009
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.attn.proj_u.weight, Max Abs Value: 6.938144207000732
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.attn.proj_u.bias, Max Abs Value: 0.7532941102981567
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.attn.proj_v.weight, Max Abs Value: 0.30985957384109497
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.attn.proj_v.bias, Max Abs Value: 0.2718648314476013
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.mlp.fc1_u.weight, Max Abs Value: 10.078664779663086
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.mlp.fc1_u.bias, Max Abs Value: 4.951510429382324
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.mlp.fc1_v.weight, Max Abs Value: 0.2140125334262848
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.mlp.fc1_v.bias, Max Abs Value: 0.2837267220020294
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.mlp.fc2_u.weight, Max Abs Value: 4.3151445388793945
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.mlp.fc2_u.bias, Max Abs Value: 0.4174818694591522
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.mlp.fc2_v.weight, Max Abs Value: 0.733665406703949
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.0.mlp.fc2_v.bias, Max Abs Value: 0.2602369487285614
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.attn.qkv_u.weight, Max Abs Value: 9.402640342712402
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.attn.qkv_u.bias, Max Abs Value: 1.4817004203796387
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.attn.qkv_v.weight, Max Abs Value: 0.2817417085170746
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.attn.qkv_v.bias, Max Abs Value: 0.45905065536499023
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.attn.proj_u.weight, Max Abs Value: 7.174775123596191
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.attn.proj_u.bias, Max Abs Value: 0.816661536693573
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.attn.proj_v.weight, Max Abs Value: 0.2696298062801361
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.attn.proj_v.bias, Max Abs Value: 0.5176710486412048
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.mlp.fc1_u.weight, Max Abs Value: 6.08455753326416
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.mlp.fc1_u.bias, Max Abs Value: 6.446451187133789
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.mlp.fc1_v.weight, Max Abs Value: 0.2756880819797516
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.mlp.fc1_v.bias, Max Abs Value: 0.94814532995224
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.mlp.fc2_u.weight, Max Abs Value: 4.867249488830566
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.mlp.fc2_u.bias, Max Abs Value: 0.3840548098087311
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.mlp.fc2_v.weight, Max Abs Value: 0.5332571864128113
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.1.mlp.fc2_v.bias, Max Abs Value: 0.10859724134206772
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.attn.qkv_u.weight, Max Abs Value: 12.519981384277344
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.attn.qkv_u.bias, Max Abs Value: 5.6469621658325195
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.attn.qkv_v.weight, Max Abs Value: 0.4659438133239746
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.attn.qkv_v.bias, Max Abs Value: 7.731365203857422
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.attn.proj_u.weight, Max Abs Value: 5.608555316925049
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.attn.proj_u.bias, Max Abs Value: 0.5554114580154419
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.attn.proj_v.weight, Max Abs Value: 0.5141792297363281
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.attn.proj_v.bias, Max Abs Value: 0.7649449110031128
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.mlp.fc1_u.weight, Max Abs Value: 9.614730834960938
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.mlp.fc1_u.bias, Max Abs Value: 7.143299579620361
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.mlp.fc1_v.weight, Max Abs Value: 0.22749139368534088
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.mlp.fc1_v.bias, Max Abs Value: 0.4964033365249634
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.mlp.fc2_u.weight, Max Abs Value: 4.953073024749756
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.mlp.fc2_u.bias, Max Abs Value: 1.0845633745193481
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.mlp.fc2_v.weight, Max Abs Value: 0.6317066550254822
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.2.mlp.fc2_v.bias, Max Abs Value: 0.18983405828475952
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.attn.qkv_u.weight, Max Abs Value: 12.113434791564941
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.attn.qkv_u.bias, Max Abs Value: 4.023691654205322
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.attn.qkv_v.weight, Max Abs Value: 0.20777879655361176
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.attn.qkv_v.bias, Max Abs Value: 1.1546854972839355
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.attn.proj_u.weight, Max Abs Value: 4.651886463165283
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.attn.proj_u.bias, Max Abs Value: 0.4487648606300354
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.attn.proj_v.weight, Max Abs Value: 0.47059425711631775
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.attn.proj_v.bias, Max Abs Value: 1.6090283393859863
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.mlp.fc1_u.weight, Max Abs Value: 8.167940139770508
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.mlp.fc1_u.bias, Max Abs Value: 8.977374076843262
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.mlp.fc1_v.weight, Max Abs Value: 0.23977158963680267
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.mlp.fc1_v.bias, Max Abs Value: 0.33400699496269226
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.mlp.fc2_u.weight, Max Abs Value: 5.40758752822876
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.mlp.fc2_u.bias, Max Abs Value: 2.137580394744873
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.mlp.fc2_v.weight, Max Abs Value: 0.9228352904319763
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.3.mlp.fc2_v.bias, Max Abs Value: 0.13224226236343384
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.attn.qkv_u.weight, Max Abs Value: 23.200908660888672
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.attn.qkv_u.bias, Max Abs Value: 4.856450080871582
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.attn.qkv_v.weight, Max Abs Value: 0.18703274428844452
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.attn.qkv_v.bias, Max Abs Value: 0.39638692140579224
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.attn.proj_u.weight, Max Abs Value: 4.565736770629883
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.attn.proj_u.bias, Max Abs Value: 0.5826795697212219
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.attn.proj_v.weight, Max Abs Value: 0.5807493925094604
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.attn.proj_v.bias, Max Abs Value: 1.0200549364089966
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.mlp.fc1_u.weight, Max Abs Value: 10.000372886657715
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.mlp.fc1_u.bias, Max Abs Value: 4.1808624267578125
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.mlp.fc1_v.weight, Max Abs Value: 0.15075652301311493
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.mlp.fc1_v.bias, Max Abs Value: 0.3111465871334076
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.mlp.fc2_u.weight, Max Abs Value: 5.1371870040893555
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.mlp.fc2_u.bias, Max Abs Value: 1.0039002895355225
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.mlp.fc2_v.weight, Max Abs Value: 0.48805662989616394
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.4.mlp.fc2_v.bias, Max Abs Value: 2.754972457885742
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.attn.qkv_u.weight, Max Abs Value: 15.676958084106445
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.attn.qkv_u.bias, Max Abs Value: 2.5886306762695312
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.attn.qkv_v.weight, Max Abs Value: 0.14980778098106384
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.attn.qkv_v.bias, Max Abs Value: 1.312913179397583
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.attn.proj_u.weight, Max Abs Value: 4.077968597412109
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.attn.proj_u.bias, Max Abs Value: 2.233180046081543
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.attn.proj_v.weight, Max Abs Value: 0.6332027316093445
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.attn.proj_v.bias, Max Abs Value: 1.6103177070617676
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.mlp.fc1_u.weight, Max Abs Value: 12.801412582397461
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.mlp.fc1_u.bias, Max Abs Value: 3.9177114963531494
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.mlp.fc1_v.weight, Max Abs Value: 0.13605253398418427
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.mlp.fc1_v.bias, Max Abs Value: 0.5998045206069946
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.mlp.fc2_u.weight, Max Abs Value: 5.087870121002197
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.mlp.fc2_u.bias, Max Abs Value: 1.3497047424316406
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.mlp.fc2_v.weight, Max Abs Value: 0.41419827938079834
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.5.mlp.fc2_v.bias, Max Abs Value: 2.993227958679199
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.attn.qkv_u.weight, Max Abs Value: 35.85404968261719
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.attn.qkv_u.bias, Max Abs Value: 1.6158664226531982
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.attn.qkv_v.weight, Max Abs Value: 0.17350970208644867
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.attn.qkv_v.bias, Max Abs Value: 0.6646474003791809
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.attn.proj_u.weight, Max Abs Value: 4.953927993774414
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.attn.proj_u.bias, Max Abs Value: 0.4528622627258301
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.attn.proj_v.weight, Max Abs Value: 0.42822352051734924
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.attn.proj_v.bias, Max Abs Value: 2.9657599925994873
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.mlp.fc1_u.weight, Max Abs Value: 10.998335838317871
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.mlp.fc1_u.bias, Max Abs Value: 5.118403911590576
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.mlp.fc1_v.weight, Max Abs Value: 0.11558354645967484
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.mlp.fc1_v.bias, Max Abs Value: 0.5899239778518677
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.mlp.fc2_u.weight, Max Abs Value: 2.993046283721924
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.mlp.fc2_u.bias, Max Abs Value: 2.54083514213562
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.mlp.fc2_v.weight, Max Abs Value: 0.5550481081008911
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.6.mlp.fc2_v.bias, Max Abs Value: 3.495109796524048
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.attn.qkv_u.weight, Max Abs Value: 15.658889770507812
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.attn.qkv_u.bias, Max Abs Value: 0.9316052198410034
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.attn.qkv_v.weight, Max Abs Value: 0.15019077062606812
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.attn.qkv_v.bias, Max Abs Value: 1.213508129119873
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.attn.proj_u.weight, Max Abs Value: 2.3008875846862793
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.attn.proj_u.bias, Max Abs Value: 0.732837438583374
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.attn.proj_v.weight, Max Abs Value: 0.41577842831611633
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.attn.proj_v.bias, Max Abs Value: 5.950553894042969
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.mlp.fc1_u.weight, Max Abs Value: 9.375310897827148
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.mlp.fc1_u.bias, Max Abs Value: 5.403497219085693
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.mlp.fc1_v.weight, Max Abs Value: 0.17157264053821564
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.mlp.fc1_v.bias, Max Abs Value: 1.1710258722305298
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.mlp.fc2_u.weight, Max Abs Value: 4.025630950927734
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.mlp.fc2_u.bias, Max Abs Value: 3.2655413150787354
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.mlp.fc2_v.weight, Max Abs Value: 0.5085107684135437
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.7.mlp.fc2_v.bias, Max Abs Value: 2.6552734375
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.attn.qkv_u.weight, Max Abs Value: 23.49576759338379
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.attn.qkv_u.bias, Max Abs Value: 0.7408163547515869
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.attn.qkv_v.weight, Max Abs Value: 0.17801283299922943
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.attn.qkv_v.bias, Max Abs Value: 1.5569772720336914
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.attn.proj_u.weight, Max Abs Value: 2.5521645545959473
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.attn.proj_u.bias, Max Abs Value: 0.8501569032669067
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.attn.proj_v.weight, Max Abs Value: 0.44697675108909607
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.attn.proj_v.bias, Max Abs Value: 7.242915153503418
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.mlp.fc1_u.weight, Max Abs Value: 9.659448623657227
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.mlp.fc1_u.bias, Max Abs Value: 4.214245319366455
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.mlp.fc1_v.weight, Max Abs Value: 0.2216854989528656
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.mlp.fc1_v.bias, Max Abs Value: 0.6100987195968628
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.mlp.fc2_u.weight, Max Abs Value: 7.903308868408203
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.mlp.fc2_u.bias, Max Abs Value: 2.862159013748169
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.mlp.fc2_v.weight, Max Abs Value: 0.5474740266799927
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.8.mlp.fc2_v.bias, Max Abs Value: 3.571901321411133
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.attn.qkv_u.weight, Max Abs Value: 25.942659378051758
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.attn.qkv_u.bias, Max Abs Value: 0.6445643901824951
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.attn.qkv_v.weight, Max Abs Value: 0.16755461692810059
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.attn.qkv_v.bias, Max Abs Value: 1.5994899272918701
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.attn.proj_u.weight, Max Abs Value: 2.306377649307251
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.attn.proj_u.bias, Max Abs Value: 0.6926494836807251
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.attn.proj_v.weight, Max Abs Value: 0.41663649678230286
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.attn.proj_v.bias, Max Abs Value: 5.003266334533691
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.mlp.fc1_u.weight, Max Abs Value: 10.605451583862305
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.mlp.fc1_u.bias, Max Abs Value: 5.43676233291626
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.mlp.fc1_v.weight, Max Abs Value: 0.1781993806362152
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.mlp.fc1_v.bias, Max Abs Value: 0.8704571723937988
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.mlp.fc2_u.weight, Max Abs Value: 5.78217887878418
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.mlp.fc2_u.bias, Max Abs Value: 1.6216163635253906
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.mlp.fc2_v.weight, Max Abs Value: 0.554465651512146
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.9.mlp.fc2_v.bias, Max Abs Value: 3.1831023693084717
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.attn.qkv_u.weight, Max Abs Value: 15.462879180908203
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.attn.qkv_u.bias, Max Abs Value: 0.8185221552848816
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.attn.qkv_v.weight, Max Abs Value: 0.25647976994514465
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.attn.qkv_v.bias, Max Abs Value: 1.5656046867370605
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.attn.proj_u.weight, Max Abs Value: 2.9843156337738037
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.attn.proj_u.bias, Max Abs Value: 0.6189671754837036
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.attn.proj_v.weight, Max Abs Value: 0.2565508186817169
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.attn.proj_v.bias, Max Abs Value: 13.965222358703613
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.mlp.fc1_u.weight, Max Abs Value: 9.165716171264648
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.mlp.fc1_u.bias, Max Abs Value: 4.606832981109619
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.mlp.fc1_v.weight, Max Abs Value: 0.14543330669403076
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.mlp.fc1_v.bias, Max Abs Value: 0.4797725975513458
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.mlp.fc2_u.weight, Max Abs Value: 3.8650224208831787
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.mlp.fc2_u.bias, Max Abs Value: 1.5399878025054932
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.mlp.fc2_v.weight, Max Abs Value: 0.5746577382087708
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.10.mlp.fc2_v.bias, Max Abs Value: 4.8537421226501465
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.attn.qkv_u.weight, Max Abs Value: 17.112693786621094
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.attn.qkv_u.bias, Max Abs Value: 0.7669380903244019
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.attn.qkv_v.weight, Max Abs Value: 0.20298223197460175
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.attn.qkv_v.bias, Max Abs Value: 1.745271921157837
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.attn.proj_u.weight, Max Abs Value: 3.3221356868743896
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.attn.proj_u.bias, Max Abs Value: 0.5962189435958862
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.attn.proj_v.weight, Max Abs Value: 0.4135264754295349
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.attn.proj_v.bias, Max Abs Value: 18.32645606994629
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.mlp.fc1_u.weight, Max Abs Value: 11.600287437438965
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.mlp.fc1_u.bias, Max Abs Value: 5.5068817138671875
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.mlp.fc1_v.weight, Max Abs Value: 0.1612248420715332
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.mlp.fc1_v.bias, Max Abs Value: 0.4600936770439148
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.mlp.fc2_u.weight, Max Abs Value: 6.810187339782715
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.mlp.fc2_u.bias, Max Abs Value: 1.2443350553512573
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.mlp.fc2_v.weight, Max Abs Value: 0.4713685214519501
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.11.mlp.fc2_v.bias, Max Abs Value: 4.382944107055664
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.attn.qkv_u.weight, Max Abs Value: 15.570605278015137
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.attn.qkv_u.bias, Max Abs Value: 0.7545344233512878
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.attn.qkv_v.weight, Max Abs Value: 0.20590034127235413
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.attn.qkv_v.bias, Max Abs Value: 1.635206937789917
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.attn.proj_u.weight, Max Abs Value: 5.515162467956543
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.attn.proj_u.bias, Max Abs Value: 0.516871452331543
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.attn.proj_v.weight, Max Abs Value: 0.4162840247154236
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.attn.proj_v.bias, Max Abs Value: 34.43531036376953
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.mlp.fc1_u.weight, Max Abs Value: 7.886324405670166
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.mlp.fc1_u.bias, Max Abs Value: 5.868072509765625
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.mlp.fc1_v.weight, Max Abs Value: 0.18146632611751556
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.mlp.fc1_v.bias, Max Abs Value: 0.6617844700813293
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.mlp.fc2_u.weight, Max Abs Value: 6.224362373352051
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.mlp.fc2_u.bias, Max Abs Value: 1.121282696723938
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.mlp.fc2_v.weight, Max Abs Value: 0.4735867381095886
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.12.mlp.fc2_v.bias, Max Abs Value: 4.9524383544921875
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.attn.qkv_u.weight, Max Abs Value: 20.9322566986084
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.attn.qkv_u.bias, Max Abs Value: 0.8077154755592346
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.attn.qkv_v.weight, Max Abs Value: 0.22653846442699432
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.attn.qkv_v.bias, Max Abs Value: 1.5355132818222046
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.attn.proj_u.weight, Max Abs Value: 3.2208497524261475
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.attn.proj_u.bias, Max Abs Value: 0.6715085506439209
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.attn.proj_v.weight, Max Abs Value: 0.4279952049255371
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.attn.proj_v.bias, Max Abs Value: 6.86316442489624
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.mlp.fc1_u.weight, Max Abs Value: 9.461528778076172
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.mlp.fc1_u.bias, Max Abs Value: 5.818375110626221
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.mlp.fc1_v.weight, Max Abs Value: 0.14153680205345154
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.mlp.fc1_v.bias, Max Abs Value: 0.6822978258132935
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.mlp.fc2_u.weight, Max Abs Value: 3.711789608001709
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.mlp.fc2_u.bias, Max Abs Value: 1.547014594078064
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.mlp.fc2_v.weight, Max Abs Value: 0.7442747354507446
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.13.mlp.fc2_v.bias, Max Abs Value: 3.2715301513671875
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.attn.qkv_u.weight, Max Abs Value: 19.16684913635254
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.attn.qkv_u.bias, Max Abs Value: 0.7872376441955566
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.attn.qkv_v.weight, Max Abs Value: 0.18673281371593475
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.attn.qkv_v.bias, Max Abs Value: 1.3550676107406616
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.attn.proj_u.weight, Max Abs Value: 2.818176031112671
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.attn.proj_u.bias, Max Abs Value: 1.0273621082305908
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.attn.proj_v.weight, Max Abs Value: 0.5273942351341248
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.attn.proj_v.bias, Max Abs Value: 17.918285369873047
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.mlp.fc1_u.weight, Max Abs Value: 9.63548469543457
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.mlp.fc1_u.bias, Max Abs Value: 6.2136454582214355
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.mlp.fc1_v.weight, Max Abs Value: 0.12603595852851868
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.mlp.fc1_v.bias, Max Abs Value: 0.6320170164108276
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.mlp.fc2_u.weight, Max Abs Value: 5.2809672355651855
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.mlp.fc2_u.bias, Max Abs Value: 1.4451733827590942
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.mlp.fc2_v.weight, Max Abs Value: 0.7712756991386414
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.14.mlp.fc2_v.bias, Max Abs Value: 3.2984812259674072
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.attn.qkv_u.weight, Max Abs Value: 18.00814437866211
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.attn.qkv_u.bias, Max Abs Value: 1.2532209157943726
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.attn.qkv_v.weight, Max Abs Value: 0.21738523244857788
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.attn.qkv_v.bias, Max Abs Value: 1.4439172744750977
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.attn.proj_u.weight, Max Abs Value: 2.5161728858947754
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.attn.proj_u.bias, Max Abs Value: 1.0082932710647583
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.attn.proj_v.weight, Max Abs Value: 0.49345967173576355
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.attn.proj_v.bias, Max Abs Value: 34.174041748046875
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.mlp.fc1_u.weight, Max Abs Value: 8.298601150512695
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.mlp.fc1_u.bias, Max Abs Value: 6.504156589508057
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.mlp.fc1_v.weight, Max Abs Value: 0.17583787441253662
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.mlp.fc1_v.bias, Max Abs Value: 0.7708719372749329
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.mlp.fc2_u.weight, Max Abs Value: 8.6409912109375
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.mlp.fc2_u.bias, Max Abs Value: 1.0351998805999756
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.mlp.fc2_v.weight, Max Abs Value: 0.7923203706741333
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.15.mlp.fc2_v.bias, Max Abs Value: 4.927199840545654
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.attn.qkv_u.weight, Max Abs Value: 24.533428192138672
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.attn.qkv_u.bias, Max Abs Value: 1.301652431488037
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.attn.qkv_v.weight, Max Abs Value: 0.20417645573616028
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.attn.qkv_v.bias, Max Abs Value: 1.1804351806640625
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.attn.proj_u.weight, Max Abs Value: 2.195026159286499
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.attn.proj_u.bias, Max Abs Value: 1.3252567052841187
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.attn.proj_v.weight, Max Abs Value: 0.39004433155059814
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.attn.proj_v.bias, Max Abs Value: 6.841086387634277
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.mlp.fc1_u.weight, Max Abs Value: 9.272354125976562
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.mlp.fc1_u.bias, Max Abs Value: 6.492318153381348
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.mlp.fc1_v.weight, Max Abs Value: 0.15412138402462006
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.mlp.fc1_v.bias, Max Abs Value: 0.578323245048523
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.mlp.fc2_u.weight, Max Abs Value: 4.905806541442871
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.mlp.fc2_u.bias, Max Abs Value: 1.1664013862609863
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.mlp.fc2_v.weight, Max Abs Value: 0.8857499361038208
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.16.mlp.fc2_v.bias, Max Abs Value: 4.089911937713623
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.attn.qkv_u.weight, Max Abs Value: 19.60524559020996
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.attn.qkv_u.bias, Max Abs Value: 1.1435797214508057
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.attn.qkv_v.weight, Max Abs Value: 0.15150132775306702
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.attn.qkv_v.bias, Max Abs Value: 1.3108419179916382
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.attn.proj_u.weight, Max Abs Value: 3.151554584503174
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.attn.proj_u.bias, Max Abs Value: 1.971314787864685
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.attn.proj_v.weight, Max Abs Value: 0.7013368010520935
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.attn.proj_v.bias, Max Abs Value: 11.412728309631348
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.mlp.fc1_u.weight, Max Abs Value: 10.273056030273438
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.mlp.fc1_u.bias, Max Abs Value: 8.311180114746094
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.mlp.fc1_v.weight, Max Abs Value: 0.12486333400011063
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.mlp.fc1_v.bias, Max Abs Value: 0.7230926752090454
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.mlp.fc2_u.weight, Max Abs Value: 4.329696178436279
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.mlp.fc2_u.bias, Max Abs Value: 1.33859121799469
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.mlp.fc2_v.weight, Max Abs Value: 0.90676349401474
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.17.mlp.fc2_v.bias, Max Abs Value: 3.450870990753174
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.attn.qkv_u.weight, Max Abs Value: 16.8223819732666
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.attn.qkv_u.bias, Max Abs Value: 1.0497267246246338
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.attn.qkv_v.weight, Max Abs Value: 0.1428861767053604
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.attn.qkv_v.bias, Max Abs Value: 2.0269486904144287
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.attn.proj_u.weight, Max Abs Value: 3.614096164703369
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.attn.proj_u.bias, Max Abs Value: 2.624957323074341
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.attn.proj_v.weight, Max Abs Value: 0.6601268649101257
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.attn.proj_v.bias, Max Abs Value: 5.583539009094238
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.mlp.fc1_u.weight, Max Abs Value: 10.047042846679688
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.mlp.fc1_u.bias, Max Abs Value: 6.563095569610596
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.mlp.fc1_v.weight, Max Abs Value: 0.18418148159980774
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.mlp.fc1_v.bias, Max Abs Value: 0.829443633556366
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.mlp.fc2_u.weight, Max Abs Value: 8.924094200134277
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.mlp.fc2_u.bias, Max Abs Value: 1.1070380210876465
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.mlp.fc2_v.weight, Max Abs Value: 0.4539000391960144
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.18.mlp.fc2_v.bias, Max Abs Value: 4.456950664520264
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.attn.qkv_u.weight, Max Abs Value: 21.538314819335938
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.attn.qkv_u.bias, Max Abs Value: 1.5258737802505493
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.attn.qkv_v.weight, Max Abs Value: 0.14775735139846802
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.attn.qkv_v.bias, Max Abs Value: 1.9065710306167603
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.attn.proj_u.weight, Max Abs Value: 2.932398796081543
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.attn.proj_u.bias, Max Abs Value: 2.671333074569702
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.attn.proj_v.weight, Max Abs Value: 0.48913508653640747
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.attn.proj_v.bias, Max Abs Value: 4.001389980316162
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.mlp.fc1_u.weight, Max Abs Value: 10.748001098632812
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.mlp.fc1_u.bias, Max Abs Value: 7.824484348297119
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.mlp.fc1_v.weight, Max Abs Value: 0.18564236164093018
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.mlp.fc1_v.bias, Max Abs Value: 0.47728052735328674
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.mlp.fc2_u.weight, Max Abs Value: 5.018116474151611
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.mlp.fc2_u.bias, Max Abs Value: 0.6345446705818176
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.mlp.fc2_v.weight, Max Abs Value: 0.6117061376571655
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.19.mlp.fc2_v.bias, Max Abs Value: 4.959626197814941
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.attn.qkv_u.weight, Max Abs Value: 17.27741813659668
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.attn.qkv_u.bias, Max Abs Value: 0.9540618062019348
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.attn.qkv_v.weight, Max Abs Value: 0.1444781869649887
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.attn.qkv_v.bias, Max Abs Value: 1.7648224830627441
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.attn.proj_u.weight, Max Abs Value: 3.5901966094970703
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.attn.proj_u.bias, Max Abs Value: 1.4929934740066528
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.attn.proj_v.weight, Max Abs Value: 0.6229614019393921
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.attn.proj_v.bias, Max Abs Value: 30.366485595703125
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.mlp.fc1_u.weight, Max Abs Value: 9.943262100219727
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.mlp.fc1_u.bias, Max Abs Value: 6.757115840911865
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.mlp.fc1_v.weight, Max Abs Value: 0.1623314768075943
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.mlp.fc1_v.bias, Max Abs Value: 0.6942510604858398
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.mlp.fc2_u.weight, Max Abs Value: 7.520289897918701
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.mlp.fc2_u.bias, Max Abs Value: 0.992673397064209
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.mlp.fc2_v.weight, Max Abs Value: 0.8058788180351257
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.20.mlp.fc2_v.bias, Max Abs Value: 3.5547053813934326
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.attn.qkv_u.weight, Max Abs Value: 15.103803634643555
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.attn.qkv_u.bias, Max Abs Value: 0.9231545925140381
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.attn.qkv_v.weight, Max Abs Value: 0.13777562975883484
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.attn.qkv_v.bias, Max Abs Value: 1.9378329515457153
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.attn.proj_u.weight, Max Abs Value: 5.627474308013916
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.attn.proj_u.bias, Max Abs Value: 0.8767661452293396
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.attn.proj_v.weight, Max Abs Value: 0.661886990070343
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.attn.proj_v.bias, Max Abs Value: 23.08694839477539
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.mlp.fc1_u.weight, Max Abs Value: 10.103883743286133
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.mlp.fc1_u.bias, Max Abs Value: 7.896946430206299
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.mlp.fc1_v.weight, Max Abs Value: 0.22051529586315155
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.mlp.fc1_v.bias, Max Abs Value: 1.1198550462722778
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.mlp.fc2_u.weight, Max Abs Value: 11.91661548614502
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.mlp.fc2_u.bias, Max Abs Value: 1.0268412828445435
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.mlp.fc2_v.weight, Max Abs Value: 0.8429620265960693
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.21.mlp.fc2_v.bias, Max Abs Value: 3.0925111770629883
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.attn.qkv_u.weight, Max Abs Value: 13.127897262573242
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.attn.qkv_u.bias, Max Abs Value: 0.8806292414665222
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.attn.qkv_v.weight, Max Abs Value: 0.11931103467941284
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.attn.qkv_v.bias, Max Abs Value: 1.7555572986602783
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.attn.proj_u.weight, Max Abs Value: 3.730350971221924
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.attn.proj_u.bias, Max Abs Value: 0.9543427228927612
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.attn.proj_v.weight, Max Abs Value: 0.6229560971260071
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.attn.proj_v.bias, Max Abs Value: 52.19353485107422
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.mlp.fc1_u.weight, Max Abs Value: 10.92576789855957
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.mlp.fc1_u.bias, Max Abs Value: 7.173661231994629
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.mlp.fc1_v.weight, Max Abs Value: 0.17817649245262146
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.mlp.fc1_v.bias, Max Abs Value: 0.5461500287055969
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.mlp.fc2_u.weight, Max Abs Value: 5.268972396850586
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.mlp.fc2_u.bias, Max Abs Value: 1.6325690746307373
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.mlp.fc2_v.weight, Max Abs Value: 0.5310441851615906
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.22.mlp.fc2_v.bias, Max Abs Value: 2.2663395404815674
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.attn.qkv_u.weight, Max Abs Value: 18.258380889892578
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.attn.qkv_u.bias, Max Abs Value: 2.231668710708618
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.attn.qkv_v.weight, Max Abs Value: 0.13452109694480896
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.attn.qkv_v.bias, Max Abs Value: 1.5936005115509033
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.attn.proj_u.weight, Max Abs Value: 2.934546947479248
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.attn.proj_u.bias, Max Abs Value: 1.143738865852356
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.attn.proj_v.weight, Max Abs Value: 0.48929744958877563
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.attn.proj_v.bias, Max Abs Value: 6.096161842346191
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.mlp.fc1_u.weight, Max Abs Value: 10.720653533935547
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.mlp.fc1_u.bias, Max Abs Value: 7.620521545410156
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.mlp.fc1_v.weight, Max Abs Value: 0.1584354043006897
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.mlp.fc1_v.bias, Max Abs Value: 0.5067417025566101
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.mlp.fc2_u.weight, Max Abs Value: 3.9115490913391113
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.mlp.fc2_u.bias, Max Abs Value: 1.5439707040786743
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.mlp.fc2_v.weight, Max Abs Value: 0.5194553732872009
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.23.mlp.fc2_v.bias, Max Abs Value: 1.8608077764511108
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.attn.qkv_u.weight, Max Abs Value: 19.092931747436523
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.attn.qkv_u.bias, Max Abs Value: 1.820055365562439
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.attn.qkv_v.weight, Max Abs Value: 0.1930253654718399
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.attn.qkv_v.bias, Max Abs Value: 1.4606823921203613
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.attn.proj_u.weight, Max Abs Value: 3.0080621242523193
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.attn.proj_u.bias, Max Abs Value: 0.7625566124916077
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.attn.proj_v.weight, Max Abs Value: 0.37087586522102356
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.attn.proj_v.bias, Max Abs Value: 5.099514484405518
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.mlp.fc1_u.weight, Max Abs Value: 10.145812034606934
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.mlp.fc1_u.bias, Max Abs Value: 7.649744987487793
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.mlp.fc1_v.weight, Max Abs Value: 0.30168047547340393
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.mlp.fc1_v.bias, Max Abs Value: 0.6325390934944153
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.mlp.fc2_u.weight, Max Abs Value: 4.504571914672852
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.mlp.fc2_u.bias, Max Abs Value: 1.3120133876800537
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.mlp.fc2_v.weight, Max Abs Value: 0.6170778870582581
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.24.mlp.fc2_v.bias, Max Abs Value: 2.000349283218384
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.attn.qkv_u.weight, Max Abs Value: 18.399351119995117
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.attn.qkv_u.bias, Max Abs Value: 0.8219790458679199
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.attn.qkv_v.weight, Max Abs Value: 0.14623020589351654
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.attn.qkv_v.bias, Max Abs Value: 1.6299599409103394
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.attn.proj_u.weight, Max Abs Value: 4.622977256774902
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.attn.proj_u.bias, Max Abs Value: 0.7860292196273804
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.attn.proj_v.weight, Max Abs Value: 0.8114328980445862
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.attn.proj_v.bias, Max Abs Value: 7.181398868560791
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.mlp.fc1_u.weight, Max Abs Value: 12.158784866333008
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.mlp.fc1_u.bias, Max Abs Value: 11.95569133758545
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.mlp.fc1_v.weight, Max Abs Value: 0.15809465944766998
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.mlp.fc1_v.bias, Max Abs Value: 0.558391809463501
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.mlp.fc2_u.weight, Max Abs Value: 5.500772953033447
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.mlp.fc2_u.bias, Max Abs Value: 1.5447133779525757
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.mlp.fc2_v.weight, Max Abs Value: 0.6793732643127441
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.25.mlp.fc2_v.bias, Max Abs Value: 1.6555458307266235
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.attn.qkv_u.weight, Max Abs Value: 19.737634658813477
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.attn.qkv_u.bias, Max Abs Value: 1.7841200828552246
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.attn.qkv_v.weight, Max Abs Value: 0.14298558235168457
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.attn.qkv_v.bias, Max Abs Value: 1.6419342756271362
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.attn.proj_u.weight, Max Abs Value: 3.3787341117858887
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.attn.proj_u.bias, Max Abs Value: 0.9075610637664795
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.attn.proj_v.weight, Max Abs Value: 0.7993590831756592
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.attn.proj_v.bias, Max Abs Value: 1.7858738899230957
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.mlp.fc1_u.weight, Max Abs Value: 13.075528144836426
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.mlp.fc1_u.bias, Max Abs Value: 9.177258491516113
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.mlp.fc1_v.weight, Max Abs Value: 0.1341126710176468
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.mlp.fc1_v.bias, Max Abs Value: 0.529092013835907
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.mlp.fc2_u.weight, Max Abs Value: 4.158138275146484
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.mlp.fc2_u.bias, Max Abs Value: 4.77418851852417
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.mlp.fc2_v.weight, Max Abs Value: 0.6547876000404358
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.26.mlp.fc2_v.bias, Max Abs Value: 0.39621758460998535
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.attn.qkv_u.weight, Max Abs Value: 19.162757873535156
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.attn.qkv_u.bias, Max Abs Value: 4.235299110412598
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.attn.qkv_v.weight, Max Abs Value: 0.1975787729024887
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.attn.qkv_v.bias, Max Abs Value: 1.2884734869003296
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.attn.proj_u.weight, Max Abs Value: 4.530914306640625
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.attn.proj_u.bias, Max Abs Value: 3.9690709114074707
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.attn.proj_v.weight, Max Abs Value: 0.8472945094108582
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.attn.proj_v.bias, Max Abs Value: 0.18035784363746643
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.mlp.fc1_u.weight, Max Abs Value: 11.6915283203125
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.mlp.fc1_u.bias, Max Abs Value: 8.61325454711914
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.mlp.fc1_v.weight, Max Abs Value: 0.2072272002696991
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.mlp.fc1_v.bias, Max Abs Value: 0.5648736357688904
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.mlp.fc2_u.weight, Max Abs Value: 11.805513381958008
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.mlp.fc2_u.bias, Max Abs Value: 1.931972622871399
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.mlp.fc2_v.weight, Max Abs Value: 0.6715141534805298
+[[34m2024-10-23 13:31:03[0m] Layer: blocks.27.mlp.fc2_v.bias, Max Abs Value: 0.8220972418785095
+[[34m2024-10-23 13:31:19[0m] blocks.3.adaLN_modulation.2 compression: 1000; mse: 1.230878e-03; codebook size: 256 x 4; code size: 6912 x 224
+[[34m2024-10-23 13:31:43[0m] blocks.4.attn.qkv_u compression: 1000; mse: 1.312731e-03; codebook size: 256 x 4; code size: 800 x 288
+[[34m2024-10-23 13:32:10[0m] blocks.4.attn.qkv_v compression: 1000; mse: 3.030712e-03; codebook size: 256 x 4; code size: 3456 x 200
+[[34m2024-10-23 13:32:33[0m] blocks.4.attn.proj_u compression: 1000; mse: 3.127847e-03; codebook size: 256 x 4; code size: 544 x 288
+[[34m2024-10-23 13:32:57[0m] blocks.4.attn.proj_v compression: 1000; mse: 2.894225e-03; codebook size: 256 x 4; code size: 1152 x 136
+[[34m2024-10-23 13:33:20[0m] blocks.4.mlp.fc1_u compression: 1000; mse: 1.751574e-03; codebook size: 256 x 4; code size: 896 x 288
+[[34m2024-10-23 13:33:49[0m] blocks.4.mlp.fc1_v compression: 1000; mse: 2.447034e-03; codebook size: 256 x 4; code size: 4608 x 224
+[[34m2024-10-23 13:34:16[0m] blocks.4.mlp.fc2_u compression: 1000; mse: 1.558096e-03; codebook size: 256 x 4; code size: 832 x 1152
+[[34m2024-10-23 13:34:23[0m] Experiment directory created at results/low_rank/011-DiT-XL-2
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.0.attn.qkv.weight, Max Abs Value: 1.724706768989563
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.0.attn.qkv.bias, Max Abs Value: 2.301722526550293
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.0.attn.proj.weight, Max Abs Value: 2.6378414630889893
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.0.attn.proj.bias, Max Abs Value: 3.9625742435455322
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.0.mlp.fc1.weight, Max Abs Value: 2.666102647781372
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.0.mlp.fc1.bias, Max Abs Value: 0.529765784740448
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.0.mlp.fc2.weight, Max Abs Value: 3.072202682495117
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.0.mlp.fc2.bias, Max Abs Value: 1.6196283102035522
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.0.adaLN_modulation.1.weight, Max Abs Value: 3.0406503677368164
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.0.adaLN_modulation.1.bias, Max Abs Value: 2.2661280632019043
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.1.attn.qkv.weight, Max Abs Value: 2.3949496746063232
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.1.attn.qkv.bias, Max Abs Value: 1.759590983390808
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.1.attn.proj.weight, Max Abs Value: 1.9157650470733643
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.1.attn.proj.bias, Max Abs Value: 1.8338866233825684
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.1.mlp.fc1.weight, Max Abs Value: 2.340085983276367
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.1.mlp.fc1.bias, Max Abs Value: 1.3787381649017334
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.1.mlp.fc2.weight, Max Abs Value: 2.0211615562438965
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.1.mlp.fc2.bias, Max Abs Value: 0.9131051898002625
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.1.adaLN_modulation.1.weight, Max Abs Value: 4.713766574859619
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.1.adaLN_modulation.1.bias, Max Abs Value: 1.150434970855713
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.2.attn.qkv.weight, Max Abs Value: 3.9652183055877686
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.2.attn.qkv.bias, Max Abs Value: 6.004103660583496
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.2.attn.proj.weight, Max Abs Value: 2.4064364433288574
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.2.attn.proj.bias, Max Abs Value: 2.9470832347869873
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.2.mlp.fc1.weight, Max Abs Value: 1.602012276649475
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.2.mlp.fc1.bias, Max Abs Value: 1.5443880558013916
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.2.mlp.fc2.weight, Max Abs Value: 1.646602988243103
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.2.mlp.fc2.bias, Max Abs Value: 1.9087104797363281
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.2.adaLN_modulation.1.weight, Max Abs Value: 5.475451469421387
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.2.adaLN_modulation.1.bias, Max Abs Value: 3.2091050148010254
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.3.attn.qkv.weight, Max Abs Value: 2.6914560794830322
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.3.attn.qkv.bias, Max Abs Value: 1.3451766967773438
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.3.attn.proj.weight, Max Abs Value: 1.9910361766815186
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.3.attn.proj.bias, Max Abs Value: 2.3558807373046875
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.3.mlp.fc1.weight, Max Abs Value: 2.749204158782959
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.3.mlp.fc1.bias, Max Abs Value: 1.2845159769058228
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.3.mlp.fc2.weight, Max Abs Value: 2.3995110988616943
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.3.mlp.fc2.bias, Max Abs Value: 2.4805526733398438
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.3.adaLN_modulation.1.weight, Max Abs Value: 2.984754800796509
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.3.adaLN_modulation.1.bias, Max Abs Value: 1.5860024690628052
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.4.attn.qkv.weight, Max Abs Value: 3.6773319244384766
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.4.attn.qkv.bias, Max Abs Value: 1.2212812900543213
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.4.attn.proj.weight, Max Abs Value: 2.1559736728668213
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.4.attn.proj.bias, Max Abs Value: 2.132499933242798
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.4.mlp.fc1.weight, Max Abs Value: 3.638373374938965
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.4.mlp.fc1.bias, Max Abs Value: 0.8947421908378601
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.4.mlp.fc2.weight, Max Abs Value: 4.6480393409729
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.4.mlp.fc2.bias, Max Abs Value: 3.0177042484283447
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.4.adaLN_modulation.1.weight, Max Abs Value: 4.826150894165039
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.4.adaLN_modulation.1.bias, Max Abs Value: 2.1655473709106445
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.5.attn.qkv.weight, Max Abs Value: 3.3155362606048584
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.5.attn.qkv.bias, Max Abs Value: 1.5763754844665527
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.5.attn.proj.weight, Max Abs Value: 2.431016683578491
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.5.attn.proj.bias, Max Abs Value: 5.258118152618408
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.5.mlp.fc1.weight, Max Abs Value: 2.4574759006500244
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.5.mlp.fc1.bias, Max Abs Value: 0.7908792495727539
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.5.mlp.fc2.weight, Max Abs Value: 3.434130907058716
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.5.mlp.fc2.bias, Max Abs Value: 3.946829319000244
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.5.adaLN_modulation.1.weight, Max Abs Value: 5.790721893310547
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.5.adaLN_modulation.1.bias, Max Abs Value: 2.3560140132904053
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.6.attn.qkv.weight, Max Abs Value: 4.309170246124268
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.6.attn.qkv.bias, Max Abs Value: 1.5177373886108398
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.6.attn.proj.weight, Max Abs Value: 1.8362845182418823
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.6.attn.proj.bias, Max Abs Value: 2.9985411167144775
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.6.mlp.fc1.weight, Max Abs Value: 2.779759407043457
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.6.mlp.fc1.bias, Max Abs Value: 0.7400635480880737
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.6.mlp.fc2.weight, Max Abs Value: 3.9146013259887695
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.6.mlp.fc2.bias, Max Abs Value: 2.0882575511932373
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.6.adaLN_modulation.1.weight, Max Abs Value: 5.026983737945557
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.6.adaLN_modulation.1.bias, Max Abs Value: 2.628621816635132
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.7.attn.qkv.weight, Max Abs Value: 3.3529345989227295
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.7.attn.qkv.bias, Max Abs Value: 1.639750599861145
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.7.attn.proj.weight, Max Abs Value: 1.4093332290649414
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.7.attn.proj.bias, Max Abs Value: 4.9131083488464355
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.7.mlp.fc1.weight, Max Abs Value: 2.4970126152038574
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.7.mlp.fc1.bias, Max Abs Value: 0.700368344783783
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.7.mlp.fc2.weight, Max Abs Value: 3.3125619888305664
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.7.mlp.fc2.bias, Max Abs Value: 3.834444522857666
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.7.adaLN_modulation.1.weight, Max Abs Value: 5.576293468475342
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.7.adaLN_modulation.1.bias, Max Abs Value: 1.7582093477249146
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.8.attn.qkv.weight, Max Abs Value: 4.564958572387695
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.8.attn.qkv.bias, Max Abs Value: 1.9287363290786743
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.8.attn.proj.weight, Max Abs Value: 1.7156909704208374
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.8.attn.proj.bias, Max Abs Value: 5.913625717163086
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.8.mlp.fc1.weight, Max Abs Value: 5.5375447273254395
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.8.mlp.fc1.bias, Max Abs Value: 0.7687000632286072
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.8.mlp.fc2.weight, Max Abs Value: 5.692992687225342
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.8.mlp.fc2.bias, Max Abs Value: 3.984747886657715
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.8.adaLN_modulation.1.weight, Max Abs Value: 3.5601561069488525
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.8.adaLN_modulation.1.bias, Max Abs Value: 1.9436392784118652
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.9.attn.qkv.weight, Max Abs Value: 4.555502891540527
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.9.attn.qkv.bias, Max Abs Value: 1.9773879051208496
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.9.attn.proj.weight, Max Abs Value: 1.7395814657211304
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.9.attn.proj.bias, Max Abs Value: 5.098928928375244
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.9.mlp.fc1.weight, Max Abs Value: 3.772141218185425
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.9.mlp.fc1.bias, Max Abs Value: 0.6770640015602112
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.9.mlp.fc2.weight, Max Abs Value: 5.99493932723999
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.9.mlp.fc2.bias, Max Abs Value: 3.0307390689849854
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.9.adaLN_modulation.1.weight, Max Abs Value: 4.055502891540527
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.9.adaLN_modulation.1.bias, Max Abs Value: 2.5689857006073
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.10.attn.qkv.weight, Max Abs Value: 4.523524284362793
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.10.attn.qkv.bias, Max Abs Value: 2.1587324142456055
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.10.attn.proj.weight, Max Abs Value: 1.6476117372512817
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.10.attn.proj.bias, Max Abs Value: 6.783792018890381
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.10.mlp.fc1.weight, Max Abs Value: 3.9180784225463867
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.10.mlp.fc1.bias, Max Abs Value: 0.8036262392997742
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.10.mlp.fc2.weight, Max Abs Value: 5.032181262969971
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.10.mlp.fc2.bias, Max Abs Value: 3.9231927394866943
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.10.adaLN_modulation.1.weight, Max Abs Value: 4.18127965927124
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.10.adaLN_modulation.1.bias, Max Abs Value: 3.2051730155944824
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.11.attn.qkv.weight, Max Abs Value: 3.4815256595611572
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.11.attn.qkv.bias, Max Abs Value: 2.080143928527832
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.11.attn.proj.weight, Max Abs Value: 1.682342767715454
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.11.attn.proj.bias, Max Abs Value: 7.177762985229492
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.11.mlp.fc1.weight, Max Abs Value: 4.322079181671143
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.11.mlp.fc1.bias, Max Abs Value: 0.8501192331314087
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.11.mlp.fc2.weight, Max Abs Value: 7.22027063369751
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.11.mlp.fc2.bias, Max Abs Value: 3.892181873321533
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.11.adaLN_modulation.1.weight, Max Abs Value: 3.9586057662963867
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.11.adaLN_modulation.1.bias, Max Abs Value: 3.3637022972106934
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.12.attn.qkv.weight, Max Abs Value: 3.932401418685913
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.12.attn.qkv.bias, Max Abs Value: 2.115251064300537
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.12.attn.proj.weight, Max Abs Value: 4.05962610244751
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.12.attn.proj.bias, Max Abs Value: 6.47537088394165
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.12.mlp.fc1.weight, Max Abs Value: 4.773841381072998
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.12.mlp.fc1.bias, Max Abs Value: 0.8480446338653564
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.12.mlp.fc2.weight, Max Abs Value: 6.647047519683838
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.12.mlp.fc2.bias, Max Abs Value: 3.5742268562316895
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.12.adaLN_modulation.1.weight, Max Abs Value: 4.401623249053955
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.12.adaLN_modulation.1.bias, Max Abs Value: 3.4792239665985107
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.13.attn.qkv.weight, Max Abs Value: 4.28761625289917
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.13.attn.qkv.bias, Max Abs Value: 1.7110189199447632
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.13.attn.proj.weight, Max Abs Value: 1.7389905452728271
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.13.attn.proj.bias, Max Abs Value: 6.4480299949646
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.13.mlp.fc1.weight, Max Abs Value: 3.7589023113250732
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.13.mlp.fc1.bias, Max Abs Value: 1.0770376920700073
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.13.mlp.fc2.weight, Max Abs Value: 7.201648235321045
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.13.mlp.fc2.bias, Max Abs Value: 3.341627836227417
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.13.adaLN_modulation.1.weight, Max Abs Value: 5.212817668914795
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.13.adaLN_modulation.1.bias, Max Abs Value: 4.855963230133057
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.14.attn.qkv.weight, Max Abs Value: 4.656908988952637
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.14.attn.qkv.bias, Max Abs Value: 1.5202642679214478
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.14.attn.proj.weight, Max Abs Value: 3.25766658782959
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.14.attn.proj.bias, Max Abs Value: 6.980432987213135
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.14.mlp.fc1.weight, Max Abs Value: 4.440727233886719
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.14.mlp.fc1.bias, Max Abs Value: 0.6916759014129639
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.14.mlp.fc2.weight, Max Abs Value: 7.76594877243042
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.14.mlp.fc2.bias, Max Abs Value: 4.0392165184021
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.14.adaLN_modulation.1.weight, Max Abs Value: 5.387787342071533
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.14.adaLN_modulation.1.bias, Max Abs Value: 5.126470565795898
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.15.attn.qkv.weight, Max Abs Value: 4.180759906768799
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.15.attn.qkv.bias, Max Abs Value: 1.870948076248169
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.15.attn.proj.weight, Max Abs Value: 3.9991345405578613
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.15.attn.proj.bias, Max Abs Value: 6.322488307952881
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.15.mlp.fc1.weight, Max Abs Value: 4.141639709472656
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.15.mlp.fc1.bias, Max Abs Value: 0.782727837562561
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.15.mlp.fc2.weight, Max Abs Value: 8.441821098327637
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.15.mlp.fc2.bias, Max Abs Value: 4.026221752166748
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.15.adaLN_modulation.1.weight, Max Abs Value: 5.952324390411377
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.15.adaLN_modulation.1.bias, Max Abs Value: 5.632578372955322
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.16.attn.qkv.weight, Max Abs Value: 4.319768905639648
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.16.attn.qkv.bias, Max Abs Value: 1.4196041822433472
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.16.attn.proj.weight, Max Abs Value: 2.0178866386413574
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.16.attn.proj.bias, Max Abs Value: 7.454600811004639
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.16.mlp.fc1.weight, Max Abs Value: 3.9463717937469482
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.16.mlp.fc1.bias, Max Abs Value: 0.7826091647148132
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.16.mlp.fc2.weight, Max Abs Value: 5.126107215881348
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.16.mlp.fc2.bias, Max Abs Value: 3.6048824787139893
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.16.adaLN_modulation.1.weight, Max Abs Value: 5.8190813064575195
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.16.adaLN_modulation.1.bias, Max Abs Value: 6.1229705810546875
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.17.attn.qkv.weight, Max Abs Value: 3.95696759223938
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.17.attn.qkv.bias, Max Abs Value: 1.7413103580474854
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.17.attn.proj.weight, Max Abs Value: 3.9531588554382324
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.17.attn.proj.bias, Max Abs Value: 6.543436050415039
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.17.mlp.fc1.weight, Max Abs Value: 3.243530035018921
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.17.mlp.fc1.bias, Max Abs Value: 0.7357580661773682
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.17.mlp.fc2.weight, Max Abs Value: 4.472057819366455
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.17.mlp.fc2.bias, Max Abs Value: 3.2882351875305176
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.17.adaLN_modulation.1.weight, Max Abs Value: 5.253445148468018
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.17.adaLN_modulation.1.bias, Max Abs Value: 5.687775135040283
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.18.attn.qkv.weight, Max Abs Value: 3.6393611431121826
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.18.attn.qkv.bias, Max Abs Value: 2.023585081100464
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.18.attn.proj.weight, Max Abs Value: 4.060906410217285
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.18.attn.proj.bias, Max Abs Value: 5.647919654846191
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.18.mlp.fc1.weight, Max Abs Value: 4.671903133392334
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.18.mlp.fc1.bias, Max Abs Value: 0.8950270414352417
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.18.mlp.fc2.weight, Max Abs Value: 5.230971813201904
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.18.mlp.fc2.bias, Max Abs Value: 3.45523738861084
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.18.adaLN_modulation.1.weight, Max Abs Value: 6.1382598876953125
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.18.adaLN_modulation.1.bias, Max Abs Value: 5.52839994430542
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.19.attn.qkv.weight, Max Abs Value: 3.640530824661255
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.19.attn.qkv.bias, Max Abs Value: 2.1077425479888916
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.19.attn.proj.weight, Max Abs Value: 2.8542447090148926
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.19.attn.proj.bias, Max Abs Value: 5.379441261291504
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.19.mlp.fc1.weight, Max Abs Value: 3.0705392360687256
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.19.mlp.fc1.bias, Max Abs Value: 1.060943365097046
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.19.mlp.fc2.weight, Max Abs Value: 3.82795786857605
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.19.mlp.fc2.bias, Max Abs Value: 2.6410889625549316
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.19.adaLN_modulation.1.weight, Max Abs Value: 5.5920209884643555
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.19.adaLN_modulation.1.bias, Max Abs Value: 4.1745710372924805
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.20.attn.qkv.weight, Max Abs Value: 2.8471086025238037
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.20.attn.qkv.bias, Max Abs Value: 1.9074857234954834
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.20.attn.proj.weight, Max Abs Value: 3.504481315612793
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.20.attn.proj.bias, Max Abs Value: 5.157045364379883
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.20.mlp.fc1.weight, Max Abs Value: 2.621020555496216
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.20.mlp.fc1.bias, Max Abs Value: 1.2306768894195557
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.20.mlp.fc2.weight, Max Abs Value: 6.675673007965088
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.20.mlp.fc2.bias, Max Abs Value: 2.782536506652832
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.20.adaLN_modulation.1.weight, Max Abs Value: 5.988487720489502
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.20.adaLN_modulation.1.bias, Max Abs Value: 4.431802749633789
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.21.attn.qkv.weight, Max Abs Value: 2.9396889209747314
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.21.attn.qkv.bias, Max Abs Value: 2.0572526454925537
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.21.attn.proj.weight, Max Abs Value: 4.491308212280273
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.21.attn.proj.bias, Max Abs Value: 5.661630153656006
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.21.mlp.fc1.weight, Max Abs Value: 3.1918210983276367
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.21.mlp.fc1.bias, Max Abs Value: 1.186982274055481
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.21.mlp.fc2.weight, Max Abs Value: 11.088531494140625
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.21.mlp.fc2.bias, Max Abs Value: 3.4134395122528076
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.21.adaLN_modulation.1.weight, Max Abs Value: 5.771214008331299
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.21.adaLN_modulation.1.bias, Max Abs Value: 5.061711311340332
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.22.attn.qkv.weight, Max Abs Value: 2.2737350463867188
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.22.attn.qkv.bias, Max Abs Value: 1.6696445941925049
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.22.attn.proj.weight, Max Abs Value: 3.5683164596557617
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.22.attn.proj.bias, Max Abs Value: 5.3165364265441895
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.22.mlp.fc1.weight, Max Abs Value: 3.115293025970459
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.22.mlp.fc1.bias, Max Abs Value: 1.1081950664520264
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.22.mlp.fc2.weight, Max Abs Value: 4.353556156158447
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.22.mlp.fc2.bias, Max Abs Value: 3.445718765258789
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.22.adaLN_modulation.1.weight, Max Abs Value: 6.350362777709961
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.22.adaLN_modulation.1.bias, Max Abs Value: 4.296491622924805
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.23.attn.qkv.weight, Max Abs Value: 3.8935184478759766
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.23.attn.qkv.bias, Max Abs Value: 2.0768320560455322
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.23.attn.proj.weight, Max Abs Value: 2.7041475772857666
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.23.attn.proj.bias, Max Abs Value: 5.843165397644043
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.23.mlp.fc1.weight, Max Abs Value: 2.9850070476531982
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.23.mlp.fc1.bias, Max Abs Value: 0.9991081953048706
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.23.mlp.fc2.weight, Max Abs Value: 4.090933322906494
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.23.mlp.fc2.bias, Max Abs Value: 3.1101653575897217
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.23.adaLN_modulation.1.weight, Max Abs Value: 6.780893325805664
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.23.adaLN_modulation.1.bias, Max Abs Value: 4.733648300170898
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.24.attn.qkv.weight, Max Abs Value: 3.2520248889923096
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.24.attn.qkv.bias, Max Abs Value: 1.552898645401001
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.24.attn.proj.weight, Max Abs Value: 2.486603021621704
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.24.attn.proj.bias, Max Abs Value: 5.119765281677246
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.24.mlp.fc1.weight, Max Abs Value: 3.2026402950286865
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.24.mlp.fc1.bias, Max Abs Value: 1.463509202003479
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.24.mlp.fc2.weight, Max Abs Value: 4.9925923347473145
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.24.mlp.fc2.bias, Max Abs Value: 1.703041672706604
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.24.adaLN_modulation.1.weight, Max Abs Value: 8.135106086730957
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.24.adaLN_modulation.1.bias, Max Abs Value: 6.950143337249756
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.25.attn.qkv.weight, Max Abs Value: 2.8370022773742676
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.25.attn.qkv.bias, Max Abs Value: 2.004438877105713
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.25.attn.proj.weight, Max Abs Value: 3.8706777095794678
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.25.attn.proj.bias, Max Abs Value: 3.429694175720215
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.25.mlp.fc1.weight, Max Abs Value: 2.33250093460083
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.25.mlp.fc1.bias, Max Abs Value: 1.1912460327148438
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.25.mlp.fc2.weight, Max Abs Value: 6.233104228973389
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.25.mlp.fc2.bias, Max Abs Value: 1.2490019798278809
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.25.adaLN_modulation.1.weight, Max Abs Value: 8.595948219299316
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.25.adaLN_modulation.1.bias, Max Abs Value: 7.37811803817749
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.26.attn.qkv.weight, Max Abs Value: 2.39579439163208
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.26.attn.qkv.bias, Max Abs Value: 1.961625099182129
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.26.attn.proj.weight, Max Abs Value: 2.76826810836792
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.26.attn.proj.bias, Max Abs Value: 1.2953846454620361
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.26.mlp.fc1.weight, Max Abs Value: 4.808868408203125
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.26.mlp.fc1.bias, Max Abs Value: 1.8301715850830078
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.26.mlp.fc2.weight, Max Abs Value: 5.728189468383789
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.26.mlp.fc2.bias, Max Abs Value: 2.5270299911499023
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.26.adaLN_modulation.1.weight, Max Abs Value: 6.353241443634033
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.26.adaLN_modulation.1.bias, Max Abs Value: 7.648830413818359
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.27.attn.qkv.weight, Max Abs Value: 3.6927452087402344
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.27.attn.qkv.bias, Max Abs Value: 2.230649948120117
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.27.attn.proj.weight, Max Abs Value: 3.0498478412628174
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.27.attn.proj.bias, Max Abs Value: 2.4591639041900635
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.27.mlp.fc1.weight, Max Abs Value: 3.241372585296631
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.27.mlp.fc1.bias, Max Abs Value: 1.0983586311340332
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.27.mlp.fc2.weight, Max Abs Value: 7.94174337387085
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.27.mlp.fc2.bias, Max Abs Value: 1.0084878206253052
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.27.adaLN_modulation.1.weight, Max Abs Value: 3.8057503700256348
+[[34m2024-10-23 13:34:35[0m] Layer: blocks.27.adaLN_modulation.1.bias, Max Abs Value: 3.6571128368377686
+[[34m2024-10-23 13:34:40[0m] blocks.4.mlp.fc2_v compression: 1000; mse: 2.879916e-03; codebook size: 256 x 4; code size: 1152 x 208
+[[34m2024-10-23 13:35:04[0m] blocks.4.adaLN_modulation.1 compression: 1000; mse: 2.673813e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 13:35:36[0m] blocks.4.adaLN_modulation.2 compression: 1000; mse: 1.336438e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 13:35:59[0m] blocks.5.attn.qkv_u compression: 1000; mse: 1.766414e-03; codebook size: 256 x 4; code size: 736 x 288
+[[34m2024-10-23 13:36:26[0m] blocks.5.attn.qkv_v compression: 1000; mse: 3.479609e-03; codebook size: 256 x 4; code size: 3456 x 184
+[[34m2024-10-23 13:36:49[0m] blocks.5.attn.proj_u compression: 1000; mse: 3.312336e-03; codebook size: 256 x 4; code size: 544 x 288
+[[34m2024-10-23 13:37:12[0m] blocks.5.attn.proj_v compression: 1000; mse: 3.035752e-03; codebook size: 256 x 4; code size: 1152 x 136
+[[34m2024-10-23 13:37:36[0m] blocks.5.mlp.fc1_u compression: 1000; mse: 2.204922e-03; codebook size: 256 x 4; code size: 832 x 288
+[[34m2024-10-23 13:38:04[0m] blocks.5.mlp.fc1_v compression: 1000; mse: 3.107472e-03; codebook size: 256 x 4; code size: 4608 x 208
+[[34m2024-10-23 13:38:31[0m] blocks.5.mlp.fc2_u compression: 1000; mse: 2.258979e-03; codebook size: 256 x 4; code size: 864 x 1152
+[[34m2024-10-23 13:38:55[0m] blocks.5.mlp.fc2_v compression: 1000; mse: 3.673861e-03; codebook size: 256 x 4; code size: 1152 x 216
+[[34m2024-10-23 13:39:19[0m] blocks.5.adaLN_modulation.1 compression: 1000; mse: 3.003629e-03; codebook size: 256 x 4; code size: 864 x 288
+[[34m2024-10-23 13:39:49[0m] blocks.5.adaLN_modulation.2 compression: 1000; mse: 1.406994e-03; codebook size: 256 x 4; code size: 6912 x 216
+[[34m2024-10-23 13:40:13[0m] blocks.6.attn.qkv_u compression: 1000; mse: 2.232427e-03; codebook size: 256 x 4; code size: 768 x 288
+[[34m2024-10-23 13:40:39[0m] blocks.6.attn.qkv_v compression: 1000; mse: 3.670578e-03; codebook size: 256 x 4; code size: 3456 x 192
+[[34m2024-10-23 13:41:02[0m] blocks.6.attn.proj_u compression: 1000; mse: 3.817870e-03; codebook size: 256 x 4; code size: 480 x 288
+[[34m2024-10-23 13:41:25[0m] blocks.6.attn.proj_v compression: 1000; mse: 3.574772e-03; codebook size: 256 x 4; code size: 1152 x 120
+[[34m2024-10-23 13:41:48[0m] blocks.6.mlp.fc1_u compression: 1000; mse: 2.804165e-03; codebook size: 256 x 4; code size: 800 x 288
+[[34m2024-10-23 13:42:15[0m] blocks.6.mlp.fc1_v compression: 1000; mse: 2.820379e-03; codebook size: 256 x 4; code size: 4608 x 200
+[[34m2024-10-23 13:42:43[0m] blocks.6.mlp.fc2_u compression: 1000; mse: 2.375267e-03; codebook size: 256 x 4; code size: 832 x 1152
+[[34m2024-10-23 13:43:06[0m] blocks.6.mlp.fc2_v compression: 1000; mse: 3.861977e-03; codebook size: 256 x 4; code size: 1152 x 208
+[[34m2024-10-23 13:43:30[0m] blocks.6.adaLN_modulation.1 compression: 1000; mse: 2.918522e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 13:44:02[0m] blocks.6.adaLN_modulation.2 compression: 1000; mse: 1.268305e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 13:44:25[0m] blocks.7.attn.qkv_u compression: 1000; mse: 2.721939e-03; codebook size: 256 x 4; code size: 704 x 288
+[[34m2024-10-23 13:44:51[0m] blocks.7.attn.qkv_v compression: 1000; mse: 3.364672e-03; codebook size: 256 x 4; code size: 3456 x 176
+[[34m2024-10-23 13:45:15[0m] blocks.7.attn.proj_u compression: 1000; mse: 3.568186e-03; codebook size: 256 x 4; code size: 544 x 288
+[[34m2024-10-23 13:45:38[0m] blocks.7.attn.proj_v compression: 1000; mse: 3.051393e-03; codebook size: 256 x 4; code size: 1152 x 136
+[[34m2024-10-23 13:46:02[0m] blocks.7.mlp.fc1_u compression: 1000; mse: 2.901105e-03; codebook size: 256 x 4; code size: 864 x 288
+[[34m2024-10-23 13:46:30[0m] blocks.7.mlp.fc1_v compression: 1000; mse: 2.755416e-03; codebook size: 256 x 4; code size: 4608 x 216
+[[34m2024-10-23 13:46:58[0m] blocks.7.mlp.fc2_u compression: 1000; mse: 2.278905e-03; codebook size: 256 x 4; code size: 896 x 1152
+[[34m2024-10-23 13:47:21[0m] blocks.7.mlp.fc2_v compression: 1000; mse: 3.841780e-03; codebook size: 256 x 4; code size: 1152 x 224
+[[34m2024-10-23 13:47:45[0m] blocks.7.adaLN_modulation.1 compression: 1000; mse: 3.103834e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 13:48:17[0m] blocks.7.adaLN_modulation.2 compression: 1000; mse: 1.439073e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 13:48:40[0m] blocks.8.attn.qkv_u compression: 1000; mse: 2.845095e-03; codebook size: 256 x 4; code size: 832 x 288
+[[34m2024-10-23 13:49:07[0m] blocks.8.attn.qkv_v compression: 1000; mse: 3.137792e-03; codebook size: 256 x 4; code size: 3456 x 208
+[[34m2024-10-23 13:49:30[0m] blocks.8.attn.proj_u compression: 1000; mse: 3.643309e-03; codebook size: 256 x 4; code size: 512 x 288
+[[34m2024-10-23 13:49:53[0m] blocks.8.attn.proj_v compression: 1000; mse: 3.464577e-03; codebook size: 256 x 4; code size: 1152 x 128
+[[34m2024-10-23 13:50:17[0m] blocks.8.mlp.fc1_u compression: 1000; mse: 3.243040e-03; codebook size: 256 x 4; code size: 864 x 288
+[[34m2024-10-23 13:50:45[0m] blocks.8.mlp.fc1_v compression: 1000; mse: 2.569790e-03; codebook size: 256 x 4; code size: 4608 x 216
+[[34m2024-10-23 13:51:13[0m] blocks.8.mlp.fc2_u compression: 1000; mse: 2.145631e-03; codebook size: 256 x 4; code size: 800 x 1152
+[[34m2024-10-23 13:51:31[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-23 13:51:31[0m] Compressed model size: 19399271424 bits
+[[34m2024-10-23 13:51:31[0m] Compression ratio: 1.11
+[[34m2024-10-23 13:51:36[0m] blocks.8.mlp.fc2_v compression: 1000; mse: 4.852086e-03; codebook size: 256 x 4; code size: 1152 x 200
+[[34m2024-10-23 13:52:00[0m] blocks.8.adaLN_modulation.1 compression: 1000; mse: 3.100011e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 13:52:32[0m] blocks.8.adaLN_modulation.2 compression: 1000; mse: 1.525822e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 13:52:55[0m] blocks.9.attn.qkv_u compression: 1000; mse: 2.821192e-03; codebook size: 256 x 4; code size: 832 x 288
+[[34m2024-10-23 13:53:21[0m] blocks.9.attn.qkv_v compression: 1000; mse: 3.274531e-03; codebook size: 256 x 4; code size: 3456 x 208
+[[34m2024-10-23 13:53:45[0m] blocks.9.attn.proj_u compression: 1000; mse: 3.843016e-03; codebook size: 256 x 4; code size: 544 x 288
+[[34m2024-10-23 13:54:08[0m] blocks.9.attn.proj_v compression: 1000; mse: 3.564254e-03; codebook size: 256 x 4; code size: 1152 x 136
+[[34m2024-10-23 13:54:31[0m] blocks.9.mlp.fc1_u compression: 1000; mse: 3.214967e-03; codebook size: 256 x 4; code size: 864 x 288
+[[34m2024-10-23 13:54:59[0m] blocks.9.mlp.fc1_v compression: 1000; mse: 2.601045e-03; codebook size: 256 x 4; code size: 4608 x 216
+[[34m2024-10-23 13:55:27[0m] blocks.9.mlp.fc2_u compression: 1000; mse: 2.300803e-03; codebook size: 256 x 4; code size: 896 x 1152
+[[34m2024-10-23 13:55:50[0m] blocks.9.mlp.fc2_v compression: 1000; mse: 4.247035e-03; codebook size: 256 x 4; code size: 1152 x 224
+[[34m2024-10-23 13:56:10[0m] Experiment directory created at results/low_rank/011-DiT-XL-2
+[[34m2024-10-23 13:56:14[0m] blocks.9.adaLN_modulation.1 compression: 1000; mse: 3.203819e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 13:56:44[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-23 13:56:44[0m] Compressed model size: 19399271424 bits
+[[34m2024-10-23 13:56:44[0m] Compression ratio: 1.11
+[[34m2024-10-23 13:56:46[0m] blocks.9.adaLN_modulation.2 compression: 1000; mse: 1.681107e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 13:57:09[0m] blocks.10.attn.qkv_u compression: 1000; mse: 2.844543e-03; codebook size: 256 x 4; code size: 800 x 288
+[[34m2024-10-23 13:57:35[0m] blocks.10.attn.qkv_v compression: 1000; mse: 3.049383e-03; codebook size: 256 x 4; code size: 3456 x 200
+[[34m2024-10-23 13:57:59[0m] blocks.10.attn.proj_u compression: 1000; mse: 3.991581e-03; codebook size: 256 x 4; code size: 512 x 288
+[[34m2024-10-23 13:58:22[0m] blocks.10.attn.proj_v compression: 1000; mse: 3.695001e-03; codebook size: 256 x 4; code size: 1152 x 128
+[[34m2024-10-23 13:58:45[0m] blocks.10.mlp.fc1_u compression: 1000; mse: 3.282758e-03; codebook size: 256 x 4; code size: 896 x 288
+[[34m2024-10-23 13:59:13[0m] blocks.10.mlp.fc1_v compression: 1000; mse: 2.550247e-03; codebook size: 256 x 4; code size: 4608 x 224
+[[34m2024-10-23 13:59:40[0m] blocks.10.mlp.fc2_u compression: 1000; mse: 2.294568e-03; codebook size: 256 x 4; code size: 736 x 1152
+[[34m2024-10-23 14:00:03[0m] blocks.10.mlp.fc2_v compression: 1000; mse: 5.009343e-03; codebook size: 256 x 4; code size: 1152 x 184
+[[34m2024-10-23 14:00:27[0m] blocks.10.adaLN_modulation.1 compression: 1000; mse: 3.543909e-03; codebook size: 256 x 4; code size: 928 x 288
+[[34m2024-10-23 14:00:58[0m] blocks.10.adaLN_modulation.2 compression: 1000; mse: 2.012273e-03; codebook size: 256 x 4; code size: 6912 x 232
+[[34m2024-10-23 14:01:22[0m] blocks.11.attn.qkv_u compression: 1000; mse: 2.893946e-03; codebook size: 256 x 4; code size: 800 x 288
+[[34m2024-10-23 14:01:48[0m] blocks.11.attn.qkv_v compression: 1000; mse: 3.059324e-03; codebook size: 256 x 4; code size: 3456 x 200
+[[34m2024-10-23 14:02:11[0m] blocks.11.attn.proj_u compression: 1000; mse: 3.984165e-03; codebook size: 256 x 4; code size: 512 x 288
+[[34m2024-10-23 14:02:34[0m] blocks.11.attn.proj_v compression: 1000; mse: 3.604932e-03; codebook size: 256 x 4; code size: 1152 x 128
+[[34m2024-10-23 14:02:58[0m] blocks.11.mlp.fc1_u compression: 1000; mse: 3.280686e-03; codebook size: 256 x 4; code size: 896 x 288
+[[34m2024-10-23 14:03:26[0m] blocks.11.mlp.fc1_v compression: 1000; mse: 2.561592e-03; codebook size: 256 x 4; code size: 4608 x 224
+[[34m2024-10-23 14:03:54[0m] blocks.11.mlp.fc2_u compression: 1000; mse: 2.272748e-03; codebook size: 256 x 4; code size: 832 x 1152
+[[34m2024-10-23 14:04:17[0m] blocks.11.mlp.fc2_v compression: 1000; mse: 4.971562e-03; codebook size: 256 x 4; code size: 1152 x 208
+[[34m2024-10-23 14:04:41[0m] blocks.11.adaLN_modulation.1 compression: 1000; mse: 3.462267e-03; codebook size: 256 x 4; code size: 864 x 288
+[[34m2024-10-23 14:05:12[0m] blocks.11.adaLN_modulation.2 compression: 1000; mse: 1.978996e-03; codebook size: 256 x 4; code size: 6912 x 216
+[[34m2024-10-23 14:05:35[0m] blocks.12.attn.qkv_u compression: 1000; mse: 3.014202e-03; codebook size: 256 x 4; code size: 768 x 288
+[[34m2024-10-23 14:06:01[0m] blocks.12.attn.qkv_v compression: 1000; mse: 3.106349e-03; codebook size: 256 x 4; code size: 3456 x 192
+[[34m2024-10-23 14:06:24[0m] blocks.12.attn.proj_u compression: 1000; mse: 4.144180e-03; codebook size: 256 x 4; code size: 512 x 288
+[[34m2024-10-23 14:06:47[0m] blocks.12.attn.proj_v compression: 1000; mse: 3.837173e-03; codebook size: 256 x 4; code size: 1152 x 128
+[[34m2024-10-23 14:07:11[0m] blocks.12.mlp.fc1_u compression: 1000; mse: 3.338232e-03; codebook size: 256 x 4; code size: 864 x 288
+[[34m2024-10-23 14:07:39[0m] blocks.12.mlp.fc1_v compression: 1000; mse: 2.552560e-03; codebook size: 256 x 4; code size: 4608 x 216
+[[34m2024-10-23 14:08:07[0m] blocks.12.mlp.fc2_u compression: 1000; mse: 2.244825e-03; codebook size: 256 x 4; code size: 864 x 1152
+[[34m2024-10-23 14:08:30[0m] blocks.12.mlp.fc2_v compression: 1000; mse: 4.855407e-03; codebook size: 256 x 4; code size: 1152 x 216
+[[34m2024-10-23 14:08:54[0m] blocks.12.adaLN_modulation.1 compression: 1000; mse: 3.480248e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 14:09:25[0m] blocks.12.adaLN_modulation.2 compression: 1000; mse: 1.874918e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 14:09:48[0m] blocks.13.attn.qkv_u compression: 1000; mse: 3.595932e-03; codebook size: 256 x 4; code size: 704 x 288
+[[34m2024-10-23 14:10:14[0m] blocks.13.attn.qkv_v compression: 1000; mse: 3.157041e-03; codebook size: 256 x 4; code size: 3456 x 176
+[[34m2024-10-23 14:10:37[0m] blocks.13.attn.proj_u compression: 1000; mse: 4.144169e-03; codebook size: 256 x 4; code size: 480 x 288
+[[34m2024-10-23 14:11:00[0m] blocks.13.attn.proj_v compression: 1000; mse: 3.999634e-03; codebook size: 256 x 4; code size: 1152 x 120
+[[34m2024-10-23 14:11:23[0m] blocks.13.mlp.fc1_u compression: 1000; mse: 3.451009e-03; codebook size: 256 x 4; code size: 800 x 288
+[[34m2024-10-23 14:11:51[0m] blocks.13.mlp.fc1_v compression: 1000; mse: 2.563233e-03; codebook size: 256 x 4; code size: 4608 x 200
+[[34m2024-10-23 14:12:19[0m] blocks.13.mlp.fc2_u compression: 1000; mse: 2.259393e-03; codebook size: 256 x 4; code size: 896 x 1152
+[[34m2024-10-23 14:12:42[0m] blocks.13.mlp.fc2_v compression: 1000; mse: 4.685910e-03; codebook size: 256 x 4; code size: 1152 x 224
+[[34m2024-10-23 14:13:05[0m] blocks.13.adaLN_modulation.1 compression: 1000; mse: 3.510345e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 14:13:37[0m] blocks.13.adaLN_modulation.2 compression: 1000; mse: 1.805142e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 14:14:00[0m] blocks.14.attn.qkv_u compression: 1000; mse: 3.199219e-03; codebook size: 256 x 4; code size: 800 x 288
+[[34m2024-10-23 14:14:27[0m] blocks.14.attn.qkv_v compression: 1000; mse: 3.005562e-03; codebook size: 256 x 4; code size: 3456 x 200
+[[34m2024-10-23 14:14:50[0m] blocks.14.attn.proj_u compression: 1000; mse: 4.115631e-03; codebook size: 256 x 4; code size: 544 x 288
+[[34m2024-10-23 14:15:13[0m] blocks.14.attn.proj_v compression: 1000; mse: 3.928125e-03; codebook size: 256 x 4; code size: 1152 x 136
+[[34m2024-10-23 14:15:36[0m] blocks.14.mlp.fc1_u compression: 1000; mse: 3.218787e-03; codebook size: 256 x 4; code size: 896 x 288
+[[34m2024-10-23 14:16:04[0m] blocks.14.mlp.fc1_v compression: 1000; mse: 2.544290e-03; codebook size: 256 x 4; code size: 4608 x 224
+[[34m2024-10-23 14:16:32[0m] blocks.14.mlp.fc2_u compression: 1000; mse: 2.476581e-03; codebook size: 256 x 4; code size: 896 x 1152
+[[34m2024-10-23 14:16:55[0m] blocks.14.mlp.fc2_v compression: 1000; mse: 4.697106e-03; codebook size: 256 x 4; code size: 1152 x 224
+[[34m2024-10-23 14:17:19[0m] blocks.14.adaLN_modulation.1 compression: 1000; mse: 3.828649e-03; codebook size: 256 x 4; code size: 928 x 288
+[[34m2024-10-23 14:17:51[0m] blocks.14.adaLN_modulation.2 compression: 1000; mse: 2.029679e-03; codebook size: 256 x 4; code size: 6912 x 232
+[[34m2024-10-23 14:18:14[0m] blocks.15.attn.qkv_u compression: 1000; mse: 3.085799e-03; codebook size: 256 x 4; code size: 832 x 288
+[[34m2024-10-23 14:18:40[0m] blocks.15.attn.qkv_v compression: 1000; mse: 3.154722e-03; codebook size: 256 x 4; code size: 3456 x 208
+[[34m2024-10-23 14:19:04[0m] blocks.15.attn.proj_u compression: 1000; mse: 4.059714e-03; codebook size: 256 x 4; code size: 544 x 288
+[[34m2024-10-23 14:19:27[0m] blocks.15.attn.proj_v compression: 1000; mse: 3.799520e-03; codebook size: 256 x 4; code size: 1152 x 136
+[[34m2024-10-23 14:19:50[0m] blocks.15.mlp.fc1_u compression: 1000; mse: 3.132155e-03; codebook size: 256 x 4; code size: 896 x 288
+[[34m2024-10-23 14:20:18[0m] blocks.15.mlp.fc1_v compression: 1000; mse: 2.547601e-03; codebook size: 256 x 4; code size: 4608 x 224
+[[34m2024-10-23 14:20:45[0m] blocks.15.mlp.fc2_u compression: 1000; mse: 2.736220e-03; codebook size: 256 x 4; code size: 832 x 1152
+[[34m2024-10-23 14:21:09[0m] blocks.15.mlp.fc2_v compression: 1000; mse: 4.232157e-03; codebook size: 256 x 4; code size: 1152 x 208
+[[34m2024-10-23 14:21:32[0m] blocks.15.adaLN_modulation.1 compression: 1000; mse: 3.558939e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 14:22:04[0m] blocks.15.adaLN_modulation.2 compression: 1000; mse: 1.866725e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 14:22:27[0m] blocks.16.attn.qkv_u compression: 1000; mse: 3.174457e-03; codebook size: 256 x 4; code size: 832 x 288
+[[34m2024-10-23 14:22:53[0m] blocks.16.attn.qkv_v compression: 1000; mse: 3.469658e-03; codebook size: 256 x 4; code size: 3456 x 208
+[[34m2024-10-23 14:23:17[0m] blocks.16.attn.proj_u compression: 1000; mse: 4.085804e-03; codebook size: 256 x 4; code size: 512 x 288
+[[34m2024-10-23 14:23:40[0m] blocks.16.attn.proj_v compression: 1000; mse: 3.951836e-03; codebook size: 256 x 4; code size: 1152 x 128
+[[34m2024-10-23 14:24:03[0m] blocks.16.mlp.fc1_u compression: 1000; mse: 3.010839e-03; codebook size: 256 x 4; code size: 864 x 288
+[[34m2024-10-23 14:24:31[0m] blocks.16.mlp.fc1_v compression: 1000; mse: 2.608183e-03; codebook size: 256 x 4; code size: 4608 x 216
+[[34m2024-10-23 14:24:58[0m] blocks.16.mlp.fc2_u compression: 1000; mse: 2.794107e-03; codebook size: 256 x 4; code size: 832 x 1152
+[[34m2024-10-23 14:25:22[0m] blocks.16.mlp.fc2_v compression: 1000; mse: 3.910512e-03; codebook size: 256 x 4; code size: 1152 x 208
+[[34m2024-10-23 14:25:45[0m] blocks.16.adaLN_modulation.1 compression: 1000; mse: 3.213874e-03; codebook size: 256 x 4; code size: 928 x 288
+[[34m2024-10-23 14:26:16[0m] blocks.16.adaLN_modulation.2 compression: 1000; mse: 1.662589e-03; codebook size: 256 x 4; code size: 6912 x 232
+[[34m2024-10-23 14:26:39[0m] blocks.17.attn.qkv_u compression: 1000; mse: 3.672632e-03; codebook size: 256 x 4; code size: 672 x 288
+[[34m2024-10-23 14:27:05[0m] blocks.17.attn.qkv_v compression: 1000; mse: 3.322311e-03; codebook size: 256 x 4; code size: 3456 x 168
+[[34m2024-10-23 14:27:28[0m] blocks.17.attn.proj_u compression: 1000; mse: 4.144593e-03; codebook size: 256 x 4; code size: 544 x 288
+[[34m2024-10-23 14:27:51[0m] blocks.17.attn.proj_v compression: 1000; mse: 4.140444e-03; codebook size: 256 x 4; code size: 1152 x 136
+[[34m2024-10-23 14:28:15[0m] blocks.17.mlp.fc1_u compression: 1000; mse: 3.067670e-03; codebook size: 256 x 4; code size: 864 x 288
+[[34m2024-10-23 14:28:43[0m] blocks.17.mlp.fc1_v compression: 1000; mse: 2.564229e-03; codebook size: 256 x 4; code size: 4608 x 216
+[[34m2024-10-23 14:29:10[0m] blocks.17.mlp.fc2_u compression: 1000; mse: 2.872629e-03; codebook size: 256 x 4; code size: 768 x 1152
+[[34m2024-10-23 14:29:33[0m] blocks.17.mlp.fc2_v compression: 1000; mse: 4.144574e-03; codebook size: 256 x 4; code size: 1152 x 192
+[[34m2024-10-23 14:29:57[0m] blocks.17.adaLN_modulation.1 compression: 1000; mse: 3.048530e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 14:30:28[0m] blocks.17.adaLN_modulation.2 compression: 1000; mse: 1.590260e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 14:30:51[0m] blocks.18.attn.qkv_u compression: 1000; mse: 3.683671e-03; codebook size: 256 x 4; code size: 704 x 288
+[[34m2024-10-23 14:31:17[0m] blocks.18.attn.qkv_v compression: 1000; mse: 3.050078e-03; codebook size: 256 x 4; code size: 3456 x 176
+[[34m2024-10-23 14:31:40[0m] blocks.18.attn.proj_u compression: 1000; mse: 4.508469e-03; codebook size: 256 x 4; code size: 480 x 288
+[[34m2024-10-23 14:32:04[0m] blocks.18.attn.proj_v compression: 1000; mse: 4.200683e-03; codebook size: 256 x 4; code size: 1152 x 120
+[[34m2024-10-23 14:32:27[0m] blocks.18.mlp.fc1_u compression: 1000; mse: 3.307560e-03; codebook size: 256 x 4; code size: 768 x 288
+[[34m2024-10-23 14:32:54[0m] blocks.18.mlp.fc1_v compression: 1000; mse: 2.643390e-03; codebook size: 256 x 4; code size: 4608 x 192
+[[34m2024-10-23 14:33:21[0m] blocks.18.mlp.fc2_u compression: 1000; mse: 2.870625e-03; codebook size: 256 x 4; code size: 736 x 1152
+[[34m2024-10-23 14:33:44[0m] blocks.18.mlp.fc2_v compression: 1000; mse: 4.217135e-03; codebook size: 256 x 4; code size: 1152 x 184
+[[34m2024-10-23 14:34:08[0m] blocks.18.adaLN_modulation.1 compression: 1000; mse: 2.875206e-03; codebook size: 256 x 4; code size: 928 x 288
+[[34m2024-10-23 14:34:40[0m] blocks.18.adaLN_modulation.2 compression: 1000; mse: 1.566361e-03; codebook size: 256 x 4; code size: 6912 x 232
+[[34m2024-10-23 14:35:03[0m] blocks.19.attn.qkv_u compression: 1000; mse: 3.316906e-03; codebook size: 256 x 4; code size: 768 x 288
+[[34m2024-10-23 14:35:29[0m] blocks.19.attn.qkv_v compression: 1000; mse: 3.296887e-03; codebook size: 256 x 4; code size: 3456 x 192
+[[34m2024-10-23 14:35:53[0m] blocks.19.attn.proj_u compression: 1000; mse: 4.086766e-03; codebook size: 256 x 4; code size: 480 x 288
+[[34m2024-10-23 14:36:16[0m] blocks.19.attn.proj_v compression: 1000; mse: 4.459512e-03; codebook size: 256 x 4; code size: 1152 x 120
+[[34m2024-10-23 14:36:39[0m] blocks.19.mlp.fc1_u compression: 1000; mse: 3.212426e-03; codebook size: 256 x 4; code size: 896 x 288
+[[34m2024-10-23 14:37:07[0m] blocks.19.mlp.fc1_v compression: 1000; mse: 2.434979e-03; codebook size: 256 x 4; code size: 4608 x 224
+[[34m2024-10-23 14:37:35[0m] blocks.19.mlp.fc2_u compression: 1000; mse: 2.841263e-03; codebook size: 256 x 4; code size: 800 x 1152
+[[34m2024-10-23 14:37:58[0m] blocks.19.mlp.fc2_v compression: 1000; mse: 4.097453e-03; codebook size: 256 x 4; code size: 1152 x 200
+[[34m2024-10-23 14:38:21[0m] blocks.19.adaLN_modulation.1 compression: 1000; mse: 2.891893e-03; codebook size: 256 x 4; code size: 768 x 288
+[[34m2024-10-23 14:38:51[0m] blocks.19.adaLN_modulation.2 compression: 1000; mse: 1.521214e-03; codebook size: 256 x 4; code size: 6912 x 192
+[[34m2024-10-23 14:39:14[0m] blocks.20.attn.qkv_u compression: 1000; mse: 3.519501e-03; codebook size: 256 x 4; code size: 800 x 288
+[[34m2024-10-23 14:39:40[0m] blocks.20.attn.qkv_v compression: 1000; mse: 2.864572e-03; codebook size: 256 x 4; code size: 3456 x 200
+[[34m2024-10-23 14:40:04[0m] blocks.20.attn.proj_u compression: 1000; mse: 4.555583e-03; codebook size: 256 x 4; code size: 448 x 288
+[[34m2024-10-23 14:40:27[0m] blocks.20.attn.proj_v compression: 1000; mse: 4.509503e-03; codebook size: 256 x 4; code size: 1152 x 112
+[[34m2024-10-23 14:40:50[0m] blocks.20.mlp.fc1_u compression: 1000; mse: 3.152354e-03; codebook size: 256 x 4; code size: 832 x 288
+[[34m2024-10-23 14:41:18[0m] blocks.20.mlp.fc1_v compression: 1000; mse: 2.583859e-03; codebook size: 256 x 4; code size: 4608 x 208
+[[34m2024-10-23 14:41:46[0m] blocks.20.mlp.fc2_u compression: 1000; mse: 2.736010e-03; codebook size: 256 x 4; code size: 864 x 1152
+[[34m2024-10-23 14:42:09[0m] blocks.20.mlp.fc2_v compression: 1000; mse: 4.169124e-03; codebook size: 256 x 4; code size: 1152 x 216
+[[34m2024-10-23 14:42:33[0m] blocks.20.adaLN_modulation.1 compression: 1000; mse: 2.869518e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 14:43:04[0m] blocks.20.adaLN_modulation.2 compression: 1000; mse: 1.501790e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 14:43:27[0m] blocks.21.attn.qkv_u compression: 1000; mse: 3.391594e-03; codebook size: 256 x 4; code size: 800 x 288
+[[34m2024-10-23 14:43:53[0m] blocks.21.attn.qkv_v compression: 1000; mse: 2.750572e-03; codebook size: 256 x 4; code size: 3456 x 200
+[[34m2024-10-23 14:44:17[0m] blocks.21.attn.proj_u compression: 1000; mse: 4.679358e-03; codebook size: 256 x 4; code size: 448 x 288
+[[34m2024-10-23 14:44:40[0m] blocks.21.attn.proj_v compression: 1000; mse: 4.310425e-03; codebook size: 256 x 4; code size: 1152 x 112
+[[34m2024-10-23 14:45:03[0m] blocks.21.mlp.fc1_u compression: 1000; mse: 3.153969e-03; codebook size: 256 x 4; code size: 864 x 288
+[[34m2024-10-23 14:45:31[0m] blocks.21.mlp.fc1_v compression: 1000; mse: 2.629808e-03; codebook size: 256 x 4; code size: 4608 x 216
+[[34m2024-10-23 14:45:59[0m] blocks.21.mlp.fc2_u compression: 1000; mse: 2.726258e-03; codebook size: 256 x 4; code size: 832 x 1152
+[[34m2024-10-23 14:46:21[0m] Experiment directory created at results/low_rank/011-DiT-XL-2
+[[34m2024-10-23 14:46:23[0m] blocks.21.mlp.fc2_v compression: 1000; mse: 4.429836e-03; codebook size: 256 x 4; code size: 1152 x 208
+[[34m2024-10-23 14:46:46[0m] blocks.21.adaLN_modulation.1 compression: 1000; mse: 2.952032e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 14:46:56[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-23 14:46:56[0m] Compressed model size: 19399271424 bits
+[[34m2024-10-23 14:46:56[0m] Compression ratio: 1.11
+[[34m2024-10-23 14:47:18[0m] blocks.21.adaLN_modulation.2 compression: 1000; mse: 1.546764e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 14:47:41[0m] blocks.22.attn.qkv_u compression: 1000; mse: 3.254717e-03; codebook size: 256 x 4; code size: 800 x 288
+[[34m2024-10-23 14:48:07[0m] blocks.22.attn.qkv_v compression: 1000; mse: 2.823933e-03; codebook size: 256 x 4; code size: 3456 x 200
+[[34m2024-10-23 14:48:31[0m] blocks.22.attn.proj_u compression: 1000; mse: 4.569768e-03; codebook size: 256 x 4; code size: 544 x 288
+[[34m2024-10-23 14:48:54[0m] blocks.22.attn.proj_v compression: 1000; mse: 3.950297e-03; codebook size: 256 x 4; code size: 1152 x 136
+[[34m2024-10-23 14:49:17[0m] blocks.22.mlp.fc1_u compression: 1000; mse: 3.137982e-03; codebook size: 256 x 4; code size: 896 x 288
+[[34m2024-10-23 14:49:45[0m] blocks.22.mlp.fc1_v compression: 1000; mse: 2.611209e-03; codebook size: 256 x 4; code size: 4608 x 224
+[[34m2024-10-23 14:50:13[0m] blocks.22.mlp.fc2_u compression: 1000; mse: 2.749256e-03; codebook size: 256 x 4; code size: 864 x 1152
+[[34m2024-10-23 14:50:36[0m] blocks.22.mlp.fc2_v compression: 1000; mse: 4.278935e-03; codebook size: 256 x 4; code size: 1152 x 216
+[[34m2024-10-23 14:51:00[0m] blocks.22.adaLN_modulation.1 compression: 1000; mse: 2.928746e-03; codebook size: 256 x 4; code size: 928 x 288
+[[34m2024-10-23 14:51:31[0m] blocks.22.adaLN_modulation.2 compression: 1000; mse: 1.570368e-03; codebook size: 256 x 4; code size: 6912 x 232
+[[34m2024-10-23 14:51:54[0m] blocks.23.attn.qkv_u compression: 1000; mse: 3.461892e-03; codebook size: 256 x 4; code size: 736 x 288
+[[34m2024-10-23 14:52:20[0m] blocks.23.attn.qkv_v compression: 1000; mse: 3.141368e-03; codebook size: 256 x 4; code size: 3456 x 184
+[[34m2024-10-23 14:52:43[0m] blocks.23.attn.proj_u compression: 1000; mse: 4.140795e-03; codebook size: 256 x 4; code size: 512 x 288
+[[34m2024-10-23 14:53:06[0m] blocks.23.attn.proj_v compression: 1000; mse: 4.614689e-03; codebook size: 256 x 4; code size: 1152 x 128
+[[34m2024-10-23 14:53:30[0m] blocks.23.mlp.fc1_u compression: 1000; mse: 3.205315e-03; codebook size: 256 x 4; code size: 832 x 288
+[[34m2024-10-23 14:53:57[0m] blocks.23.mlp.fc1_v compression: 1000; mse: 2.645762e-03; codebook size: 256 x 4; code size: 4608 x 208
+[[34m2024-10-23 14:54:25[0m] blocks.23.mlp.fc2_u compression: 1000; mse: 3.009118e-03; codebook size: 256 x 4; code size: 832 x 1152
+[[34m2024-10-23 14:54:48[0m] blocks.23.mlp.fc2_v compression: 1000; mse: 4.318982e-03; codebook size: 256 x 4; code size: 1152 x 208
+[[34m2024-10-23 14:55:11[0m] blocks.23.adaLN_modulation.1 compression: 1000; mse: 2.947565e-03; codebook size: 256 x 4; code size: 960 x 288
+[[34m2024-10-23 14:55:43[0m] blocks.23.adaLN_modulation.2 compression: 1000; mse: 1.451043e-03; codebook size: 256 x 4; code size: 6912 x 240
+[[34m2024-10-23 14:56:06[0m] blocks.24.attn.qkv_u compression: 1000; mse: 3.521700e-03; codebook size: 256 x 4; code size: 704 x 288
+[[34m2024-10-23 14:56:31[0m] blocks.24.attn.qkv_v compression: 1000; mse: 3.137332e-03; codebook size: 256 x 4; code size: 3456 x 176
+[[34m2024-10-23 14:56:55[0m] blocks.24.attn.proj_u compression: 1000; mse: 4.377612e-03; codebook size: 256 x 4; code size: 544 x 288
