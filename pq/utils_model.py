@@ -100,19 +100,28 @@ def calculate_outliers(matrix, logger, name):
     return matrix_np.min(), matrix_np.max(), outlier_ratio
 
 
-def vis_weights(model, logger, save_dir):
+def vis_weights(model, logger, save_dir, mode='uv'):
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     prefix_layers = {}
 
     for name, param in model.named_parameters():
-        if '_u' in name or '_v' in name:
-            prefix = name.split('_')[0]
-            max_abs_value = param.abs().max().item()
-            logger.info(f"Layer: {name}, Max Abs Value: {max_abs_value}")
-            if prefix not in prefix_layers:
-                prefix_layers[prefix] = []
-            prefix_layers[prefix].append((name, param))
+        if mode == 'uv':
+            if '_u' in name or '_v' in name:
+                prefix = name.split('_')[0]
+                max_abs_value = param.abs().max().item()
+                logger.info(f"Layer: {name}, Max Abs Value: {max_abs_value}")
+                if prefix not in prefix_layers:
+                    prefix_layers[prefix] = []
+                prefix_layers[prefix].append((name, param))
+        elif mode == 'original':
+            if 'blocks' in name:
+                prefix = name.split('.')[1]
+                max_abs_value = param.abs().max().item()
+                logger.info(f"Layer: {name}, Max Abs Value: {max_abs_value}")
+                if prefix not in prefix_layers:
+                    prefix_layers[prefix] = []
+                prefix_layers[prefix].append((name, param))
 
     for prefix, layers in prefix_layers.items():
         plt.figure(figsize=(10, 6))
