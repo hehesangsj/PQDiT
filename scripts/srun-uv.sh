@@ -44,4 +44,4 @@ srun -p ${PARTITION} \
   --kill-on-bad-exit=1 \
   --quotatype=${QUOTA_TYPE} \
   ${SRUN_ARGS} \
-  python pq/low_rank_s3_getmodel.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --low-rank-mode gen --low-rank-ckpt  results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt --results-dir results/low_rank  --pq-after-low-rank True
+  python pq/low_rank_s3_getmodel.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --low-rank-mode gen --low-rank-ckpt  results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt --results-dir results/low_rank  --pq-after-low-rank True  --smooth True

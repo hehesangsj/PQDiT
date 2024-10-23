@@ -158,8 +158,6 @@ class dit_generator:
             t = torch.tensor([i] * z.shape[0], device=self.device)
             with torch.no_grad():
                 # SpacedDiffusion
-                if i == 1:
-                    print("0")
                 map_tensor = torch.tensor(self.timestep_map, device=t.device, dtype=t.dtype)
                 new_ts = map_tensor[t]
                 # p_mean_variance

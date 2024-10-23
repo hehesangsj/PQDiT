@@ -12,7 +12,7 @@ from models import DiT_models
 from pq.low_rank_models import DiT_uv_models
 from pq.low_rank_compress import reset_param, merge_model
 from pq.utils_model import parse_option, init_env, init_data_and_model
-from pq.sample_lowrank import dit_generator
+from pq.utils_traineval import dit_generator
 
 from distributed import init_distributed_mode
 from torch.nn.parallel import DistributedDataParallel as DDP
