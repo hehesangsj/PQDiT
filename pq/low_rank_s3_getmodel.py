@@ -66,7 +66,7 @@ def main(args):
     vis_weights(model_uv, logger, image_weight_dir)
 
     if args.smooth:
-        model_uv = smooth_dit(model_uv)
+        smooth_dit(model_uv)
     image_weight_dir = f"{experiment_dir}/image_weights_uv_smooth"
     vis_weights(model_uv, logger, image_weight_dir)
 

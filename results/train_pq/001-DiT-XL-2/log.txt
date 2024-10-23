@@ -398,3 +398,5 @@
 [[34m2024-10-22 17:49:44[0m] Saved checkpoint to results/train_pq/001-DiT-XL-2/checkpoints/0005000.pt
 [[34m2024-10-22 17:49:47[0m] Done!
 [[34m2024-10-22 17:49:47[0m] Done!
+[[34m2024-10-23 12:57:53[0m] Experiment directory created at results/train_pq/001-DiT-XL-2
+[[34m2024-10-23 12:58:35[0m] blocks.0.attn.qkv compression: 1000; mse: 1.223202e-03; codebook size: 256 x 4; code size: 3456 x 288
