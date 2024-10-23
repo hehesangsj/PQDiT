@@ -22,6 +22,7 @@ def main(args):
     checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
 
     model, state_dict, diffusion, vae = init_model(args, device)
+    vis_weights(model, logger, f"{experiment_dir}/image_weights")
     latent_size = args.image_size // 8
     load_path = "results/low_rank/002-DiT-XL-2/dit_t_in_"
     percent = args.percent
@@ -29,7 +30,7 @@ def main(args):
     fc_len, fc_use_uv = {}, {}
 
     block_str = ''.join(map(str, fc_space))
-    image_name = f"sample_allfc{block_str}_{percent:.1f}_pq".replace('.', '_')
+    image_name = f"sample_allfc{block_str}_{percent:.1f}_uvsmooth".replace('.', '_')
     image_dir = f"{experiment_dir}/{image_name}"
 
     for fc_idx in range(1, 6):
@@ -69,7 +70,9 @@ def main(args):
         smooth_dit(model_uv)
     image_weight_dir = f"{experiment_dir}/image_weights_uv_smooth"
     vis_weights(model_uv, logger, image_weight_dir)
-
+    diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
+    diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
+    
     if args.pq_after_low_rank:
         if args.pq_ckpt == None:
             file_path = os.path.dirname(__file__)
