@@ -143,7 +143,7 @@ class dit_generator:
         alphas = 1.0 - betas
         self.alphas_cumprod = np.cumprod(alphas, axis=0)
 
-    def forward_val(self, vae, model, model_pq, cfg=False, name="sample_pq", save=True, args=None):
+    def forward_val(self, vae, model, model_pq, cfg=False, name="sample_pq", save=True, args=None, logger=None):
         # sample
         class_labels = [207, 360, 387, 974, 88, 979, 417, 279]
         z, model_kwargs = self.pre_process(class_labels, cfg=cfg, args=args)
@@ -195,6 +195,7 @@ class dit_generator:
                     
             save_image(samples, name+'.png', nrow=4, normalize=True, value_range=(-1, 1))
             save_image(samples_pq, name+'_compress.png', nrow=4, normalize=True, value_range=(-1, 1))
+            logger.info(f"Original saved as {name}.png, compressed saved as {name}_compress.png")
 
     def pre_process(self, class_labels, cfg=False, args=None):
         n = len(class_labels)

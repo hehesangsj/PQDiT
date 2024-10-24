@@ -216,8 +216,11 @@ def init_model(args, device):
     return model, state_dict, diffusion, vae
 
 
-def get_pq_model(model, file_path, rank, experiment_dir, logger):
-    default_config = os.path.join(file_path, "../pqf/config/train_dit.yaml")
+def get_pq_model(model, file_path, rank, experiment_dir, logger, mode='train'):
+    if mode == 'train':
+        default_config = os.path.join(file_path, "../pqf/config/train_dit.yaml")
+    elif mode == 'val':
+        default_config = os.path.join(file_path, "../pqf/config/train_dit_val.yaml")
     if rank == 0:
         shutil.copy(default_config, experiment_dir)
     config = load_config(file_path, default_config_path=default_config)

@@ -6,8 +6,6 @@ import torch
 from copy import deepcopy
 torch.backends.cuda.matmul.allow_tf32 = True
 torch.backends.cudnn.allow_tf32 = True
-
-
 from distributed import init_distributed_mode
 from torch.nn.parallel import DistributedDataParallel as DDP
 

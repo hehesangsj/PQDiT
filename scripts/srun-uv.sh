@@ -3,10 +3,10 @@ set -x
 
 CONFIG=${1}
 
-# GPUS=${2:-8}
-# GPUS_PER_NODE=${3:-8}
-GPUS=${2:-1}
-GPUS_PER_NODE=${3:-1}
+GPUS=${2:-8}
+GPUS_PER_NODE=${3:-8}
+# GPUS=${2:-1}
+# GPUS_PER_NODE=${3:-1}
 PARTITION=${4:-"INTERN3"}
 QUOTA_TYPE=${5:-"reserved"}
 JOB_NAME=${6:-"vl_sj"}
@@ -19,7 +19,7 @@ else
     NODES=$((GPUS / GPUS_PER_NODE))
 fi
 
-# SRUN_ARGS=${SRUN_ARGS:-" --jobid=3709386"} # 3768157 3768158 3789766 -w HOST-10-140-66-41  3636795
+SRUN_ARGS=${SRUN_ARGS:-" --jobid=3709386"} # 3768157 3768158 3789766 -w HOST-10-140-66-41  3636795
 
 export PYTHONPATH="${PYTHONPATH}:$(pwd)"
 export MASTER_PORT=32424    
@@ -44,4 +44,4 @@ srun -p ${PARTITION} \
   --kill-on-bad-exit=1 \
   --quotatype=${QUOTA_TYPE} \
   ${SRUN_ARGS} \
-  python pq/low_rank_s3_getmodel.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --low-rank-mode gen --low-rank-ckpt  results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt --results-dir results/low_rank  --pq-after-low-rank True  --smooth True
+  python pq/low_rank_s3_getmodel.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --low-rank-mode train --low-rank-ckpt  results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt --results-dir results/low_rank  --pq-after-low-rank True  --smooth True  --pq-ckpt results/low_rank/011-DiT-XL-2/checkpoints-pq-smooth/ckpt.pt --epochs 10 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train

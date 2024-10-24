@@ -3,6 +3,7 @@ from glob import glob
 from copy import deepcopy
 import torch
 from timm.layers.helpers import to_2tuple
+from torch.nn.parallel import DistributedDataParallel as DDP
 
 import os
 import sys
@@ -30,7 +31,7 @@ def main(args):
     fc_len, fc_use_uv = {}, {}
 
     block_str = ''.join(map(str, fc_space))
-    image_name = f"sample_allfc{block_str}_{percent:.1f}_uvsmooth".replace('.', '_')
+    image_name = f"sample_allfc{block_str}_{percent:.1f}_uvsmooth_pq".replace('.', '_')
     image_dir = f"{experiment_dir}/{image_name}"
 
     for fc_idx in range(1, 6):
@@ -70,18 +71,23 @@ def main(args):
         smooth_dit(model_uv)
     # image_weight_dir = f"{experiment_dir}/image_weights_uv_smooth"
     # vis_weights(model_uv, logger, image_weight_dir)
-    diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
-    diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
-    return
+    # diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
+    # diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
+    # return
     
     if args.pq_after_low_rank:
         if args.pq_ckpt == None:
             file_path = os.path.dirname(__file__)
-            model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger)
-        checkpoint_dir_pq = f"{experiment_dir}/checkpoints-pq"  # Stores saved model checkpoints
-        save_ckpt(model_uv, args, checkpoint_dir_pq, logger)
+            model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='train')
+            checkpoint_dir_pq = f"{experiment_dir}/checkpoints-pq-smooth"  # Stores saved model checkpoints
+            save_ckpt(model_uv, args, checkpoint_dir_pq, logger)
+        else:
+            file_path = os.path.dirname(__file__)
+            model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='val')
+            model_uv.load_state_dict(torch.load(args.pq_ckpt)['model'])
     log_params(model, model_uv, logger)
 
+    model_uv = DDP(model_uv.to(device), device_ids=[rank])
     mode = args.low_rank_mode
     if mode == "sample":
         model_uv.eval()
@@ -89,7 +95,7 @@ def main(args):
     elif mode == "gen":
         model_uv.eval()
         diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
-        diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
+        diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}", logger=logger)
     elif mode == "train":
         model_uv.train()
         train(args, logger, model_uv, vae, diffusion, checkpoint_dir)

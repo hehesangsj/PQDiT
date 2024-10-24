@@ -931,3 +931,11 @@
 [[34m2024-10-23 14:50:10[0m] Compressed model size: 19399271424 bits
 [[34m2024-10-23 14:50:10[0m] Compression ratio: 1.11
 [[34m2024-10-23 14:56:12[0m] Experiment directory created at results/train_pq/debug/011-DiT-XL-2
+[[34m2024-10-23 15:00:31[0m] Experiment directory created at results/train_pq/debug/011-DiT-XL-2
+[[34m2024-10-23 15:01:09[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-23 15:01:09[0m] Compressed model size: 19399271424 bits
+[[34m2024-10-23 15:01:09[0m] Compression ratio: 1.11
+[[34m2024-10-23 15:02:03[0m] Experiment directory created at results/train_pq/debug/011-DiT-XL-2
+[[34m2024-10-23 15:02:38[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-23 15:02:38[0m] Compressed model size: 19399271424 bits
+[[34m2024-10-23 15:02:38[0m] Compression ratio: 1.11
