@@ -26,11 +26,12 @@ export MASTER_PORT=32424
 
 QUANT_FLAGS="--image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt \
              --pq \
-             --pq-ckpt results/low_rank/011-DiT-XL-2/checkpoints-pq/ckpt.pt \
              --s3-mode gen --global-batch-size 32 \
+             --low-rank \
+             --low-rank-ckpt results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt \
              --results-dir results/low_rank"
             #  --smooth \
-            #  --low-rank-ckpt results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt \
+            #  --pq-ckpt results/low_rank/011-DiT-XL-2/checkpoints-pq/ckpt.pt \
 
 SAMPLE_FLAGS="--epochs 100 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train"
 

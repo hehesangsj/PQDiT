@@ -61,13 +61,14 @@ def main(args):
             logger.info(msg)
         else:
             model_uv.load_state_dict(torch.load(args.low_rank_ckpt)['model'])
+
+        log_params(model, model_uv, logger)
+        logger.info("Low rank compression done!")
+        log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='uv', logger=logger)
+        # vis_weights(model_uv, logger, f"{experiment_dir}/image_weights_uv")
+
     else:
         model_uv = deepcopy(model)
-
-    log_params(model, model_uv, logger)
-    logger.info("Low rank compression done!")
-    log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='uv', logger=logger)
-    # vis_weights(model_uv, logger, f"{experiment_dir}/image_weights_uv")
 
     if args.smooth:
         smooth_dit(model_uv)
@@ -85,12 +86,12 @@ def main(args):
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='train')
             logger.info("PQ model done!")
-            # save_ckpt(model_uv, args, f"{experiment_dir}/checkpoints-pq-smooth", logger)
+            save_ckpt(model_uv, args, f"{experiment_dir}/checkpoints-uv-pq", logger)
         else:
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='val')
             model_uv.load_state_dict(torch.load(args.pq_ckpt)['model'])
-    log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='both', logger=logger)
+    log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='pq', logger=logger)
     log_params(model, model_uv, logger)
 
     model_uv = DDP(model_uv.to(device), device_ids=[rank])
