@@ -316,6 +316,8 @@ def train(args, logger, model, vae, diffusion, checkpoint_dir):
                         "opt": opt.state_dict(),
                         "args": args
                     }
+                    if not os.path.exists(checkpoint_dir):
+                        os.mkdir(checkpoint_dir)
                     checkpoint_path = f"{checkpoint_dir}/{train_steps:07d}.pt"
                     torch.save(checkpoint, checkpoint_path)
                     logger.info(f"Saved checkpoint to {checkpoint_path}")

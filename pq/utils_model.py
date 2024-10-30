@@ -245,24 +245,26 @@ def log_compare_weights(model_comp, model_ori, compress_mode, logger):
         4: ("proj", "attn", "proj", "proj_u", "proj_v"),
         5: ("adaln", "adaLN_modulation", "1", "1", "2")
     }
-    for block_id in range(len(model_comp.blocks)):
-        block_comp = model_comp.blocks[block_id]
-        block_ori = model_ori.blocks[block_id]
-        for fc_idx in range(1, 6):
-            file_name, layer_name, org_name, w_u_name, w_v_name = fc_params[fc_idx]
-            weight_org = getattr(getattr(block_ori, layer_name), org_name).weight
-            if compress_mode == 'pq':
-                weight_comp = getattr(getattr(block_comp, layer_name), org_name)._get_uncompressed_weight()
-            elif compress_mode == 'uv':
-                weight_u = getattr(getattr(block_comp, layer_name), w_u_name)
-                weight_v = getattr(getattr(block_comp, layer_name), w_v_name)
-                weight_comp = torch.matmul(weight_u, weight_v)
-            elif compress_mode == 'both':
-                weight_u = getattr(getattr(block_comp, layer_name), w_u_name)._get_uncompressed_weight()
-                weight_v = getattr(getattr(block_comp, layer_name), w_v_name)._get_uncompressed_weight()
-                weight_comp = torch.matmul(weight_u, weight_v)
-            error = (weight_comp - weight_org).abs().mean().item()
-            logger.info(f"Block {block_id}, Layer {file_name}, L1 Error: {error:.4f}")
+    with torch.no_grad():
+        for block_id in range(len(model_comp.blocks)):
+            block_comp = model_comp.blocks[block_id]
+            block_ori = model_ori.blocks[block_id]
+            for fc_idx in range(1, 6):
+                file_name, layer_name, org_name, w_u_name, w_v_name = fc_params[fc_idx]
+                weight_org = getattr(getattr(block_ori, layer_name), org_name).weight
+                if compress_mode == 'pq':
+                    weight_comp = getattr(getattr(block_comp, layer_name), org_name)._get_uncompressed_weight()
+                elif compress_mode == 'uv':
+                    weight_u = getattr(getattr(block_comp, layer_name), w_u_name).weight
+                    weight_v = getattr(getattr(block_comp, layer_name), w_v_name).weight
+                    weight_comp = torch.matmul(weight_v, weight_u)
+                elif compress_mode == 'both':
+                    weight_u = getattr(getattr(block_comp, layer_name), w_u_name)._get_uncompressed_weight()
+                    weight_v = getattr(getattr(block_comp, layer_name), w_v_name)._get_uncompressed_weight()
+                    weight_comp = torch.matmul(weight_v, weight_u)
+                error = (weight_comp - weight_org).abs().mean().item()
+                ori_abs = weight_org.abs().mean().item()
+                logger.info(f"[Block({block_id})-Layer({file_name})] Ori abs: {ori_abs:.4f}, L1 Error: {error:.4f}")
     return
 
 
@@ -300,13 +302,14 @@ def parse_option():
     parser.add_argument("--num-sampling-steps", type=int, default=250)
 
     parser.add_argument("--s2-mode", type=str, default="mse")
-    parser.add_argument("--low-rank-mode", type=str, default="sample")
-    parser.add_argument("--low-rank-ckpt", type=str, default=None)
-    parser.add_argument("--percent", type=float, default=0.9)
-    parser.add_argument("--pq-after-low-rank", action="store_true")
+    parser.add_argument("--s3-mode", type=str, default="sample")
     parser.add_argument("--pq-mode", type=str, default="sample")
-    parser.add_argument("--pq-ckpt", type=str, default=None)
+    parser.add_argument("--low-rank", action="store_true")
+    parser.add_argument("--percent", type=float, default=0.9)
     parser.add_argument("--smooth", action="store_true")
+    parser.add_argument("--low-rank-ckpt", type=str, default=None)
+    parser.add_argument("--pq", action="store_true")
+    parser.add_argument("--pq-ckpt", type=str, default=None)
 
     args = parser.parse_args()
 
