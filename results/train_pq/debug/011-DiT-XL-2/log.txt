@@ -939,3 +939,27 @@
 [[34m2024-10-23 15:02:38[0m] Uncompressed model size: 21604148224 bits
 [[34m2024-10-23 15:02:38[0m] Compressed model size: 19399271424 bits
 [[34m2024-10-23 15:02:38[0m] Compression ratio: 1.11
+[[34m2024-10-29 15:45:14[0m] Experiment directory created at results/train_pq/debug/011-DiT-XL-2
+[[34m2024-10-29 15:45:50[0m] Saved checkpoint to results/train_pq/debug/011-DiT-XL-2/checkpoints-low-rank/ckpt.pt
+[[34m2024-10-29 15:45:50[0m] <All keys matched successfully>
+[[34m2024-10-29 15:45:50[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-29 15:45:50[0m] Compressed model size: 21604148224 bits
+[[34m2024-10-29 15:45:50[0m] Compression ratio: 1.00
+[[34m2024-10-29 15:54:52[0m] Experiment directory created at results/train_pq/debug/011-DiT-XL-2
+[[34m2024-10-29 15:55:28[0m] Saved checkpoint to results/train_pq/debug/011-DiT-XL-2/checkpoints-low-rank/ckpt.pt
+[[34m2024-10-29 15:55:28[0m] <All keys matched successfully>
+[[34m2024-10-29 15:55:28[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-29 15:55:28[0m] Compressed model size: 21604148224 bits
+[[34m2024-10-29 15:55:28[0m] Compression ratio: 1.00
+[[34m2024-10-29 18:52:58[0m] Experiment directory created at results/train_pq/debug/011-DiT-XL-2
+[[34m2024-10-29 18:53:34[0m] Saved checkpoint to results/train_pq/debug/011-DiT-XL-2/checkpoints-low-rank/ckpt.pt
+[[34m2024-10-29 18:53:34[0m] <All keys matched successfully>
+[[34m2024-10-29 18:53:34[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-29 18:53:34[0m] Compressed model size: 21604148224 bits
+[[34m2024-10-29 18:53:34[0m] Compression ratio: 1.00
+[[34m2024-10-29 19:13:38[0m] Experiment directory created at results/train_pq/debug/011-DiT-XL-2
+[[34m2024-10-29 19:14:13[0m] Saved checkpoint to results/train_pq/debug/011-DiT-XL-2/checkpoints-low-rank/ckpt.pt
+[[34m2024-10-29 19:14:13[0m] <All keys matched successfully>
+[[34m2024-10-29 19:14:13[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-29 19:14:13[0m] Compressed model size: 21604148224 bits
+[[34m2024-10-29 19:14:13[0m] Compression ratio: 1.00

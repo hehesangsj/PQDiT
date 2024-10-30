@@ -1,0 +1,19 @@
+[[34m2024-10-30 14:47:48[0m] Experiment directory created at results/low_rank/012-DiT-XL-2
+[[34m2024-10-30 14:48:21[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-30 14:48:21[0m] Compressed model size: 19399271424 bits
+[[34m2024-10-30 14:48:21[0m] Compression ratio: 1.11
+[[34m2024-10-30 14:48:21[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-10-30 14:48:21[0m] Compressed model size: 19399271424 bits
+[[34m2024-10-30 14:48:21[0m] Compression ratio: 1.11
+[[34m2024-10-30 14:48:32[0m] Dataset contains 1,281,167 images (/mnt/petrelfs/share/images/train)
+[[34m2024-10-30 14:48:32[0m] Training for 100 epochs...
+[[34m2024-10-30 14:48:32[0m] Beginning epoch 0...
+[[34m2024-10-30 14:51:01[0m] (step=0000100) Train Loss: 0.1479, Train Steps/Sec: 0.67
+[[34m2024-10-30 14:53:29[0m] (step=0000200) Train Loss: 0.1419, Train Steps/Sec: 0.68
+[[34m2024-10-30 14:55:57[0m] (step=0000300) Train Loss: 0.1598, Train Steps/Sec: 0.68
+[[34m2024-10-30 14:58:25[0m] (step=0000400) Train Loss: 0.1482, Train Steps/Sec: 0.68
+[[34m2024-10-30 15:00:52[0m] (step=0000500) Train Loss: 0.1462, Train Steps/Sec: 0.68
+[[34m2024-10-30 15:03:20[0m] (step=0000600) Train Loss: 0.1458, Train Steps/Sec: 0.68
+[[34m2024-10-30 15:05:48[0m] (step=0000700) Train Loss: 0.1452, Train Steps/Sec: 0.68
+[[34m2024-10-30 15:08:16[0m] (step=0000800) Train Loss: 0.1443, Train Steps/Sec: 0.68
+[[34m2024-10-30 15:10:43[0m] (step=0000900) Train Loss: 0.1469, Train Steps/Sec: 0.68

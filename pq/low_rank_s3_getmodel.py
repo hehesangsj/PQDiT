@@ -19,7 +19,8 @@ from pq.low_rank_compress import get_blocks, merge_model
 
 def main(args):
     init_distributed_mode(args)
-    rank, device, logger, experiment_dir = init_env(args, dir='011-DiT-XL-2')
+    rank, device, logger, experiment_dir = init_env(args)
+    # rank, device, logger, experiment_dir = init_env(args, dir='011-DiT-XL-2')
     checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
 
     model, state_dict, diffusion, vae = init_model(args, device)
@@ -29,10 +30,7 @@ def main(args):
     percent = args.percent
     fc_space = range(1, 6)
     fc_len, fc_use_uv = {}, {}
-
     block_str = ''.join(map(str, fc_space))
-    image_name = f"sample_allfc{block_str}_{percent:.1f}_uvsmooth_pq".replace('.', '_')
-    image_dir = f"{experiment_dir}/{image_name}"
 
     for fc_idx in range(1, 6):
         if fc_idx in fc_space:
@@ -40,6 +38,8 @@ def main(args):
         else:
             fc_len[fc_idx] = [128] * 28
             fc_use_uv[fc_idx] = [False] * 28
+        # fc_len[fc_idx] = [128] * 28
+        # fc_use_uv[fc_idx] = [False] * 28
 
     model_uv = DiT_uv_models[args.model](
         input_size=latent_size,
@@ -69,18 +69,20 @@ def main(args):
 
     if args.smooth:
         smooth_dit(model_uv)
-    # image_weight_dir = f"{experiment_dir}/image_weights_uv_smooth"
+    # image_weight_dir = f"{experiment_dir}/new_images/image_weights_uv_smooth"
     # vis_weights(model_uv, logger, image_weight_dir)
+
+    # image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
     # diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
-    # diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}")
+    # diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}", logger=logger)
     # return
     
     if args.pq_after_low_rank:
         if args.pq_ckpt == None:
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='train')
-            checkpoint_dir_pq = f"{experiment_dir}/checkpoints-pq-smooth"  # Stores saved model checkpoints
-            save_ckpt(model_uv, args, checkpoint_dir_pq, logger)
+            # checkpoint_dir_pq = f"{experiment_dir}/checkpoints-pq-smooth"  # Stores saved model checkpoints
+            # save_ckpt(model_uv, args, checkpoint_dir_pq, logger)
         else:
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='val')
@@ -91,10 +93,13 @@ def main(args):
     mode = args.low_rank_mode
     if mode == "sample":
         model_uv.eval()
+        image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
+        image_dir = f"{experiment_dir}/{image_name}"
         sample(args, model_uv, vae, diffusion, image_dir)
     elif mode == "gen":
         model_uv.eval()
         diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
+        image_name = f"images_new/sample_allfc{block_str}_{percent:.1f}_pq".replace('.', '_')
         diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}", logger=logger)
     elif mode == "train":
         model_uv.train()

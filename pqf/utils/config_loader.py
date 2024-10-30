@@ -79,3 +79,12 @@ def load_config(calling_path: str, default_config_path: Optional[str] = None) ->
         set_value(layered_keys, new_value, config)
 
     return config
+
+
+def load_config_clean(calling_path: str, default_config_path: Optional[str] = None) -> Dict:
+    config_path = os.path.join(calling_path, default_config_path)
+    
+    with open(config_path) as f:
+        config = yaml.load(f, Loader=yaml.SafeLoader)
+
+    return config

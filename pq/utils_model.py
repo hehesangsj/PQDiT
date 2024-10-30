@@ -19,7 +19,7 @@ from models import DiT_models
 from download import find_model
 from diffusion import create_diffusion
 from pqf.utils.model_size import compute_model_nbits
-from pqf.utils.config_loader import load_config
+from pqf.utils.config_loader import load_config_clean
 from pqf.compression.model_compression import compress_model
 
 
@@ -223,7 +223,7 @@ def get_pq_model(model, file_path, rank, experiment_dir, logger, mode='train'):
         default_config = os.path.join(file_path, "../pqf/config/train_dit_val.yaml")
     if rank == 0:
         shutil.copy(default_config, experiment_dir)
-    config = load_config(file_path, default_config_path=default_config)
+    config = load_config_clean(file_path, default_config_path=default_config)
     model_config = config["model"]
     compression_config = model_config["compression_parameters"]
     uncompressed_model_size_bits = compute_model_nbits(model)
@@ -243,7 +243,7 @@ def log_params(model_before, model_after, logger):
     logger.info(f"Uncompressed model size: {uncompressed_model_size_bits} bits")
     logger.info(f"Compressed model size: {compressed_model_size_bits} bits")
     logger.info(f"Compression ratio: {uncompressed_model_size_bits / compressed_model_size_bits:.2f}")
-
+    return
 
 def parse_option():
     parser = argparse.ArgumentParser('DiT script', add_help=False)
@@ -273,10 +273,10 @@ def parse_option():
     parser.add_argument("--low-rank-mode", type=str, default="sample")
     parser.add_argument("--low-rank-ckpt", type=str, default=None)
     parser.add_argument("--percent", type=float, default=0.9)
-    parser.add_argument("--pq-after-low-rank", type=bool, default=False)
+    parser.add_argument("--pq-after-low-rank", action="store_true")
     parser.add_argument("--pq-mode", type=str, default="sample")
     parser.add_argument("--pq-ckpt", type=str, default=None)
-    parser.add_argument("--smooth", type=bool, default=False)
+    parser.add_argument("--smooth", action="store_true")
 
     args = parser.parse_args()
 

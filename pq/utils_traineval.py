@@ -193,9 +193,9 @@ class dit_generator:
             plt.grid(True)
             plt.savefig('mse_loss_over_time_steps.png')
                     
-            save_image(samples, name+'.png', nrow=4, normalize=True, value_range=(-1, 1))
+            save_image(samples, name+'_original.png', nrow=4, normalize=True, value_range=(-1, 1))
             save_image(samples_pq, name+'_compress.png', nrow=4, normalize=True, value_range=(-1, 1))
-            logger.info(f"Original saved as {name}.png, compressed saved as {name}_compress.png")
+            logger.info(f"Original saved as {name}_original.png, compressed saved as {name}_compress.png")
 
     def pre_process(self, class_labels, cfg=False, args=None):
         n = len(class_labels)
