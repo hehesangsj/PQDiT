@@ -237,6 +237,36 @@ def get_pq_model(model, file_path, rank, experiment_dir, logger, mode='train'):
     return model
 
 
+def log_compare_weights(model_comp, model_ori, compress_mode, logger):
+    fc_params = {
+        1: ("fc1", "mlp", "fc1", "fc1_u", "fc1_v"),
+        2: ("fc2", "mlp", "fc2", "fc2_u", "fc2_v"),
+        3: ("qkv", "attn", "qkv", "qkv_u", "qkv_v"),
+        4: ("proj", "attn", "proj", "proj_u", "proj_v"),
+        5: ("adaln", "adaLN_modulation", "1", "1", "2")
+    }
+    for block_id in range(len(model_comp.blocks)):
+        block_comp = model_comp.blocks[block_id]
+        block_ori = model_ori.blocks[block_id]
+        for fc_idx in range(1, 6):
+            file_name, layer_name, org_name, w_u_name, w_v_name = fc_params[fc_idx]
+            weight_org = getattr(getattr(block_ori, layer_name), org_name).weight
+            if compress_mode == 'pq':
+                weight_comp = getattr(getattr(block_comp, layer_name), org_name)._get_uncompressed_weight()
+            elif compress_mode == 'uv':
+                weight_u = getattr(getattr(block_comp, layer_name), w_u_name)
+                weight_v = getattr(getattr(block_comp, layer_name), w_v_name)
+                weight_comp = torch.matmul(weight_u, weight_v)
+            elif compress_mode == 'both':
+                weight_u = getattr(getattr(block_comp, layer_name), w_u_name)._get_uncompressed_weight()
+                weight_v = getattr(getattr(block_comp, layer_name), w_v_name)._get_uncompressed_weight()
+                weight_comp = torch.matmul(weight_u, weight_v)
+            error = (weight_comp - weight_org).abs().mean().item()
+            logger.info(f"Block {block_id}, Layer {file_name}, L1 Error: {error:.4f}")
+    return
+
+
+
 def log_params(model_before, model_after, logger):
     uncompressed_model_size_bits = compute_model_nbits(model_before)
     compressed_model_size_bits = compute_model_nbits(model_after)

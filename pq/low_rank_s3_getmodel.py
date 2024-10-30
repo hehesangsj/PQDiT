@@ -11,7 +11,7 @@ sys.path.append("/mnt/petrelfs/shaojie/code/DiT/")
 from models import DiT_models
 from distributed import init_distributed_mode
 from pq.low_rank_models import DiT_uv_models
-from pq.utils_model import parse_option, init_env, init_model, get_pq_model, log_params, vis_weights
+from pq.utils_model import parse_option, init_env, init_model, get_pq_model, log_params, log_compare_weights, vis_weights
 from pq.utils_traineval import sample, dit_generator, train, save_ckpt
 from pq.utils_smoothquant import smooth_dit
 from pq.low_rank_compress import get_blocks, merge_model
@@ -64,11 +64,16 @@ def main(args):
     else:
         model_uv.load_state_dict(torch.load(args.low_rank_ckpt)['model'])
     log_params(model, model_uv, logger)
+    logger.info("Low rank compression done!")
+    log_compare_weights(model_comp=model_uv, model_orig=model, compress_mode='uv', logger=logger)
     # image_weight_dir = f"{experiment_dir}/image_weights_uv"
     # vis_weights(model_uv, logger, image_weight_dir)
 
     if args.smooth:
         smooth_dit(model_uv)
+        logger.info("Smooth quant done!")
+        log_compare_weights(model_comp=model_uv, model_orig=model, compress_mode='uv', logger=logger)
+
     # image_weight_dir = f"{experiment_dir}/new_images/image_weights_uv_smooth"
     # vis_weights(model_uv, logger, image_weight_dir)
 
@@ -81,6 +86,8 @@ def main(args):
         if args.pq_ckpt == None:
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='train')
+            logger.info("PQ model done!")
+            log_compare_weights(model_comp=model_uv, model_orig=model, compress_mode='pq', logger=logger)
             # checkpoint_dir_pq = f"{experiment_dir}/checkpoints-pq-smooth"  # Stores saved model checkpoints
             # save_ckpt(model_uv, args, checkpoint_dir_pq, logger)
         else:
