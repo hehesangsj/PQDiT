@@ -91,7 +91,7 @@ def main(args):
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='val')
             model_uv.load_state_dict(torch.load(args.pq_ckpt)['model'])
-    log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='pq', logger=logger)
+    log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='both', logger=logger)
     log_params(model, model_uv, logger)
 
     mode = args.s3_mode
