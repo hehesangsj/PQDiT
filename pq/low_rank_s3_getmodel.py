@@ -12,7 +12,7 @@ from models import DiT_models
 from distributed import init_distributed_mode
 from pq.low_rank_models import DiT_uv_models
 from pq.utils_model import parse_option, init_env, init_model, get_pq_model, log_params, log_compare_weights, vis_weights
-from pq.utils_traineval import sample, dit_generator, train, save_ckpt
+from pq.utils_traineval import sample, dit_generator, train, save_ckpt, dit_distill
 from pq.utils_smoothquant import smooth_dit
 from pq.low_rank_compress import get_blocks, merge_model
 
@@ -94,9 +94,9 @@ def main(args):
     log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='pq', logger=logger)
     log_params(model, model_uv, logger)
 
-    model_uv = DDP(model_uv.to(device), device_ids=[rank])
     mode = args.s3_mode
     if mode == "sample":
+        model_uv = DDP(model_uv.to(device), device_ids=[rank])
         model_uv.eval()
         image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
         image_dir = f"{experiment_dir}/{image_name}"
@@ -107,8 +107,13 @@ def main(args):
         image_name = f"sample_allfc{block_str}_{percent:.1f}_pq".replace('.', '_')
         diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}", logger=logger)
     elif mode == "train":
+        model_uv = DDP(model_uv.to(device), device_ids=[rank])
         model_uv.train()
         train(args, logger, model_uv, vae, diffusion, checkpoint_dir)
+    elif mode == "distill":
+        diffusion_distill = dit_distill('250', latent_size=latent_size, device=device)
+        for block_idx in range(28):
+            diffusion_distill.forward(model_uv, model, block_idx, iters=1000, cfg=False, logger=logger)
 
 if __name__ == "__main__":
     args = parse_option()

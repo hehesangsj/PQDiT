@@ -1,5 +1,6 @@
 import os
 import math
+import random
 import torch
 from tqdm import tqdm
 import numpy as np
@@ -327,7 +328,62 @@ def train(args, logger, model, vae, diffusion, checkpoint_dir):
     # do any sampling/FID calculation/etc. with ema (or model) in eval mode ...
 
     logger.info("Done!")
-    cleanup()
+
+
+class dit_distill(dit_generator):
+
+    def get_embedding(self, model, img, ts, model_kwargs):
+        x = model.x_embedder(img) + model.pos_embed
+        t = self.t_embedder(ts)
+        y = self.y_embedder(model_kwargs['y'], False)
+        c = t + y
+        return x, c
+
+    def forward_distill(self, model, model_t, block_idx, iters=1000, cfg=False, args=None, logger=None):
+        model.eval()
+        model_t.eval()
+        bs = args.global_batch_size
+        iters = iters // bs
+        iters_tqdm = tqdm(range(iters))
+        
+        for iter in iters_tqdm:
+
+            class_labels = [random.randint(0, 999) for _ in range(bs)]
+            z, model_kwargs = self.pre_process(class_labels, cfg=cfg, args=args)
+
+            img = z
+            img_t = z
+            indices = list(range(self.num_timesteps))[::-1]
+            opt = torch.optim.AdamW(model.blocks[block_idx].parameters(), lr=1e-4, weight_decay=0)
+            for i in indices:
+                t = torch.tensor([i] * z.shape[0], device=self.device)
+                # SpacedDiffusion
+                map_tensor = torch.tensor(self.timestep_map, device=t.device, dtype=t.dtype)
+                new_ts = map_tensor[t]
+                with torch.no_grad():
+                    x, c = self.get_embedding(model, img, new_ts, model_kwargs)
+                    x_t, c_t = self.get_embedding(model_t, img_t, new_ts, model_kwargs)
+                for i in range(len(model.blocks)):
+                    if i == block_idx:
+                        break
+                    with torch.no_grad():
+                        x = model.blocks[i](x, c)
+                        x_t = model_t.blocks[i](x_t, c_t)
+
+                block_train = model.blocks[block_idx]
+                block_t = model_t.blocks[block_idx]
+                block_train.train()
+                criterion = torch.nn.MSELoss()
+
+                x = block_train(x, c)
+                x_t = block_t(x_t, c_t)
+                loss = criterion(x, x_t)
+                opt.zero_grad()
+                loss.backward()
+                opt.step()
+
+                if iter % 10 == 0:
+                    logger.info(f"Block {block_idx} Iter {iter} Loss: {loss.item()}")
 
 
 def save_ckpt(model, args, checkpoint_dir, logger):
