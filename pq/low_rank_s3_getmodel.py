@@ -97,11 +97,16 @@ def main(args):
 
     mode = args.s3_mode
     if mode == "sample":
-        model_uv = DDP(model_uv.to(device), device_ids=[rank])
+        # model_uv = DDP(model_uv.to(device), device_ids=[rank])
         model_uv.eval()
-        image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
-        image_dir = f"{experiment_dir}/{image_name}"
-        sample(args, model_uv, vae, diffusion, image_dir)
+        # image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
+        # image_dir = f"{experiment_dir}/{image_name}"
+        model_string_name = args.model.replace("/", "-")
+        ckpt_string_name = os.path.basename(args.ckpt).replace(".pt", "") if args.ckpt else "pretrained"
+        folder_name = f"{model_string_name}-{ckpt_string_name}-size-{args.image_size}-vae-{args.vae}-" \
+                    f"cfg-{args.cfg_scale}-seed-{args.global_seed}"
+        sample_folder_dir = f"{experiment_dir}/{folder_name}"
+        sample(args, model_uv, vae, diffusion, sample_folder_dir)
     elif mode == "gen":
         model_uv.eval()
         diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
@@ -117,7 +122,7 @@ def main(args):
             diffusion_distill.forward_distill(model_uv, model, block_idx, iters=1000, args=args, cfg=False, logger=logger)
         log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='pq', logger=logger)
     elif mode == "qwerty":
-        for i in range(args.epoch):
+        for i in range(args.epochs):
             generate_compensation_model(args, logger, model, model_uv, vae, checkpoint_dir)
 
 if __name__ == "__main__":

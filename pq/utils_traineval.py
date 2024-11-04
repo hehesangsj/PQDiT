@@ -39,8 +39,8 @@ def sample(args, model_pq, vae, diffusion, sample_folder_dir):
     np.random.seed(seed)
     random.seed(seed)
     
-    n = args.per_proc_batch_size
-    global_batch_size = n * dist.get_world_size()
+    n = args.global_batch_size // torch.cuda.device_count()
+    global_batch_size = args.global_batch_size
     rank = dist.get_rank()
     device = rank % torch.cuda.device_count()
     latent_size = args.image_size // 8

@@ -26,15 +26,14 @@ export MASTER_PORT=32424
 
 QUANT_FLAGS="--image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt \
              --pq \
-             --pq-ckpt results/low_rank/013-DiT-XL-2/checkpoints-pq/ckpt.pt \
-             --s3-mode train --global-batch-size 64 \
+             --pq-ckpt results/low_rank/014-DiT-XL-2/checkpoints/0020000.pt \
+             --s3-mode sample --global-batch-size 256 \
              --results-dir results/low_rank"
             #  --smooth \
             #  --pq-ckpt results/low_rank/011-DiT-XL-2/checkpoints-pq/ckpt.pt \
             #  --low-rank \
             #  --low-rank-ckpt results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt \
-
-SAMPLE_FLAGS="--epochs 1 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train"
+SAMPLE_FLAGS="--epochs 1 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train --num-fid-samples 10000 --num-sampling-steps 250 --cfg-scale 1.5 --image-size 256"
 
 srun -p ${PARTITION} \
   --job-name=${JOB_NAME} \

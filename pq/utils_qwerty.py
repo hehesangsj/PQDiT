@@ -11,7 +11,7 @@ from pq.utils_model import init_data
 from pq.utils_traineval import save_ckpt
 from diffusion import create_diffusion
 
-LINEAR_COMPENSATION_SAMPLES=10000
+LINEAR_COMPENSATION_SAMPLES=100
 
 class FeatureDataset(Dataset):
     def __init__(self, X, Y):
@@ -38,10 +38,10 @@ class SideNetwork(nn.Module):
         return out
 
 class CompensationBlock(nn.Module):
-    def __init__(self, block, side_net):
+    def __init__(self, block, side_net, device):
         super(CompensationBlock, self).__init__()
         self.block = block
-        self.side_network = side_net.to(block.device)
+        self.side_network = side_net.to(device)
     def forward(self, x, c):
         out = self.block(x, c)
         side_out = self.side_network(x)
@@ -71,14 +71,14 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
             y = y.to(device)
             with torch.no_grad():
                 x = vae.encode(x).latent_dist.sample().mul_(0.18215)
-            # t = torch.randint(0, 1, (x.shape[0],), device=device)
-            t = torch.randint(0, diffusion_qwerty.num_timesteps, (x.shape[0],), device=device)
-            noise = torch.randn_like(x)
-            x_t = diffusion_qwerty.q_sample(x, t, noise=noise)
-            x_t = model.x_embedder(x_t) + model.pos_embed
-            t = model.t_embedder(t)
-            y = model.y_embedder(y, False)
-            c = t + y
+                # t = torch.randint(0, 1, (x.shape[0],), device=device)
+                t = torch.randint(0, diffusion_qwerty.num_timesteps, (x.shape[0],), device=device)
+                noise = torch.randn_like(x)
+                x_t = diffusion_qwerty.q_sample(x, t, noise=noise)
+                x_t = model.x_embedder(x_t) + model.pos_embed
+                t = model.t_embedder(t)
+                y = model.y_embedder(y, False)
+                c = t + y
 
             output_x = torch.cat([output_x, x_t.detach().cpu()], dim=0)
             output_c = torch.cat([output_c, c.detach().cpu()], dim=0)
@@ -115,10 +115,11 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
             criterion = nn.MSELoss()
 
             for i, (x_out, c_out) in tqdm(enumerate(feature_loader)):
-                x_out = x_out.cuda()
-                c_out = c_out.cuda()
-                full_precision_out = block_origin(x_out, c_out).detach()
-                quant_out = block_q(x_out, c_out).detach()
+                with torch.no_grad():
+                    x_out = x_out.cuda()
+                    c_out = c_out.cuda()
+                    full_precision_out = block_origin(x_out, c_out).detach()
+                    quant_out = block_q(x_out, c_out).detach()
                 
                 predict_diff = side_net(x_out)
                 loss = criterion(predict_diff, full_precision_out - quant_out)
@@ -126,30 +127,40 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                 loss.backward()
                 opt.step()
 
-                if i % 100 == 0:
-                    logger.info(f"[{block_id}/{len(model_pq.blocks)}] Loss: {loss.item():.4f}")
+                if i % 10 == 0:
+                    with torch.no_grad():
+                        loss_l1 = (full_precision_out - quant_out - predict_diff).abs().mean()
+                    logger.info(f"[{block_id}/{len(model_pq.blocks)}] MSE Loss: {loss.item():.4f}, L1 Loss: {loss_l1.item():.4f}")
                 if i >= LINEAR_COMPENSATION_SAMPLES:
                     break
 
-            model_pq.blocks[block_id] = CompensationBlock(block=model_pq.blocks[block_id], side_net=side_net)
+            model_pq.blocks[block_id] = CompensationBlock(block=model_pq.blocks[block_id], side_net=deepcopy(side_net), device=device)
             model_pq.cuda()
             qwerty_block = model_pq.blocks[block_id]
 
-            output_x_previous = torch.zeros(size=[0,], device=device)
+            output_x_previous = torch.zeros(size=[0,])
             quant_error = []
             qwerty_error = []
+            side_error = []
             for i, (x_out, c_out) in tqdm(enumerate(feature_loader)):
-                x_out = x_out.cuda()
-                c_out = c_out.cuda()
-                previous_out = qwerty_block(x_out, c_out)
-                output_x_previous = torch.cat([output_x_previous, previous_out.detach()], dim=0)
-                quant_out = block_q(x_out, c_out)
-                full_precision_out = block_origin(x_out, c_out)
-                quant_error.append((quant_out - full_precision_out).abs().mean())
-                qwerty_error.append((previous_out - full_precision_out).abs().mean())
-                if i >= LINEAR_COMPENSATION_SAMPLES:
-                    break
+                with torch.no_grad():
+                    x_out = x_out.cuda()
+                    c_out = c_out.cuda()
+                    previous_out = qwerty_block(x_out, c_out)
+                    output_x_previous = torch.cat([output_x_previous, previous_out.detach().cpu()], dim=0)
+
+                    quant_out = block_q(x_out, c_out)
+                    full_precision_out = block_origin(x_out, c_out)
+                    quant_error.append((quant_out - full_precision_out).abs().mean())
+                    qwerty_error.append((previous_out - full_precision_out).abs().mean())
+
+                    predict_diff = side_net(x_out)
+                    side_error.append((full_precision_out - quant_out - predict_diff).abs().mean())
+                    if i >= LINEAR_COMPENSATION_SAMPLES:
+                        break
             quant_error = torch.Tensor(quant_error).mean()
             qwerty_error = torch.Tensor(qwerty_error).mean()
-            logger.info(f"[{block_id}/{len(model_pq.blocks)}] Quantization error: {quant_error.item():.4f}; Qwerty error (L1 distance): {qwerty_error.item():.4f}")
+            side_error = torch.Tensor(side_error).mean()
+            logger.info(f"[{block_id}/{len(model_pq.blocks)}] Quantization error: {quant_error.item():.4f}; \
+                Qwerty error: {qwerty_error.item():.4f}; Side error: {side_error.item():.4f}")
         save_ckpt(model_pq, args, checkpoint_dir, logger)
