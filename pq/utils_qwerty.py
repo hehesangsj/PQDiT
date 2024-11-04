@@ -5,6 +5,7 @@ import torch.distributed as dist
 from pq.utils_model import init_data
 from diffusion import create_diffusion
 
+LINEAR_COMPENSATION_SAMPLES=10000
 class SideNetwork(nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim):
         super(SideNetwork, self).__init__()
@@ -65,7 +66,8 @@ def generate_compensation_model(args, logger, model, model_pq, vae, diffusion, c
 
             output_x = torch.cat([output_x, x_t.detach().cpu()], dim=0)
             output_c = torch.cat([output_c, c.detach().cpu()], dim=0)
-        
+            if i >= LINEAR_COMPENSATION_SAMPLES:
+                break
         feature_set = FeatureDataset(output_x.detach().cpu(), output_c.detach().cpu())
         feature_loader = torch.utils.data.DataLoader(feature_set, batch_size=args.batch_size, shuffle=False, num_workers=args.num_workers)
         output_x_previous = output_x
