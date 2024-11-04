@@ -334,8 +334,8 @@ class dit_distill(dit_generator):
 
     def get_embedding(self, model, img, ts, model_kwargs):
         x = model.x_embedder(img) + model.pos_embed
-        t = self.t_embedder(ts)
-        y = self.y_embedder(model_kwargs['y'], False)
+        t = model.t_embedder(ts)
+        y = model.y_embedder(model_kwargs['y'], False)
         c = t + y
         return x, c
 
@@ -346,8 +346,8 @@ class dit_distill(dit_generator):
         iters = iters // bs
         iters_tqdm = tqdm(range(iters))
         
-        for iter in iters_tqdm:
-
+        idx_log = 0
+        for iter_i in iters_tqdm:
             class_labels = [random.randint(0, 999) for _ in range(bs)]
             z, model_kwargs = self.pre_process(class_labels, cfg=cfg, args=args)
 
@@ -381,8 +381,9 @@ class dit_distill(dit_generator):
                 opt.zero_grad()
                 loss.backward()
                 opt.step()
+                idx_log += 1
 
-                if iter % 10 == 0:
+                if idx_log % 10 == 0:
                     logger.info(f"Block {block_idx} Iter {iter} Loss: {loss.item()}")
 
 

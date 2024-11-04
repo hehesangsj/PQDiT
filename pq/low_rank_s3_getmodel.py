@@ -20,7 +20,7 @@ from pq.low_rank_compress import get_blocks, merge_model
 def main(args):
     init_distributed_mode(args)
     # rank, device, logger, experiment_dir = init_env(args)
-    rank, device, logger, experiment_dir = init_env(args, dir='013-DiT-XL-2')
+    rank, device, logger, experiment_dir = init_env(args, dir='014-DiT-XL-2')
     checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
 
     model, state_dict, diffusion, vae = init_model(args, device)
@@ -91,7 +91,7 @@ def main(args):
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='val')
             model_uv.load_state_dict(torch.load(args.pq_ckpt)['model'])
-    log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='both', logger=logger)
+    log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='pq', logger=logger)
     log_params(model, model_uv, logger)
 
     mode = args.s3_mode
@@ -111,9 +111,11 @@ def main(args):
         model_uv.train()
         train(args, logger, model_uv, vae, diffusion, checkpoint_dir)
     elif mode == "distill":
-        diffusion_distill = dit_distill('250', latent_size=latent_size, device=device)
+        diffusion_distill = dit_distill('1000', latent_size=latent_size, device=device)
         for block_idx in range(28):
-            diffusion_distill.forward(model_uv, model, block_idx, iters=1000, cfg=False, logger=logger)
+            diffusion_distill.forward_distill(model_uv, model, block_idx, iters=1000, args=args, cfg=False, logger=logger)
+        log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='pq', logger=logger)
+        
 
 if __name__ == "__main__":
     args = parse_option()
