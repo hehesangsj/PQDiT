@@ -14,6 +14,7 @@ from pq.low_rank_models import DiT_uv_models
 from pq.utils_model import parse_option, init_env, init_model, get_pq_model, log_params, log_compare_weights, vis_weights
 from pq.utils_traineval import sample, dit_generator, train, save_ckpt, dit_distill
 from pq.utils_smoothquant import smooth_dit
+from pq.utils_qwerty import generate_compensation_model
 from pq.low_rank_compress import get_blocks, merge_model
 
 
@@ -115,7 +116,9 @@ def main(args):
         for block_idx in range(28):
             diffusion_distill.forward_distill(model_uv, model, block_idx, iters=1000, args=args, cfg=False, logger=logger)
         log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='pq', logger=logger)
-        
+    elif mode == "qwerty":
+        for i in range(args.epoch):
+            generate_compensation_model(args, logger, model, model_uv, vae, checkpoint_dir)
 
 if __name__ == "__main__":
     args = parse_option()
