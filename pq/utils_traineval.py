@@ -179,9 +179,9 @@ class dit_generator:
 
                 mse_loss.append(torch.mean((model_output - model_output_pq) ** 2).cpu().numpy())
 
-                if save:
-                    with open('mse_and_mav.csv', 'a') as file:
-                        file.write(f"{i},{torch.mean((model_output - model_output_pq) ** 2)},{model_output.abs().mean()}\n")                    
+                # if save:
+                #     with open('mse_and_mav.csv', 'a') as file:
+                #         file.write(f"{i},{torch.mean((model_output - model_output_pq) ** 2)},{model_output.abs().mean()}\n")                    
 
         samples = img    
         samples, _ = samples.chunk(2, dim=0)  # Remove null class samples

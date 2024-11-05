@@ -84,24 +84,16 @@ class CompressedLinear(AbstractCompressedLayer):
         return CompressedLinear(codes_matrix, codebook, uncompressed_layer.bias)
 
 
-    def get_loss(self, uncompressed_weight: torch.Tensor)
-
+    def get_loss(self, uncompressed_weight: torch.Tensor):
         weight = uncompressed_weight.detach()
-
-        c_out, c_in = weight.size()
-
-        num_blocks_per_row = c_in // subvector_size
-
         training_set = weight.reshape(-1, subvector_size)
 
-        num_centroids = get_num_centroids(num_blocks_per_row, c_out, k)
+        d = torch.sum(training_set**2, dim=1, keepdim=True) + \
+            torch.sum(self.codebook**2, dim=1) - 2 * \
+            torch.einsum('bd,dn->bn', training_set, self.codebook.T)
+        self.codes_matrix = torch.argmin(d, dim=1)
+        weight_quantized = self.codebook(self.codes_matrix).view(weight.shape)
 
-        codebook, codes = kmeans_fn(training_set, k=num_centroids, n_iters=k_means_n_iters, slow_cb_update=True)
-        codes_matrix = codes.reshape(-1, num_blocks_per_row)
+        codebook_loss = torch.mean((weight_quantized - weight) **2)
 
-        # Log quantization error
-        decoded_weights = decode(codes_matrix, codebook)
-        error = (decoded_weights - weight).pow(2).sum() / (num_blocks_per_row * weight.size(0))
-        AbstractCompressedLayer.log_quantization_error(name, k_means_n_iters, error, codebook, codes_matrix)
-
-        return CompressedLinear(codes_matrix, codebook, uncompressed_layer.bias)
+        return codebook_loss
