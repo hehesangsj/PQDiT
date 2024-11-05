@@ -309,9 +309,11 @@ def parse_option():
     parser.add_argument("--low-rank-ckpt", type=str, default=None)
     parser.add_argument("--pq", action="store_true")
     parser.add_argument("--pq-ckpt", type=str, default=None)
-    parser.add_argument("--qwerty-mode", type=str, default="mlp")
     parser.add_argument("--qwerty", action="store_true")
     parser.add_argument("--qwerty-ckpt", type=str, default=None)
+    parser.add_argument("--qwerty-mode", type=str, default="distill")
+    parser.add_argument("--opt-pq", action="store_true")
+
 
     args = parser.parse_args()
 

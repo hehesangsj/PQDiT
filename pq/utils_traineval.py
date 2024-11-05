@@ -3,12 +3,14 @@ import math
 import random
 import torch
 from tqdm import tqdm
+from copy import deepcopy
 import numpy as np
 import torch.distributed as dist
 from PIL import Image
 from time import time
 import matplotlib.pyplot as plt
 from torchvision.utils import save_image
+import torch.nn as nn
 
 from diffusion.gaussian_diffusion import _extract_into_tensor
 import diffusion.gaussian_diffusion as gd
@@ -330,66 +332,58 @@ def train(args, logger, model, vae, diffusion, checkpoint_dir):
                 dist.barrier()
 
     model.eval()  # important! This disables randomized embedding dropout
-    # do any sampling/FID calculation/etc. with ema (or model) in eval mode ...
-
     logger.info("Done!")
 
 
-class dit_distill(dit_generator):
 
-    def get_embedding(self, model, img, ts, model_kwargs):
-        x = model.x_embedder(img) + model.pos_embed
-        t = model.t_embedder(ts)
-        y = model.y_embedder(model_kwargs['y'], False)
-        c = t + y
-        return x, c
+def opt_pq(model_ori, model_comp, logger, args, device):
+    fc_params = {
+        1: ("fc1", "mlp", "fc1"),
+        2: ("fc2", "mlp", "fc2"),
+        3: ("qkv", "attn", "qkv"),
+        4: ("proj", "attn", "proj"),
+        5: ("adaln", "adaLN_modulation", "1")
+    }
+    for block_id in range(len(model_comp.blocks)):
+        block_comp = model_comp.blocks[block_id]
+        block_ori = model_ori.blocks[block_id]
+        for fc_idx in range(1, 6):
+            file_name, layer_name, org_name = fc_params[fc_idx]
+            weight_org = deepcopy(getattr(getattr(block_ori, layer_name), org_name).weight).detach().to(device)
+            weight_opt = deepcopy(getattr(getattr(block_comp, layer_name), org_name)).to(device)
 
-    def forward_distill(self, model, model_t, block_idx, iters=1000, cfg=False, args=None, logger=None):
-        model.eval()
-        model_t.eval()
-        bs = args.global_batch_size
-        iters = iters // bs
-        iters_tqdm = tqdm(range(iters))
-        
-        idx_log = 0
-        for iter_i in iters_tqdm:
-            class_labels = [random.randint(0, 999) for _ in range(bs)]
-            z, model_kwargs = self.pre_process(class_labels, cfg=cfg, args=args)
+            weight_comp = weight_opt._get_uncompressed_weight()
+            error = (weight_comp - weight_org).abs().mean().item()
+            ori_abs = weight_org.abs().mean().item()
+            logger.info(f"[Block({block_id})-Layer({file_name})] Ori abs: {ori_abs:.4f}, L1 Error: {error:.4f}")
 
-            img = z
-            img_t = z
-            indices = list(range(self.num_timesteps))[::-1]
-            opt = torch.optim.AdamW(model.blocks[block_idx].parameters(), lr=1e-4, weight_decay=0)
-            for i in indices:
-                t = torch.tensor([i] * z.shape[0], device=self.device)
-                # SpacedDiffusion
-                map_tensor = torch.tensor(self.timestep_map, device=t.device, dtype=t.dtype)
-                new_ts = map_tensor[t]
-                with torch.no_grad():
-                    x, c = self.get_embedding(model, img, new_ts, model_kwargs)
-                    x_t, c_t = self.get_embedding(model_t, img_t, new_ts, model_kwargs)
-                for i in range(len(model.blocks)):
-                    if i == block_idx:
-                        break
-                    with torch.no_grad():
-                        x = model.blocks[i](x, c)
-                        x_t = model_t.blocks[i](x_t, c_t)
-
-                block_train = model.blocks[block_idx]
-                block_t = model_t.blocks[block_idx]
-                block_train.train()
-                criterion = torch.nn.MSELoss()
-
-                x = block_train(x, c)
-                x_t = block_t(x_t, c_t)
-                loss = criterion(x, x_t)
+            weight_opt.bias.requires_grad = False
+            opt = torch.optim.AdamW(weight_opt.parameters(), lr=0.1, weight_decay=0.02)
+            criterion = nn.MSELoss(reduction='sum')
+            for epoch in range(args.epochs):
+                loss = criterion(weight_opt._get_uncompressed_weight(), weight_org)
                 opt.zero_grad()
                 loss.backward()
                 opt.step()
-                idx_log += 1
+                if epoch % 10 == 0:
+                    logger.info(f"[Block({block_id})-Layer({file_name})] MSE Loss: {loss.item():.4f}")
+            
+            if fc_idx == 1:
+                model_comp.blocks[block_id].mlp.fc1 = deepcopy(weight_opt).cuda()
+            if fc_idx == 2:
+                model_comp.blocks[block_id].mlp.fc2 = deepcopy(weight_opt).cuda()
+            if fc_idx == 3:
+                model_comp.blocks[block_id].attn.qkv = deepcopy(weight_opt).cuda()
+            if fc_idx == 4:
+                model_comp.blocks[block_id].attn.proj = deepcopy(weight_opt).cuda()
+            if fc_idx == 5:
+                model_comp.blocks[block_id].adaLN_modulation[1] = deepcopy(weight_opt).cuda()
 
-                if idx_log % 10 == 0:
-                    logger.info(f"Block {block_idx} Iter {iter} Loss: {loss.item()}")
+            weight_comp = weight_opt._get_uncompressed_weight()
+            error = (weight_comp - weight_org).abs().mean().item()
+            ori_abs = weight_org.abs().mean().item()
+            logger.info(f"[Block({block_id})-Layer({file_name})] Ori abs: {ori_abs:.4f}, L1 Error: {error:.4f}")
+    return
 
 
 def save_ckpt(model, args, checkpoint_dir, logger):

@@ -28,13 +28,14 @@ QUANT_FLAGS="--image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt \
              --pq \
              --pq-ckpt results/low_rank/014-DiT-XL-2/checkpoints/0020000.pt \
              --qwerty \
+             --qwerty-mode distill \
              --s3-mode gen --global-batch-size 64 \
              --results-dir results/low_rank"
             #  --smooth \
             #  --low-rank \
             #  --low-rank-ckpt results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt \
             #  --qwerty-ckpt results/low_rank/015-DiT-XL-2/checkpoints/ckpt.pt \
-SAMPLE_FLAGS="--epochs 1 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train --num-fid-samples 50000 --num-sampling-steps 250 --cfg-scale 1.5 --image-size 256"
+SAMPLE_FLAGS="--epochs 10 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train --num-fid-samples 50000 --num-sampling-steps 250 --cfg-scale 1.5 --image-size 256"
 EVAL_FLAGS="samples/VIRTUAL_imagenet256_labeled.npz results/low_rank/014-DiT-XL-2/DiT-XL-2-DiT-XL-2-256x256-size-256-vae-mse-cfg-1.5-seed-0.npz"
 
 srun -p ${PARTITION} \

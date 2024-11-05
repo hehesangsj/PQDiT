@@ -12,7 +12,7 @@ from models import DiT_models
 from distributed import init_distributed_mode
 from pq.low_rank_models import DiT_uv_models
 from pq.utils_model import parse_option, init_env, init_model, get_pq_model, log_params, log_compare_weights, vis_weights
-from pq.utils_traineval import sample, dit_generator, train, save_ckpt, dit_distill
+from pq.utils_traineval import sample, dit_generator, train, save_ckpt, opt_pq
 from pq.utils_smoothquant import smooth_dit
 from pq.utils_qwerty import generate_compensation_model
 from pq.low_rank_compress import get_blocks, merge_model
@@ -91,9 +91,18 @@ def main(args):
         else:
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='val')
-            model_uv.load_state_dict(torch.load(args.pq_ckpt)['model'])
+
+            checkpoint = torch.load(args.pq_ckpt)
+            state_dict = checkpoint['model']
+            state_dict = {k.replace('module.', ''): v for k, v in state_dict.items()}
+            model_uv.load_state_dict(state_dict)
+
+            # model_uv.load_state_dict(torch.load(args.pq_ckpt)['model'])
     log_compare_weights(model_ori=model, model_comp=model_uv, compress_mode='pq', logger=logger)
     log_params(model, model_uv, logger)
+
+    if args.opt_pq:
+        opt_pq(model, model_uv, logger, args, device)
 
     if args.qwerty:
         generate_compensation_model(args, logger, model, model_uv, vae, checkpoint_dir)
@@ -119,11 +128,6 @@ def main(args):
         model_uv = DDP(model_uv.to(device), device_ids=[rank])
         model_uv.train()
         train(args, logger, model_uv, vae, diffusion, checkpoint_dir)
-    elif mode == "distill":
-        diffusion_distill = dit_distill('1000', latent_size=latent_size, device=device)
-        for block_idx in range(28):
-            diffusion_distill.forward_distill(model_uv, model, block_idx, iters=1000, args=args, cfg=False, logger=logger)
-        log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='pq', logger=logger)
 
 
 if __name__ == "__main__":
