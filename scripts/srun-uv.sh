@@ -19,7 +19,7 @@ else
     NODES=$((GPUS / GPUS_PER_NODE))
 fi
 
-SRUN_ARGS=${SRUN_ARGS:-" --jobid=3722476"} # 3768157 3768158 3789766 -w HOST-10-140-66-41  3636795
+SRUN_ARGS=${SRUN_ARGS:-" --jobid=3722476"} # 3722475
 
 export PYTHONPATH="${PYTHONPATH}:$(pwd)"
 export MASTER_PORT=32424    
@@ -27,13 +27,15 @@ export MASTER_PORT=32424
 QUANT_FLAGS="--image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt \
              --pq \
              --pq-ckpt results/low_rank/014-DiT-XL-2/checkpoints/0020000.pt \
-             --s3-mode sample --global-batch-size 256 \
+             --qwerty \
+             --s3-mode gen --global-batch-size 64 \
              --results-dir results/low_rank"
             #  --smooth \
-            #  --pq-ckpt results/low_rank/011-DiT-XL-2/checkpoints-pq/ckpt.pt \
             #  --low-rank \
             #  --low-rank-ckpt results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt \
-SAMPLE_FLAGS="--epochs 1 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train --num-fid-samples 10000 --num-sampling-steps 250 --cfg-scale 1.5 --image-size 256"
+            #  --qwerty-ckpt results/low_rank/015-DiT-XL-2/checkpoints/ckpt.pt \
+SAMPLE_FLAGS="--epochs 1 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train --num-fid-samples 50000 --num-sampling-steps 250 --cfg-scale 1.5 --image-size 256"
+EVAL_FLAGS="samples/VIRTUAL_imagenet256_labeled.npz results/low_rank/014-DiT-XL-2/DiT-XL-2-DiT-XL-2-256x256-size-256-vae-mse-cfg-1.5-seed-0.npz"
 
 srun -p ${PARTITION} \
   --job-name=${JOB_NAME} \
@@ -46,3 +48,4 @@ srun -p ${PARTITION} \
   --quotatype=${QUOTA_TYPE} \
   ${SRUN_ARGS} \
   python -u pq/low_rank_s3_getmodel.py $QUANT_FLAGS $SAMPLE_FLAGS
+  # python evaluator.py $EVAL_FLAGS

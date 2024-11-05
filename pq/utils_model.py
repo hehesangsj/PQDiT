@@ -237,7 +237,7 @@ def get_pq_model(model, file_path, rank, experiment_dir, logger, mode='train'):
     return model
 
 
-def log_compare_weights(model_comp, model_ori, compress_mode, logger):
+def log_compare_weights(model_ori, model_comp, compress_mode, logger):
     fc_params = {
         1: ("fc1", "mlp", "fc1", "fc1_u", "fc1_v"),
         2: ("fc2", "mlp", "fc2", "fc2_u", "fc2_v"),
@@ -293,7 +293,7 @@ def parse_option():
     parser.add_argument("--global-seed", type=int, default=0)
     parser.add_argument("--num-workers", type=int, default=4)
     parser.add_argument("--log-every", type=int, default=100)
-    parser.add_argument("--epochs", type=int, default=100)
+    parser.add_argument("--epochs", type=int, default=2)
     parser.add_argument("--ckpt-every", type=int, default=50_000)
     
     parser.add_argument("--num-fid-samples", type=int, default=50_000)
@@ -309,6 +309,8 @@ def parse_option():
     parser.add_argument("--low-rank-ckpt", type=str, default=None)
     parser.add_argument("--pq", action="store_true")
     parser.add_argument("--pq-ckpt", type=str, default=None)
+    parser.add_argument("--qwerty-mode", type=str, default="mlp")
+    parser.add_argument("--qwerty", action="store_true")
     parser.add_argument("--qwerty-ckpt", type=str, default=None)
 
     args = parser.parse_args()

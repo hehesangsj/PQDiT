@@ -21,7 +21,7 @@ from pq.low_rank_compress import get_blocks, merge_model
 def main(args):
     init_distributed_mode(args)
     # rank, device, logger, experiment_dir = init_env(args)
-    rank, device, logger, experiment_dir = init_env(args, dir='014-DiT-XL-2')
+    rank, device, logger, experiment_dir = init_env(args, dir='016-DiT-XL-2')
     checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
 
     model, state_dict, diffusion, vae = init_model(args, device)
@@ -65,7 +65,7 @@ def main(args):
 
         log_params(model, model_uv, logger)
         logger.info("Low rank compression done!")
-        log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='uv', logger=logger)
+        log_compare_weights(model_ori=model, model_comp=model_uv, compress_mode='uv', logger=logger)
         # vis_weights(model_uv, logger, f"{experiment_dir}/image_weights_uv")
 
     else:
@@ -74,7 +74,7 @@ def main(args):
     if args.smooth:
         smooth_dit(model_uv)
         logger.info("Smooth quant done!")
-        log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='uv', logger=logger)
+        log_compare_weights(model_ori=model, model_comp=model_uv, compress_mode='uv', logger=logger)
     # vis_weights(model_uv, logger, f"{experiment_dir}/new_images/image_weights_uv_smooth")
 
     # image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
@@ -92,9 +92,12 @@ def main(args):
             file_path = os.path.dirname(__file__)
             model_uv = get_pq_model(model_uv, file_path, rank, experiment_dir, logger, mode='val')
             model_uv.load_state_dict(torch.load(args.pq_ckpt)['model'])
-    log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='pq', logger=logger)
+    log_compare_weights(model_ori=model, model_comp=model_uv, compress_mode='pq', logger=logger)
     log_params(model, model_uv, logger)
 
+    if args.qwerty:
+        generate_compensation_model(args, logger, model, model_uv, vae, checkpoint_dir)
+        
     mode = args.s3_mode
     if mode == "sample":
         # model_uv = DDP(model_uv.to(device), device_ids=[rank])
@@ -121,9 +124,7 @@ def main(args):
         for block_idx in range(28):
             diffusion_distill.forward_distill(model_uv, model, block_idx, iters=1000, args=args, cfg=False, logger=logger)
         log_compare_weights(model_comp=model_uv, model_ori=model, compress_mode='pq', logger=logger)
-    elif mode == "qwerty":
-        for i in range(args.epochs):
-            generate_compensation_model(args, logger, model, model_uv, vae, checkpoint_dir)
+
 
 if __name__ == "__main__":
     args = parse_option()
