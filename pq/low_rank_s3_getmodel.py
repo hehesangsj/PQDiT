@@ -3,7 +3,6 @@ from glob import glob
 from copy import deepcopy
 import torch
 from timm.layers.helpers import to_2tuple
-from torch.nn.parallel import DistributedDataParallel as DDP
 
 import os
 import sys
@@ -12,7 +11,7 @@ from models import DiT_models
 from distributed import init_distributed_mode
 from pq.low_rank_models import DiT_uv_models
 from pq.utils_model import parse_option, init_env, init_model, get_pq_model, log_params, log_compare_weights, vis_weights
-from pq.utils_traineval import sample, dit_generator, train, save_ckpt, opt_pq
+from pq.utils_traineval import sample, dit_generator, train, train_qwerty, save_ckpt, opt_pq
 from pq.utils_smoothquant import smooth_dit
 from pq.utils_qwerty import generate_compensation_model
 from pq.low_rank_compress import get_blocks, merge_model
@@ -21,8 +20,8 @@ from pq.low_rank_compress import get_blocks, merge_model
 def main(args):
     init_distributed_mode(args)
     # rank, device, logger, experiment_dir = init_env(args)
-    rank, device, logger, experiment_dir = init_env(args, dir='016-DiT-XL-2')
-    checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
+    rank, device, logger, experiment_dir = init_env(args, dir='001-DiT-XL-2')
+    checkpoint_dir = f"{experiment_dir}/checkpoints-qwerty"  # Stores saved model checkpoints
 
     model, state_dict, diffusion, vae = init_model(args, device)
     # vis_weights(model, logger, f"{experiment_dir}/image_weights", mode='original')
@@ -67,7 +66,6 @@ def main(args):
         logger.info("Low rank compression done!")
         log_compare_weights(model_ori=model, model_comp=model_uv, compress_mode='uv', logger=logger)
         # vis_weights(model_uv, logger, f"{experiment_dir}/image_weights_uv")
-
     else:
         model_uv = deepcopy(model)
 
@@ -109,8 +107,6 @@ def main(args):
         
     mode = args.s3_mode
     if mode == "sample":
-        # model_uv = DDP(model_uv.to(device), device_ids=[rank])
-        model_uv.eval()
         # image_name = f"sample_allfc{block_str}_{percent:.1f}".replace('.', '_')
         # image_dir = f"{experiment_dir}/{image_name}"
         model_string_name = args.model.replace("/", "-")
@@ -121,14 +117,14 @@ def main(args):
         sample(args, model_uv, vae, diffusion, sample_folder_dir)
     elif mode == "gen":
         model_uv.eval()
-        diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
-        image_name = f"sample_allfc{block_str}_{percent:.1f}_pq".replace('.', '_')
-        diffusion_gen.forward_val(vae, model.forward, model_uv.forward, cfg=False, name=f"{experiment_dir}/{image_name}", logger=logger)
+        diffusion_gen = dit_generator('100', latent_size=latent_size, device=device)
+        image_name = "pq"
+        # image_name = f"sample_allfc{block_str}_{percent:.1f}_pq".replace('.', '_')
+        diffusion_gen.forward_val(vae, [model.forward, model_uv.forward], cfg=False, name=f"{experiment_dir}/{image_name}", logger=logger)
     elif mode == "train":
-        model_uv = DDP(model_uv.to(device), device_ids=[rank])
-        model_uv.train()
         train(args, logger, model_uv, vae, diffusion, checkpoint_dir)
-
+    elif mode == "train_qwerty":
+        train_qwerty(args, logger, model, model_uv, vae, checkpoint_dir)
 
 if __name__ == "__main__":
     args = parse_option()

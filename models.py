@@ -119,10 +119,93 @@ class DiTBlock(nn.Module):
             nn.Linear(hidden_size, 6 * hidden_size, bias=True)
         )
 
-    def forward(self, x, c):
+    # def forward(self, x, c, stat_block=None):
+    #     shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = self.adaLN_modulation(c).chunk(6, dim=1)
+    #     x = x + gate_msa.unsqueeze(1) * self.attn(modulate(self.norm1(x), shift_msa, scale_msa))
+    #     x = x + gate_mlp.unsqueeze(1) * self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp))
+    #     return x
+
+    def forward(self, x, c, stat_block=None, time_step=None):
+        stats = {}
+        stat = (stat_block != None)
+        if stat:
+            stats["input_x"] = {
+                "min": x.min().item(),
+                "max": x.max().item(),
+                "mean": x.mean().item(),
+                "std": x.std().item()
+            }
+        
         shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = self.adaLN_modulation(c).chunk(6, dim=1)
-        x = x + gate_msa.unsqueeze(1) * self.attn(modulate(self.norm1(x), shift_msa, scale_msa))
-        x = x + gate_mlp.unsqueeze(1) * self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp))
+        
+        if stat:
+            stats["shift_msa"] = {
+                "min": shift_msa.min().item(),
+                "max": shift_msa.max().item(),
+                "mean": shift_msa.mean().item(),
+                "std": shift_msa.std().item()
+            }
+            stats["scale_msa"] = {
+                "min": scale_msa.min().item(),
+                "max": scale_msa.max().item(),
+                "mean": scale_msa.mean().item(),
+                "std": scale_msa.std().item()
+            }
+            stats["gate_msa"] = {
+                "min": gate_msa.min().item(),
+                "max": gate_msa.max().item(),
+                "mean": gate_msa.mean().item(),
+                "std": gate_msa.std().item()
+            }
+            stats["shift_mlp"] = {
+                "min": shift_mlp.min().item(),
+                "max": shift_mlp.max().item(),
+                "mean": shift_mlp.mean().item(),
+                "std": shift_mlp.std().item()
+            }
+            stats["scale_mlp"] = {
+                "min": scale_mlp.min().item(),
+                "max": scale_mlp.max().item(),
+                "mean": scale_mlp.mean().item(),
+                "std": scale_mlp.std().item()
+            }
+            stats["gate_mlp"] = {
+                "min": gate_mlp.min().item(),
+                "max": gate_mlp.max().item(),
+                "mean": gate_mlp.mean().item(),
+                "std": gate_mlp.std().item()
+            }
+        
+        x_attn = self.attn(modulate(self.norm1(x), shift_msa, scale_msa))
+        x = x + gate_msa.unsqueeze(1) * x_attn
+        
+        if stat:
+            stats["attn_output"] = {
+                "min": x_attn.min().item(),
+                "max": x_attn.max().item(),
+                "mean": x_attn.mean().item(),
+                "std": x_attn.std().item()
+            }
+        
+        x_mlp = self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp))
+        x = x + gate_mlp.unsqueeze(1) * x_mlp
+        
+        if stat:
+            stats["mlp_output"] = {
+                "min": x_mlp.min().item(),
+                "max": x_mlp.max().item(),
+                "mean": x_mlp.mean().item(),
+                "std": x_mlp.std().item()
+            }
+        
+        if stat:
+            file_exists = os.path.isfile('block_statistics.csv') and os.path.getsize('block_statistics.csv') > 0
+            with open('block_statistics.csv', 'a') as file:
+                if not file_exists:
+                    file.write("Time,Block,Parameter,Min,Max,Mean,Std\n")
+                for key, values in stats.items():
+                    file.write(f"{time_step},{stat_block},{key},{values['min']},{values['max']},{values['mean']},{values['std']}\n")
+
         return x
 
 class FinalLayer(nn.Module):
@@ -233,14 +316,14 @@ class DiT(nn.Module):
         imgs = x.reshape(shape=(x.shape[0], c, h * p, h * p))
         return imgs
 
-    def forward(self, x, t, y, distill=False):
+    def forward(self, x, t, y, distill=False, stat=False):
         """
         Forward pass of DiT.
         x: (N, C, H, W) tensor of spatial inputs (images or latent representations of images)
         t: (N,) tensor of diffusion timesteps
         y: (N,) tensor of class labels
         """
-
+        time_step = t[0]
         x = self.x_embedder(x) + self.pos_embed  # (N, T, D), where T = H * W / patch_size ** 2
         t = self.t_embedder(t)                   # (N, D)
         y = self.y_embedder(y, self.training)    # (N, D)
@@ -256,7 +339,10 @@ class DiT(nn.Module):
         if distill:
             x_feat = []
         for i, block in enumerate(self.blocks):
-            x = block(x, c)                      # (N, T, D)
+            if stat:
+                x = block(x, c, i, time_step)                      # (N, T, D)
+            else:
+                x = block(x, c)                      # (N, T, D)
             if distill:
                 x_feat.append(x)
             # if i == 0:

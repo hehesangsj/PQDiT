@@ -83,17 +83,23 @@ class CompressedLinear(AbstractCompressedLayer):
 
         return CompressedLinear(codes_matrix, codebook, uncompressed_layer.bias)
 
-
-    def get_loss(self, uncompressed_weight: torch.Tensor):
+    def reset_code(self, uncompressed_weight: torch.Tensor):
         weight = uncompressed_weight.detach()
-        training_set = weight.reshape(-1, subvector_size)
-
+        training_set = weight.reshape(-1, self.codebook.shape[1])
         d = torch.sum(training_set**2, dim=1, keepdim=True) + \
             torch.sum(self.codebook**2, dim=1) - 2 * \
             torch.einsum('bd,dn->bn', training_set, self.codebook.T)
-        self.codes_matrix = torch.argmin(d, dim=1)
-        weight_quantized = self.codebook(self.codes_matrix).view(weight.shape)
+        self.codes_matrix = nn.Parameter(torch.argmin(d, dim=1).view(weight.shape[0], -1).byte(), requires_grad=False).to(uncompressed_weight.device)
+    
+    def get_loss(self, uncompressed_weight: torch.Tensor):
+        weight = uncompressed_weight.detach()
+        training_set = weight.reshape(-1, self.codebook.shape[1])
+        d = torch.sum(training_set**2, dim=1, keepdim=True) + \
+            torch.sum(self.codebook**2, dim=1) - 2 * \
+            torch.einsum('bd,dn->bn', training_set, self.codebook.T)
+        self.codes_matrix = nn.Parameter(torch.argmin(d, dim=1).view(weight.shape[0], -1).byte(), requires_grad=False)
 
+        weight_quantized = decode(self.codes_matrix, self.codebook)
         codebook_loss = torch.mean((weight_quantized - weight) **2)
 
         return codebook_loss

@@ -34,7 +34,7 @@ def init_distributed_mode(args):
         num_gpus = torch.cuda.device_count()
         addr = subprocess.getoutput(
             'scontrol show hostname {} | head -n1'.format(node_list))
-        os.environ['MASTER_PORT'] = os.environ.get('MASTER_PORT', '29519')
+        os.environ['MASTER_PORT'] = os.environ.get('MASTER_PORT', '29511')
         os.environ['MASTER_ADDR'] = addr
         os.environ['WORLD_SIZE'] = str(ntasks)
         os.environ['RANK'] = str(proc_id)

@@ -19,20 +19,21 @@ else
     NODES=$((GPUS / GPUS_PER_NODE))
 fi
 
-SRUN_ARGS=${SRUN_ARGS:-" --jobid=3722476"} # 3722475
+SRUN_ARGS=${SRUN_ARGS:-" --jobid=3722476"} # 3722476
 
 export PYTHONPATH="${PYTHONPATH}:$(pwd)"
 export MASTER_PORT=32424    
 
 QUANT_FLAGS="--image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt \
              --pq \
-             --pq-ckpt results/low_rank/014-DiT-XL-2/checkpoints/0020000.pt \
-             --qwerty \
-             --qwerty-mode distill \
+             --pq-ckpt results/train_pq/001-DiT-XL-2/checkpoints/0005000.pt \
              --s3-mode gen --global-batch-size 64 \
-             --results-dir results/low_rank"
+             --qwerty \
+             --qwerty-mode mlp \
+             --results-dir results/train_pq"
             #  --smooth \
             #  --low-rank \
+            #  --pq-ckpt results/low_rank/014-DiT-XL-2/checkpoints/0020000.pt \
             #  --low-rank-ckpt results/low_rank/009-DiT-XL-2/checkpoints-low-rank/ckpt.pt \
             #  --qwerty-ckpt results/low_rank/015-DiT-XL-2/checkpoints/ckpt.pt \
 SAMPLE_FLAGS="--epochs 10 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train --num-fid-samples 50000 --num-sampling-steps 250 --cfg-scale 1.5 --image-size 256"

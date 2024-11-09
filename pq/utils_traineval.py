@@ -11,12 +11,39 @@ from time import time
 import matplotlib.pyplot as plt
 from torchvision.utils import save_image
 import torch.nn as nn
+from torch.nn.parallel import DistributedDataParallel as DDP
 
 from diffusion.gaussian_diffusion import _extract_into_tensor
 import diffusion.gaussian_diffusion as gd
+from diffusion import create_diffusion
 from diffusion.respace import space_timesteps
 
 from pq.utils_model import init_data, cleanup
+
+
+class SideNetwork(nn.Module):
+    def __init__(self, input_dim, hidden_dim, output_dim):
+        super(SideNetwork, self).__init__()
+        self.fc1 = nn.Linear(input_dim, hidden_dim)
+        self.gelu = nn.GELU()
+        self.fc2 = nn.Linear(hidden_dim, output_dim)
+    def forward(self, x):
+        out = self.fc1(x)
+        out = self.gelu(out)
+        out = self.fc2(out)
+        return out
+
+class CompensationBlock(nn.Module):
+    def __init__(self, block, side_net, device):
+        super(CompensationBlock, self).__init__()
+        self.block = block
+        self.side_net = side_net.to(device)
+
+    def forward(self, x, c):
+        out = self.block(x, c)
+        side_out = self.side_net(x)
+        out = out + side_out
+        return out
 
 def create_npz_from_sample_folder(sample_dir, num=50_000):
     """
@@ -62,6 +89,10 @@ def sample(args, model_pq, vae, diffusion, sample_folder_dir):
     pbar = range(iterations)
     pbar = tqdm(pbar) if rank == 0 else pbar
     total = 0
+
+    model_pq = DDP(model_pq.to(device), device_ids=[rank])
+    model_pq.eval()
+
     for _ in pbar:
         # Sample inputs:
         z = torch.randn(n, model_pq.in_channels, latent_size, latent_size, device=device)
@@ -151,59 +182,58 @@ class dit_generator:
         alphas = 1.0 - betas
         self.alphas_cumprod = np.cumprod(alphas, axis=0)
 
-    def forward_val(self, vae, model, model_pq, cfg=False, name="sample_pq", save=True, args=None, logger=None):
-        # sample
+    def forward_val(self, vae, models, cfg=False, name="sample_pq", args=None, logger=None):
+        # class_labels = [207, 360, 387, 974]
         class_labels = [207, 360, 387, 974, 88, 979, 417, 279]
         z, model_kwargs = self.pre_process(class_labels, cfg=cfg, args=args)
 
-        # p_sample_loop_progressive
-        img = z
-        img_pq = z
+        imgs = [z.clone() for _ in models]
         indices = list(range(self.num_timesteps))[::-1]
         indices_tqdm = tqdm(indices)
-        mse_loss = []
+        mse_losses = [[] for _ in models[1:]]
+        block_errors_all_models = [{block_id: [] for block_id in range(28)} for _ in models[1:]]
+
         for i in indices_tqdm:
             t = torch.tensor([i] * z.shape[0], device=self.device)
             with torch.no_grad():
-                # SpacedDiffusion
                 map_tensor = torch.tensor(self.timestep_map, device=t.device, dtype=t.dtype)
                 new_ts = map_tensor[t]
-                # p_mean_variance
-                model_output = model(img, new_ts, **model_kwargs)
-                model_output_pq = model_pq(img_pq, new_ts, **model_kwargs)
+                model_outputs = []
+                features = []
+                for model, img in zip(models, imgs):
+                    model_output, feat = model(img, new_ts, **model_kwargs, distill=True, stat=False)
+                    model_outputs.append(model_output)
+                    features.append(feat)
+                imgs = self.post_process(t, imgs, model_outputs)
 
-                # model_output, feat = model(img, new_ts, **model_kwargs, distill=True)
-                # model_output_pq, feat_pq = model_pq(img_pq, new_ts, **model_kwargs, distill=True)
+                for model_id in range(1, len(models)):
+                    for block_id, (output, output_ref) in enumerate(zip(features[model_id], features[0])):
+                        block_error = torch.mean((output - output_ref) ** 2).cpu().numpy()
+                        block_errors_all_models[model_id - 1][block_id].append(block_error)
+                for model_id in range(1, len(models)):
+                    mse_loss = torch.mean((model_outputs[model_id] - model_outputs[0]) ** 2).cpu().numpy()
+                    mse_losses[model_id - 1].append(mse_loss)
 
-                img, img_pq = self.post_process(t, img, img_pq, model_output, model_output_pq)
+        samples = [vae.decode(img / 0.18215).sample for img in imgs]
+        for idx, sample in enumerate(samples):
+            sample, _ = sample.chunk(2, dim=0)
+            save_image(sample, f"{name}/model_{idx}.png", nrow=4, normalize=True, value_range=(-1, 1))
+            logger.info(f"Model {idx} sample saved as {name}_model_{idx}.png")
 
-                mse_loss.append(torch.mean((model_output - model_output_pq) ** 2).cpu().numpy())
-
-                # if save:
-                #     with open('mse_and_mav.csv', 'a') as file:
-                #         file.write(f"{i},{torch.mean((model_output - model_output_pq) ** 2)},{model_output.abs().mean()}\n")                    
-
-        samples = img    
-        samples, _ = samples.chunk(2, dim=0)  # Remove null class samples
-        samples = vae.decode(samples / 0.18215).sample
-
-        samples_pq = img_pq
-        samples_pq, _ = samples_pq.chunk(2, dim=0)  # Remove null class samples
-        samples_pq = vae.decode(samples_pq / 0.18215).sample
-
-        if save:
-            plt.figure(figsize=(10, 5))
-            plt.plot(indices[::-1], mse_loss, label='MSE Loss')
-            plt.xlabel('Time Step')
-            plt.ylabel('MSE Loss')
-            plt.title('MSE Loss Over Time Steps')
-            plt.legend()
-            plt.grid(True)
-            plt.savefig('mse_loss_over_time_steps.png')
-                    
-            save_image(samples, name+'_original.png', nrow=4, normalize=True, value_range=(-1, 1))
-            save_image(samples_pq, name+'_compress.png', nrow=4, normalize=True, value_range=(-1, 1))
-            logger.info(f"Original saved as {name}_original.png, compressed saved as {name}_compress.png")
+        for block_id in range(28):
+            plt.figure(figsize=(10, 6))
+            for model_id, block_errors in enumerate(block_errors_all_models, start=1):
+                errors = block_errors[block_id]
+                plt.plot(indices[::-1], errors, label=f"Model {model_id} vs. Model 0")
+            plt.xlabel("Step")
+            plt.ylabel("MSE Error")
+            plt.legend(loc='upper left', fontsize='small')
+            plt.title(f"MSE Error Trend for Block {block_id} (Comparison Across Models)")
+            if not os.path.exists(f"{name}/perblock/"):
+                os.makedirs(f"{name}/perblock/")
+            plt.savefig(f"{name}/perblock/block_{block_id}_mse.png", bbox_inches='tight')
+            plt.close()
+        return samples
 
     def pre_process(self, class_labels, cfg=False, args=None):
         n = len(class_labels)
@@ -218,34 +248,22 @@ class dit_generator:
             model_kwargs = dict(y=y)
         return z, model_kwargs
 
-
-    def post_process(self, t, img, img_pq, model_output, model_output_pq):
-        # p_mean_variance
-        B, C = img.shape[:2]
-        model_output, model_var_values = torch.split(model_output, C, dim=1)
-        min_log = _extract_into_tensor(self.posterior_log_variance_clipped, t, img.shape)
-        max_log = _extract_into_tensor(np.log(self.betas), t, img.shape)
-        frac = (model_var_values + 1) / 2
-        model_log_variance = frac * max_log + (1 - frac) * min_log
-        pred_xstart = self._predict_xstart_from_eps(x_t=img, t=t, eps=model_output)
-        model_mean, _, _ = self.q_posterior_mean_variance(x_start=pred_xstart, x_t=img, t=t)
-
-        model_output_pq, model_var_values_pq = torch.split(model_output_pq, C, dim=1)
-        frac_pq = (model_var_values_pq + 1) / 2
-        model_log_variance_pq = frac_pq * max_log + (1 - frac_pq) * min_log
-        pred_xstart_pq = self._predict_xstart_from_eps(x_t=img_pq, t=t, eps=model_output_pq)
-        model_mean_pq, _, _ = self.q_posterior_mean_variance(x_start=pred_xstart_pq, x_t=img_pq, t=t)
-
-        # p_sample
-        noise = torch.randn_like(img)
-        nonzero_mask = (
-            (t != 0).float().view(-1, *([1] * (len(img.shape) - 1)))
-        )  # no noise when t == 0
-        sample = model_mean + nonzero_mask * torch.exp(0.5 * model_log_variance) * noise
-        sample_pq = model_mean_pq + nonzero_mask * torch.exp(0.5 * model_log_variance_pq) * noise
-
-        return sample, sample_pq
-    
+    def post_process(self, t, imgs, model_outputs):
+        B, C = imgs[0].shape[:2]
+        samples = []
+        min_log = _extract_into_tensor(self.posterior_log_variance_clipped, t, imgs[0].shape)
+        max_log = _extract_into_tensor(np.log(self.betas), t, imgs[0].shape)
+        noise = torch.randn_like(imgs[0])
+        for img, model_output in zip(imgs, model_outputs):
+            model_output_split, model_var_values = torch.split(model_output, C, dim=1)
+            frac = (model_var_values + 1) / 2
+            model_log_variance = frac * max_log + (1 - frac) * min_log
+            pred_xstart = self._predict_xstart_from_eps(x_t=img, t=t, eps=model_output_split)
+            model_mean, _, _ = self.q_posterior_mean_variance(x_start=pred_xstart, x_t=img, t=t)
+            nonzero_mask = (t != 0).float().view(-1, *([1] * (len(img.shape) - 1)))  # no noise when t == 0
+            sample = model_mean + nonzero_mask * torch.exp(0.5 * model_log_variance) * noise
+            samples.append(sample)
+        return samples
 
     def _predict_xstart_from_eps(self, x_t, t, eps):
         return (
@@ -335,6 +353,103 @@ def train(args, logger, model, vae, diffusion, checkpoint_dir):
     logger.info("Done!")
 
 
+def train_qwerty(args, logger, model_origin, model, vae, checkpoint_dir):
+    rank = dist.get_rank()
+    device = rank % torch.cuda.device_count()
+    loader, sampler = init_data(args, rank, logger)
+    latent_size = args.image_size // 8
+    diffusion_qwerty = create_diffusion(timestep_respacing="")
+    diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
+
+    for block_id in range(len(model.blocks)):
+        side_net = SideNetwork(1152, 4*1152, 1152)
+        model.blocks[block_id] = CompensationBlock(block=model.blocks[block_id], side_net=deepcopy(side_net),  device=device)
+
+    model.eval()
+    for block in model.blocks:
+        for param in block.parameters():
+            param.requires_grad = False
+
+    for block in model.blocks:
+        block.side_net.parameters()
+        for param in block.side_net.parameters():
+            param.requires_grad = True
+    opt = torch.optim.AdamW(
+        [param for block in model.blocks for param in block.side_net.parameters() if param.requires_grad],
+        lr=1e-4,
+        weight_decay=0
+    )
+    model = DDP(model.to(device), device_ids=[rank])
+
+    model.train()  # important! This enables embedding dropout for classifier-free guidance
+    train_steps = 0
+    log_steps = 0
+    running_loss = 0
+    start_time = time()
+
+    logger.info(f"Training for {args.epochs} epochs...")
+    for epoch in range(args.epochs):
+        sampler.set_epoch(epoch)
+        logger.info(f"Beginning epoch {epoch}...")
+        for x, y in loader:
+            x = x.to(device)
+            y = y.to(device)
+            with torch.no_grad():
+                # Map input images to latent space + normalize latents:
+                x = vae.encode(x).latent_dist.sample().mul_(0.18215)
+            t = torch.randint(0, diffusion_qwerty.num_timesteps, (x.shape[0],), device=device)
+            model_kwargs = dict(y=y)
+            # loss_dict = diffusion.training_losses_distill(model_pq, model, x, t, model_kwargs)
+            loss_dict = diffusion_qwerty.training_losses(model, x, t, model_kwargs)
+            loss = loss_dict["loss"].mean()
+            opt.zero_grad()
+            loss.backward()
+            opt.step()
+
+            # Log loss values:
+            running_loss += loss.item()
+            log_steps += 1
+            train_steps += 1
+            if train_steps % args.log_every == 0:
+                # Measure training speed:
+                torch.cuda.synchronize()
+                end_time = time()
+                steps_per_sec = log_steps / (end_time - start_time)
+                # Reduce loss history over all processes:
+                avg_loss = torch.tensor(running_loss / log_steps, device=device)
+                dist.all_reduce(avg_loss, op=dist.ReduceOp.SUM)
+                avg_loss = avg_loss.item() / dist.get_world_size()
+                logger.info(f"(step={train_steps:07d}) Train Loss: {avg_loss:.4f}, Train Steps/Sec: {steps_per_sec:.2f}")
+                # Reset monitoring variables:
+                running_loss = 0
+                log_steps = 0
+                start_time = time()
+
+            # Save DiT checkpoint:
+            if train_steps % args.ckpt_every == 0 and train_steps > 0:
+                if rank == 0:
+                    checkpoint = {
+                        "model": model.module.state_dict(),
+                        "opt": opt.state_dict(),
+                        "args": args
+                    }
+                    if not os.path.exists(checkpoint_dir):
+                        os.mkdir(checkpoint_dir)
+                    checkpoint_path = f"{checkpoint_dir}/{train_steps:07d}.pt"
+                    torch.save(checkpoint, checkpoint_path)
+                    logger.info(f"Saved checkpoint to {checkpoint_path}")
+                dist.barrier()
+
+        if rank == 0:
+            image_name = f"pq_qwerty_epoch{epoch}"
+            image_dir = f"{os.path.dirname(checkpoint_dir)}/gen"
+            if not os.path.exists(image_dir):
+                os.makedirs(image_dir)
+            diffusion_gen.forward_val(vae, model_origin.forward, model.forward, cfg=False, name=f"{image_dir}/{image_name}", logger=logger)
+
+    model.eval()  # important! This disables randomized embedding dropout
+    logger.info("Done!")
+
 
 def opt_pq(model_ori, model_comp, logger, args, device):
     fc_params = {
@@ -358,10 +473,10 @@ def opt_pq(model_ori, model_comp, logger, args, device):
             logger.info(f"[Block({block_id})-Layer({file_name})] Ori abs: {ori_abs:.4f}, L1 Error: {error:.4f}")
 
             weight_opt.bias.requires_grad = False
-            opt = torch.optim.AdamW(weight_opt.parameters(), lr=0.1, weight_decay=0.02)
-            criterion = nn.MSELoss(reduction='sum')
+            opt = torch.optim.AdamW(weight_opt.parameters(), lr=1e-2, weight_decay=0.02)
+            # criterion = nn.MSELoss(reduction='sum')
             for epoch in range(args.epochs):
-                loss = criterion(weight_opt._get_uncompressed_weight(), weight_org)
+                loss = weight_opt.get_loss(weight_org)
                 opt.zero_grad()
                 loss.backward()
                 opt.step()

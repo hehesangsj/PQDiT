@@ -13,7 +13,7 @@ from pq.utils_model import init_data
 from pq.utils_traineval import save_ckpt, dit_generator
 from diffusion import create_diffusion
 
-LINEAR_COMPENSATION_SAMPLES=1000
+LINEAR_COMPENSATION_SAMPLES=100
 
 class FeatureDataset(Dataset):
     def __init__(self, X, Y):
@@ -28,16 +28,19 @@ class FeatureDataset(Dataset):
     
 
 class SideNetwork(nn.Module):
-    def __init__(self, input_dim, hidden_dim, output_dim):
+    def __init__(self, input_dim):
         super(SideNetwork, self).__init__()
-        self.fc1 = nn.Linear(input_dim, hidden_dim)
-        self.gelu = nn.GELU()
-        self.fc2 = nn.Linear(hidden_dim, output_dim)
-    def forward(self, x):
-        out = self.fc1(x)
-        out = self.gelu(out)
-        out = self.fc2(out)
-        return out
+        self.norm = nn.LayerNorm(input_dim, eps=1e-6)
+        self.act = nn.SiLU()
+        self.fc = nn.Linear(input_dim, input_dim, bias=True)
+
+    def forward(self, x, out=None, cali=False):
+        if cali and out is not None:
+            shift = self.fc(self.act(self.norm(x)))
+            side_out = x * shift
+            return out + side_out
+        else:
+            return self.fc(self.act(self.norm(x)))
 
 
 def lienar_regression(X, Y, block_id=0, logger=None):
@@ -69,7 +72,8 @@ class CompensationBlock(nn.Module):
 
     def forward(self, x, c):
         out = self.block(x, c)
-        side_out = self.side_network(x)
+        scale = self.side_network(x)
+        side_out = x * scale
         out = out + side_out * self.alpha
         return out
 
@@ -77,22 +81,24 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
     rank = dist.get_rank()
     device = rank % torch.cuda.device_count()
     loader, sampler = init_data(args, rank, logger)
-    diffusion_qwerty = create_diffusion(timestep_respacing="")
     latent_size = args.image_size // 8
+    diffusion_qwerty = create_diffusion(timestep_respacing="")
     diffusion_gen = dit_generator('250', latent_size=latent_size, device=device)
 
     model.eval()
     model_pq.eval()
-    
+    model_cali = deepcopy(model_pq)
+    model_cali.eval()
+
     if args.qwerty_ckpt:
-        for block_id in range(len(model_pq.blocks)):
-            side_net = SideNetwork(1152, 4*1152, 1152)
-            model_pq.blocks[block_id] = CompensationBlock(block=model_pq.blocks[block_id], side_net=deepcopy(side_net), r2_scores=1, device=device)
-        model_pq.load_state_dict(torch.load(args.qwerty_ckpt)['model'])
-        model_pq.cuda()
+        for block_id in range(len(model_cali.blocks)):
+            side_net = SideNetwork(1152)
+            model_cali.blocks[block_id] = CompensationBlock(block=model_cali.blocks[block_id], side_net=deepcopy(side_net), r2_scores=1, device=device)
+        model_cali.load_state_dict(torch.load(args.qwerty_ckpt)['model'])
+        model_cali.cuda()
     else:
-        output_x = torch.zeros(size=[0,]).to(device)
-        output_c = torch.zeros(size=[0,]).to(device)
+        output_x = torch.zeros(size=[0,])
+        output_c = torch.zeros(size=[0,])
 
         sampler.set_epoch(0)
         for i, (x, y) in tqdm(enumerate(loader), desc="Sampling"):
@@ -107,22 +113,22 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                 t = model.t_embedder(t)
                 y = model.y_embedder(y, False)
                 c = t + y
-            output_x = torch.cat([output_x, x_t.detach()], dim=0)
-            output_c = torch.cat([output_c, c.detach()], dim=0)
+            output_x = torch.cat([output_x, x_t.detach().cpu()], dim=0)
+            output_c = torch.cat([output_c, c.detach().cpu()], dim=0)
             if i >= LINEAR_COMPENSATION_SAMPLES:
                 break
         
         feature_set = FeatureDataset(output_x.detach().cpu(), output_c.detach().cpu())
         feature_loader = DataLoader(feature_set, batch_size=int(args.global_batch_size // dist.get_world_size()), shuffle=True, num_workers=args.num_workers, pin_memory=True, drop_last=True)
 
-        for block_id in range(len(model_pq.blocks)):
+        for block_id in range(len(model_cali.blocks)):
             feature_set.X = output_x.detach().cpu()
             feature_set.Y = output_c.detach().cpu()
-            block_q = deepcopy(model_pq.blocks[block_id])
+            block_q = model_pq.blocks[block_id]
             block_origin = model.blocks[block_id]
             
             if args.qwerty_mode == 'mlp':
-                side_net = SideNetwork(1152, 4 * 1152, 1152).to(device)
+                side_net = SideNetwork(1152).to(device)
                 side_net = DDP(side_net, device_ids=[device])
                 opt = torch.optim.AdamW(side_net.parameters(), lr=1e-5, weight_decay=0.02)
                 criterion = nn.MSELoss()
@@ -131,7 +137,7 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                 output_quant = torch.zeros(size=[0,])
                 output_t_ = torch.zeros(size=[0,])
             elif args.qwerty_mode == 'distill':
-                block_distill = deepcopy(model_pq.blocks[block_id]).to(device)
+                block_distill = deepcopy(model_cali.blocks[block_id]).to(device)
                 block_distill.train()
                 block_distill = DDP(block_distill, device_ids=[device])
                 opt = torch.optim.AdamW(block_distill.parameters(), lr=1e-5, weight_decay=0.02)
@@ -146,19 +152,18 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                         quant_out = block_q(x_out, c_out).detach()
 
                     if args.qwerty_mode == 'mlp':
-                        predict_diff = side_net(x_out)
-                        gt_diff = full_precision_out - quant_out
-                        loss = criterion(predict_diff, gt_diff)
+                        cali_out = side_net(x_out, quant_out, cali=True)
+                        loss = criterion(cali_out, full_precision_out)
                         opt.zero_grad()
                         loss.backward()
                         opt.step()
                         with torch.no_grad():
-                            loss_l1 = (full_precision_out - quant_out - predict_diff).detach().abs().mean()
-                            ss_tot = torch.sum((gt_diff - gt_diff.mean(dim=0)).pow(2))
-                            ss_res = torch.sum((gt_diff - predict_diff).pow(2))
+                            loss_l1 = (full_precision_out - cali_out).detach().abs().mean()
+                            ss_tot = torch.sum((full_precision_out - full_precision_out.mean(dim=0)).pow(2))
+                            ss_res = torch.sum((full_precision_out - cali_out).pow(2))
                             r2_score = 1 - ss_res / ss_tot
                         if i % 100 == 0 and rank == 0:
-                            logger.info(f"[{block_id}/{len(model_pq.blocks)}, {epoch}/{args.epochs}] MSE Loss: {loss.item():.4f}, L1 Loss: {loss_l1.item():.4f}, r2 score: {r2_score.item():.4f}")
+                            logger.info(f"[{block_id}/{len(model_cali.blocks)}, {epoch}/{args.epochs}] MSE Loss: {loss.item():.4f}, L1 Loss: {loss_l1.item():.4f}, r2 score: {r2_score.item():.4f}")
 
                     elif args.qwerty_mode == 'linear':
                         output_t_ = torch.cat([output_t_, x_out.detach().cpu()], dim=0)
@@ -167,18 +172,19 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                     
                     elif args.qwerty_mode == 'distill':
                         distill_out = block_distill(x_out, c_out)
+                        reset_block_code(block_origin, block_distill.module, logger, args)
                         loss = criterion(distill_out, full_precision_out.cuda())
                         opt.zero_grad()
                         loss.backward()
                         opt.step()
                         if i % 100 == 0 and rank == 0:
-                            logger.info(f"[{block_id}/{len(model_pq.blocks)}, {epoch}/{args.epochs}] MSE Loss: {loss.item():.4f}")
+                            logger.info(f"[{block_id}/{len(model_cali.blocks)}, {epoch}/{args.epochs}] MSE Loss: {loss.item():.4f}")
 
             if args.qwerty_mode == 'mlp':
                 dist.all_reduce(r2_score, op=dist.ReduceOp.SUM)
                 r2_score = r2_score / dist.get_world_size()
-                model_pq.blocks[block_id] = CompensationBlock(block=model_pq.blocks[block_id], side_net=deepcopy(side_net.module), r2_scores=r2_score, device=device)
-                model_pq.cuda()
+                model_cali.blocks[block_id] = CompensationBlock(block=model_cali.blocks[block_id], side_net=deepcopy(side_net.module), r2_scores=1, device=device)
+                model_cali.cuda()
             elif args.qwerty_mode == 'linear':
                 W, b, r2_score = lienar_regression(output_t_, output_full_precision - output_quant, block_id=block_id, logger=logger)
                 in_features = W.shape[1]
@@ -187,14 +193,14 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                 with torch.no_grad():
                     side_net.weight.copy_(W)
                     side_net.bias.copy_(b)
-                model_pq.blocks[block_id] = CompensationBlock(block=model_pq.blocks[block_id], side_net=deepcopy(side_net), r2_scores=r2_score, device=device)
-                model_pq.cuda()
+                model_cali.blocks[block_id] = CompensationBlock(block=model_cali.blocks[block_id], side_net=deepcopy(side_net), r2_scores=r2_score, device=device)
+                model_cali.cuda()
                 side_net.cuda()
             elif args.qwerty_mode == 'distill':
-                model_pq.blocks[block_id] = deepcopy(block_distill.module)
-                model_pq.cuda()
+                model_cali.blocks[block_id] = deepcopy(block_distill.module)
+                model_cali.cuda()
 
-            output_x_previous = torch.zeros(size=[0,]).to(device)
+            output_x_previous = torch.zeros(size=[0,])
             quant_error = []
             qwerty_error = []
             side_error = []
@@ -202,8 +208,8 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                 with torch.no_grad():
                     x_out = x_out.cuda()
                     c_out = c_out.cuda()
-                    previous_out = model_pq.blocks[block_id](x_out, c_out)
-                    output_x_previous = torch.cat([output_x_previous, previous_out.detach()], dim=0)
+                    previous_out = model_cali.blocks[block_id](x_out, c_out)
+                    output_x_previous = torch.cat([output_x_previous, previous_out.detach().cpu()], dim=0)
 
                     quant_out = block_q(x_out, c_out)
                     full_precision_out = block_origin(x_out, c_out)
@@ -213,21 +219,46 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                     if args.qwerty_mode == 'distill':
                         side_error.append((previous_out - full_precision_out).abs().mean())
                     else:
-                        predict_diff = side_net(x_out)
-                        side_error.append((full_precision_out - quant_out - predict_diff).abs().mean())
+                        cali_out = side_net(x_out, quant_out, cali=True)
+                        side_error.append((full_precision_out - cali_out).abs().mean())
 
             quant_error = torch.Tensor(quant_error).mean()
             qwerty_error = torch.Tensor(qwerty_error).mean()
             side_error = torch.Tensor(side_error).mean()
             if rank == 0:
-                logger.info(f"[{block_id}/{len(model_pq.blocks)}] Quantization error: {quant_error.item():.4f}; Qwerty error: {qwerty_error.item():.4f}; Side error: {side_error.item():.4f}")
+                logger.info(f"[{block_id}/{len(model_cali.blocks)}] Quantization error: {quant_error.item():.4f}; Qwerty error: {qwerty_error.item():.4f}; Side error: {side_error.item():.4f}")
             
             if rank == 0:
-                image_name = f"pq_qwerty_block{block_id}"
-                image_dir = f"{os.path.dirname(checkpoint_dir)}/gen"
+                image_dir = f"{os.path.dirname(checkpoint_dir)}/qwerty-2/{block_id}"
                 if not os.path.exists(image_dir):
                     os.makedirs(image_dir)
-                diffusion_gen.forward_val(vae, model.forward, model_pq.forward, cfg=False, name=f"{image_dir}/{image_name}", logger=logger)
+                # diffusion_gen.forward_val(vae, [model.forward, model_pq.forward, model_cali.forward], cfg=False, name=f"{image_dir}", logger=logger)
+            
+            del side_net
                 
     if rank == 0:
-        save_ckpt(model_pq, args, checkpoint_dir, logger)
+        save_ckpt(model_cali, args, checkpoint_dir, logger)
+
+
+def reset_block_code(block_ori, block_comp, logger, args):
+    fc_params = {
+        1: ("fc1", "mlp", "fc1"),
+        2: ("fc2", "mlp", "fc2"),
+        3: ("qkv", "attn", "qkv"),
+        4: ("proj", "attn", "proj"),
+        5: ("adaln", "adaLN_modulation", "1")
+    }
+    for fc_idx in range(1, 6):
+        file_name, layer_name, org_name = fc_params[fc_idx]
+        weight_org = getattr(getattr(block_ori, layer_name), org_name).weight.detach()
+        
+        if fc_idx == 1:
+            block_comp.mlp.fc1.reset_code(weight_org)
+        if fc_idx == 2:
+            block_comp.mlp.fc2.reset_code(weight_org)
+        if fc_idx == 3:
+            block_comp.attn.qkv.reset_code(weight_org)
+        if fc_idx == 4:
+            block_comp.attn.proj.reset_code(weight_org)
+        if fc_idx == 5:
+            block_comp.adaLN_modulation[1].reset_code(weight_org)
