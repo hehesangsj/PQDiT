@@ -136,7 +136,7 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                 output_full_precision = torch.zeros(size=[0,])
                 output_quant = torch.zeros(size=[0,])
                 output_t_ = torch.zeros(size=[0,])
-            elif args.qwerty_mode == 'distill':
+            elif args.qwerty_mode == 'distill' or args.qwerty_mode == 'gptq':
                 block_distill = deepcopy(model_cali.blocks[block_id]).to(device)
                 block_distill.train()
                 block_distill = DDP(block_distill, device_ids=[device])
@@ -150,7 +150,6 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                         c_out = c_out.cuda()
                         full_precision_out = block_origin(x_out, c_out).detach()
                         quant_out = block_q(x_out, c_out).detach()
-
                     if args.qwerty_mode == 'mlp':
                         cali_out = side_net(x_out, quant_out, cali=True)
                         loss = criterion(cali_out, full_precision_out)
@@ -164,12 +163,10 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                             r2_score = 1 - ss_res / ss_tot
                         if i % 100 == 0 and rank == 0:
                             logger.info(f"[{block_id}/{len(model_cali.blocks)}, {epoch}/{args.epochs}] MSE Loss: {loss.item():.4f}, L1 Loss: {loss_l1.item():.4f}, r2 score: {r2_score.item():.4f}")
-
                     elif args.qwerty_mode == 'linear':
                         output_t_ = torch.cat([output_t_, x_out.detach().cpu()], dim=0)
                         output_full_precision = torch.cat([output_full_precision, full_precision_out.detach().cpu()], dim=0)
                         output_quant = torch.cat([output_quant, quant_out.detach().cpu()], dim=0)
-                    
                     elif args.qwerty_mode == 'distill':
                         distill_out = block_distill(x_out, c_out)
                         reset_block_code(block_origin, block_distill.module, logger, args)
@@ -179,6 +176,14 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                         opt.step()
                         if i % 100 == 0 and rank == 0:
                             logger.info(f"[{block_id}/{len(model_cali.blocks)}, {epoch}/{args.epochs}] MSE Loss: {loss.item():.4f}")
+                    elif args.qwerty_mode == 'gptq':
+                        loss_adaln, loss_fc1, loss_fc2, loss_qkv, loss_proj = block_distill(x_out, c_out, gptq=True, block_origin=block_origin)
+                        loss = loss_adaln + loss_fc1 + loss_fc2 + loss_qkv + loss_proj
+                        opt.zero_grad()
+                        loss.backward()
+                        opt.step()
+                        if i % 100 == 0 and rank == 0:
+                            logger.info(f"[{block_id}/{len(model_cali.blocks)}, {epoch}/{args.epochs}] adaLN: {loss_adaln.item():.4f}, fc1: {loss_fc1.item():.4f}, fc2: {loss_fc2.item():.4f}, qkv: {loss_qkv.item():.4f}, proj: {loss_proj.item():.4f}")
 
             if args.qwerty_mode == 'mlp':
                 dist.all_reduce(r2_score, op=dist.ReduceOp.SUM)
@@ -196,7 +201,7 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                 model_cali.blocks[block_id] = CompensationBlock(block=model_cali.blocks[block_id], side_net=deepcopy(side_net), r2_scores=r2_score, device=device)
                 model_cali.cuda()
                 side_net.cuda()
-            elif args.qwerty_mode == 'distill':
+            elif args.qwerty_mode == 'distill' or args.qwerty_mode == 'gptq':
                 model_cali.blocks[block_id] = deepcopy(block_distill.module)
                 model_cali.cuda()
 
@@ -208,15 +213,17 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
                 with torch.no_grad():
                     x_out = x_out.cuda()
                     c_out = c_out.cuda()
-                    previous_out = model_cali.blocks[block_id](x_out, c_out)
+                    if args.qwerty_mode == 'gptq':
+                        previous_out = model.blocks[block_id](x_out, c_out)
+                    else:
+                        previous_out = model_cali.blocks[block_id](x_out, c_out)
                     output_x_previous = torch.cat([output_x_previous, previous_out.detach().cpu()], dim=0)
-
                     quant_out = block_q(x_out, c_out)
                     full_precision_out = block_origin(x_out, c_out)
                     quant_error.append((quant_out - full_precision_out).abs().mean())
                     qwerty_error.append((previous_out - full_precision_out).abs().mean())
 
-                    if args.qwerty_mode == 'distill':
+                    if args.qwerty_mode == 'distill' or args.qwerty_mode == 'gptq':
                         side_error.append((previous_out - full_precision_out).abs().mean())
                     else:
                         cali_out = side_net(x_out, quant_out, cali=True)
@@ -227,7 +234,6 @@ def generate_compensation_model(args, logger, model, model_pq, vae, checkpoint_d
             side_error = torch.Tensor(side_error).mean()
             if rank == 0:
                 logger.info(f"[{block_id}/{len(model_cali.blocks)}] Quantization error: {quant_error.item():.4f}; Qwerty error: {qwerty_error.item():.4f}; Side error: {side_error.item():.4f}")
-            
             if rank == 0:
                 image_dir = f"{os.path.dirname(checkpoint_dir)}/qwerty-2/{block_id}"
                 if not os.path.exists(image_dir):

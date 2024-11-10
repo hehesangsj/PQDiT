@@ -19,6 +19,7 @@ import os
 import nanopq
 import matplotlib.pyplot as plt
 import seaborn as sns
+import torch.nn.functional as F
 
 def modulate(x, shift, scale):
     return x * (1 + scale.unsqueeze(1)) + shift.unsqueeze(1)
@@ -98,6 +99,50 @@ class LabelEmbedder(nn.Module):
         return embeddings
 
 
+class Attention_my(Attention):
+    def forward(self, x, gptq=False):
+        B, N, C = x.shape
+        act = []
+        act.append(x)
+        qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, self.head_dim).permute(2, 0, 3, 1, 4)
+        q, k, v = qkv.unbind(0)
+        q, k = self.q_norm(q), self.k_norm(k)
+
+        if self.fused_attn:
+            x = F.scaled_dot_product_attention(
+                q, k, v,
+                dropout_p=self.attn_drop.p if self.training else 0.,
+            )
+        else:
+            q = q * self.scale
+            attn = q @ k.transpose(-2, -1)
+            attn = attn.softmax(dim=-1)
+            attn = self.attn_drop(attn)
+            x = attn @ v
+        x = x.transpose(1, 2).reshape(B, N, C)
+        act.append(x)
+        x = self.proj(x)
+        x = self.proj_drop(x)
+        if gptq:
+            return x, act
+        return x
+
+
+class Mlp_my(Mlp):
+    def forward(self, x, gptq=False):
+        act = []
+        act.append(x)
+        x = self.fc1(x)
+        x = self.act(x)
+        x = self.drop1(x)
+        x = self.norm(x)
+        act.append(x)
+        x = self.fc2(x)
+        x = self.drop2(x)
+        if gptq:
+            return x, act
+        return x
+    
 #################################################################################
 #                                 Core DiT Model                                #
 #################################################################################
@@ -109,7 +154,7 @@ class DiTBlock(nn.Module):
     def __init__(self, hidden_size, num_heads, mlp_ratio=4.0, **block_kwargs):
         super().__init__()
         self.norm1 = nn.LayerNorm(hidden_size, elementwise_affine=False, eps=1e-6)
-        self.attn = Attention(hidden_size, num_heads=num_heads, qkv_bias=True, **block_kwargs)
+        self.attn = Attention_my(hidden_size, num_heads=num_heads, qkv_bias=True, **block_kwargs)
         self.norm2 = nn.LayerNorm(hidden_size, elementwise_affine=False, eps=1e-6)
         mlp_hidden_dim = int(hidden_size * mlp_ratio)
         approx_gelu = lambda: nn.GELU(approximate="tanh")
@@ -119,94 +164,108 @@ class DiTBlock(nn.Module):
             nn.Linear(hidden_size, 6 * hidden_size, bias=True)
         )
 
-    # def forward(self, x, c, stat_block=None):
+    def forward(self, x, c, gptq=False, block_origin=None):
+        if not gptq:
+            shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = self.adaLN_modulation(c).chunk(6, dim=1)
+            x = x + gate_msa.unsqueeze(1) * self.attn(modulate(self.norm1(x), shift_msa, scale_msa))
+            x = x + gate_mlp.unsqueeze(1) * self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp))
+            return x
+        else:
+            with torch.no_grad():
+                act_1 = block_origin.adaLN_modulation[0](x)
+                shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = block_origin.adaLN_modulation(c).chunk(6, dim=1)
+                x, act_2 = self.attn(modulate(self.norm1(x), shift_msa, scale_msa), gptq=True)
+                x = x + gate_msa.unsqueeze(1) * x
+                x, act_3 = self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp), gptq=True)
+            loss_adaln = self.adaLN_modulation[1].get_loss_act(uncompressed_weight=block_origin.adaLN_modulation[1], act=act_1)
+            loss_fc1 = self.attn.fc1.get_loss_act(uncompressed_weight=block_origin.attn.fc1, act=act_3[0])
+            loss_fc2 = self.attn.fc2.get_loss_act(uncompressed_weight=block_origin.attn.fc2, act=act_3[1])
+            loss_qkv = self.attn.qkv.get_loss_act(uncompressed_weight=block_origin.attn.qkv, act=act_2[0])
+            loss_proj = self.attn.proj.get_loss_act(uncompressed_weight=block_origin.attn.proj, act=act_2[1])
+        return loss_adaln, loss_fc1, loss_fc2, loss_qkv, loss_proj
+
+    # def forward(self, x, c, stat_block=None, time_step=None):
+    #     stats = {}
+    #     stat = (stat_block != None)
+    #     if stat:
+    #         stats["input_x"] = {
+    #             "min": x.min().item(),
+    #             "max": x.max().item(),
+    #             "mean": x.mean().item(),
+    #             "std": x.std().item()
+    #         }
+        
     #     shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = self.adaLN_modulation(c).chunk(6, dim=1)
-    #     x = x + gate_msa.unsqueeze(1) * self.attn(modulate(self.norm1(x), shift_msa, scale_msa))
-    #     x = x + gate_mlp.unsqueeze(1) * self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp))
+        
+    #     if stat:
+    #         stats["shift_msa"] = {
+    #             "min": shift_msa.min().item(),
+    #             "max": shift_msa.max().item(),
+    #             "mean": shift_msa.mean().item(),
+    #             "std": shift_msa.std().item()
+    #         }
+    #         stats["scale_msa"] = {
+    #             "min": scale_msa.min().item(),
+    #             "max": scale_msa.max().item(),
+    #             "mean": scale_msa.mean().item(),
+    #             "std": scale_msa.std().item()
+    #         }
+    #         stats["gate_msa"] = {
+    #             "min": gate_msa.min().item(),
+    #             "max": gate_msa.max().item(),
+    #             "mean": gate_msa.mean().item(),
+    #             "std": gate_msa.std().item()
+    #         }
+    #         stats["shift_mlp"] = {
+    #             "min": shift_mlp.min().item(),
+    #             "max": shift_mlp.max().item(),
+    #             "mean": shift_mlp.mean().item(),
+    #             "std": shift_mlp.std().item()
+    #         }
+    #         stats["scale_mlp"] = {
+    #             "min": scale_mlp.min().item(),
+    #             "max": scale_mlp.max().item(),
+    #             "mean": scale_mlp.mean().item(),
+    #             "std": scale_mlp.std().item()
+    #         }
+    #         stats["gate_mlp"] = {
+    #             "min": gate_mlp.min().item(),
+    #             "max": gate_mlp.max().item(),
+    #             "mean": gate_mlp.mean().item(),
+    #             "std": gate_mlp.std().item()
+    #         }
+        
+    #     x_attn = self.attn(modulate(self.norm1(x), shift_msa, scale_msa))
+    #     x = x + gate_msa.unsqueeze(1) * x_attn
+        
+    #     if stat:
+    #         stats["attn_output"] = {
+    #             "min": x_attn.min().item(),
+    #             "max": x_attn.max().item(),
+    #             "mean": x_attn.mean().item(),
+    #             "std": x_attn.std().item()
+    #         }
+        
+    #     x_mlp = self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp))
+    #     x = x + gate_mlp.unsqueeze(1) * x_mlp
+        
+    #     if stat:
+    #         stats["mlp_output"] = {
+    #             "min": x_mlp.min().item(),
+    #             "max": x_mlp.max().item(),
+    #             "mean": x_mlp.mean().item(),
+    #             "std": x_mlp.std().item()
+    #         }
+        
+    #     if stat:
+    #         file_exists = os.path.isfile('block_statistics.csv') and os.path.getsize('block_statistics.csv') > 0
+    #         with open('block_statistics.csv', 'a') as file:
+    #             if not file_exists:
+    #                 file.write("Time,Block,Parameter,Min,Max,Mean,Std\n")
+    #             for key, values in stats.items():
+    #                 file.write(f"{time_step},{stat_block},{key},{values['min']},{values['max']},{values['mean']},{values['std']}\n")
+
     #     return x
-
-    def forward(self, x, c, stat_block=None, time_step=None):
-        stats = {}
-        stat = (stat_block != None)
-        if stat:
-            stats["input_x"] = {
-                "min": x.min().item(),
-                "max": x.max().item(),
-                "mean": x.mean().item(),
-                "std": x.std().item()
-            }
-        
-        shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = self.adaLN_modulation(c).chunk(6, dim=1)
-        
-        if stat:
-            stats["shift_msa"] = {
-                "min": shift_msa.min().item(),
-                "max": shift_msa.max().item(),
-                "mean": shift_msa.mean().item(),
-                "std": shift_msa.std().item()
-            }
-            stats["scale_msa"] = {
-                "min": scale_msa.min().item(),
-                "max": scale_msa.max().item(),
-                "mean": scale_msa.mean().item(),
-                "std": scale_msa.std().item()
-            }
-            stats["gate_msa"] = {
-                "min": gate_msa.min().item(),
-                "max": gate_msa.max().item(),
-                "mean": gate_msa.mean().item(),
-                "std": gate_msa.std().item()
-            }
-            stats["shift_mlp"] = {
-                "min": shift_mlp.min().item(),
-                "max": shift_mlp.max().item(),
-                "mean": shift_mlp.mean().item(),
-                "std": shift_mlp.std().item()
-            }
-            stats["scale_mlp"] = {
-                "min": scale_mlp.min().item(),
-                "max": scale_mlp.max().item(),
-                "mean": scale_mlp.mean().item(),
-                "std": scale_mlp.std().item()
-            }
-            stats["gate_mlp"] = {
-                "min": gate_mlp.min().item(),
-                "max": gate_mlp.max().item(),
-                "mean": gate_mlp.mean().item(),
-                "std": gate_mlp.std().item()
-            }
-        
-        x_attn = self.attn(modulate(self.norm1(x), shift_msa, scale_msa))
-        x = x + gate_msa.unsqueeze(1) * x_attn
-        
-        if stat:
-            stats["attn_output"] = {
-                "min": x_attn.min().item(),
-                "max": x_attn.max().item(),
-                "mean": x_attn.mean().item(),
-                "std": x_attn.std().item()
-            }
-        
-        x_mlp = self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp))
-        x = x + gate_mlp.unsqueeze(1) * x_mlp
-        
-        if stat:
-            stats["mlp_output"] = {
-                "min": x_mlp.min().item(),
-                "max": x_mlp.max().item(),
-                "mean": x_mlp.mean().item(),
-                "std": x_mlp.std().item()
-            }
-        
-        if stat:
-            file_exists = os.path.isfile('block_statistics.csv') and os.path.getsize('block_statistics.csv') > 0
-            with open('block_statistics.csv', 'a') as file:
-                if not file_exists:
-                    file.write("Time,Block,Parameter,Min,Max,Mean,Std\n")
-                for key, values in stats.items():
-                    file.write(f"{time_step},{stat_block},{key},{values['min']},{values['max']},{values['mean']},{values['std']}\n")
-
-        return x
 
 class FinalLayer(nn.Module):
     """
