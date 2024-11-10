@@ -103,22 +103,14 @@ class CompressedLinear(AbstractCompressedLayer):
         codebook_loss = torch.mean((weight_quantized - weight) **2)
 
         return codebook_loss
-
-    def reset_code_act(self, uncompressed_weight: torch.Tensor, act: torch.Tensor):
-        weight = uncompressed_weight.detach()  # Shape: [C, D]
-        training_set = weight.reshape(-1, self.codebook.shape[1])  
-        x = act  # Shape: [B, N, C]
-        wx = torch.einsum('bnc,dc->bnd', x, training_set)  # xW, shape: [B, N, D]
-        wx_codebook = torch.einsum('bnc,dc->bnd', x, self.codebook)  # xW' (codebook), shape: [B, N, D]
-        d = torch.sum(wx**2, dim=2, keepdim=True) + \
-            torch.sum(wx_codebook**2, dim=2) - 2 * torch.einsum('bnd,bnd->bnd', wx, wx_codebook)
-        self.codes_matrix = nn.Parameter(torch.argmin(d, dim=2).byte(), requires_grad=False).to(uncompressed_weight.device)
     
     def get_loss_act(self, uncompressed_weight: torch.Tensor, act: torch.Tensor):
-        weight = uncompressed_weight.detach()
-        training_set = weight.reshape(-1, self.codebook.shape[1])
-        wx = torch.einsum('bnc,dc->bnd', act, training_set)  # xW, shape: [B, N, D]
-        wx_codebook = torch.einsum('bnc,dc->bnd', act, self.codebook)  # xW' (codebook), shape: [B, N, D]
+        act = act.reshape(act.shape[0]*act.shape[1], -1, 4)  # [2048, 288, 4]
+        weight = uncompressed_weight.detach()   # [6912, 1152]
+        training_set = weight.reshape(weight.shape[0], -1, self.codebook.shape[1])  # [6912, 288, 4]
+        wx = torch.einsum('bnc,dc->bnd', act, training_set)  # xW, shape: [2048, 6912, 288]
+        # self.codebook.shape: [256, 4]
+        wx_codebook = torch.einsum('bnc,dc->bnd', act, self.codebook)  # xW', shape: [2048, , D]
         # Compute L2 distance ||xW - xW'||^2
         d = torch.sum(wx**2, dim=2, keepdim=True) + \
             torch.sum(wx_codebook**2, dim=2) - 2 * torch.einsum('bnd,bnd->bnd', wx, wx_codebook)

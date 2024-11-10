@@ -158,7 +158,7 @@ class DiTBlock(nn.Module):
         self.norm2 = nn.LayerNorm(hidden_size, elementwise_affine=False, eps=1e-6)
         mlp_hidden_dim = int(hidden_size * mlp_ratio)
         approx_gelu = lambda: nn.GELU(approximate="tanh")
-        self.mlp = Mlp(in_features=hidden_size, hidden_features=mlp_hidden_dim, act_layer=approx_gelu, drop=0)
+        self.mlp = Mlp_my(in_features=hidden_size, hidden_features=mlp_hidden_dim, act_layer=approx_gelu, drop=0)
         self.adaLN_modulation = nn.Sequential(
             nn.SiLU(),
             nn.Linear(hidden_size, 6 * hidden_size, bias=True)
@@ -177,11 +177,11 @@ class DiTBlock(nn.Module):
                 x, act_2 = self.attn(modulate(self.norm1(x), shift_msa, scale_msa), gptq=True)
                 x = x + gate_msa.unsqueeze(1) * x
                 x, act_3 = self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp), gptq=True)
-            loss_adaln = self.adaLN_modulation[1].get_loss_act(uncompressed_weight=block_origin.adaLN_modulation[1], act=act_1)
-            loss_fc1 = self.attn.fc1.get_loss_act(uncompressed_weight=block_origin.attn.fc1, act=act_3[0])
-            loss_fc2 = self.attn.fc2.get_loss_act(uncompressed_weight=block_origin.attn.fc2, act=act_3[1])
-            loss_qkv = self.attn.qkv.get_loss_act(uncompressed_weight=block_origin.attn.qkv, act=act_2[0])
-            loss_proj = self.attn.proj.get_loss_act(uncompressed_weight=block_origin.attn.proj, act=act_2[1])
+            loss_adaln = self.adaLN_modulation[1].get_loss_act(uncompressed_weight=block_origin.adaLN_modulation[1].weight, act=act_1)
+            loss_fc1 = self.attn.fc1.get_loss_act(uncompressed_weight=block_origin.attn.fc1.weight, act=act_3[0])
+            loss_fc2 = self.attn.fc2.get_loss_act(uncompressed_weight=block_origin.attn.fc2.weight, act=act_3[1])
+            loss_qkv = self.attn.qkv.get_loss_act(uncompressed_weight=block_origin.attn.qkv.weight, act=act_2[0])
+            loss_proj = self.attn.proj.get_loss_act(uncompressed_weight=block_origin.attn.proj.weight, act=act_2[1])
         return loss_adaln, loss_fc1, loss_fc2, loss_qkv, loss_proj
 
     # def forward(self, x, c, stat_block=None, time_step=None):
