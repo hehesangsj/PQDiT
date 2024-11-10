@@ -78,3 +78,11 @@ def decode(codes_matrix: torch.Tensor, codebook: torch.Tensor) -> torch.Tensor:
     one_dimensional_output = torch.index_select(codebook, dim=0, index=one_dimensional_codes)
 
     return one_dimensional_output.reshape(num_output_rows, -1)
+
+def decode_all(codes_matrixs: torch.Tensor, codebooks: torch.Tensor) -> torch.Tensor:
+    weights = []
+    for codes_matrix, codebook in zip(codes_matrixs, codebooks):
+        weight = decode(codes_matrix, codebook)
+        weights.append(weight)
+    return torch.cat(weights, dim=0)
+

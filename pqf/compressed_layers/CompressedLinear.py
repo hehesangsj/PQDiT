@@ -13,7 +13,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from pqf.compression.coding import decode, get_num_centroids
+from pqf.compression.coding import decode, decode_all, get_num_centroids
 from pqf.compression.kmeans import kmeans
 from pqf.compression.kmeans_sr import src
 from pqf.compressed_layers.AbstractCompressedLayer import AbstractCompressedLayer
@@ -35,13 +35,50 @@ class CompressedLinear(AbstractCompressedLayer):
         self.codebook = nn.Parameter(codebook)
 
     def _get_uncompressed_weight(self):
-        return decode(self.codes_matrix, self.codebook).float()
+        # return decode(self.codes_matrix, self.codebook).float()
+        return decode_all(self.codes_matrix, self.codebook).float()
 
     def forward(self, x):
         return F.linear(input=x, weight=self._get_uncompressed_weight(), bias=self.bias)
 
     @staticmethod
     def from_uncompressed(
+        uncompressed_layer: torch.nn.Linear,
+        k: int,
+        k_means_n_iters: int,
+        kmeans_fn: Callable,
+        subvector_size: int,
+        name: str = "",
+    ) -> "CompressedLinear":
+
+        assert kmeans_fn in [kmeans, src]   
+        weight = uncompressed_layer.weight.detach()
+        c_out, c_in = weight.size()
+        num_blocks_per_row = c_in // subvector_size
+        training_set = weight.reshape(weight.shape[0], -1, subvector_size)
+        num_centroids = get_num_centroids(num_blocks_per_row, c_out, k)
+        
+        all_codebooks = []
+        all_codes = []
+        for i in range(training_set.shape[1]):
+            training_set_block = training_set[:, i]
+            codebook, codes = kmeans_fn(training_set_block, k=num_centroids, n_iters=k_means_n_iters, slow_cb_update=True)
+            codes_matrix = codes.reshape(-1, num_blocks_per_row)
+            all_codebooks.append(codebook)
+            all_codes.append(codes_matrix)
+        all_codebooks = torch.cat(all_codebooks, dim=0)
+        all_codes = torch.cat(all_codes, dim=0)
+        
+        # Log quantization error
+        decoded_weights = decode_all(all_codes, all_codebooks)
+        error = (decoded_weights - weight).pow(2).sum() / (num_blocks_per_row * weight.size(0))
+        AbstractCompressedLayer.log_quantization_error(name, k_means_n_iters, error, all_codebooks, all_codes)
+
+        return CompressedLinear(all_codes, all_codebooks, uncompressed_layer.bias)
+    
+
+    @staticmethod
+    def from_uncompressed_old(
         uncompressed_layer: torch.nn.Linear,
         k: int,
         k_means_n_iters: int,
@@ -60,8 +97,7 @@ class CompressedLinear(AbstractCompressedLayer):
         Returns:
             compressed_layer: Initialized compressed layer
         """
-
-        assert kmeans_fn in [kmeans, src]
+        assert kmeans_fn in [kmeans, src]   
 
         weight = uncompressed_layer.weight.detach()
 
@@ -69,10 +105,10 @@ class CompressedLinear(AbstractCompressedLayer):
 
         num_blocks_per_row = c_in // subvector_size
 
-        training_set = weight.reshape(-1, subvector_size)
+        training_set = weight.reshape(weight.shape[0], -1, subvector_size)
 
         num_centroids = get_num_centroids(num_blocks_per_row, c_out, k)
-
+        
         codebook, codes = kmeans_fn(training_set, k=num_centroids, n_iters=k_means_n_iters, slow_cb_update=True)
         codes_matrix = codes.reshape(-1, num_blocks_per_row)
 
@@ -82,6 +118,7 @@ class CompressedLinear(AbstractCompressedLayer):
         AbstractCompressedLayer.log_quantization_error(name, k_means_n_iters, error, codebook, codes_matrix)
 
         return CompressedLinear(codes_matrix, codebook, uncompressed_layer.bias)
+    
 
     def reset_code(self, uncompressed_weight: torch.Tensor):
         weight = uncompressed_weight.detach()

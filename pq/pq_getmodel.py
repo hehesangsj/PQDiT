@@ -15,7 +15,7 @@ from pq.utils_traineval import sample, train, dit_generator, save_ckpt
 
 def main(args):
     init_distributed_mode(args)
-    rank, device, logger, experiment_dir = init_env(args, dir='001-DiT-XL-2')
+    rank, device, logger, experiment_dir = init_env(args, dir='005-DiT-XL-2')
     model, state_dict, diffusion, vae = init_model(args, device)
     checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
     latent_size = args.image_size // 8
