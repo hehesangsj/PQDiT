@@ -21,19 +21,21 @@ class AbstractCompressedLayer(ABC, nn.Module):
 
     def initialize_codes(self, codes_matrix: nn.Module, codebook: nn.Module) -> None:
         """Save the codes using the smalles amount of memory possible"""
-        if codebook.size(0) <= (1 << 8):
-            self.codes_matrix = nn.Parameter(codes_matrix.byte(), requires_grad=False)
-        elif codebook.size(0) <= (1 << 16):
-            self.codes_matrix = nn.Parameter(codes_matrix.short(), requires_grad=False)
-        else:
-            self.codes_matrix = nn.Parameter(codes_matrix.int(), requires_grad=False)
+        # if codebook.size(0) <= (1 << 8):
+        #     self.codes_matrix = nn.Parameter(codes_matrix.byte(), requires_grad=False)
+        # elif codebook.size(0) <= (1 << 16):
+        #     self.codes_matrix = nn.Parameter(codes_matrix.short(), requires_grad=False)
+        # else:
+        #     self.codes_matrix = nn.Parameter(codes_matrix.int(), requires_grad=False)
+        
+        self.codes_matrix = nn.Parameter(codes_matrix.byte(), requires_grad=False)
 
     @staticmethod
     def log_quantization_error(
-        name: str, k_means_n_iters: int, error: float, codebook: nn.Module, codes_matrix: nn.Module
-    ) -> None:
+        name, k_means_n_iters, error, codebook, codes_matrix, logger=None
+    ):
         """Log the quantization error of the codes matrix"""
-        logging.info(
+        logger.info(
             "{} compression: {}; mse: {:2e}; codebook size: {}; code size: {}".format(
                 name,
                 k_means_n_iters,

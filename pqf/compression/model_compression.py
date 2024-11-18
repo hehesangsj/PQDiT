@@ -50,7 +50,7 @@ def prefix_name_lambda(prefix: str) -> Callable[[str], str]:
 
 
 @torch.no_grad()
-def apply_recursively_to_model(fn: RecursiveReplaceFn, model: torch.nn.Module, prefix: str = "") -> None:
+def apply_recursively_to_model(fn, model, prefix="", logger=None) -> None:
     """Recursively apply fn on all modules in models
 
     Parameters:
@@ -70,21 +70,23 @@ def apply_recursively_to_model(fn: RecursiveReplaceFn, model: torch.nn.Module, p
         if fn(model, child, idx, child_name, child_prefixed_name):
             continue
         else:
-            print(f"Applying recursively to {child_prefixed_name}")
-            apply_recursively_to_model(fn, child, child_prefixed_name)
+            logger.info(f"Applying recursively to {child_prefixed_name}")
+            apply_recursively_to_model(fn, child, child_prefixed_name, logger=logger)
 
 
 def compress_model(
-    model: torch.nn.Module,
-    ignored_modules: Union[List[str], Set[str]],
-    k: int,
-    k_means_n_iters: int,
-    k_means_type: str,
-    fc_subvector_size: int,
-    pw_subvector_size: int,
-    large_subvectors: bool,
-    layer_specs: Optional[Dict] = None,
-) -> torch.nn.Module:
+    model,
+    ignored_modules,
+    k,
+    k_means_n_iters,
+    k_means_type,
+    fc_subvector_size,
+    pw_subvector_size,
+    large_subvectors,
+    layer_specs = None,
+    logger = None,
+    type = None
+):
     """
     Given a neural network, modify it to its compressed representation with hard codes
       - Linear is replaced with compressed_layers.CompressedLinear
@@ -137,14 +139,14 @@ def compress_model(
 
         elif isinstance(child, torch.nn.ConvTranspose2d):
             compressed_child = CompressedConvTranspose2d.from_uncompressed(
-                child, _k, _kmeans_n_iters, _kmeans_fn, _large_subvectors, _pw_subvector_size, name=prefixed_child_name
+                child, _k, _kmeans_n_iters, _kmeans_fn, _large_subvectors, _pw_subvector_size, name=prefixed_child_name, logger=logger
             )
             _replace_child(parent, name, compressed_child, idx)
             return True
 
         elif isinstance(child, torch.nn.Linear):
             compressed_child = CompressedLinear.from_uncompressed(
-                child, _k, _kmeans_n_iters, _kmeans_fn, _fc_subvector_size, name=prefixed_child_name
+                child, _k, _kmeans_n_iters, _kmeans_fn, _fc_subvector_size, name=prefixed_child_name, logger=logger, type=type
             )
             _replace_child(parent, name, compressed_child, idx)
             return True
@@ -153,5 +155,5 @@ def compress_model(
             print(f"skipping {prefixed_child_name}")
             return False
 
-    apply_recursively_to_model(_compress_and_replace_layer, model)
+    apply_recursively_to_model(_compress_and_replace_layer, model, logger=logger)
     return model

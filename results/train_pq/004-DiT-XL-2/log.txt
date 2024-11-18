@@ -292,3 +292,1136 @@
 [[34m2024-10-22 16:22:03[0m] Compression ratio: 14.02
 [[34m2024-10-22 16:22:03[0m] Saved checkpoint to results/train_pq/004-DiT-XL-2/checkpoints/ckpt.pt
 [[34m2024-10-22 16:22:23[0m] Done!
+[[34m2024-11-14 09:28:42[0m] Experiment directory created at results/train_pq/004-DiT-XL-2
+[[34m2024-11-14 09:29:00[0m] Applying recursively to blocks
+[[34m2024-11-14 09:29:00[0m] Applying recursively to blocks.0
+[[34m2024-11-14 09:29:00[0m] Applying recursively to blocks.0.norm1
+[[34m2024-11-14 09:29:00[0m] Applying recursively to blocks.0.attn
+[[34m2024-11-14 09:29:01[0m] blocks.0.attn.qkv compression: 1; mse: 1.931743e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.attn.q_norm
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.attn.k_norm
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.attn.attn_drop
+[[34m2024-11-14 09:29:01[0m] blocks.0.attn.proj compression: 1; mse: 7.651448e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.attn.proj_drop
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.norm2
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.mlp
+[[34m2024-11-14 09:29:01[0m] blocks.0.mlp.fc1 compression: 1; mse: 6.433387e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.mlp.act
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.mlp.drop1
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.mlp.norm
+[[34m2024-11-14 09:29:01[0m] blocks.0.mlp.fc2 compression: 1; mse: 3.792303e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.mlp.drop2
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.adaLN_modulation
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.0.adaLN_modulation.0
+[[34m2024-11-14 09:29:01[0m] blocks.0.adaLN_modulation.1 compression: 1; mse: 1.183982e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.norm1
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.attn
+[[34m2024-11-14 09:29:01[0m] blocks.1.attn.qkv compression: 1; mse: 2.536416e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.attn.q_norm
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.attn.k_norm
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.attn.attn_drop
+[[34m2024-11-14 09:29:01[0m] blocks.1.attn.proj compression: 1; mse: 8.949419e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.attn.proj_drop
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.norm2
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.mlp
+[[34m2024-11-14 09:29:01[0m] blocks.1.mlp.fc1 compression: 1; mse: 1.432540e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.mlp.act
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.mlp.drop1
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.mlp.norm
+[[34m2024-11-14 09:29:01[0m] blocks.1.mlp.fc2 compression: 1; mse: 1.908048e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.mlp.drop2
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.adaLN_modulation
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.1.adaLN_modulation.0
+[[34m2024-11-14 09:29:01[0m] blocks.1.adaLN_modulation.1 compression: 1; mse: 8.053609e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.2
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.2.norm1
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.2.attn
+[[34m2024-11-14 09:29:01[0m] blocks.2.attn.qkv compression: 1; mse: 2.930036e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.2.attn.q_norm
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.2.attn.k_norm
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.2.attn.attn_drop
+[[34m2024-11-14 09:29:01[0m] blocks.2.attn.proj compression: 1; mse: 5.513457e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.2.attn.proj_drop
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.2.norm2
+[[34m2024-11-14 09:29:01[0m] Applying recursively to blocks.2.mlp
+[[34m2024-11-14 09:29:02[0m] blocks.2.mlp.fc1 compression: 1; mse: 7.816268e-04; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.2.mlp.act
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.2.mlp.drop1
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.2.mlp.norm
+[[34m2024-11-14 09:29:02[0m] blocks.2.mlp.fc2 compression: 1; mse: 2.906519e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.2.mlp.drop2
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.2.adaLN_modulation
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.2.adaLN_modulation.0
+[[34m2024-11-14 09:29:02[0m] blocks.2.adaLN_modulation.1 compression: 1; mse: 8.839010e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.norm1
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.attn
+[[34m2024-11-14 09:29:02[0m] blocks.3.attn.qkv compression: 1; mse: 6.429398e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.attn.q_norm
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.attn.k_norm
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.attn.attn_drop
+[[34m2024-11-14 09:29:02[0m] blocks.3.attn.proj compression: 1; mse: 1.257213e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.attn.proj_drop
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.norm2
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.mlp
+[[34m2024-11-14 09:29:02[0m] blocks.3.mlp.fc1 compression: 1; mse: 2.449909e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.mlp.act
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.mlp.drop1
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.mlp.norm
+[[34m2024-11-14 09:29:02[0m] blocks.3.mlp.fc2 compression: 1; mse: 3.500100e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.mlp.drop2
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.adaLN_modulation
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.3.adaLN_modulation.0
+[[34m2024-11-14 09:29:02[0m] blocks.3.adaLN_modulation.1 compression: 1; mse: 1.002991e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.norm1
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.attn
+[[34m2024-11-14 09:29:02[0m] blocks.4.attn.qkv compression: 1; mse: 1.230777e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.attn.q_norm
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.attn.k_norm
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.attn.attn_drop
+[[34m2024-11-14 09:29:02[0m] blocks.4.attn.proj compression: 1; mse: 1.416760e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.attn.proj_drop
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.norm2
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.mlp
+[[34m2024-11-14 09:29:02[0m] blocks.4.mlp.fc1 compression: 1; mse: 1.129873e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.mlp.act
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.mlp.drop1
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.mlp.norm
+[[34m2024-11-14 09:29:02[0m] blocks.4.mlp.fc2 compression: 1; mse: 1.112744e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.mlp.drop2
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.adaLN_modulation
+[[34m2024-11-14 09:29:02[0m] Applying recursively to blocks.4.adaLN_modulation.0
+[[34m2024-11-14 09:29:03[0m] blocks.4.adaLN_modulation.1 compression: 1; mse: 1.128247e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.norm1
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.attn
+[[34m2024-11-14 09:29:03[0m] blocks.5.attn.qkv compression: 1; mse: 1.492478e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.attn.q_norm
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.attn.k_norm
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.attn.attn_drop
+[[34m2024-11-14 09:29:03[0m] blocks.5.attn.proj compression: 1; mse: 1.627102e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.attn.proj_drop
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.norm2
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.mlp
+[[34m2024-11-14 09:29:03[0m] blocks.5.mlp.fc1 compression: 1; mse: 1.687178e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.mlp.act
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.mlp.drop1
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.mlp.norm
+[[34m2024-11-14 09:29:03[0m] blocks.5.mlp.fc2 compression: 1; mse: 2.139617e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.mlp.drop2
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.adaLN_modulation
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.5.adaLN_modulation.0
+[[34m2024-11-14 09:29:03[0m] blocks.5.adaLN_modulation.1 compression: 1; mse: 1.284245e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.norm1
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.attn
+[[34m2024-11-14 09:29:03[0m] blocks.6.attn.qkv compression: 1; mse: 2.291430e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.attn.q_norm
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.attn.k_norm
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.attn.attn_drop
+[[34m2024-11-14 09:29:03[0m] blocks.6.attn.proj compression: 1; mse: 1.932911e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.attn.proj_drop
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.norm2
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.mlp
+[[34m2024-11-14 09:29:03[0m] blocks.6.mlp.fc1 compression: 1; mse: 1.860552e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.mlp.act
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.mlp.drop1
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.mlp.norm
+[[34m2024-11-14 09:29:03[0m] blocks.6.mlp.fc2 compression: 1; mse: 2.230269e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.mlp.drop2
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.adaLN_modulation
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.6.adaLN_modulation.0
+[[34m2024-11-14 09:29:03[0m] blocks.6.adaLN_modulation.1 compression: 1; mse: 1.162541e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.7
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.7.norm1
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.7.attn
+[[34m2024-11-14 09:29:03[0m] blocks.7.attn.qkv compression: 1; mse: 1.926468e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.7.attn.q_norm
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.7.attn.k_norm
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.7.attn.attn_drop
+[[34m2024-11-14 09:29:03[0m] blocks.7.attn.proj compression: 1; mse: 1.811661e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.7.attn.proj_drop
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.7.norm2
+[[34m2024-11-14 09:29:03[0m] Applying recursively to blocks.7.mlp
+[[34m2024-11-14 09:29:04[0m] blocks.7.mlp.fc1 compression: 1; mse: 1.985113e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.7.mlp.act
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.7.mlp.drop1
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.7.mlp.norm
+[[34m2024-11-14 09:29:04[0m] blocks.7.mlp.fc2 compression: 1; mse: 2.263786e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.7.mlp.drop2
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.7.adaLN_modulation
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.7.adaLN_modulation.0
+[[34m2024-11-14 09:29:04[0m] blocks.7.adaLN_modulation.1 compression: 1; mse: 1.347917e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.norm1
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.attn
+[[34m2024-11-14 09:29:04[0m] blocks.8.attn.qkv compression: 1; mse: 2.035476e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.attn.q_norm
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.attn.k_norm
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.attn.attn_drop
+[[34m2024-11-14 09:29:04[0m] blocks.8.attn.proj compression: 1; mse: 2.162638e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.attn.proj_drop
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.norm2
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.mlp
+[[34m2024-11-14 09:29:04[0m] blocks.8.mlp.fc1 compression: 1; mse: 2.083487e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.mlp.act
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.mlp.drop1
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.mlp.norm
+[[34m2024-11-14 09:29:04[0m] blocks.8.mlp.fc2 compression: 1; mse: 2.432903e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.mlp.drop2
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.adaLN_modulation
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.8.adaLN_modulation.0
+[[34m2024-11-14 09:29:04[0m] blocks.8.adaLN_modulation.1 compression: 1; mse: 1.398505e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.norm1
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.attn
+[[34m2024-11-14 09:29:04[0m] blocks.9.attn.qkv compression: 1; mse: 2.061083e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.attn.q_norm
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.attn.k_norm
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.attn.attn_drop
+[[34m2024-11-14 09:29:04[0m] blocks.9.attn.proj compression: 1; mse: 2.251003e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.attn.proj_drop
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.norm2
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.mlp
+[[34m2024-11-14 09:29:04[0m] blocks.9.mlp.fc1 compression: 1; mse: 2.126298e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.mlp.act
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.mlp.drop1
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.mlp.norm
+[[34m2024-11-14 09:29:04[0m] blocks.9.mlp.fc2 compression: 1; mse: 2.537418e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.mlp.drop2
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.adaLN_modulation
+[[34m2024-11-14 09:29:04[0m] Applying recursively to blocks.9.adaLN_modulation.0
+[[34m2024-11-14 09:29:05[0m] blocks.9.adaLN_modulation.1 compression: 1; mse: 1.598824e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.norm1
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.attn
+[[34m2024-11-14 09:29:05[0m] blocks.10.attn.qkv compression: 1; mse: 1.983946e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.attn.q_norm
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.attn.k_norm
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.attn.attn_drop
+[[34m2024-11-14 09:29:05[0m] blocks.10.attn.proj compression: 1; mse: 2.466145e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.attn.proj_drop
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.norm2
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.mlp
+[[34m2024-11-14 09:29:05[0m] blocks.10.mlp.fc1 compression: 1; mse: 2.210132e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.mlp.act
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.mlp.drop1
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.mlp.norm
+[[34m2024-11-14 09:29:05[0m] blocks.10.mlp.fc2 compression: 1; mse: 2.689888e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.mlp.drop2
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.adaLN_modulation
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.10.adaLN_modulation.0
+[[34m2024-11-14 09:29:05[0m] blocks.10.adaLN_modulation.1 compression: 1; mse: 2.009898e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.norm1
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.attn
+[[34m2024-11-14 09:29:05[0m] blocks.11.attn.qkv compression: 1; mse: 2.028611e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.attn.q_norm
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.attn.k_norm
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.attn.attn_drop
+[[34m2024-11-14 09:29:05[0m] blocks.11.attn.proj compression: 1; mse: 2.391445e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.attn.proj_drop
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.norm2
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.mlp
+[[34m2024-11-14 09:29:05[0m] blocks.11.mlp.fc1 compression: 1; mse: 2.244975e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.mlp.act
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.mlp.drop1
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.mlp.norm
+[[34m2024-11-14 09:29:05[0m] blocks.11.mlp.fc2 compression: 1; mse: 2.750895e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.mlp.drop2
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.adaLN_modulation
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.11.adaLN_modulation.0
+[[34m2024-11-14 09:29:05[0m] blocks.11.adaLN_modulation.1 compression: 1; mse: 1.908432e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.12
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.12.norm1
+[[34m2024-11-14 09:29:05[0m] Applying recursively to blocks.12.attn
+[[34m2024-11-14 09:29:06[0m] blocks.12.attn.qkv compression: 1; mse: 2.075943e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.attn.q_norm
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.attn.k_norm
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.attn.attn_drop
+[[34m2024-11-14 09:29:06[0m] blocks.12.attn.proj compression: 1; mse: 2.619996e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.attn.proj_drop
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.norm2
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.mlp
+[[34m2024-11-14 09:29:06[0m] blocks.12.mlp.fc1 compression: 1; mse: 2.196411e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.mlp.act
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.mlp.drop1
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.mlp.norm
+[[34m2024-11-14 09:29:06[0m] blocks.12.mlp.fc2 compression: 1; mse: 2.733932e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.mlp.drop2
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.adaLN_modulation
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.12.adaLN_modulation.0
+[[34m2024-11-14 09:29:06[0m] blocks.12.adaLN_modulation.1 compression: 1; mse: 1.896924e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.norm1
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.attn
+[[34m2024-11-14 09:29:06[0m] blocks.13.attn.qkv compression: 1; mse: 2.368748e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.attn.q_norm
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.attn.k_norm
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.attn.attn_drop
+[[34m2024-11-14 09:29:06[0m] blocks.13.attn.proj compression: 1; mse: 2.627193e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.attn.proj_drop
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.norm2
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.mlp
+[[34m2024-11-14 09:29:06[0m] blocks.13.mlp.fc1 compression: 1; mse: 2.135560e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.mlp.act
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.mlp.drop1
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.mlp.norm
+[[34m2024-11-14 09:29:06[0m] blocks.13.mlp.fc2 compression: 1; mse: 2.712830e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.mlp.drop2
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.adaLN_modulation
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.13.adaLN_modulation.0
+[[34m2024-11-14 09:29:06[0m] blocks.13.adaLN_modulation.1 compression: 1; mse: 1.860821e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.14
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.14.norm1
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.14.attn
+[[34m2024-11-14 09:29:06[0m] blocks.14.attn.qkv compression: 1; mse: 2.207063e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.14.attn.q_norm
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.14.attn.k_norm
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.14.attn.attn_drop
+[[34m2024-11-14 09:29:06[0m] blocks.14.attn.proj compression: 1; mse: 2.756115e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.14.attn.proj_drop
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.14.norm2
+[[34m2024-11-14 09:29:06[0m] Applying recursively to blocks.14.mlp
+[[34m2024-11-14 09:29:07[0m] blocks.14.mlp.fc1 compression: 1; mse: 2.149756e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.14.mlp.act
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.14.mlp.drop1
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.14.mlp.norm
+[[34m2024-11-14 09:29:07[0m] blocks.14.mlp.fc2 compression: 1; mse: 2.879739e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.14.mlp.drop2
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.14.adaLN_modulation
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.14.adaLN_modulation.0
+[[34m2024-11-14 09:29:07[0m] blocks.14.adaLN_modulation.1 compression: 1; mse: 2.243008e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.norm1
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.attn
+[[34m2024-11-14 09:29:07[0m] blocks.15.attn.qkv compression: 1; mse: 2.254530e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.attn.q_norm
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.attn.k_norm
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.attn.attn_drop
+[[34m2024-11-14 09:29:07[0m] blocks.15.attn.proj compression: 1; mse: 2.699572e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.attn.proj_drop
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.norm2
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.mlp
+[[34m2024-11-14 09:29:07[0m] blocks.15.mlp.fc1 compression: 1; mse: 2.076036e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.mlp.act
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.mlp.drop1
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.mlp.norm
+[[34m2024-11-14 09:29:07[0m] blocks.15.mlp.fc2 compression: 1; mse: 2.823922e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.mlp.drop2
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.adaLN_modulation
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.15.adaLN_modulation.0
+[[34m2024-11-14 09:29:07[0m] blocks.15.adaLN_modulation.1 compression: 1; mse: 1.975872e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.norm1
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.attn
+[[34m2024-11-14 09:29:07[0m] blocks.16.attn.qkv compression: 1; mse: 2.536011e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.attn.q_norm
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.attn.k_norm
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.attn.attn_drop
+[[34m2024-11-14 09:29:07[0m] blocks.16.attn.proj compression: 1; mse: 2.664442e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.attn.proj_drop
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.norm2
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.mlp
+[[34m2024-11-14 09:29:07[0m] blocks.16.mlp.fc1 compression: 1; mse: 1.993854e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.mlp.act
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.mlp.drop1
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.mlp.norm
+[[34m2024-11-14 09:29:07[0m] blocks.16.mlp.fc2 compression: 1; mse: 2.702603e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.mlp.drop2
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.adaLN_modulation
+[[34m2024-11-14 09:29:07[0m] Applying recursively to blocks.16.adaLN_modulation.0
+[[34m2024-11-14 09:29:08[0m] blocks.16.adaLN_modulation.1 compression: 1; mse: 1.657132e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.norm1
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.attn
+[[34m2024-11-14 09:29:08[0m] blocks.17.attn.qkv compression: 1; mse: 2.382979e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.attn.q_norm
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.attn.k_norm
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.attn.attn_drop
+[[34m2024-11-14 09:29:08[0m] blocks.17.attn.proj compression: 1; mse: 2.763657e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.attn.proj_drop
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.norm2
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.mlp
+[[34m2024-11-14 09:29:08[0m] blocks.17.mlp.fc1 compression: 1; mse: 1.954426e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.mlp.act
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.mlp.drop1
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.mlp.norm
+[[34m2024-11-14 09:29:08[0m] blocks.17.mlp.fc2 compression: 1; mse: 2.731755e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.mlp.drop2
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.adaLN_modulation
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.17.adaLN_modulation.0
+[[34m2024-11-14 09:29:08[0m] blocks.17.adaLN_modulation.1 compression: 1; mse: 1.614911e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.norm1
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.attn
+[[34m2024-11-14 09:29:08[0m] blocks.18.attn.qkv compression: 1; mse: 2.291676e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.attn.q_norm
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.attn.k_norm
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.attn.attn_drop
+[[34m2024-11-14 09:29:08[0m] blocks.18.attn.proj compression: 1; mse: 2.869644e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.attn.proj_drop
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.norm2
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.mlp
+[[34m2024-11-14 09:29:08[0m] blocks.18.mlp.fc1 compression: 1; mse: 1.991319e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.mlp.act
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.mlp.drop1
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.mlp.norm
+[[34m2024-11-14 09:29:08[0m] blocks.18.mlp.fc2 compression: 1; mse: 2.788939e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.mlp.drop2
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.adaLN_modulation
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.18.adaLN_modulation.0
+[[34m2024-11-14 09:29:08[0m] blocks.18.adaLN_modulation.1 compression: 1; mse: 1.619300e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.19
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.19.norm1
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.19.attn
+[[34m2024-11-14 09:29:08[0m] blocks.19.attn.qkv compression: 1; mse: 2.262970e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.19.attn.q_norm
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.19.attn.k_norm
+[[34m2024-11-14 09:29:08[0m] Applying recursively to blocks.19.attn.attn_drop
+[[34m2024-11-14 09:29:09[0m] blocks.19.attn.proj compression: 1; mse: 2.765604e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.19.attn.proj_drop
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.19.norm2
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.19.mlp
+[[34m2024-11-14 09:29:09[0m] blocks.19.mlp.fc1 compression: 1; mse: 1.961452e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.19.mlp.act
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.19.mlp.drop1
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.19.mlp.norm
+[[34m2024-11-14 09:29:09[0m] blocks.19.mlp.fc2 compression: 1; mse: 2.855818e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.19.mlp.drop2
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.19.adaLN_modulation
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.19.adaLN_modulation.0
+[[34m2024-11-14 09:29:09[0m] blocks.19.adaLN_modulation.1 compression: 1; mse: 1.665436e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.norm1
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.attn
+[[34m2024-11-14 09:29:09[0m] blocks.20.attn.qkv compression: 1; mse: 2.220076e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.attn.q_norm
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.attn.k_norm
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.attn.attn_drop
+[[34m2024-11-14 09:29:09[0m] blocks.20.attn.proj compression: 1; mse: 2.990608e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.attn.proj_drop
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.norm2
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.mlp
+[[34m2024-11-14 09:29:09[0m] blocks.20.mlp.fc1 compression: 1; mse: 1.990911e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.mlp.act
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.mlp.drop1
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.mlp.norm
+[[34m2024-11-14 09:29:09[0m] blocks.20.mlp.fc2 compression: 1; mse: 2.875808e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.mlp.drop2
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.adaLN_modulation
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.20.adaLN_modulation.0
+[[34m2024-11-14 09:29:09[0m] blocks.20.adaLN_modulation.1 compression: 1; mse: 1.712527e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.21
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.21.norm1
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.21.attn
+[[34m2024-11-14 09:29:09[0m] blocks.21.attn.qkv compression: 1; mse: 2.127216e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.21.attn.q_norm
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.21.attn.k_norm
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.21.attn.attn_drop
+[[34m2024-11-14 09:29:09[0m] blocks.21.attn.proj compression: 1; mse: 2.997589e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.21.attn.proj_drop
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.21.norm2
+[[34m2024-11-14 09:29:09[0m] Applying recursively to blocks.21.mlp
+[[34m2024-11-14 09:29:10[0m] blocks.21.mlp.fc1 compression: 1; mse: 2.010284e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.21.mlp.act
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.21.mlp.drop1
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.21.mlp.norm
+[[34m2024-11-14 09:29:10[0m] blocks.21.mlp.fc2 compression: 1; mse: 2.921247e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.21.mlp.drop2
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.21.adaLN_modulation
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.21.adaLN_modulation.0
+[[34m2024-11-14 09:29:10[0m] blocks.21.adaLN_modulation.1 compression: 1; mse: 2.040505e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.norm1
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.attn
+[[34m2024-11-14 09:29:10[0m] blocks.22.attn.qkv compression: 1; mse: 2.093504e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.attn.q_norm
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.attn.k_norm
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.attn.attn_drop
+[[34m2024-11-14 09:29:10[0m] blocks.22.attn.proj compression: 1; mse: 3.061811e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.attn.proj_drop
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.norm2
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.mlp
+[[34m2024-11-14 09:29:10[0m] blocks.22.mlp.fc1 compression: 1; mse: 2.000603e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.mlp.act
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.mlp.drop1
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.mlp.norm
+[[34m2024-11-14 09:29:10[0m] blocks.22.mlp.fc2 compression: 1; mse: 2.854368e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.mlp.drop2
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.adaLN_modulation
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.22.adaLN_modulation.0
+[[34m2024-11-14 09:29:10[0m] blocks.22.adaLN_modulation.1 compression: 1; mse: 1.930205e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.norm1
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.attn
+[[34m2024-11-14 09:29:10[0m] blocks.23.attn.qkv compression: 1; mse: 2.192927e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.attn.q_norm
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.attn.k_norm
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.attn.attn_drop
+[[34m2024-11-14 09:29:10[0m] blocks.23.attn.proj compression: 1; mse: 2.984158e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.attn.proj_drop
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.norm2
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.mlp
+[[34m2024-11-14 09:29:10[0m] blocks.23.mlp.fc1 compression: 1; mse: 1.942801e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.mlp.act
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.mlp.drop1
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.mlp.norm
+[[34m2024-11-14 09:29:10[0m] blocks.23.mlp.fc2 compression: 1; mse: 3.022310e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.mlp.drop2
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.adaLN_modulation
+[[34m2024-11-14 09:29:10[0m] Applying recursively to blocks.23.adaLN_modulation.0
+[[34m2024-11-14 09:29:11[0m] blocks.23.adaLN_modulation.1 compression: 1; mse: 2.536590e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.norm1
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.attn
+[[34m2024-11-14 09:29:11[0m] blocks.24.attn.qkv compression: 1; mse: 2.154192e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.attn.q_norm
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.attn.k_norm
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.attn.attn_drop
+[[34m2024-11-14 09:29:11[0m] blocks.24.attn.proj compression: 1; mse: 3.268193e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.attn.proj_drop
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.norm2
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.mlp
+[[34m2024-11-14 09:29:11[0m] blocks.24.mlp.fc1 compression: 1; mse: 1.925473e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.mlp.act
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.mlp.drop1
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.mlp.norm
+[[34m2024-11-14 09:29:11[0m] blocks.24.mlp.fc2 compression: 1; mse: 3.008521e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.mlp.drop2
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.adaLN_modulation
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.24.adaLN_modulation.0
+[[34m2024-11-14 09:29:11[0m] blocks.24.adaLN_modulation.1 compression: 1; mse: 1.966816e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.norm1
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.attn
+[[34m2024-11-14 09:29:11[0m] blocks.25.attn.qkv compression: 1; mse: 2.197007e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.attn.q_norm
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.attn.k_norm
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.attn.attn_drop
+[[34m2024-11-14 09:29:11[0m] blocks.25.attn.proj compression: 1; mse: 3.261364e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.attn.proj_drop
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.norm2
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.mlp
+[[34m2024-11-14 09:29:11[0m] blocks.25.mlp.fc1 compression: 1; mse: 1.876347e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.mlp.act
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.mlp.drop1
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.mlp.norm
+[[34m2024-11-14 09:29:11[0m] blocks.25.mlp.fc2 compression: 1; mse: 3.068839e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.mlp.drop2
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.adaLN_modulation
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.25.adaLN_modulation.0
+[[34m2024-11-14 09:29:11[0m] blocks.25.adaLN_modulation.1 compression: 1; mse: 2.109779e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.26
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.26.norm1
+[[34m2024-11-14 09:29:11[0m] Applying recursively to blocks.26.attn
+[[34m2024-11-14 09:29:12[0m] blocks.26.attn.qkv compression: 1; mse: 2.015133e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.attn.q_norm
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.attn.k_norm
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.attn.attn_drop
+[[34m2024-11-14 09:29:12[0m] blocks.26.attn.proj compression: 1; mse: 2.987441e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.attn.proj_drop
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.norm2
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.mlp
+[[34m2024-11-14 09:29:12[0m] blocks.26.mlp.fc1 compression: 1; mse: 1.565103e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.mlp.act
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.mlp.drop1
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.mlp.norm
+[[34m2024-11-14 09:29:12[0m] blocks.26.mlp.fc2 compression: 1; mse: 1.639421e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.mlp.drop2
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.adaLN_modulation
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.26.adaLN_modulation.0
+[[34m2024-11-14 09:29:12[0m] blocks.26.adaLN_modulation.1 compression: 1; mse: 1.382483e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.norm1
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.attn
+[[34m2024-11-14 09:29:12[0m] blocks.27.attn.qkv compression: 1; mse: 1.645899e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.attn.q_norm
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.attn.k_norm
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.attn.attn_drop
+[[34m2024-11-14 09:29:12[0m] blocks.27.attn.proj compression: 1; mse: 1.427153e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.attn.proj_drop
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.norm2
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.mlp
+[[34m2024-11-14 09:29:12[0m] blocks.27.mlp.fc1 compression: 1; mse: 6.083924e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.mlp.act
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.mlp.drop1
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.mlp.norm
+[[34m2024-11-14 09:29:12[0m] blocks.27.mlp.fc2 compression: 1; mse: 5.770746e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.mlp.drop2
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.adaLN_modulation
+[[34m2024-11-14 09:29:12[0m] Applying recursively to blocks.27.adaLN_modulation.0
+[[34m2024-11-14 09:29:12[0m] blocks.27.adaLN_modulation.1 compression: 1; mse: 6.938077e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:29:12[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-11-14 09:29:12[0m] Compressed model size: 1540629504 bits
+[[34m2024-11-14 09:29:12[0m] Compression ratio: 14.02
+[[34m2024-11-14 09:31:15[0m] Experiment directory created at results/train_pq/004-DiT-XL-2
+[[34m2024-11-14 09:31:33[0m] Applying recursively to blocks
+[[34m2024-11-14 09:31:33[0m] Applying recursively to blocks.0
+[[34m2024-11-14 09:31:33[0m] Applying recursively to blocks.0.norm1
+[[34m2024-11-14 09:31:33[0m] Applying recursively to blocks.0.attn
+[[34m2024-11-14 09:31:34[0m] blocks.0.attn.qkv compression: 1; mse: 1.931743e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.attn.q_norm
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.attn.k_norm
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.attn.attn_drop
+[[34m2024-11-14 09:31:34[0m] blocks.0.attn.proj compression: 1; mse: 7.651448e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.attn.proj_drop
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.norm2
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.mlp
+[[34m2024-11-14 09:31:34[0m] blocks.0.mlp.fc1 compression: 1; mse: 6.433387e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.mlp.act
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.mlp.drop1
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.mlp.norm
+[[34m2024-11-14 09:31:34[0m] blocks.0.mlp.fc2 compression: 1; mse: 3.792303e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.mlp.drop2
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.adaLN_modulation
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.0.adaLN_modulation.0
+[[34m2024-11-14 09:31:34[0m] blocks.0.adaLN_modulation.1 compression: 1; mse: 1.183982e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.norm1
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.attn
+[[34m2024-11-14 09:31:34[0m] blocks.1.attn.qkv compression: 1; mse: 2.536416e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.attn.q_norm
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.attn.k_norm
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.attn.attn_drop
+[[34m2024-11-14 09:31:34[0m] blocks.1.attn.proj compression: 1; mse: 8.949419e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.attn.proj_drop
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.norm2
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.mlp
+[[34m2024-11-14 09:31:34[0m] blocks.1.mlp.fc1 compression: 1; mse: 1.432540e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.mlp.act
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.mlp.drop1
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.mlp.norm
+[[34m2024-11-14 09:31:34[0m] blocks.1.mlp.fc2 compression: 1; mse: 1.908048e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.mlp.drop2
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.adaLN_modulation
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.1.adaLN_modulation.0
+[[34m2024-11-14 09:31:34[0m] blocks.1.adaLN_modulation.1 compression: 1; mse: 8.053609e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.2
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.2.norm1
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.2.attn
+[[34m2024-11-14 09:31:34[0m] blocks.2.attn.qkv compression: 1; mse: 2.930036e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.2.attn.q_norm
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.2.attn.k_norm
+[[34m2024-11-14 09:31:34[0m] Applying recursively to blocks.2.attn.attn_drop
+[[34m2024-11-14 09:31:35[0m] blocks.2.attn.proj compression: 1; mse: 5.513457e-03; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.2.attn.proj_drop
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.2.norm2
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.2.mlp
+[[34m2024-11-14 09:31:35[0m] blocks.2.mlp.fc1 compression: 1; mse: 7.816268e-04; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.2.mlp.act
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.2.mlp.drop1
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.2.mlp.norm
+[[34m2024-11-14 09:31:35[0m] blocks.2.mlp.fc2 compression: 1; mse: 2.906519e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.2.mlp.drop2
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.2.adaLN_modulation
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.2.adaLN_modulation.0
+[[34m2024-11-14 09:31:35[0m] blocks.2.adaLN_modulation.1 compression: 1; mse: 8.839010e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.norm1
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.attn
+[[34m2024-11-14 09:31:35[0m] blocks.3.attn.qkv compression: 1; mse: 6.429398e-03; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.attn.q_norm
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.attn.k_norm
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.attn.attn_drop
+[[34m2024-11-14 09:31:35[0m] blocks.3.attn.proj compression: 1; mse: 1.257213e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.attn.proj_drop
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.norm2
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.mlp
+[[34m2024-11-14 09:31:35[0m] blocks.3.mlp.fc1 compression: 1; mse: 2.449909e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.mlp.act
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.mlp.drop1
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.mlp.norm
+[[34m2024-11-14 09:31:35[0m] blocks.3.mlp.fc2 compression: 1; mse: 3.500100e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.mlp.drop2
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.adaLN_modulation
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.3.adaLN_modulation.0
+[[34m2024-11-14 09:31:35[0m] blocks.3.adaLN_modulation.1 compression: 1; mse: 1.002991e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.norm1
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.attn
+[[34m2024-11-14 09:31:35[0m] blocks.4.attn.qkv compression: 1; mse: 1.230777e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.attn.q_norm
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.attn.k_norm
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.attn.attn_drop
+[[34m2024-11-14 09:31:35[0m] blocks.4.attn.proj compression: 1; mse: 1.416760e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.attn.proj_drop
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.norm2
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.mlp
+[[34m2024-11-14 09:31:35[0m] blocks.4.mlp.fc1 compression: 1; mse: 1.129873e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.mlp.act
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.mlp.drop1
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.mlp.norm
+[[34m2024-11-14 09:31:35[0m] blocks.4.mlp.fc2 compression: 1; mse: 1.112744e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.mlp.drop2
+[[34m2024-11-14 09:31:35[0m] Applying recursively to blocks.4.adaLN_modulation
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.4.adaLN_modulation.0
+[[34m2024-11-14 09:31:36[0m] blocks.4.adaLN_modulation.1 compression: 1; mse: 1.128247e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.norm1
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.attn
+[[34m2024-11-14 09:31:36[0m] blocks.5.attn.qkv compression: 1; mse: 1.492478e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.attn.q_norm
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.attn.k_norm
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.attn.attn_drop
+[[34m2024-11-14 09:31:36[0m] blocks.5.attn.proj compression: 1; mse: 1.627102e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.attn.proj_drop
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.norm2
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.mlp
+[[34m2024-11-14 09:31:36[0m] blocks.5.mlp.fc1 compression: 1; mse: 1.687178e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.mlp.act
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.mlp.drop1
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.mlp.norm
+[[34m2024-11-14 09:31:36[0m] blocks.5.mlp.fc2 compression: 1; mse: 2.139617e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.mlp.drop2
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.adaLN_modulation
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.5.adaLN_modulation.0
+[[34m2024-11-14 09:31:36[0m] blocks.5.adaLN_modulation.1 compression: 1; mse: 1.284245e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.norm1
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.attn
+[[34m2024-11-14 09:31:36[0m] blocks.6.attn.qkv compression: 1; mse: 2.291430e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.attn.q_norm
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.attn.k_norm
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.attn.attn_drop
+[[34m2024-11-14 09:31:36[0m] blocks.6.attn.proj compression: 1; mse: 1.932911e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.attn.proj_drop
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.norm2
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.mlp
+[[34m2024-11-14 09:31:36[0m] blocks.6.mlp.fc1 compression: 1; mse: 1.860552e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.mlp.act
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.mlp.drop1
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.mlp.norm
+[[34m2024-11-14 09:31:36[0m] blocks.6.mlp.fc2 compression: 1; mse: 2.230269e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.mlp.drop2
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.adaLN_modulation
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.6.adaLN_modulation.0
+[[34m2024-11-14 09:31:36[0m] blocks.6.adaLN_modulation.1 compression: 1; mse: 1.162541e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.7
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.7.norm1
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.7.attn
+[[34m2024-11-14 09:31:36[0m] blocks.7.attn.qkv compression: 1; mse: 1.926468e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.7.attn.q_norm
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.7.attn.k_norm
+[[34m2024-11-14 09:31:36[0m] Applying recursively to blocks.7.attn.attn_drop
+[[34m2024-11-14 09:31:37[0m] blocks.7.attn.proj compression: 1; mse: 1.811661e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.7.attn.proj_drop
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.7.norm2
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.7.mlp
+[[34m2024-11-14 09:31:37[0m] blocks.7.mlp.fc1 compression: 1; mse: 1.985113e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.7.mlp.act
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.7.mlp.drop1
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.7.mlp.norm
+[[34m2024-11-14 09:31:37[0m] blocks.7.mlp.fc2 compression: 1; mse: 2.263786e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.7.mlp.drop2
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.7.adaLN_modulation
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.7.adaLN_modulation.0
+[[34m2024-11-14 09:31:37[0m] blocks.7.adaLN_modulation.1 compression: 1; mse: 1.347917e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.norm1
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.attn
+[[34m2024-11-14 09:31:37[0m] blocks.8.attn.qkv compression: 1; mse: 2.035476e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.attn.q_norm
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.attn.k_norm
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.attn.attn_drop
+[[34m2024-11-14 09:31:37[0m] blocks.8.attn.proj compression: 1; mse: 2.162638e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.attn.proj_drop
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.norm2
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.mlp
+[[34m2024-11-14 09:31:37[0m] blocks.8.mlp.fc1 compression: 1; mse: 2.083487e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.mlp.act
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.mlp.drop1
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.mlp.norm
+[[34m2024-11-14 09:31:37[0m] blocks.8.mlp.fc2 compression: 1; mse: 2.432903e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.mlp.drop2
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.adaLN_modulation
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.8.adaLN_modulation.0
+[[34m2024-11-14 09:31:37[0m] blocks.8.adaLN_modulation.1 compression: 1; mse: 1.398505e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.norm1
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.attn
+[[34m2024-11-14 09:31:37[0m] blocks.9.attn.qkv compression: 1; mse: 2.061083e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.attn.q_norm
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.attn.k_norm
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.attn.attn_drop
+[[34m2024-11-14 09:31:37[0m] blocks.9.attn.proj compression: 1; mse: 2.251003e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.attn.proj_drop
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.norm2
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.mlp
+[[34m2024-11-14 09:31:37[0m] blocks.9.mlp.fc1 compression: 1; mse: 2.126298e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.mlp.act
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.mlp.drop1
+[[34m2024-11-14 09:31:37[0m] Applying recursively to blocks.9.mlp.norm
+[[34m2024-11-14 09:31:38[0m] blocks.9.mlp.fc2 compression: 1; mse: 2.537418e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.9.mlp.drop2
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.9.adaLN_modulation
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.9.adaLN_modulation.0
+[[34m2024-11-14 09:31:38[0m] blocks.9.adaLN_modulation.1 compression: 1; mse: 1.598824e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.norm1
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.attn
+[[34m2024-11-14 09:31:38[0m] blocks.10.attn.qkv compression: 1; mse: 1.983946e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.attn.q_norm
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.attn.k_norm
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.attn.attn_drop
+[[34m2024-11-14 09:31:38[0m] blocks.10.attn.proj compression: 1; mse: 2.466145e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.attn.proj_drop
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.norm2
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.mlp
+[[34m2024-11-14 09:31:38[0m] blocks.10.mlp.fc1 compression: 1; mse: 2.210132e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.mlp.act
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.mlp.drop1
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.mlp.norm
+[[34m2024-11-14 09:31:38[0m] blocks.10.mlp.fc2 compression: 1; mse: 2.689888e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.mlp.drop2
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.adaLN_modulation
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.10.adaLN_modulation.0
+[[34m2024-11-14 09:31:38[0m] blocks.10.adaLN_modulation.1 compression: 1; mse: 2.009898e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.norm1
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.attn
+[[34m2024-11-14 09:31:38[0m] blocks.11.attn.qkv compression: 1; mse: 2.028611e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.attn.q_norm
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.attn.k_norm
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.attn.attn_drop
+[[34m2024-11-14 09:31:38[0m] blocks.11.attn.proj compression: 1; mse: 2.391445e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.attn.proj_drop
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.norm2
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.mlp
+[[34m2024-11-14 09:31:38[0m] blocks.11.mlp.fc1 compression: 1; mse: 2.244975e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.mlp.act
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.mlp.drop1
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.mlp.norm
+[[34m2024-11-14 09:31:38[0m] blocks.11.mlp.fc2 compression: 1; mse: 2.750895e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.mlp.drop2
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.adaLN_modulation
+[[34m2024-11-14 09:31:38[0m] Applying recursively to blocks.11.adaLN_modulation.0
+[[34m2024-11-14 09:31:39[0m] blocks.11.adaLN_modulation.1 compression: 1; mse: 1.908432e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.norm1
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.attn
+[[34m2024-11-14 09:31:39[0m] blocks.12.attn.qkv compression: 1; mse: 2.075943e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.attn.q_norm
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.attn.k_norm
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.attn.attn_drop
+[[34m2024-11-14 09:31:39[0m] blocks.12.attn.proj compression: 1; mse: 2.619996e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.attn.proj_drop
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.norm2
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.mlp
+[[34m2024-11-14 09:31:39[0m] blocks.12.mlp.fc1 compression: 1; mse: 2.196411e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.mlp.act
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.mlp.drop1
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.mlp.norm
+[[34m2024-11-14 09:31:39[0m] blocks.12.mlp.fc2 compression: 1; mse: 2.733932e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.mlp.drop2
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.adaLN_modulation
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.12.adaLN_modulation.0
+[[34m2024-11-14 09:31:39[0m] blocks.12.adaLN_modulation.1 compression: 1; mse: 1.896924e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.norm1
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.attn
+[[34m2024-11-14 09:31:39[0m] blocks.13.attn.qkv compression: 1; mse: 2.368748e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.attn.q_norm
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.attn.k_norm
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.attn.attn_drop
+[[34m2024-11-14 09:31:39[0m] blocks.13.attn.proj compression: 1; mse: 2.627193e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.attn.proj_drop
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.norm2
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.mlp
+[[34m2024-11-14 09:31:39[0m] blocks.13.mlp.fc1 compression: 1; mse: 2.135560e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.mlp.act
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.mlp.drop1
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.mlp.norm
+[[34m2024-11-14 09:31:39[0m] blocks.13.mlp.fc2 compression: 1; mse: 2.712830e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.mlp.drop2
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.adaLN_modulation
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.13.adaLN_modulation.0
+[[34m2024-11-14 09:31:39[0m] blocks.13.adaLN_modulation.1 compression: 1; mse: 1.860821e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.14
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.14.norm1
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.14.attn
+[[34m2024-11-14 09:31:39[0m] blocks.14.attn.qkv compression: 1; mse: 2.207063e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.14.attn.q_norm
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.14.attn.k_norm
+[[34m2024-11-14 09:31:39[0m] Applying recursively to blocks.14.attn.attn_drop
+[[34m2024-11-14 09:31:39[0m] blocks.14.attn.proj compression: 1; mse: 2.756115e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.14.attn.proj_drop
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.14.norm2
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.14.mlp
+[[34m2024-11-14 09:31:40[0m] blocks.14.mlp.fc1 compression: 1; mse: 2.149756e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.14.mlp.act
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.14.mlp.drop1
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.14.mlp.norm
+[[34m2024-11-14 09:31:40[0m] blocks.14.mlp.fc2 compression: 1; mse: 2.879739e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.14.mlp.drop2
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.14.adaLN_modulation
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.14.adaLN_modulation.0
+[[34m2024-11-14 09:31:40[0m] blocks.14.adaLN_modulation.1 compression: 1; mse: 2.243008e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.norm1
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.attn
+[[34m2024-11-14 09:31:40[0m] blocks.15.attn.qkv compression: 1; mse: 2.254530e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.attn.q_norm
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.attn.k_norm
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.attn.attn_drop
+[[34m2024-11-14 09:31:40[0m] blocks.15.attn.proj compression: 1; mse: 2.699572e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.attn.proj_drop
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.norm2
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.mlp
+[[34m2024-11-14 09:31:40[0m] blocks.15.mlp.fc1 compression: 1; mse: 2.076036e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.mlp.act
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.mlp.drop1
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.mlp.norm
+[[34m2024-11-14 09:31:40[0m] blocks.15.mlp.fc2 compression: 1; mse: 2.823922e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.mlp.drop2
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.adaLN_modulation
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.15.adaLN_modulation.0
+[[34m2024-11-14 09:31:40[0m] blocks.15.adaLN_modulation.1 compression: 1; mse: 1.975872e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.16
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.16.norm1
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.16.attn
+[[34m2024-11-14 09:31:40[0m] blocks.16.attn.qkv compression: 1; mse: 2.536011e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.16.attn.q_norm
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.16.attn.k_norm
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.16.attn.attn_drop
+[[34m2024-11-14 09:31:40[0m] blocks.16.attn.proj compression: 1; mse: 2.664442e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.16.attn.proj_drop
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.16.norm2
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.16.mlp
+[[34m2024-11-14 09:31:40[0m] blocks.16.mlp.fc1 compression: 1; mse: 1.993854e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:40[0m] Applying recursively to blocks.16.mlp.act
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.16.mlp.drop1
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.16.mlp.norm
+[[34m2024-11-14 09:31:41[0m] blocks.16.mlp.fc2 compression: 1; mse: 2.702603e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.16.mlp.drop2
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.16.adaLN_modulation
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.16.adaLN_modulation.0
+[[34m2024-11-14 09:31:41[0m] blocks.16.adaLN_modulation.1 compression: 1; mse: 1.657132e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.norm1
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.attn
+[[34m2024-11-14 09:31:41[0m] blocks.17.attn.qkv compression: 1; mse: 2.382979e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.attn.q_norm
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.attn.k_norm
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.attn.attn_drop
+[[34m2024-11-14 09:31:41[0m] blocks.17.attn.proj compression: 1; mse: 2.763657e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.attn.proj_drop
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.norm2
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.mlp
+[[34m2024-11-14 09:31:41[0m] blocks.17.mlp.fc1 compression: 1; mse: 1.954426e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.mlp.act
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.mlp.drop1
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.mlp.norm
+[[34m2024-11-14 09:31:41[0m] blocks.17.mlp.fc2 compression: 1; mse: 2.731755e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.mlp.drop2
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.adaLN_modulation
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.17.adaLN_modulation.0
+[[34m2024-11-14 09:31:41[0m] blocks.17.adaLN_modulation.1 compression: 1; mse: 1.614911e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.norm1
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.attn
+[[34m2024-11-14 09:31:41[0m] blocks.18.attn.qkv compression: 1; mse: 2.291676e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.attn.q_norm
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.attn.k_norm
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.attn.attn_drop
+[[34m2024-11-14 09:31:41[0m] blocks.18.attn.proj compression: 1; mse: 2.869644e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.attn.proj_drop
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.norm2
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.mlp
+[[34m2024-11-14 09:31:41[0m] blocks.18.mlp.fc1 compression: 1; mse: 1.991319e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.mlp.act
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.mlp.drop1
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.mlp.norm
+[[34m2024-11-14 09:31:41[0m] blocks.18.mlp.fc2 compression: 1; mse: 2.788939e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.mlp.drop2
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.adaLN_modulation
+[[34m2024-11-14 09:31:41[0m] Applying recursively to blocks.18.adaLN_modulation.0
+[[34m2024-11-14 09:31:42[0m] blocks.18.adaLN_modulation.1 compression: 1; mse: 1.619300e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.norm1
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.attn
+[[34m2024-11-14 09:31:42[0m] blocks.19.attn.qkv compression: 1; mse: 2.262970e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.attn.q_norm
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.attn.k_norm
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.attn.attn_drop
+[[34m2024-11-14 09:31:42[0m] blocks.19.attn.proj compression: 1; mse: 2.765604e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.attn.proj_drop
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.norm2
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.mlp
+[[34m2024-11-14 09:31:42[0m] blocks.19.mlp.fc1 compression: 1; mse: 1.961452e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.mlp.act
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.mlp.drop1
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.mlp.norm
+[[34m2024-11-14 09:31:42[0m] blocks.19.mlp.fc2 compression: 1; mse: 2.855818e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.mlp.drop2
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.adaLN_modulation
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.19.adaLN_modulation.0
+[[34m2024-11-14 09:31:42[0m] blocks.19.adaLN_modulation.1 compression: 1; mse: 1.665436e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.norm1
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.attn
+[[34m2024-11-14 09:31:42[0m] blocks.20.attn.qkv compression: 1; mse: 2.220076e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.attn.q_norm
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.attn.k_norm
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.attn.attn_drop
+[[34m2024-11-14 09:31:42[0m] blocks.20.attn.proj compression: 1; mse: 2.990608e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.attn.proj_drop
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.norm2
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.mlp
+[[34m2024-11-14 09:31:42[0m] blocks.20.mlp.fc1 compression: 1; mse: 1.990911e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.mlp.act
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.mlp.drop1
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.mlp.norm
+[[34m2024-11-14 09:31:42[0m] blocks.20.mlp.fc2 compression: 1; mse: 2.875808e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.mlp.drop2
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.adaLN_modulation
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.20.adaLN_modulation.0
+[[34m2024-11-14 09:31:42[0m] blocks.20.adaLN_modulation.1 compression: 1; mse: 1.712527e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.21
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.21.norm1
+[[34m2024-11-14 09:31:42[0m] Applying recursively to blocks.21.attn
+[[34m2024-11-14 09:31:43[0m] blocks.21.attn.qkv compression: 1; mse: 2.127216e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.attn.q_norm
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.attn.k_norm
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.attn.attn_drop
+[[34m2024-11-14 09:31:43[0m] blocks.21.attn.proj compression: 1; mse: 2.997589e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.attn.proj_drop
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.norm2
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.mlp
+[[34m2024-11-14 09:31:43[0m] blocks.21.mlp.fc1 compression: 1; mse: 2.010284e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.mlp.act
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.mlp.drop1
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.mlp.norm
+[[34m2024-11-14 09:31:43[0m] blocks.21.mlp.fc2 compression: 1; mse: 2.921247e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.mlp.drop2
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.adaLN_modulation
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.21.adaLN_modulation.0
+[[34m2024-11-14 09:31:43[0m] blocks.21.adaLN_modulation.1 compression: 1; mse: 2.040505e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.norm1
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.attn
+[[34m2024-11-14 09:31:43[0m] blocks.22.attn.qkv compression: 1; mse: 2.093504e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.attn.q_norm
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.attn.k_norm
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.attn.attn_drop
+[[34m2024-11-14 09:31:43[0m] blocks.22.attn.proj compression: 1; mse: 3.061811e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.attn.proj_drop
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.norm2
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.mlp
+[[34m2024-11-14 09:31:43[0m] blocks.22.mlp.fc1 compression: 1; mse: 2.000603e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.mlp.act
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.mlp.drop1
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.mlp.norm
+[[34m2024-11-14 09:31:43[0m] blocks.22.mlp.fc2 compression: 1; mse: 2.854368e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.mlp.drop2
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.adaLN_modulation
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.22.adaLN_modulation.0
+[[34m2024-11-14 09:31:43[0m] blocks.22.adaLN_modulation.1 compression: 1; mse: 1.930205e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.23
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.23.norm1
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.23.attn
+[[34m2024-11-14 09:31:43[0m] blocks.23.attn.qkv compression: 1; mse: 2.192927e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.23.attn.q_norm
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.23.attn.k_norm
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.23.attn.attn_drop
+[[34m2024-11-14 09:31:43[0m] blocks.23.attn.proj compression: 1; mse: 2.984158e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.23.attn.proj_drop
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.23.norm2
+[[34m2024-11-14 09:31:43[0m] Applying recursively to blocks.23.mlp
+[[34m2024-11-14 09:31:44[0m] blocks.23.mlp.fc1 compression: 1; mse: 1.942801e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.23.mlp.act
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.23.mlp.drop1
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.23.mlp.norm
+[[34m2024-11-14 09:31:44[0m] blocks.23.mlp.fc2 compression: 1; mse: 3.022310e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.23.mlp.drop2
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.23.adaLN_modulation
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.23.adaLN_modulation.0
+[[34m2024-11-14 09:31:44[0m] blocks.23.adaLN_modulation.1 compression: 1; mse: 2.536590e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.norm1
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.attn
+[[34m2024-11-14 09:31:44[0m] blocks.24.attn.qkv compression: 1; mse: 2.154192e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.attn.q_norm
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.attn.k_norm
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.attn.attn_drop
+[[34m2024-11-14 09:31:44[0m] blocks.24.attn.proj compression: 1; mse: 3.268193e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.attn.proj_drop
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.norm2
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.mlp
+[[34m2024-11-14 09:31:44[0m] blocks.24.mlp.fc1 compression: 1; mse: 1.925473e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.mlp.act
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.mlp.drop1
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.mlp.norm
+[[34m2024-11-14 09:31:44[0m] blocks.24.mlp.fc2 compression: 1; mse: 3.008521e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.mlp.drop2
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.adaLN_modulation
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.24.adaLN_modulation.0
+[[34m2024-11-14 09:31:44[0m] blocks.24.adaLN_modulation.1 compression: 1; mse: 1.966816e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.norm1
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.attn
+[[34m2024-11-14 09:31:44[0m] blocks.25.attn.qkv compression: 1; mse: 2.197007e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.attn.q_norm
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.attn.k_norm
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.attn.attn_drop
+[[34m2024-11-14 09:31:44[0m] blocks.25.attn.proj compression: 1; mse: 3.261364e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.attn.proj_drop
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.norm2
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.mlp
+[[34m2024-11-14 09:31:44[0m] blocks.25.mlp.fc1 compression: 1; mse: 1.876347e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.mlp.act
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.mlp.drop1
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.mlp.norm
+[[34m2024-11-14 09:31:44[0m] blocks.25.mlp.fc2 compression: 1; mse: 3.068839e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.mlp.drop2
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.adaLN_modulation
+[[34m2024-11-14 09:31:44[0m] Applying recursively to blocks.25.adaLN_modulation.0
+[[34m2024-11-14 09:31:45[0m] blocks.25.adaLN_modulation.1 compression: 1; mse: 2.109779e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.norm1
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.attn
+[[34m2024-11-14 09:31:45[0m] blocks.26.attn.qkv compression: 1; mse: 2.015133e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.attn.q_norm
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.attn.k_norm
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.attn.attn_drop
+[[34m2024-11-14 09:31:45[0m] blocks.26.attn.proj compression: 1; mse: 2.987441e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.attn.proj_drop
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.norm2
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.mlp
+[[34m2024-11-14 09:31:45[0m] blocks.26.mlp.fc1 compression: 1; mse: 1.565103e-02; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.mlp.act
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.mlp.drop1
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.mlp.norm
+[[34m2024-11-14 09:31:45[0m] blocks.26.mlp.fc2 compression: 1; mse: 1.639421e-02; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.mlp.drop2
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.adaLN_modulation
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.26.adaLN_modulation.0
+[[34m2024-11-14 09:31:45[0m] blocks.26.adaLN_modulation.1 compression: 1; mse: 1.382483e-02; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.norm1
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.attn
+[[34m2024-11-14 09:31:45[0m] blocks.27.attn.qkv compression: 1; mse: 1.645899e-02; codebook size: 256 x 4; code size: 3456 x 288
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.attn.q_norm
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.attn.k_norm
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.attn.attn_drop
+[[34m2024-11-14 09:31:45[0m] blocks.27.attn.proj compression: 1; mse: 1.427153e-02; codebook size: 256 x 4; code size: 1152 x 288
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.attn.proj_drop
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.norm2
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.mlp
+[[34m2024-11-14 09:31:45[0m] blocks.27.mlp.fc1 compression: 1; mse: 6.083924e-03; codebook size: 256 x 4; code size: 4608 x 288
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.mlp.act
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.mlp.drop1
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.mlp.norm
+[[34m2024-11-14 09:31:45[0m] blocks.27.mlp.fc2 compression: 1; mse: 5.770746e-03; codebook size: 256 x 4; code size: 1152 x 1152
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.mlp.drop2
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.adaLN_modulation
+[[34m2024-11-14 09:31:45[0m] Applying recursively to blocks.27.adaLN_modulation.0
+[[34m2024-11-14 09:31:45[0m] blocks.27.adaLN_modulation.1 compression: 1; mse: 6.938077e-03; codebook size: 256 x 4; code size: 6912 x 288
+[[34m2024-11-14 09:31:45[0m] Uncompressed model size: 21604148224 bits
+[[34m2024-11-14 09:31:45[0m] Compressed model size: 1540629504 bits
+[[34m2024-11-14 09:31:45[0m] Compression ratio: 14.02
+[[34m2024-11-14 09:32:06[0m] Model 0 sample saved as results/train_pq/004-DiT-XL-2/model_0.png
+[[34m2024-11-14 09:32:06[0m] Model 1 sample saved as results/train_pq/004-DiT-XL-2/model_1.png
+[[34m2024-11-14 09:32:29[0m] Done!

@@ -79,10 +79,24 @@ def decode(codes_matrix: torch.Tensor, codebook: torch.Tensor) -> torch.Tensor:
 
     return one_dimensional_output.reshape(num_output_rows, -1)
 
+# def decode_all_old(codes_matrixs: torch.Tensor, codebooks: torch.Tensor) -> torch.Tensor:
+#     weights = []
+#     for codes_matrix, codebook in zip(codes_matrixs, codebooks):
+#         weight = decode(codes_matrix, codebook)
+#         weights.append(weight)
+#     return torch.cat(weights, dim=1)
+
+
 def decode_all(codes_matrixs: torch.Tensor, codebooks: torch.Tensor) -> torch.Tensor:
-    weights = []
-    for codes_matrix, codebook in zip(codes_matrixs, codebooks):
-        weight = decode(codes_matrix, codebook)
-        weights.append(weight)
-    return torch.cat(weights, dim=0)
+    num_codebooks, num_output_rows = codes_matrixs.size()   # codes_matrixs shape: [288, 4608]
+    codebook_size, codebook_dim = codebooks.size(1), codebooks.size(2)  # codebooks shape: [288, 256, 4]
+
+    offsets = torch.arange(num_codebooks, device=codes_matrixs.device) * codebook_size
+    offsets = offsets.view(-1, 1)
+    codes_matrixs_offset = codes_matrixs + offsets
+
+    one_dimensional_codes = codes_matrixs_offset.transpose(0,1).contiguous().view(-1)
+    one_dimensional_output = codebooks.view(-1, codebook_dim)[one_dimensional_codes]
+
+    return one_dimensional_output.view(num_output_rows, -1)
 

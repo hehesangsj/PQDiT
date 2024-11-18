@@ -2,6 +2,8 @@ import os
 import math
 import random
 import torch
+import json
+import pickle
 from tqdm import tqdm
 from copy import deepcopy
 import numpy as np
@@ -68,7 +70,8 @@ def sample(args, model_pq, vae, diffusion, sample_folder_dir):
     np.random.seed(seed)
     random.seed(seed)
     
-    n = args.global_batch_size // torch.cuda.device_count()
+    n = args.global_batch_size // dist.get_world_size()
+    # n = args.global_batch_size // torch.cuda.device_count()
     global_batch_size = args.global_batch_size
     rank = dist.get_rank()
     device = rank % torch.cuda.device_count()
@@ -90,7 +93,7 @@ def sample(args, model_pq, vae, diffusion, sample_folder_dir):
     pbar = tqdm(pbar) if rank == 0 else pbar
     total = 0
 
-    model_pq = DDP(model_pq.to(device), device_ids=[rank])
+    model_pq.to(device)
     model_pq.eval()
 
     for _ in pbar:
@@ -183,8 +186,12 @@ class dit_generator:
         self.alphas_cumprod = np.cumprod(alphas, axis=0)
 
     def forward_val(self, vae, models, cfg=False, name="sample_pq", args=None, logger=None):
-        # class_labels = [207, 360, 387, 974]
-        class_labels = [207, 360, 387, 974, 88, 979, 417, 279]
+        torch.manual_seed(0)
+        np.random.seed(0)
+        random.seed(0)
+
+        class_labels = [88, 979,  417, 279]
+        # class_labels = [207, 360, 387, 974, 88, 979, 417, 279]
         z, model_kwargs = self.pre_process(class_labels, cfg=cfg, args=args)
 
         imgs = [z.clone() for _ in models]
@@ -216,10 +223,15 @@ class dit_generator:
 
         samples = [vae.decode(img / 0.18215).sample for img in imgs]
         for idx, sample in enumerate(samples):
-            sample, _ = sample.chunk(2, dim=0)
+            # sample, _ = sample.chunk(2, dim=0)
             save_image(sample, f"{name}/model_{idx}.png", nrow=4, normalize=True, value_range=(-1, 1))
-            logger.info(f"Model {idx} sample saved as {name}_model_{idx}.png")
+            logger.info(f"Model {idx} sample saved as {name}/model_{idx}.png")
 
+        with open(f"{name}/block_errors.pkl", "wb") as pkl_file:
+            pickle.dump(block_errors_all_models, pkl_file)
+        with open(f"{name}/indices.pkl", "wb") as pkl_file:
+            pickle.dump(indices, pkl_file)
+            
         for block_id in range(28):
             plt.figure(figsize=(10, 6))
             for model_id, block_errors in enumerate(block_errors_all_models, start=1):

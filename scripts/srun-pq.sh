@@ -3,6 +3,8 @@ set -x
 
 CONFIG=${1}
 
+# GPUS=${2:-40}
+# GPUS_PER_NODE=${3:-8}
 GPUS=${2:-8}
 GPUS_PER_NODE=${3:-8}
 # GPUS=${2:-1}
@@ -19,20 +21,16 @@ else
     NODES=$((GPUS / GPUS_PER_NODE))
 fi
 
-SRUN_ARGS=${SRUN_ARGS:-" --jobid=3709386"} # 3768157 3768158 3789766 -w HOST-10-140-66-41  3636795
+SRUN_ARGS=${SRUN_ARGS:-" --jobid=3756013"} # 3755917 3741547 3756013
 
 export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-export MASTER_PORT=32426    
-# export NCCL_DEBUG=INFO
-# export TF_CPP_MIN_LOG_LEVEL=3
-# unset CUDA_LAUNCH_BLOCKING
-# export CUDA_LAUNCH_BLOCKING=1
-# export TORCH_LOGS="+dynamo" 
-# export TORCHDYNAMO_VERBOSE=1
-# export TORCH_DISTRIBUTED_DEBUG=INFO
+export MASTER_PORT=32425    
+# export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
-# enable for sampling only
-# export LD_LIBRARY_PATH="/mnt/petrelfs/share_data/tianchangyao.p/cuda/cuda-11.7/lib64":$LD_LIBRARY_PATH
+QUANT_FLAGS="--image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --pq-mode sample --results-dir results/train_pq --epochs 10 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train --global-batch-size 64
+--pq-ckpt results/train_pq/009-DiT-XL-2/checkpoints-train/0100000.pt"
+
+SAMPLE_FLAGS="--num-fid-samples 10000 --num-sampling-steps 100 --cfg-scale 1.5 --image-size 256"
 
 srun -p ${PARTITION} \
   --job-name=${JOB_NAME} \
@@ -44,8 +42,5 @@ srun -p ${PARTITION} \
   --kill-on-bad-exit=1 \
   --quotatype=${QUOTA_TYPE} \
   ${SRUN_ARGS} \
-  python pq/pq_getmodel.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --pq-mode train --results-dir results/train_pq --global-batch-size 256 --epochs 1 --ckpt-every 5000 --data-path /mnt/petrelfs/share/images/train
-#   python pq/pq_getmodel.py --image-size 256 --ckpt pretrained_models/DiT-XL-2-256x256.pt --pq-mode gen --results-dir results/train_pq
-#   python pq/cal_optim_dit.py --num-fid-samples 50000 --ckpt pretrained_models/DiT-XL-2-256x256.pt --results-dir samples
-#   python evaluator.py samples/VIRTUAL_imagenet256_labeled.npz samples/009-DiT-XL-2/sample_allfc12345_0_8.npz
-
+  python evaluator.py samples/VIRTUAL_imagenet256_labeled.npz results/train_pq/005-DiT-XL-2/DiT-XL-2-DiT-XL-2-256x256-size-256-vae-mse-cfg-1.5-seed-0-100000-step50.npz
+#   python pq/pq_getmodel.py $QUANT_FLAGS $SAMPLE_FLAGS
