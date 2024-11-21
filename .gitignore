@@ -5,3 +5,4 @@ pretrained_models/
 samples/
 sampled_images/
 results/
+tmp/
